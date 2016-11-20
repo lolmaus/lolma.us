@@ -18,7 +18,7 @@ title: Skills
 * Over two years working exclusively with complex Ember apps
 * Have a gut feeling for the Ember Way and best practices
 * Focus on building robust, maintainable and scalable codebases
-* Strong believer in the Test-Build-Refactor pattern
+* Strong believer in the Test-Build-Refactor cycle
 * Into testing: unit & user acceptance, work in TDD/BDD style, API/model layer mocking, CI
 * Experience with advanced features: polymorphic relationships, FastBoot, Concurrency, Element Queries, etc
 * Active member of the Ember community with humble open source contributions
@@ -26,10 +26,11 @@ title: Skills
 
 ### Other tech skills
 
-* Linux user, not a DevOps guy but have decent sysadmin skills
+* Proficient in using dev tools: git, terminal, SSH, Docker, StackOverflow/Google, etc
+* Linux user, not a DevOps guy but have basic sysadmin skills
 * Experience in distributed teams, SCRUM
 * Know Ruby and looking into Elixir
-* Active Github and StackOverflow profiles
+* Active GitHub and StackOverflow profiles
 
 
 ### Non-tech skills
