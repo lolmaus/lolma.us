@@ -36,5 +36,5 @@ title: Skills
 ### Non-tech skills
 
 * Fluent English
-* Fast typer
+* Fast typist
 * Aware of own drawbacks and will let you know of them
