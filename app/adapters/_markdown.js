@@ -1,7 +1,7 @@
 import Adapter from 'ember-data/adapter'
 import service from 'ember-service/inject'
 import {reads} from 'ember-computed'
-import fetch from "ember-network/fetch"
+import fetch from "lolma-us/utils/fetch-rsvp"
 
 import Ember from 'ember'
 const {

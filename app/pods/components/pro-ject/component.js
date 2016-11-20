@@ -3,14 +3,16 @@ import Component from 'ember-component'
 // import templateString from 'ember-computed-template-string'
 import computed from 'ember-computed'
 import get from 'ember-metal/get'
+import RSVP from 'rsvp'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  project: undefined,
-  locale:  'en',
+  project:            undefined,
+  gitHubProjectsStats: undefined,
+  locale:             'en',
 
 
 
@@ -45,6 +47,22 @@ export default Component.extend({
                      ''
     )
   }),
+
+  starsPromise: computed(
+    'project.owner',
+    'project.gitHubProjectInfoPromise',
+    'gitHubProjectsStats',
+    function () {
+      const owner = this.get('project.owner')
+      if (owner !== 'lolmaus') return this.get('project.gitHubProjectInfoPromise')
+
+      const id                  = this.get('project.id')
+      const gitHubProjectsStats = this.get('gitHubProjectsStats')
+
+      return (gitHubProjectsStats || RSVP.reject())
+        .then(stats => stats && stats.reposById[id].stargazers_count)
+    }
+  ),
 
 
 

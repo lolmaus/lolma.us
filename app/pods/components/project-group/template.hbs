@@ -1,6 +1,7 @@
 {{#each (sort-by 'status' 'name' projects) as |project|}}
   {{pro-ject
-    project = project
-    locale  = locale
+    project           = project
+    locale            = locale
+   gitHubProjectsStats = gitHubProjectsStats
   }}
 {{/each}}

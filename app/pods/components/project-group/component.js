@@ -5,8 +5,9 @@ import Component from 'ember-component'
 export default Component.extend({
 
   // ----- Arguments -----
-  projects: undefined,
-  locale:   'en',
+  projects:            undefined,
+  gitHubProjectsStats: undefined,
+  locale:              'en',
 
 
 

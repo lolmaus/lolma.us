@@ -2,7 +2,6 @@ import Route from 'ember-route'
 import service from 'ember-service/inject'
 import RSVP from 'rsvp'
 import _ from 'npm:lodash'
-// import retrieveFromShoeboxOrStoreFind from 'lolma-us/utils/retrieve-from-shoebox-or-store-find'
 
 
 
@@ -10,7 +9,6 @@ export default Route.extend({
 
   // ----- Services -----
   i18n:     service(),
-  fastboot: service(),
 
 
 
@@ -32,40 +30,29 @@ export default Route.extend({
     this.set('i18n.locale', locale)
 
     const store       = this.get('store')
-    const parentModel = this.modelFor('application')
+    const model = this.modelFor('application')
 
     return RSVP
       .hash({
-        ...parentModel,
-        locale,
-        isFastBoot: this.get('fastboot.isFastBoot'),
-        website:    store.findRecord('website', 'website')
-      })
-      .then(model => RSVP.hash({
         ...model,
-
-        markdownBlocks: RSVP.all(
-          model
-            .website
-            .hasMany('markdownBlocks')
-            .ids()
-            .filter(id => _.endsWith(id, `-${locale}`))
-            .map(id => store.findRecord('markdown-block', id))
-        ),
-
-        projects: RSVP.all(
-          model
-            .website
-            .hasMany('projects')
-            .ids()
-            .map(id => store.findRecord('project', id))
-        ),
-      }))
+        locale,
+        markdownBlocks: this.getMarkdownBlocks({store, locale, website: model.website})
+      })
   },
 
 
 
   // ----- Custom Methods -----
+  getMarkdownBlocks ({store, locale, website}) {
+    const promises =
+      website
+        .hasMany('markdownBlocks')
+        .ids()
+        .filter(id => _.endsWith(id, `-${locale}`))
+        .map(id => store.findRecord('markdown-block', id))
+
+    return RSVP.all(promises)
+  },
 
 
 
@@ -78,6 +65,21 @@ export default Route.extend({
 
 
   // ----- Actions -----
-  // actions: {
-  // }
+  actions: {
+    toggleLocale () {
+      const oppositeLocale      = this.get('i18n.oppositeLocale')
+      const currentRouteName    = this.get('router.currentRouteName')
+      const currentHandlerInfos = this.get('router.router.currentHandlerInfos')
+
+      const segments =
+        currentHandlerInfos
+          .slice(2)
+          .map(info =>
+            info._names.map(name => info.params[name])
+          )
+          .reduce((result, item) => result.concat(item), []) //flatten
+
+      this.transitionTo(currentRouteName, oppositeLocale, ...segments)
+    }
+  }
 })

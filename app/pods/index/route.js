@@ -30,11 +30,11 @@ export default Route.extend({
   },
   // model() {
   //   /* jshint unused:false */
-  //   const parentModel = this.modelFor('')
+  //   const model = this.modelFor('')
   //
   //   return RSVP.hash({
   //     /* jshint ignore:start */
-  //     ...parentModel,
+  //     ...model,
   //     /* jshint ignore:end */
   //   })
   // },

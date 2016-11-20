@@ -12,12 +12,24 @@
 
     {{#deferred-content
       tagName = 'span'
-      promise = project.gitHubProjectInfoPromise
+      promise = starsPromise
       as |d|
     }}
        {{if d.isFulfilled d.content.stargazers_count}}
     {{/deferred-content}}
   </a>
+
+  {{#if project.emberObserver}}
+    <a
+      href   = "https://emberobserver.com/addons/{{project.id}}"
+      target = '_blank'
+    >
+      <img
+        src = "https://emberobserver.com/badges/{{project.id}}.svg"
+        alt = "Ember Observer Score"
+      >
+    </a>
+  {{/if}}
 
   {{#if (gte project.status 2)}}
     <span class="proJect-status -{{project.status}}">
