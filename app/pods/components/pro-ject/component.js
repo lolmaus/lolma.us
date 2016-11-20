@@ -1,6 +1,6 @@
 import Component from 'ember-component'
-import conditional from "ember-cpm/macros/conditional"
-import templateString from 'ember-computed-template-string'
+// import conditional from "ember-cpm/macros/conditional"
+// import templateString from 'ember-computed-template-string'
 import computed from 'ember-computed'
 import get from 'ember-metal/get'
 
