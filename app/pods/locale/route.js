@@ -10,7 +10,7 @@ export default Route.extend({
 
   // ----- Services -----
   i18n:     service(),
-  // fastboot: service(),
+  fastboot: service(),
 
 
 
@@ -33,13 +33,13 @@ export default Route.extend({
 
     const store       = this.get('store')
     const parentModel = this.modelFor('application')
-    // const fastboot    = this.get('fastboot')
 
     return RSVP
       .hash({
         ...parentModel,
         locale,
-        website: store.findRecord('website', 'website')
+        isFastBoot: this.get('fastboot.isFastBoot'),
+        website:    store.findRecord('website', 'website')
       })
       .then(model => RSVP.hash({
         ...model,

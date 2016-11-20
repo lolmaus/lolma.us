@@ -1,9 +1,11 @@
 <h2>Open Source Contributions</h2>
 
-<label>
-  {{input type="checkbox" checked=showStalled}}
-  Show stalled projects
-</label>
+{{#unless isFastBoot}}
+  <label>
+    {{input type="checkbox" checked=showStalled}}
+    Show stalled projects
+  </label>
+{{/unless}}
 
 {{#with (if showStalled projects (reject-by "status" 4 projects)) as |projects|}}
 
