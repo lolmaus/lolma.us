@@ -4,7 +4,8 @@ import {belongsTo} from 'ember-data/relationships'
 import computed from 'ember-computed'
 import conditional from "ember-cpm/macros/conditional"
 import templateString from 'ember-computed-template-string'
-import fetch from "lolma-us/utils/fetch-rsvp"
+import fetchGitHub from "lolma-us/utils/fetch-github"
+import service from 'ember-service/inject'
 // import _ from 'npm:lodash'
 
 
@@ -28,18 +29,27 @@ export default Model.extend({
 
 
 
+  // ----- Services -----
+  session: service(),
+
+
+
   // ----- Computed properties -----
   gitHubUrl:     templateString("https://github.com/${owner}/${id}"),
   effectiveUrl:  conditional('url', 'url', 'gitHubUrl'),
   effectiveName: conditional('name', 'name', 'id'),
-  starsUrl:      templateString("https://api.github.com/repos/${owner}/${id}"),
+  starsUrl:      templateString("repos/${owner}/${id}"),
 
   gitHubProjectInfoPromise: computed('starsUrl', function () {
     const starsUrl = this.get('starsUrl')
+    const session  = this.get('session')
 
-    return fetch(starsUrl, {
-      headers: {Accept: 'application/vnd.github.v3+json'}
-    })
-      .then(response => response.json())
-  })
+    return fetchGitHub(starsUrl, session)
+  }),
+
+  starsPromise: computed('gitHubProjectInfoPromise', function () {
+    return this
+      .get('gitHubProjectInfoPromise')
+      .then(response => response.stargazers_count)
+  }),
 })

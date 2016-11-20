@@ -9,3 +9,15 @@
 {{markdown-block section = (find-by 'id' (concat 'looking-for-job-' model.locale) model.markdownBlocks)}}
 
 {{outlet}}
+
+<hr>
+
+{{#unless model.isFastBoot}}
+  <div>
+    {{#if session.isAuthenticated}}
+      <a href {{action 'logout'}}>Logout</a>
+    {{else}}
+      <a href {{action 'login'}}>Login</a>
+    {{/if}}
+  </div>
+{{/unless}}

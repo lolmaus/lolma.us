@@ -1,10 +1,10 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (env) {
   var ENV = {
     modulePrefix: 'lolma-us',
     podModulePrefix: 'lolma-us/pods',
-    environment: environment,
+    environment: env,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -15,7 +15,7 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
+        Date: false,
       }
     },
 
@@ -25,39 +25,48 @@ module.exports = function(environment) {
     },
 
     i18n: {
-      defaultLocale: 'en'
+      defaultLocale: 'en',
     },
 
     fastboot: {
       hostWhitelist: [
         '/',
         'http://127.0.0.1:8081'
-      ]
-    }
+      ],
+    },
+
+    torii: {
+      providers: {
+        'github-oauth2': {
+          apiKey: env === 'production' ? '4da52fd7973591d437ea' : '32af406102a4bba47191',
+          redirectUri: 'http://localhost:4200/oauth-accept',
+        }
+      }
+    },
   }
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+  if (env === 'development') {
+    // ENV.APP.LOG_RESOLVER = true
+    // ENV.APP.LOG_ACTIVE_GENERATION = true
+    // ENV.APP.LOG_TRANSITIONS = true
+    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true
+    // ENV.APP.LOG_VIEW_LOOKUPS = true
   }
 
-  if (environment === 'test') {
+  if (env === 'test') {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = 'none'
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.LOG_ACTIVE_GENERATION = false
+    ENV.APP.LOG_VIEW_LOOKUPS = false
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = '#ember-testing'
   }
 
-  if (environment === 'production') {
+  if (env === 'production') {
 
   }
 
-  return ENV;
-};
+  return ENV
+}

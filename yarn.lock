@@ -838,7 +838,7 @@ broccoli-module-alchemist-install@^0.1.1:
   dependencies:
     debug "^2.2.0"
 
-broccoli-persistent-filter@^1.0.1, broccoli-persistent-filter@^1.0.3, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.2.0:
+broccoli-persistent-filter@^1.0.1, broccoli-persistent-filter@^1.0.3, broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.2.0:
   version "1.2.11"
   resolved "http://localhost:8080/broccoli-persistent-filter/-/broccoli-persistent-filter-1.2.11.tgz#95cc6b0b0eb0dcce5f8e6ae18f6a3cc45a06bf40"
   dependencies:
@@ -917,6 +917,13 @@ broccoli-stew@^1.0.0, broccoli-stew@^1.0.4, broccoli-stew@^1.2.0, broccoli-stew@
     resolve "^1.1.6"
     rsvp "^3.0.16"
     walk-sync "^0.3.0"
+
+broccoli-string-replace@^0.1.1:
+  version "0.1.1"
+  resolved "http://localhost:8080/broccoli-string-replace/-/broccoli-string-replace-0.1.1.tgz#e560d20db3569a336043110b4048210fa6f1478b"
+  dependencies:
+    broccoli-persistent-filter "^1.1.5"
+    minimatch "^2.0.8"
 
 broccoli-templater@^1.0.0:
   version "1.0.0"
@@ -2250,6 +2257,12 @@ ember-export-application-global@^1.0.5:
   dependencies:
     ember-cli-babel "^5.1.10"
 
+ember-getowner-polyfill@1.0.0:
+  version "1.0.0"
+  resolved "http://localhost:8080/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.0.tgz#f847ceabd97ab97e9e9d279c382400a4d407a9d6"
+  dependencies:
+    ember-cli-babel "^5.1.5"
+
 ember-getowner-polyfill@^1.0.0:
   version "1.0.1"
   resolved "http://localhost:8080/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.1.tgz#f60a31d25d642461dac4b4746184afaf7f5084ae"
@@ -2325,6 +2338,15 @@ ember-runtime-enumerable-includes-polyfill@^1.0.0:
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-version-checker "^1.1.6"
+
+ember-simple-auth@^1.1.0:
+  version "1.1.0"
+  resolved "http://localhost:8080/ember-simple-auth/-/ember-simple-auth-1.1.0.tgz#7a6162e1b58b88c4b535e4476be6033be233b2b6"
+  dependencies:
+    ember-cli-babel "^5.1.5"
+    ember-cli-is-package-missing "^1.0.0"
+    ember-getowner-polyfill "1.0.0"
+    silent-error "^1.0.0"
 
 ember-test-helpers@^0.5.22, ember-test-helpers@^0.5.32:
   version "0.5.34"
@@ -4325,7 +4347,7 @@ minimatch@1:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimatch@^2.0.1, minimatch@^2.0.10, minimatch@^2.0.3:
+minimatch@^2.0.1, minimatch@^2.0.10, minimatch@^2.0.3, minimatch@^2.0.8:
   version "2.0.10"
   resolved "http://localhost:8080/minimatch/-/minimatch-2.0.10.tgz#8d087c39c6b38c001b97fca7ce6d0e1e80afbac7"
   dependencies:
@@ -5917,6 +5939,15 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.0:
   version "1.0.2"
   resolved "http://localhost:8080/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
+
+torii@^0.8.1:
+  version "0.8.1"
+  resolved "http://localhost:8080/torii/-/torii-0.8.1.tgz#d308d2f601ba2b7333ba49d3a75dcaf4212fa641"
+  dependencies:
+    broccoli-funnel "^1.0.1"
+    broccoli-merge-trees "^1.1.1"
+    broccoli-string-replace "^0.1.1"
+    ember-cli-babel "^5.1.3"
 
 tough-cookie@~2.2.0:
   version "2.2.2"

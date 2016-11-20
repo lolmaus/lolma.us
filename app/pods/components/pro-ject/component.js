@@ -54,12 +54,12 @@ export default Component.extend({
     'gitHubProjectsStats',
     function () {
       const owner = this.get('project.owner')
-      if (owner !== 'lolmaus') return this.get('project.gitHubProjectInfoPromise')
+      if (owner !== 'lolmaus') return this.get('project.starsPromise')
 
       const id                  = this.get('project.id')
       const gitHubProjectsStats = this.get('gitHubProjectsStats')
 
-      return (gitHubProjectsStats || RSVP.reject())
+      return (gitHubProjectsStats ? RSVP.resolve(gitHubProjectsStats) : RSVP.reject())
         .then(stats => stats && stats.reposById[id].stargazers_count)
     }
   ),

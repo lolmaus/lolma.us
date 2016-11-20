@@ -1,7 +1,7 @@
 import Adapter from 'ember-data/adapter'
 import service from 'ember-service/inject'
 import {reads} from 'ember-computed'
-import fetch from "lolma-us/utils/fetch-rsvp"
+import {fetchRsvpText} from "lolma-us/utils/fetch-rsvp"
 
 import Ember from 'ember'
 const {
@@ -34,7 +34,6 @@ export default Adapter.extend({
     const modelName = inflector.pluralize(type.modelName)
     const url       = `${host}/content/${modelName}/${id}.md`
 
-    return fetch(url)
-      .then(response => response.text())
+    return fetchRsvpText(url)
   },
 })
