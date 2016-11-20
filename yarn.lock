@@ -2237,6 +2237,13 @@ ember-data@2.10.0-beta.2:
     semver "^5.1.0"
     silent-error "^1.0.0"
 
+ember-deferred-content@^0.2.0:
+  version "0.2.0"
+  resolved "http://localhost:8080/ember-deferred-content/-/ember-deferred-content-0.2.0.tgz#bc92bc99ff7b66c0bf10bedb343bff49a88d9956"
+  dependencies:
+    ember-cli-babel "^5.1.5"
+    ember-cli-htmlbars "^1.0.1"
+
 ember-export-application-global@^1.0.5:
   version "1.1.1"
   resolved "http://localhost:8080/ember-export-application-global/-/ember-export-application-global-1.1.1.tgz#f257d5271268932a89d7392679ce4db89d7154af"

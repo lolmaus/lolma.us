@@ -1,1 +1,31 @@
-{{markdown-to-html descriptionWithName}}
+<div>
+  <a
+    href   = {{project.effectiveUrl}}
+    target = '_blank'
+  >{{project.effectiveName}}</a>
+
+  <a
+    href   = {{project.gitHubUrl}}
+    target = '_blank'
+  >
+    ★
+
+    {{#deferred-content
+      tagName = 'span'
+      promise = project.gitHubProjectInfoPromise
+      as |d|
+    }}
+       {{if d.isFulfilled d.content.stargazers_count}}
+    {{/deferred-content}}
+  </a>
+
+  {{#if (gte project.status 2)}}
+    <span class="proJect-status -{{project.status}}">
+      {{statusLabel}}
+    </span>
+  {{/if}}
+</div>
+
+{{#if currentDescription}}
+  {{markdown-to-html currentDescription}}
+{{/if}}

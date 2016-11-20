@@ -1,9 +1,10 @@
 import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 import {belongsTo} from 'ember-data/relationships'
-// import computed from 'ember-computed'
+import computed from 'ember-computed'
 import conditional from "ember-cpm/macros/conditional"
 import templateString from 'ember-computed-template-string'
+import fetch from "ember-network/fetch"
 
 
 
@@ -26,7 +27,14 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  substituteUrl: templateString("https://github.com/${owner}/${id}"),
-  effectiveUrl:  conditional('url', 'url', 'substituteUrl'),
+  gitHubUrl:     templateString("https://github.com/${owner}/${id}"),
+  effectiveUrl:  conditional('url', 'url', 'gitHubUrl'),
   effectiveName: conditional('name', 'name', 'id'),
+  starsUrl:      templateString("https://api.github.com/repos/${owner}/${id}"),
+
+  gitHubProjectInfoPromise: computed('starsUrl', function () {
+    const starsUrl = this.get('starsUrl')
+    return fetch(starsUrl)
+      .then(response => response.json())
+  })
 })

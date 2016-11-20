@@ -35,22 +35,16 @@ export default Component.extend({
     return get(descriptionObject, locale)
   }),
 
-  descriptionWithDash:          templateString(" &mdash; ${currentDescription}"),
-  effectiveDescriptionWithDash: conditional('project.description', 'descriptionWithDash', 'emptyString'),
-
-  statusTag: computed('project.status', function () {
+  statusLabel: computed('project.status', function () {
     const status = this.get('project.status')
 
-    const label =
+    return (
       status === 2 ? 'WIP' :
       status === 3 ? 'PoC' :
       status === 4 ? 'stalled' :
                      ''
-
-    return label ? `<span class="proJect-status - ${status}">${label}</span>` : ''
+    )
   }),
-
-  descriptionWithName: templateString("<a href='${project.effectiveUrl}' target='_blank'>${project.effectiveName}</a>${effectiveDescriptionWithDash} ${statusTag}"),
 
 
 
