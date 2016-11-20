@@ -5,7 +5,7 @@ export default {
   },
   langSwitcher: 'english',
   timeline: {
-    mgimo:       "Окончил <a href='http://english.mgimo.ru/' target='_blank'>МГИМО</a> (бакалавр)",
+    mgimo:       "<a href='http://english.mgimo.ru/' target='_blank'>МГИМО</a> финишд! (бакалавр)",
     adv:         "Менеджер вэб-проектов в <a href='https://adv.ru/english/' target='_blank'>ADV.ru</a>, Россия",
     alfamb:      "Web Developer and SysAdmin at <a href='http://alfamb.ru/' target='_blank'>AlfaMB.ru</a>, Россия",
     stankin:     "Окончил <a href='http://stankin.ru/en/education/faculty-of-computer-science-and-control-systems/' target='_blank'>МГТУ \"Станкин\"</a> (ПО и вычислительная техника, специалист)",
