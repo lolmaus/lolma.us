@@ -14,7 +14,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['frontPageSection'],
+  classNames: ['markdownBlock'],
 
 
 

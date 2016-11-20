@@ -44,13 +44,13 @@ export default Route.extend({
       .then(model => RSVP.hash({
         ...model,
 
-        frontPageSections: RSVP.all(
+        markdownBlocks: RSVP.all(
           model
             .website
-            .hasMany('frontPageSections')
+            .hasMany('markdownBlocks')
             .ids()
             .filter(id => _.endsWith(id, `-${locale}`))
-            .map(id => store.findRecord('front-page-section', id))
+            .map(id => store.findRecord('markdown-block', id))
         ),
 
         projects: RSVP.all(

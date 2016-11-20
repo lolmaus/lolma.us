@@ -5,6 +5,8 @@ import {hasMany} from 'ember-data/relationships'
 
 
 export default Model.extend({
-  frontPageSections: hasMany('front-page-section'),
-  projects:          hasMany('project'),
+
+  // ----- Relationships -----
+  markdownBlocks: hasMany('markdown-block'),
+  projects:       hasMany('project'),
 })

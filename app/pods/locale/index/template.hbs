@@ -1,6 +1,6 @@
 <div>
-  {{front-page-section section = (find-by 'id' (concat 'personality-' model.locale) model.frontPageSections)}}
-  {{front-page-section section = (find-by 'id' (concat 'skills-'      model.locale) model.frontPageSections)}}
+  {{markdown-block section = (find-by 'id' (concat 'personality-' model.locale) model.markdownBlocks)}}
+  {{markdown-block section = (find-by 'id' (concat 'skills-'      model.locale) model.markdownBlocks)}}
   {{time-line}}
 
   {{pro-jects

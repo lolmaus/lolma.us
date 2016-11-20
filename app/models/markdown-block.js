@@ -3,7 +3,13 @@ import attr from 'ember-data/attr'
 import {belongsTo} from 'ember-data/relationships'
 
 export default Model.extend({
+
+  // ----- Attributes -----
   title:   attr('string'),
   body:    attr('string'),
-  website: belongsTo('front-page-section')
+
+
+
+  // ----- Relationships -----
+  website: belongsTo('markdown-block')
 })

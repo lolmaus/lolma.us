@@ -6,6 +6,6 @@
   toggleLocaleAction = (route-action 'toggleLocale')
 }}
 
-{{front-page-section section = (find-by 'id' (concat 'looking-for-job-' model.locale) model.frontPageSections)}}
+{{markdown-block section = (find-by 'id' (concat 'looking-for-job-' model.locale) model.markdownBlocks)}}
 
 {{outlet}}
