@@ -1,0 +1,11 @@
+<h1>{{t 'header.title'}} (lolmaus)</h1>
+
+<h2>{{t 'header.subtitle'}}</h2>
+
+{{locale-switcher
+  toggleLocaleAction = (route-action 'toggleLocale')
+}}
+
+{{front-page-section section = (find-by 'id' (concat 'looking-for-job-' model.locale) model.frontPageSections)}}
+
+{{outlet}}

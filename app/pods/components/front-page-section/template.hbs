@@ -1,0 +1,7 @@
+{{#if section.title}}
+  <h2>{{section.title}}</h2>
+{{/if}}
+
+{{#if section.body}}
+  {{markdown-to-html section.body}}
+{{/if}}

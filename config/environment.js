@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'lolma-us',
+    podModulePrefix: 'lolma-us/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
@@ -10,6 +11,7 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+        // 'ds-pushpayload-return': true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
@@ -20,8 +22,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    i18n: {
+      defaultLocale: 'en'
+    },
+
+    fastboot: {
+      hostWhitelist: [
+        '/',
+        'http://127.0.0.1:8081'
+      ]
     }
-  };
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
