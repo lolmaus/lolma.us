@@ -14,4 +14,11 @@ export default RESTAdapter.extend({
   // ----- Overridden properties -----
   host:      reads('config.host'),
   namespace: reads('config.namespace'),
+
+
+
+  // ----- Overridden methods -----
+  urlForFindRecord (id, modelName, snapshot) {
+    return this._super(id, modelName, snapshot) + '.json'
+  }
 })

@@ -43,6 +43,7 @@ export default Route.extend({
       })
       .then(model => RSVP.hash({
         ...model,
+
         frontPageSections: RSVP.all(
           model
             .website
@@ -50,7 +51,15 @@ export default Route.extend({
             .ids()
             .filter(id => _.endsWith(id, `-${locale}`))
             .map(id => store.findRecord('front-page-section', id))
-        )
+        ),
+
+        projects: RSVP.all(
+          model
+            .website
+            .hasMany('projects')
+            .ids()
+            .map(id => store.findRecord('project', id))
+        ),
       }))
   },
 

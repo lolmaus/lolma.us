@@ -1,0 +1,12 @@
+{
+  "project": {
+    "id": "ember-element-query",
+    "group": "ember",
+    "status": 1,
+    "type": "addon",
+    "description": {
+      "en": "element query solution for your Ember apps",
+      "ru": "реализация element queries для ваших приложений"
+    }
+  }
+}

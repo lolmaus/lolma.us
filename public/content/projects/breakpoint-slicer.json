@@ -1,0 +1,11 @@
+{
+  "project": {
+    "id": "breakpoint-slicer",
+    "group": "sass",
+    "status": 1,
+    "description": {
+      "en": "slicing media queries with ease",
+      "ru": "нарезка media queries без труда"
+    }
+  }
+}

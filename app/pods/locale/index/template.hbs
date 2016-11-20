@@ -1,4 +1,10 @@
 <div>
   {{front-page-section section = (find-by 'id' (concat 'personality-' model.locale) model.frontPageSections)}}
   {{front-page-section section = (find-by 'id' (concat 'skills-'      model.locale) model.frontPageSections)}}
+  {{time-line}}
+
+  {{pro-jects
+    projects = model.projects
+    locale   = model.locale
+  }}
 </div>

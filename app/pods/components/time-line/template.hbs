@@ -1,0 +1,40 @@
+<h2>Timeline</h2>
+
+{{#each (array
+  (hash start="2008-06" end=false     title='mgimo')
+  (hash start="2008-07" end="2008-12" title="adv")
+  (hash start="2008-12" end="2013-06" title="alfamb")
+  (hash start="2011-12" end=false     title="stankin")
+  (hash start="2013-07" end="2014-03" title="stkomp")
+  (hash start="2014-03" end="2014-06" title="hivemind")
+  (hash start="2014-06" end="2014-07" title="healthfundr")
+  (hash start="2014-07" end="2014-08" title="mipt")
+  (hash start="2014-09" end="2015-08" title="hellobaby")
+  (hash start="2015-09" end="2016-11" title="firecracker")
+  (hash start=(now)     end=true      title="yourteam")
+) as |item|}}
+
+  <div>
+    <div>
+      <span>📅</span>
+
+      <span>
+        {{#if item.start}}
+          {{moment-format item.start 'MMM YYYY'}}
+        {{/if}}
+
+        {{#if item.end}}
+          →
+        {{/if}}
+
+        {{#if (and item.end (not-eq item.end true))}}
+          {{moment-format item.end 'MMM YYYY'}}
+        {{/if}}
+      </span>
+    </div>
+
+    <div>{{markdown-to-html (t (concat 'timeline.' item.title))}}</div>
+  </div>
+
+{{/each}}
+
