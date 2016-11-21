@@ -1,12 +1,12 @@
 import Controller from 'ember-controller'
-import service from 'ember-service/inject'
+// import service from 'ember-service/inject'
 
 
 
 export default Controller.extend({
 
   // ----- Services -----
-  session: service(),
+  // session: service(),
 
 
 
@@ -15,6 +15,7 @@ export default Controller.extend({
 
 
   // ----- Static properties -----
+  isAuthenticating: false,
 
 
 
@@ -41,7 +42,12 @@ export default Controller.extend({
   // ----- Actions -----
   actions: {
     login () {
-      this.get('session').authenticate('authenticator:torii', 'github-oauth2')
+      this.set('isAuthenticating', true)
+
+      this
+        .get('session')
+        .authenticate('authenticator:torii', 'github-oauth2')
+        .finally(() => this.set('isAuthenticating', false))
     },
 
     logout () {

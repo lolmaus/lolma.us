@@ -5,7 +5,7 @@ import computed from 'ember-computed'
 import conditional from "ember-cpm/macros/conditional"
 import templateString from 'ember-computed-template-string'
 import fetchGitHub from "lolma-us/utils/fetch-github"
-import service from 'ember-service/inject'
+// import service from 'ember-service/inject'
 // import _ from 'npm:lodash'
 
 
@@ -30,7 +30,7 @@ export default Model.extend({
 
 
   // ----- Services -----
-  session: service(),
+  // session: service(),
 
 
 
@@ -42,9 +42,9 @@ export default Model.extend({
 
   gitHubProjectInfoPromise: computed('starsUrl', function () {
     const starsUrl = this.get('starsUrl')
-    const session  = this.get('session')
+    // const session  = this.get('session')
 
-    return fetchGitHub(starsUrl, session)
+    return fetchGitHub(starsUrl/*, session*/)
   }),
 
   starsPromise: computed('gitHubProjectInfoPromise', function () {

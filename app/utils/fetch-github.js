@@ -3,7 +3,7 @@ import RSVP from "rsvp"
 
 export default function fetchGitHub (url, sessionService) {
   const fullUrl = `https://api.github.com/${url}`
-  const token   = sessionService.get('data.authenticated.token')
+  const token   = sessionService && sessionService.get('data.authenticated.token')
 
   return fetch(fullUrl, {
     headers: {
@@ -12,7 +12,7 @@ export default function fetchGitHub (url, sessionService) {
     },
   })
     .catch(response => {
-      if (response.status === 401) sessionService.invalidate()
+      if (response.status === 401) sessionService && sessionService.invalidate()
       else return RSVP.reject(response)
     })
 }

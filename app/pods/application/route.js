@@ -13,7 +13,7 @@ export default Route.extend({
   // ----- Services -----
   router:   service('-routing'),
   fastboot: service(),
-  session: service(),
+  // session:  service(),
 
 
 
@@ -50,12 +50,12 @@ export default Route.extend({
 
   // ----- Custom Methods -----
   fetchGitHubProjectsStats () {
-    const session = this.get('session')
+    // const session = this.get('session')
 
     return RSVP
       .all([
-        fetchGitHub('users/lolmaus/repos?per_page=100',        session),
-        fetchGitHub('users/lolmaus/repos?per_page=100&page=2', session),
+        fetchGitHub('users/lolmaus/repos?per_page=100'/*,        session*/),
+        fetchGitHub('users/lolmaus/repos?per_page=100&page=2'/*, session*/),
       ])
       .then(responses => responses.reduce((a, b) => a.concat(b), [])) //flatten
       .then(repos => ({

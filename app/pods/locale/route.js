@@ -29,7 +29,7 @@ export default Route.extend({
     if (!['en', 'ru'].includes(locale)) locale = 'en'
     this.set('i18n.locale', locale)
 
-    const store       = this.get('store')
+    const store = this.get('store')
     const model = this.modelFor('application')
 
     return RSVP

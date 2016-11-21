@@ -1944,6 +1944,10 @@ ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.1, ember-cli-htmlbars@^1.0.10
     json-stable-stringify "^1.0.0"
     strip-bom "^2.0.0"
 
+ember-cli-import-polyfill@^0.2.0:
+  version "0.2.0"
+  resolved "http://localhost:8080/ember-cli-import-polyfill/-/ember-cli-import-polyfill-0.2.0.tgz#c1a08a8affb45c97b675926272fe78cf4ca166f2"
+
 ember-cli-inject-live-reload@^1.4.1:
   version "1.4.1"
   resolved "http://localhost:8080/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-1.4.1.tgz#ddadb9a346c5ed694ec0f9e11f49994eacafd277"
@@ -2210,6 +2214,13 @@ ember-computed-template-string@^0.1.4:
     ember-cli-babel "^5.1.6"
     ember-computed-template-string-parser "0.1.0"
 
+ember-cookies@0.0.9:
+  version "0.0.9"
+  resolved "http://localhost:8080/ember-cookies/-/ember-cookies-0.0.9.tgz#91f8e115678532214f4164b2301c83f9bf649aed"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+    ember-getowner-polyfill "~1.0.1"
+
 ember-cpm@^2.1.3:
   version "2.1.3"
   resolved "http://localhost:8080/ember-cpm/-/ember-cpm-2.1.3.tgz#84d630f933472f34685908f5006ebf1886c34ed0"
@@ -2263,7 +2274,7 @@ ember-getowner-polyfill@1.0.0:
   dependencies:
     ember-cli-babel "^5.1.5"
 
-ember-getowner-polyfill@^1.0.0:
+ember-getowner-polyfill@1.0.1, ember-getowner-polyfill@^1.0.0, ember-getowner-polyfill@~1.0.1:
   version "1.0.1"
   resolved "http://localhost:8080/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.1.tgz#f60a31d25d642461dac4b4746184afaf7f5084ae"
   dependencies:
@@ -2346,6 +2357,18 @@ ember-simple-auth@^1.1.0:
     ember-cli-babel "^5.1.5"
     ember-cli-is-package-missing "^1.0.0"
     ember-getowner-polyfill "1.0.0"
+    silent-error "^1.0.0"
+
+"ember-simple-auth@https://github.com/simplabs/ember-simple-auth.git#fastboot":
+  version "1.1.0"
+  resolved "https://github.com/simplabs/ember-simple-auth.git#71c3032ceb8413116b53be553819ebdce208ff9e"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+    ember-cli-import-polyfill "^0.2.0"
+    ember-cli-is-package-missing "^1.0.0"
+    ember-cookies "0.0.9"
+    ember-getowner-polyfill "1.0.1"
+    ember-network "^0.3.0"
     silent-error "^1.0.0"
 
 ember-test-helpers@^0.5.22, ember-test-helpers@^0.5.32:
