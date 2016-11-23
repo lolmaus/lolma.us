@@ -22,5 +22,6 @@ export function fetchRsvpText (...args) {
 export default function fetchRsvpJson (...args) {
   return fetchRsvpRaw(...args)
     .then(response => response.json())
+    // .then(response => (console.log('response', response), response))
 }
 

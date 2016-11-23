@@ -2,8 +2,6 @@ import Route from 'ember-route'
 import service from 'ember-service/inject'
 import RSVP from 'rsvp'
 // import computed from 'ember-computed'
-import fetchGitHub from "lolma-us/utils/fetch-github"
-
 import _ from 'npm:lodash'
 
 
@@ -13,7 +11,6 @@ export default Route.extend({
   // ----- Services -----
   router:   service('-routing'),
   fastboot: service(),
-  // session:  service(),
 
 
 
@@ -35,43 +32,52 @@ export default Route.extend({
 
     return RSVP
       .hash({
-        isFastBoot:          this.get('fastboot.isFastBoot'),
-        website:             store.findRecord('website', 'website'),
-        gitHubProjectsStats: this.fetchGitHubProjectsStats()
+        isFastBoot:   this.get('fastboot.isFastBoot'),
+        website:      store.findRecord('website', 'website'),
+        projectInfos: store
+          .findAll('project-info')
+          // Ignore 403 error
+          .catch(response => {
+            if (response.status === 403) return null
+            return RSVP.reject(response)
+          }),
       })
 
       .then(model => RSVP.hash({
         ...model,
-        projects: this.fetchProjects({store, website: model.website})
+        projects: this.fetchProjects(model.website),
+      }))
+
+      .then(model => RSVP.hash({
+        ...model,
+        remainingProjectInfos: this.fetchRemainingProjectInfos(model.projects)
       }))
   },
 
 
 
   // ----- Custom Methods -----
-  fetchGitHubProjectsStats () {
-    // const session = this.get('session')
+  fetchProjects (website) {
+    const store = this.get('store')
 
-    return RSVP
-      .all([
-        fetchGitHub('users/lolmaus/repos?per_page=100'/*,        session*/),
-        fetchGitHub('users/lolmaus/repos?per_page=100&page=2'/*, session*/),
-      ])
-      .then(responses => responses.reduce((a, b) => a.concat(b), [])) //flatten
-      .then(repos => ({
-        repos,
-        reposById:  _.keyBy(repos, 'name'),
-        totalStars: repos.reduce((result, {stargazers_count}) => result + stargazers_count, 0)
-      }))
-      .catch(() => false)
-  },
-
-  fetchProjects ({store, website}) {
     const promises =
       website
         .hasMany('projects')
         .ids()
         .map(id => store.findRecord('project', id))
+
+    return RSVP.all(promises)
+  },
+
+  fetchRemainingProjectInfos (projects) {
+    const store           = this.get('store')
+    const existingIds     = store.peekAll('project-info').mapBy('id')
+
+    if (!existingIds.length) return RSVP.resolve()
+
+    const idsFormProjects = projects.map(project => project.belongsTo('projectInfo').id())
+    const remainingIds    = _.reject(idsFormProjects, id => existingIds.includes(id))
+    const promises        = remainingIds.map(id => store.findRecord('project-info', id))
 
     return RSVP.all(promises)
   },

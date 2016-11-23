@@ -11,6 +11,15 @@ module.exports = function (defaults) {
           '/en',
           '/ru',
         ],
+      },
+
+      dotEnv: {
+        clientAllowedKeys: ['LMS_GITHUB_CLIENT_ID'],
+        path: {
+          development: './.env-development',
+          test:        './.env-development',
+          production:  './.env-production'
+        }
       }
     })
 

@@ -1747,6 +1747,10 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^1.0.0:
+  version "1.2.0"
+  resolved "http://localhost:8080/dotenv/-/dotenv-1.2.0.tgz#7cd73e16e07f057c8072147a5bc3a8677f0ab5c6"
+
 duplexer2@^0.1.2, duplexer2@~0.1.0, duplexer2@~0.1.2:
   version "0.1.4"
   resolved "http://localhost:8080/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -1848,6 +1852,13 @@ ember-cli-dependency-checker@^1.3.0:
     chalk "^0.5.1"
     is-git-url "0.2.0"
     semver "^4.1.0"
+
+ember-cli-dotenv@^1.2.0:
+  version "1.2.0"
+  resolved "http://localhost:8080/ember-cli-dotenv/-/ember-cli-dotenv-1.2.0.tgz#11aab75ee3d98305799778dad58072fca97c57f1"
+  dependencies:
+    dotenv "^1.0.0"
+    exists-sync "0.0.3"
 
 ember-cli-eslint@^3.0.0:
   version "3.0.0"
@@ -2268,12 +2279,6 @@ ember-export-application-global@^1.0.5:
   dependencies:
     ember-cli-babel "^5.1.10"
 
-ember-getowner-polyfill@1.0.0:
-  version "1.0.0"
-  resolved "http://localhost:8080/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.0.tgz#f847ceabd97ab97e9e9d279c382400a4d407a9d6"
-  dependencies:
-    ember-cli-babel "^5.1.5"
-
 ember-getowner-polyfill@1.0.1, ember-getowner-polyfill@^1.0.0, ember-getowner-polyfill@~1.0.1:
   version "1.0.1"
   resolved "http://localhost:8080/ember-getowner-polyfill/-/ember-getowner-polyfill-1.0.1.tgz#f60a31d25d642461dac4b4746184afaf7f5084ae"
@@ -2349,15 +2354,6 @@ ember-runtime-enumerable-includes-polyfill@^1.0.0:
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-version-checker "^1.1.6"
-
-ember-simple-auth@^1.1.0:
-  version "1.1.0"
-  resolved "http://localhost:8080/ember-simple-auth/-/ember-simple-auth-1.1.0.tgz#7a6162e1b58b88c4b535e4476be6033be233b2b6"
-  dependencies:
-    ember-cli-babel "^5.1.5"
-    ember-cli-is-package-missing "^1.0.0"
-    ember-getowner-polyfill "1.0.0"
-    silent-error "^1.0.0"
 
 "ember-simple-auth@https://github.com/simplabs/ember-simple-auth.git#fastboot":
   version "1.1.0"

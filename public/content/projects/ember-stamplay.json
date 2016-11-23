@@ -1,12 +1,9 @@
 {
-  "project": {
-    "id": "ember-stamplay",
-    "group": "ember",
-    "status": 4,
-    "type": "addon",
-    "description": {
-      "en": "integrate with the Stamplay.com backend-as-a-service",
-      "ru": "интеграция с BaaS Stamplay.com"
-    }
+  "group": "ember",
+  "status": 4,
+  "type": "addon",
+  "description": {
+    "en": "integrate with the Stamplay.com backend-as-a-service",
+    "ru": "интеграция с BaaS Stamplay.com"
   }
 }

@@ -1,4 +1,4 @@
-<h2>Timeline</h2>
+<h2>{{t 'timeline'}}</h2>
 
 {{#each (array
   (hash start="2008-06" end=false     title='mgimo')
@@ -33,7 +33,7 @@
       </span>
     </div>
 
-    <div>{{markdown-to-html (t (concat 'timeline.' item.title))}}</div>
+    <div>{{markdown-to-html (t (concat 'timeline.items.' item.title))}}</div>
   </div>
 
 {{/each}}

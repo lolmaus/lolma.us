@@ -1,7 +1,7 @@
-import RESTSerializer from 'ember-data/serializers/rest'
+import JSONSerializer from 'ember-data/serializers/json'
 import {isEmberArray} from 'ember-array/utils'
 
-export default RESTSerializer.extend({
+export default JSONSerializer.extend({
   // serialize (snapshot, options) {
   //   return {
   //     [snapshot.modelName]: this._super(snapshot, options)
@@ -10,6 +10,7 @@ export default RESTSerializer.extend({
 
 
   pushPayload (store, payload) {
+    console.log('payload', payload)
     const key             = Object.keys(payload)[0]
     const payloadFragment = payload[key]
     const modelName       = this.modelNameFromPayloadKey(key)

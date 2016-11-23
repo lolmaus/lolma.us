@@ -1,33 +1,30 @@
 {
-  "website": {
-    "id": "website",
-    "markdownBlocks": [
-      "personality-en",
-      "personality-ru",
+  "markdownBlocks": [
+    "personality-en",
+    "personality-ru",
 
-      "looking-for-job-en",
-      "looking-for-job-ru",
+    "looking-for-job-en",
+    "looking-for-job-ru",
 
-      "skills-en",
-      "skills-ru"
-    ],
-    "projects": [
-      "assertron",
-      "breakpoint-slicer",
-      "ember-app-state-slider",
-      "ember-cli-custom-assertions-collection",
-      "ember-cli-stained-by-children",
-      "ember-drag-sort",
-      "ember-element-query",
-      "ember-gist",
-      "ember-katex",
-      "ember-scroll-to-mk2",
-      "ember-stamplay",
-      "ember-svg-pie",
-      "jquery.closestchild",
-      "jquery.dragbetter",
-      "singularity-quick-spanner",
-      "yuidork"
-    ]
-  }
+    "skills-en",
+    "skills-ru"
+  ],
+  "projects": [
+    "assertron",
+    "breakpoint-slicer",
+    "ember-app-state-slider",
+    "ember-cli-custom-assertions-collection",
+    "ember-cli-stained-by-children",
+    "ember-drag-sort",
+    "ember-element-query",
+    "ember-gist",
+    "ember-katex",
+    "ember-scroll-to-mk2",
+    "ember-stamplay",
+    "ember-svg-pie",
+    "jquery.closestchild",
+    "jquery.dragbetter",
+    "singularity-quick-spanner",
+    "yuidork"
+  ]
 }

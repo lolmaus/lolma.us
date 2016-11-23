@@ -1,23 +1,39 @@
 <div>
-  <a
-    href   = {{project.effectiveUrl}}
-    target = '_blank'
-  >{{project.effectiveName}}</a>
 
-  <a
-    href   = {{project.gitHubUrl}}
-    target = '_blank'
-  >
-    ★
+  <span>
+    <a
+      href   = {{project.effectiveUrl}}
+      target = '_blank'
+    >{{project.effectiveName}}</a>
 
-    {{#deferred-content
-      tagName = 'span'
-      promise = starsPromise
-      as |d|
-    }}
-       {{if d.isFulfilled d.content}}
-    {{/deferred-content}}
-  </a>
+    {{#if (and session.isAuthenticated project.projectInfoSync)}}
+      <button
+        {{action 'toggleStar'}}
+        disabled={{project.projectInfo.starPromisePending}}
+      >
+        {{#if project.projectInfo.starPromisePending}}
+          Updating...
+        {{else if project.projectInfo.starPromiseFailed}}
+          Retry
+        {{else}}
+          {{if project.projectInfo.effectiveIsStarred 'Unstar' 'Star'}}
+        {{/if}}
+      </button>
+    {{else}}
+      <a
+        href   = {{project.gitHubUrl}}
+        target = '_blank'
+      >
+        ★ Star
+      </a>
+    {{/if}}
+
+    {{#if project.projectInfoSync}}
+      <span>
+        {{project.projectInfo.effectiveStargazersCount}}
+      </span>
+    {{/if}}
+  </span>
 
   {{#if project.emberObserver}}
     <a

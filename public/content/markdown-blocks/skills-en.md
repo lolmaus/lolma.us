@@ -26,7 +26,7 @@ title: Skills
 
 ### Other tech skills
 
-* Proficient in using dev tools: git, terminal, SSH, Docker, StackOverflow/Google, etc
+* Proficient in using dev tools: git, terminal, SSH, Docker, package managers, build tools, StackOverflow/Google, etc
 * Linux user, not a DevOps guy but have basic sysadmin skills
 * Experience in distributed teams, SCRUM
 * Know Ruby and looking into Elixir

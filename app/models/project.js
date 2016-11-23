@@ -4,7 +4,6 @@ import {belongsTo} from 'ember-data/relationships'
 import computed from 'ember-computed'
 import conditional from "ember-cpm/macros/conditional"
 import templateString from 'ember-computed-template-string'
-import fetchGitHub from "lolma-us/utils/fetch-github"
 // import service from 'ember-service/inject'
 // import _ from 'npm:lodash'
 
@@ -13,7 +12,6 @@ import fetchGitHub from "lolma-us/utils/fetch-github"
 export default Model.extend({
 
   // ----- Attributes -----
-  name:          attr('string'),
   group:         attr('string'),
   status:        attr('number'),
   type:          attr('string'),
@@ -25,12 +23,12 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  website: belongsTo('website'),
+  website:     belongsTo('website'),
+  projectInfo: belongsTo('project-info', {async: false}),
 
 
 
   // ----- Services -----
-  // session: service(),
 
 
 
@@ -38,18 +36,9 @@ export default Model.extend({
   gitHubUrl:     templateString("https://github.com/${owner}/${id}"),
   effectiveUrl:  conditional('url', 'url', 'gitHubUrl'),
   effectiveName: conditional('name', 'name', 'id'),
-  starsUrl:      templateString("repos/${owner}/${id}"),
 
-  gitHubProjectInfoPromise: computed('starsUrl', function () {
-    const starsUrl = this.get('starsUrl')
-    // const session  = this.get('session')
-
-    return fetchGitHub(starsUrl/*, session*/)
-  }),
-
-  starsPromise: computed('gitHubProjectInfoPromise', function () {
-    return this
-      .get('gitHubProjectInfoPromise')
-      .then(response => response.stargazers_count)
-  }),
+  // Return projectInfo without triggering a fetch
+  projectInfoSync: computed(function () {
+    return this.belongsTo('projectInfo').value()
+  }).volatile(),
 })

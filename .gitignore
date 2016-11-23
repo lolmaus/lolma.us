@@ -13,6 +13,7 @@ bower_components/
 /connect.lock
 /coverage/
 /*.log
+/.env*
 
 # IDE
 /.idea/

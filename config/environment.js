@@ -7,6 +7,7 @@ module.exports = function (env) {
     environment: env,
     rootURL: '/',
     locationType: 'auto',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -38,8 +39,9 @@ module.exports = function (env) {
     torii: {
       providers: {
         'github-oauth2': {
-          apiKey: env === 'production' ? '4da52fd7973591d437ea' : '32af406102a4bba47191',
+          apiKey:      process.env.LMS_GITHUB_CLIENT_ID,
           redirectUri: 'http://localhost:4200/oauth-accept',
+          scope:       'public_repo',
         }
       }
     },

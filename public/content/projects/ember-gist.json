@@ -1,12 +1,9 @@
 {
-  "project": {
-    "id": "ember-gist",
-    "group": "ember",
-    "status": 3,
-    "type": "addon",
-    "description": {
-      "en": "use gist.github.com as a poor man's backend",
-      "ru": "позволяет использовать gist.github.com в качестве замены бэкенда"
-    }
+  "group": "ember",
+  "status": 3,
+  "type": "addon",
+  "description": {
+    "en": "use gist.github.com as a poor man's backend",
+    "ru": "позволяет использовать gist.github.com в качестве замены бэкенда"
   }
 }
