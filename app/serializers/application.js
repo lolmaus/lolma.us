@@ -1,5 +1,11 @@
 import JSONSerializer from 'ember-data/serializers/json'
 import {isEmberArray} from 'ember-array/utils'
+import {dasherize} from 'ember-string'
+
+import Ember from 'ember'
+const {
+  Inflector: {inflector}
+} = Ember
 
 export default JSONSerializer.extend({
   // serialize (snapshot, options) {
@@ -10,7 +16,6 @@ export default JSONSerializer.extend({
 
 
   pushPayload (store, payload) {
-    console.log('payload', payload)
     const key             = Object.keys(payload)[0]
     const payloadFragment = payload[key]
     const modelName       = this.modelNameFromPayloadKey(key)
@@ -33,5 +38,9 @@ export default JSONSerializer.extend({
     }
 
     return store.push(documentHash)
+  },
+
+  modelNameFromPayloadKey (key) {
+    return inflector.singularize(dasherize(key))
   },
 })

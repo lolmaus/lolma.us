@@ -18,7 +18,12 @@ export default function fetchGitHub (url, sessionService, {mode = 'json', method
                         response
     )
     .catch(response => {
-      if (response.status === 401) sessionService && sessionService.invalidate()
+      if (
+        response.status === 401
+        && sessionService
+        && sessionService.get('isAuthenticated')
+      ) sessionService.invalidate()
+
       return RSVP.reject(response)
     })
 }

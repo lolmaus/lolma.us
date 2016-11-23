@@ -6,6 +6,7 @@ import service from 'ember-service/inject'
 import fetchGitHub from 'lolma-us/utils/fetch-github'
 // import wait from 'lolma-us/utils/wait'
 import RSVP from 'rsvp'
+import templateString from 'ember-computed-template-string'
 
 import {default as EObject} from 'ember-object'
 import Ember from 'ember'
@@ -22,7 +23,7 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  project: belongsTo('project', {async: false}),
+  project: belongsTo('project'),
 
 
 
@@ -36,14 +37,7 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  starUrl: computed(
-    'id',
-    function () {
-      const id    = this.get('id')
-
-      return `user/starred/${id}`
-    }
-  ),
+  starUrl: templateString("user/starred/${id}"),
 
   isStarredPromise: computed('starUrl', 'session.isAuthenticated', function () {
     return this._requestIsStarred()

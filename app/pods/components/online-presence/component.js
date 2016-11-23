@@ -1,10 +1,12 @@
 import Component from 'ember-component'
+import { sumBy } from 'ember-array-computed-macros'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
+  projectInfos: undefined,
 
 
 
@@ -14,7 +16,7 @@ export default Component.extend({
 
   // ----- Overridden properties -----
   classNames: ['onlinePresense'],
-  
+
 
 
   // ----- Static properties -----
@@ -22,6 +24,7 @@ export default Component.extend({
 
 
   // ----- Computed properties -----
+  starsCount: sumBy('projectInfos', 'stargazersCount'),
 
 
 

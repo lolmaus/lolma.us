@@ -1790,6 +1790,12 @@ ember-ajax@^2.4.1:
   dependencies:
     ember-cli-babel "^5.1.5"
 
+ember-array-computed-macros@^1.3.0:
+  version "1.3.0"
+  resolved "http://localhost:8080/ember-array-computed-macros/-/ember-array-computed-macros-1.3.0.tgz#de8f26bd95ee6aefd78e2c2acfb7d73ede87689e"
+  dependencies:
+    ember-cli-babel "^5.0.0"
+
 ember-browserify@^1.1.13:
   version "1.1.13"
   resolved "http://localhost:8080/ember-browserify/-/ember-browserify-1.1.13.tgz#df74eea4adf4694e8c364222f9c5fd605000930b"

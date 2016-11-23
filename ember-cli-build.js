@@ -1,6 +1,11 @@
 /*jshint node:true*/
 /* global require, module */
-const EmberApp = require('ember-cli/lib/broccoli/ember-app')
+const EmberApp          = require('ember-cli/lib/broccoli/ember-app')
+const fs                = require('fs')
+
+const target     = process.env.LMS_DEPLOY_TARGET || 'localhost-4200'
+const dotEnvFile = `./.env-${target}`
+if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env file not found: ${dotEnvFile}`)
 
 module.exports = function (defaults) {
   const app =
@@ -14,12 +19,13 @@ module.exports = function (defaults) {
       },
 
       dotEnv: {
-        clientAllowedKeys: ['LMS_GITHUB_CLIENT_ID'],
-        path: {
-          development: './.env-development',
-          test:        './.env-development',
-          production:  './.env-production'
-        }
+        clientAllowedKeys: [
+          'LMS_DEPLOY_TARGET',
+          'LMS_GITHUB_CLIENT_ID',
+          'LMS_HOST',
+          'LMS_GATEKEEPER_URL',
+        ],
+        path: dotEnvFile
       }
     })
 

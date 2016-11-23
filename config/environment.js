@@ -1,4 +1,14 @@
 /* jshint node: true */
+const _ = require('lodash')
+
+const envVars = _.pick(process.env, [
+  'LMS_DEPLOY_TARGET',
+  'LMS_GITHUB_CLIENT_ID',
+  'LMS_HOST',
+  'LMS_GATEKEEPER_URL',
+])
+
+
 
 module.exports = function (env) {
   var ENV = {
@@ -7,6 +17,7 @@ module.exports = function (env) {
     environment: env,
     rootURL: '/',
     locationType: 'auto',
+    envVars,
 
     EmberENV: {
       FEATURES: {
@@ -39,8 +50,8 @@ module.exports = function (env) {
     torii: {
       providers: {
         'github-oauth2': {
-          apiKey:      process.env.LMS_GITHUB_CLIENT_ID,
-          redirectUri: 'http://localhost:4200/oauth-accept',
+          apiKey:      envVars.LMS_GITHUB_CLIENT_ID,
+          // redirectUri: overridden in provider's `redirectUri` method
           scope:       'public_repo',
         }
       }
@@ -66,9 +77,9 @@ module.exports = function (env) {
     ENV.APP.rootElement = '#ember-testing'
   }
 
-  if (env === 'production') {
-
-  }
+  // if (env === 'production') {
+  //
+  // }
 
   return ENV
 }

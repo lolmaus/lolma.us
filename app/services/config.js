@@ -1,6 +1,8 @@
 import Service from 'ember-service'
 import service from 'ember-service/inject'
-import computed from 'ember-computed'
+import computed, {alias} from 'ember-computed'
+import config from 'lolma-us/config/environment'
+import templateString from 'ember-computed-template-string'
 
 
 
@@ -8,6 +10,7 @@ export default Service.extend({
 
   // ----- Services -----
   fastboot: service(),
+  i18n:     service(),
 
 
 
@@ -16,16 +19,21 @@ export default Service.extend({
 
 
   // ----- Static properties -----
-  namespace: '/content',
+  envVars:       config.envVars,
+  host:          alias('envVars.LMS_HOST'),
+  gatekeeperUrl: alias('envVars.LMS_GATEKEEPER_URL'),
+  namespace:     '/content',
 
 
 
   // ----- Computed properties -----
-  host: computed('fastboot.isFastBoot', function () {
+  contentApiHost: computed('fastboot.isFastBoot', 'host', function () {
     return this.get('fastboot.isFastBoot')
       ? 'http://127.0.0.1:8081'
-      : ''
+      : this.get('host')
   }),
+
+  redirectUri: templateString("${host}/${i18n.locale}")
 
 
 

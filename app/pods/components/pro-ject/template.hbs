@@ -6,11 +6,13 @@
       target = '_blank'
     >{{project.effectiveName}}</a>
 
-    {{#if (and session.isAuthenticated project.projectInfoSync)}}
+    {{#if (and session.isAuthenticated)}}
+
       <button
         {{action 'toggleStar'}}
         disabled={{project.projectInfo.starPromisePending}}
       >
+        ★
         {{#if project.projectInfo.starPromisePending}}
           Updating...
         {{else if project.projectInfo.starPromiseFailed}}
@@ -19,19 +21,26 @@
           {{if project.projectInfo.effectiveIsStarred 'Unstar' 'Star'}}
         {{/if}}
       </button>
+
+      <span>
+        {{project.projectInfo.effectiveStargazersCount}}
+      </span>
+
     {{else}}
+
       <a
         href   = {{project.gitHubUrl}}
         target = '_blank'
       >
         ★ Star
       </a>
-    {{/if}}
 
-    {{#if project.projectInfoSync}}
-      <span>
-        {{project.projectInfo.effectiveStargazersCount}}
-      </span>
+      {{#if project.projectInfoSync}}
+        <span>
+          {{project.projectInfo.stargazersCount}}
+        </span>
+      {{/if}}
+
     {{/if}}
   </span>
 

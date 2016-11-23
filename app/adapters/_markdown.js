@@ -23,7 +23,7 @@ export default Adapter.extend({
 
 
   // ----- Custom properties -----
-  host:      reads('config.host'),
+  host:      reads('config.contentApiHost'),
   namespace: reads('config.namespace'),
 
 

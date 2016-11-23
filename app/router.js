@@ -12,8 +12,6 @@ Router.map(function () {
       this.route('bar', {path: ':barZZ/:bazZZ'})
     })
   })
-
-  this.route('oauth-accept')
 })
 
 export default Router
