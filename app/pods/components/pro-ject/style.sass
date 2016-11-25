@@ -1,0 +1,42 @@
+@at-root
+
+  @import app/styles/helpers/copy
+
+
+
+  ////------------------------------------------
+  .proJect
+    //------------------------------------------
+
+    // ----- Content layout -----
+    .proJect-description
+      margin-top: 0.2rem
+
+
+
+  ////------------------------------------------
+  .proJect-meta
+    //------------------------------------------
+
+    // ----- Layout -----
+    display:     flex
+    align-items: center
+    flex-wrap:   wrap
+
+    // ----- Content-layout -----
+    > *
+      &:not(:last-child)
+        margin-right: 0.5rem
+
+    img
+      display: block
+
+
+
+  ////------------------------------------------
+  .proJect-description
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 0.8em
+    +copy

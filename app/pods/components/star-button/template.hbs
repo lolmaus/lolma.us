@@ -1,0 +1,14 @@
+<a
+  class  = "starButton-button {{if disabled '-disabled' ''}}"
+  href   = {{link}}
+  target = '_blank'
+  {{action act}}
+>
+  ★ {{label}}
+</a>
+
+{{#unless (is-nully count)}}
+  <span class = "starButton-count">
+    {{count}}
+  </span>
+{{/unless}}

@@ -26,6 +26,12 @@ module.exports = function (defaults) {
           'LMS_GATEKEEPER_URL',
         ],
         path: dotEnvFile
+      },
+
+      sassOptions: {
+        includePaths: [
+          'app/pods'
+        ]
       }
     })
 

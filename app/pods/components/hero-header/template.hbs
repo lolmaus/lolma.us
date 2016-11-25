@@ -1,0 +1,36 @@
+{{#sec-tion innerClass = "heroHeader-inner"}}
+
+  <div class="heroHeader-header">
+    <h1 class="heroHeader-title h1">
+      {{t 'header.title'}} (lolmaus)
+    </h1>
+
+    <h2 class="heroHeader-subtitle">
+      <span class="heroHeader-subtitle-element _frontend">
+        {{t 'header.frontend'}},
+      </span>
+
+      <span class="heroHeader-subtitle-element _ember">
+        {{t 'header.ember'}}
+      </span>
+    </h2>
+  </div>{{!heroHeader-header}}
+
+
+
+  <img
+    class="heroHeader-avatar"
+    src = "https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg"
+    alt = "My face"
+  >
+
+
+
+  {{#if statement}}
+    {{markdown-block
+      class="heroHeader-statement"
+      section = statement
+    }}
+  {{/if}}
+
+{{/sec-tion}}

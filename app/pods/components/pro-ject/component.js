@@ -49,6 +49,33 @@ export default Component.extend({
     )
   }),
 
+  starButtonLabel: computed(
+    'session.isAuthenticated',
+    'project.projectInfo.starPromisePending',
+    'project.projectInfo.starPromiseFailed',
+    'project.projectInfo.effectiveIsStarred',
+    function () {
+      return (
+        !this.get('session.isAuthenticated')               ? 'Star'        :
+        this.get('project.projectInfo.starPromisePending') ? 'Updating...' :
+        this.get('project.projectInfo.starPromiseFailed')  ? 'Retry'       :
+        this.get('project.projectInfo.effectiveIsStarred') ? 'Unstar'      :
+                                                             'Star'
+      )
+    }
+  ),
+
+  starCount: computed(
+  'session.isAuthenticated',
+  'project.projectInfoSync',
+  'project.projectInfo.stargazersCount',
+  'project.projectInfo.effectiveStargazersCount',
+    function () {
+      if (this.get('session.isAuthenticated')) return this.get('project.projectInfo.effectiveStargazersCount')
+      if (this.get('project.projectInfoSync')) return this.get('project.projectInfo.stargazersCount')
+    }
+  ),
+
 
 
   // ----- Overridden Methods -----
@@ -70,7 +97,14 @@ export default Component.extend({
   // ----- Actions -----
   actions: {
     toggleStar () {
-      this.get('project.projectInfo').toggleStar()
+      if (!this.get('session.isAuthenticated')) {
+        window.open(this.get('project.gitHubUrl'), '_blank')
+        return
+      }
+
+      this
+        .get('project.projectInfo')
+        .then(project => project.toggleStar())
     }
   }
 })

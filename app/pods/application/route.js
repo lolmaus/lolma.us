@@ -41,6 +41,10 @@ export default Route.extend({
             if (response.status === 403) return null
             return RSVP.reject(response)
           }),
+
+        stackoverflowUser: store
+          .findRecord('stackoverflowUser', '901944')
+          .catch(() => store.peekRecord('stackoverflowUser', '901944'))
       })
 
       .then(model => RSVP.hash({

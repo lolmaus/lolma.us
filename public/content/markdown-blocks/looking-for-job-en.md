@@ -2,4 +2,4 @@
 id: looking-for-job-en
 ---
 
-Looking for full-time remote job as a senior EmberJS dev, preferably with relocation perspectives.
+Looking for a full-time remote job as a senior EmberJS dev, preferably with relocation perspectives

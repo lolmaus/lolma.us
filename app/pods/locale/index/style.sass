@@ -1,0 +1,52 @@
+@at-root
+
+  @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+
+
+
+  ////------------------------------------------
+  .route-localeIndex
+    //------------------------------------------
+
+    // ----- Layout -----
+    position: relative
+
+    // ----- Content layout -----
+    .route-localeIndex-localeSwitcher
+      position: fixed
+      top:      1rem
+      right:    1rem
+
+
+  ////------------------------------------------
+  .route-localeIndex-cards
+    //------------------------------------------
+
+    // ----- Layout -----
+    overflow: hidden
+
+
+  ////------------------------------------------
+  .route-localeIndex-cards-inner
+    //------------------------------------------
+
+    // ----- Layout -----
+    $padding:       5%
+    padding-top:    $padding
+    padding-bottom: $padding
+
+    $margin:        4rem
+    margin-right:   -$margin
+    margin-bottom:  -$margin
+
+    // ----- Layout -----
+    display:   flex
+    flex-wrap: wrap
+
+    .route-localeIndex-card
+      flex-basis:  400px
+      flex-grow:   1
+      flex-shrink: 0
+
+      margin-right:  $margin
+      margin-bottom: $margin

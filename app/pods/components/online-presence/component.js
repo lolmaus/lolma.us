@@ -6,7 +6,8 @@ import { sumBy } from 'ember-array-computed-macros'
 export default Component.extend({
 
   // ----- Arguments -----
-  projectInfos: undefined,
+  projectInfos:      undefined,
+  stackoverflowUser: undefined,
 
 
 
@@ -15,7 +16,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['onlinePresense'],
+  classNames: ['onlinePresence'],
 
 
 

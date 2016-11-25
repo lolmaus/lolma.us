@@ -1,34 +1,56 @@
-<h2>Open Source Contributions</h2>
+<h2 class = "proJects-title h2">
+  Open Source Contributions
+</h2>
 
 {{#unless isFastBoot}}
-  <label>
+  <label class = "proJects-stalled">
     {{input type="checkbox" checked=showStalled}}
-    Show stalled projects
+    <span>Show stalled projects</span>
   </label>
 {{/unless}}
 
 {{#with (if showStalled projects (reject-by "status" 4 projects)) as |projects|}}
 
   {{#with (filter-by 'group' 'sass' projects) as |projects|}}
-    <h3>Sass Libraries</h3>
+    <h4 class = "proJects-group-title h4">
+      Sass Libraries
+    </h4>
+
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
   {{/with}}
 
+
+
   {{#with (filter-by 'group' 'ember' projects) as |projects|}}
-    <h3>Ember Addons</h3>
+    <h4 class = "proJects-group-title h4">
+      Ember Addons
+    </h4>
+
     {{project-group projects=(filter-by 'type' 'addon' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
 
-    <h3>Ember Apps</h3>
+
+    <h4 class = "proJects-group-title h4">
+      Ember Apps
+    </h4>
+
     {{project-group projects=(filter-by 'type' 'app' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
   {{/with}}
 
+
+
   {{#with (filter-by 'group' 'js' projects) as |projects|}}
-    <h3>JavaScript Libraries</h3>
+    <h4 class = "proJects-group-title h4">
+      JavaScript Libraries
+    </h4>
+
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
   {{/with}}
 
   {{#with (filter-by 'group' 'jquery' projects) as |projects|}}
-    <h3>Old jQuery Plugins</h3>
+    <h4 class = "proJects-group-title h4">
+      Old jQuery Plugins
+    </h4>
+
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
   {{/with}}
 

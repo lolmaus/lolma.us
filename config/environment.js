@@ -56,6 +56,12 @@ module.exports = function (env) {
         }
       }
     },
+
+    webFontConfig: {
+      google: {
+        families: ['Open Sans:300:latin,cyrillic', 'Open Sans Condensed:300:latin,cyrillic']
+      },
+    },
   }
 
   if (env === 'development') {

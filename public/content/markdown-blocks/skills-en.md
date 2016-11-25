@@ -3,7 +3,7 @@ id: skills-en
 title: Skills
 ---
 
-### Frontend development
+#### Frontend development
 
 * Over five years in frontend development
 * Solid JavaScript skill, love modern tools, practices and patterns
@@ -13,7 +13,7 @@ title: Skills
 * Not a visual designer
 
 
-### EmberJS
+#### EmberJS
 
 * Over two years working exclusively with complex Ember apps
 * Have a gut feeling for the Ember Way and best practices
@@ -24,7 +24,7 @@ title: Skills
 * Active member of the Ember community with humble open source contributions
 
 
-### Other tech skills
+#### Other tech skills
 
 * Proficient in using dev tools: git, terminal, SSH, Docker, package managers, build tools, StackOverflow/Google, etc
 * Linux user, not a DevOps guy but have basic sysadmin skills
@@ -33,7 +33,7 @@ title: Skills
 * Active GitHub and StackOverflow profiles
 
 
-### Non-tech skills
+#### Non-tech skills
 
 * Fluent English
 * Fast typist

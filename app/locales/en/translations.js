@@ -1,11 +1,12 @@
 export default {
   header: {
     title: 'Andrey Mikhaylov',
-    subtitle: 'EmberJS/frontend developer'
+    frontend: 'frontend developer',
+    ember: 'EmberJS specialist',
   },
   langSwitcher: 'по-русски',
   timeline: {
-    timeline: 'Experience',
+    title: 'Experience',
     items: {
       mgimo: "Graduated from <a href='http://english.mgimo.ru/' target='_blank'>Moscow University of Foreign Affairs</a> (BoA)",
       adv: "Web Projects Manager at <a href='https://adv.ru/english/' target='_blank'>ADV.ru</a>, Russia",

@@ -1,11 +1,12 @@
 export default {
   header: {
     title: 'Андрей Михайлов',
-    subtitle: 'EmberJS/фронтенд разработчик'
+    frontend: 'фронтенд-разработчик',
+    ember: 'специалист по EmberJS'
   },
   langSwitcher: 'english',
   timeline: {
-    timeline: 'Опыт',
+    title: 'Опыт',
     items: {
       mgimo: "<a href='http://english.mgimo.ru/' target='_blank'>МГИМО</a> финишд! (бакалавр)",
       adv: "Менеджер вэб-проектов в <a href='https://adv.ru/english/' target='_blank'>ADV.ru</a>, Россия",

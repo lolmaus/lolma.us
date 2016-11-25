@@ -1,7 +1,12 @@
 {{#if section.title}}
-  <h2>{{section.title}}</h2>
+  <h2 class = "markdownBlock-title h2">
+    {{section.title}}
+  </h2>
 {{/if}}
 
 {{#if section.body}}
-  {{markdown-to-html section.body}}
+  {{markdown-to-html
+    section.body
+    class = "markdownBlock-body"
+  }}
 {{/if}}

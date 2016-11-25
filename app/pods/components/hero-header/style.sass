@@ -1,0 +1,96 @@
+@at-root
+
+  @import app/styles/helpers/theme
+  @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+
+
+
+  ////------------------------------------------
+  .heroHeader
+    //------------------------------------------
+
+    // ----- Looks -----
+    +theme(dark)
+    background-image:  url('/images/backgrounds/gplaypattern_@2X.png')
+    background-repeat: repeat
+    background-size:   (376px / 2)
+
+
+
+  ////------------------------------------------
+  .heroHeader-inner
+    //------------------------------------------
+
+    // ----- Layout -----
+    display:         flex
+    flex-direction:  column
+
+    align-items:     center
+    text-align:      center
+
+    min-height:      100vh
+    justify-content: space-between
+
+    padding: 5%
+
+    // ----- Content layout -----
+
+
+
+  ////------------------------------------------
+  .heroHeader-header
+    //------------------------------------------
+
+    // ----- Content layout -----
+    .heroHeader-title
+      margin-bottom: 2rem
+
+
+
+  ////------------------------------------------
+  .heroHeader-title
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 3rem
+
+
+
+  ////------------------------------------------
+  .heroHeader-subtitle
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 1.7rem
+    font-family: 'Open Sans', sans-serif
+
+    // ----- Content layout -----
+    .heroHeader-subtitle-element
+      +to(s)
+        display: block
+
+
+
+  ////------------------------------------------
+  .heroHeader-avatar
+    //------------------------------------------
+
+    // ----- Layout -----
+    max-width: (522px / 2)
+
+    // ----- Looks -----
+    border:           5px solid white
+    background-color: white
+    border-radius:    50%
+
+
+
+  ////------------------------------------------
+  .heroHeader-statement
+    //------------------------------------------
+
+    // ----- Layout -----
+    max-width: 750px
+
+    // ----- Text -----
+    font-size: 1.5rem

@@ -1,16 +1,45 @@
-<div>
-  {{markdown-block section = (find-by 'id' (concat 'personality-' model.locale) model.markdownBlocks)}}
-  {{markdown-block section = (find-by 'id' (concat 'skills-'      model.locale) model.markdownBlocks)}}
-  {{time-line}}
-
-  {{pro-jects
-    projects           = model.projects
-    locale             = model.locale
-    isFastBoot         = model.isFastBoot
-    gitHubProjectsStats = model.gitHubProjectsStats
+<div class = "route-localeIndex">
+  {{hero-header
+    statement = (find-by 'id' (concat 'looking-for-job-' model.locale) model.markdownBlocks)
   }}
 
-  {{online-presence
-    projectInfos = model.projectInfos
+  {{locale-switcher
+    class = "route-localeIndex-localeSwitcher"
+    toggleLocaleAction = (route-action 'toggleLocale')
   }}
-</div>
+
+
+  {{#sec-tion
+    class      = "route-localeIndex-cards"
+    innerClass = "route-localeIndex-cards-inner"
+  }}
+
+    {{markdown-block
+      class = "route-localeIndex-card _personality"
+      section = (find-by 'id' (concat 'personality-' model.locale) model.markdownBlocks)
+    }}
+
+    {{online-presence
+      class             = "route-localeIndex-card _presence"
+      projectInfos      = model.projectInfos
+      stackoverflowUser = model.stackoverflowUser
+    }}
+
+    {{markdown-block
+      class = "route-localeIndex-card _skills"
+      section = (find-by 'id' (concat 'skills-'      model.locale) model.markdownBlocks)
+    }}
+
+    {{pro-jects
+      class               = "route-localeIndex-card _projects"
+      projects            = model.projects
+      locale              = model.locale
+      isFastBoot          = model.isFastBoot
+      gitHubProjectsStats = model.gitHubProjectsStats
+    }}
+
+    {{time-line
+      class = "route-localeIndex-card _timeline"
+    }}
+  {{/sec-tion}}{{! route-localeIndex-cards }}
+</div>{{! route-localeIndex }}

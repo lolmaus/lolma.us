@@ -1,11 +1,152 @@
-<h2>Online presence</h2>
+<h2 class = "onlinePresence-title h2">
+  Online presence
+</h2>
 
-<ul>
-  <li>
-    GitHub: <a href="https://github.com/lolmaus" target="_blank">lolmaus</a>
+<ul class = "onlinePresence-list">
+  <li class = "onlinePresence-item">
+    <img
+      class  = "onlinePresence-item-icon"
+      src    = "/images/service-icons/github.png"
+      width  = "16"
+      height = "16"
+      alt    = "GitHub"
+    >
+
+    <span class = "onlinePresence-item-service">
+      GitHub:
+    </span>
+
+    <a href="https://github.com/lolmaus" target="_blank">lolmaus</a>
 
     {{#if projectInfos}}
-      [★ {{starsCount}}]
+      ★{{starsCount}}
     {{/if}}
   </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/stackoverflow.png"
+      width  = "16"
+      height = "16"
+      alt    = "StackOverflow"
+    >
+
+    {{!
+    <span class = "onlinePresence-item-service">
+      StackOverflow:
+    </span>
+    }}
+
+    <a href="https://stackoverflow.com/users/901944/lolmaus-andrey-mikhaylov" target="_blank">StackOverflow</a>
+
+    {{#if stackoverflowUser}}
+      <span>
+        {{stackoverflowUser.reputation}}
+      </span>
+
+      <span>
+        ●
+        {{stackoverflowUser.gold}}
+      </span>
+
+      <span>
+        ◍
+        {{stackoverflowUser.silver}}
+      </span>
+
+      <span>
+        ○
+        {{stackoverflowUser.bronze}}
+      </span>
+    {{/if}}
+  </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/twitter.png"
+      width  = "16"
+      height = "13"
+      alt    = "Twitter"
+    >
+
+    <span class = "onlinePresence-item-service">
+      Twitter:
+    </span>
+
+    <a href="https://twitter.com/lolmaus_en" target="_blank">@lolmaus_en</a>
+  </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/telegram.png"
+      width  = "16"
+      height = "16"
+      alt    = "Telegram"
+    >
+
+    <span class = "onlinePresence-item-service">
+      Telegram:
+    </span>
+
+    <a href="https://telegram.me/lolmaus" target="_blank">@lolmaus</a>
+  </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/gitter.png"
+      width  = "16"
+      height = "16"
+      alt    = "Gitter"
+    >
+
+    <span class = "onlinePresence-item-service">
+      Gitter:
+    </span>
+
+    <a href="https://gitter.im/lolmaus" target="_blank">lolmaus</a>
+  </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/ember.png"
+      width  = "16"
+      height = "16"
+      alt    = "Ember Slack Community"
+    >
+
+    <span class = "onlinePresence-item-service">
+      Slack:
+    </span>
+
+    <a href="https://embercommunity.slack.com/messages/@lolmaus/" target="_blank">@lolmaus</a>
+  </li>
+
+
+
+  <li class = "onlinePresence-item">
+    <img
+      src    = "/images/service-icons/email.png"
+      width  = "16"
+      height = "16"
+      alt    = "E-mail"
+    >
+
+    <span class = "onlinePresence-item-service">
+      E-mail:
+    </span>
+
+    <a href="mailto:lolmaus@gmail.com" target="_blank">lolmaus@gmail.com</a>
+  </li>
+
+
 </ul>

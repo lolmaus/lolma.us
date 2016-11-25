@@ -1,48 +1,17 @@
-<div>
+<div class = "proJect-meta">
 
-  <span>
-    <a
-      href   = {{project.effectiveUrl}}
-      target = '_blank'
-    >{{project.effectiveName}}</a>
+  <a
+    href   = {{project.effectiveUrl}}
+    target = '_blank'
+  >{{project.effectiveName}}</a>
 
-    {{#if (and session.isAuthenticated)}}
-
-      <button
-        {{action 'toggleStar'}}
-        disabled={{project.projectInfo.starPromisePending}}
-      >
-        ★
-        {{#if project.projectInfo.starPromisePending}}
-          Updating...
-        {{else if project.projectInfo.starPromiseFailed}}
-          Retry
-        {{else}}
-          {{if project.projectInfo.effectiveIsStarred 'Unstar' 'Star'}}
-        {{/if}}
-      </button>
-
-      <span>
-        {{project.projectInfo.effectiveStargazersCount}}
-      </span>
-
-    {{else}}
-
-      <a
-        href   = {{project.gitHubUrl}}
-        target = '_blank'
-      >
-        ★ Star
-      </a>
-
-      {{#if project.projectInfoSync}}
-        <span>
-          {{project.projectInfo.stargazersCount}}
-        </span>
-      {{/if}}
-
-    {{/if}}
-  </span>
+  {{star-button
+    label    = starButtonLabel
+    count    = starCount
+    disabled = (and session.isAuthenticated project.projectInfo.starPromisePending)
+    link     = project.gitHubUrl
+    act      = (action 'toggleStar')
+  }}
 
   {{#if project.emberObserver}}
     <a
@@ -57,12 +26,15 @@
   {{/if}}
 
   {{#if (gte project.status 2)}}
-    <span class="proJect-status -{{project.status}}">
+    <span class = "proJect-status -{{project.status}}">
       {{statusLabel}}
     </span>
   {{/if}}
 </div>
 
 {{#if currentDescription}}
-  {{markdown-to-html currentDescription}}
+  {{markdown-to-html
+    currentDescription
+    class = "proJect-description"
+  }}
 {{/if}}

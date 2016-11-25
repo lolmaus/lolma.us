@@ -1,0 +1,46 @@
+@at-root
+
+  ////------------------------------------------
+  .onlinePresence
+    //------------------------------------------
+
+    // ----- Layout -----
+    overflow: hidden
+
+    // ----- Content layout -----
+    .onlinePresence-list
+      margin-top: 1rem
+
+
+
+  ////------------------------------------------
+  .onlinePresence-list
+    //------------------------------------------
+
+    // ----- Layout -----
+    $margin:        1rem
+    margin-right:   -$margin
+    margin-bottom:  -$margin
+
+    // ----- Layout -----
+    display:   flex
+    flex-wrap: wrap
+
+    .onlinePresence-item
+      flex-basis:  300px
+      flex-grow:   1
+      flex-shrink: 1
+
+      margin-right:  $margin
+      margin-bottom: $margin
+
+
+
+
+  ////------------------------------------------
+  .onlinePresence-item
+    //------------------------------------------
+
+    // ----- Content layout -----
+    > *
+      vertical-align: middle
