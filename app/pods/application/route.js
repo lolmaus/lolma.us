@@ -38,6 +38,7 @@ export default Route.extend({
           .findAll('project-info')
           // Ignore 403 error
           .catch(response => {
+            console.log('projectInfos failed', response)
             if (response.status === 403) return null
             return RSVP.reject(response)
           }),
@@ -81,7 +82,18 @@ export default Route.extend({
 
     const idsFormProjects = projects.map(project => project.belongsTo('projectInfo').id())
     const remainingIds    = _.reject(idsFormProjects, id => existingIds.includes(id))
-    const promises        = remainingIds.map(id => store.findRecord('project-info', id))
+
+    const promises =
+      remainingIds
+        .map(id =>
+          store
+            .findRecord('project-info', id)
+            .catch(response => {
+              console.log('remainingProjectInfo failed', id, response)
+              if (response.status === 403) return null
+              return RSVP.reject(response)
+            })
+        )
 
     return RSVP.all(promises)
   },

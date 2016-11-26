@@ -47,4 +47,26 @@
       section = (find-by 'id' (concat 'about-site-' model.locale) model.markdownBlocks)
     }}
   {{/sec-tion}}{{! route-localeIndex-cards }}
+
+
+
+
+  {{#unless model.isFastBoot}}
+    {{#sec-tion
+      class      = "route-localeIndex-footer"
+      innerClass = "route-localeIndex-footer-inner"
+    }}
+      <hr>
+
+      <div>
+        {{#if isAuthenticating}}
+          Logging in...
+        {{else if session.isAuthenticated}}
+          <a href {{action 'logout'}}>Log out</a>
+        {{else}}
+          <a href {{action 'login'}}>Log in</a> to star projects
+        {{/if}}
+      </div>
+    {{/sec-tion}}
+  {{/unless}}{{! isFastBoot }}
 </div>{{! route-localeIndex }}

@@ -12,6 +12,10 @@ export default function fetchGitHub (url, sessionService, {mode = 'json', method
       ...token ? {Authorization: `token ${token}`} : {},
     },
   })
+    .then(response => {
+      if (method && response.status >= 400) return RSVP.reject(response)
+      return response
+    })
     .then(response =>
       mode === 'json' ? response.json() :
       mode === 'text' ? response.text() :
@@ -22,7 +26,10 @@ export default function fetchGitHub (url, sessionService, {mode = 'json', method
         response.status === 401
         && sessionService
         && sessionService.get('isAuthenticated')
-      ) sessionService.invalidate()
+      ) {
+        sessionService.invalidate()
+        return null
+      }
 
       return RSVP.reject(response)
     })

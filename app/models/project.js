@@ -24,7 +24,7 @@ export default Model.extend({
 
   // ----- Relationships -----
   website:     belongsTo('website'),
-  projectInfo: belongsTo('project-info'),
+  projectInfo: belongsTo('project-info', {async: true}),
 
 
 

@@ -23,7 +23,7 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  project: belongsTo('project'),
+  // project: belongsTo('project'),
 
 
 
@@ -54,8 +54,25 @@ export default Model.extend({
     return PromiseProxy.create({promise})
   }),
 
-  starPromisePending: or('isStarredProxy.isPending',  'toggleStarProxy.isPending'),
-  starPromiseFailed:  or('isStarredProxy.isRejected', 'toggleStarProxy.isRejected'),
+  starPromisePending: computed(
+    'session.isAuthenticated',
+    'isStarredProxy.isPending',
+    'toggleStarProxy.isPending',
+    function () {
+      if (!this.get('session.isAuthenticated')) return false
+      return this.get('isStarredProxy.isPending') || this.get('toggleStarProxy.isPending')
+    }
+  ),
+
+  starPromiseFailed: computed(
+    'session.isAuthenticated',
+    'isStarredProxy.isRejected',
+    'toggleStarProxy.isRejected',
+    function () {
+      if (!this.get('session.isAuthenticated')) return false
+      return this.get('isStarredProxy.isRejected') || this.get('toggleStarProxy.isRejected')
+    }
+  ),
 
   originalIsStarred: alias('isStarredProxy.content'),
   newIsStarred:      alias('toggleStarProxy.content'),
