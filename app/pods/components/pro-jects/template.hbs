@@ -1,11 +1,11 @@
-<h2 class = "proJects-title h2">
-  Open Source Contributions
+<h2 class = "proJects-title -callout">
+  {{t 'projects.title'}}
 </h2>
 
 {{#unless isFastBoot}}
   <label class = "proJects-stalled">
     {{input type="checkbox" checked=showStalled}}
-    <span>Show stalled projects</span>
+    <span>{{t 'projects.showStalled'}}</span>
   </label>
 {{/unless}}
 
@@ -13,7 +13,7 @@
 
   {{#with (filter-by 'group' 'sass' projects) as |projects|}}
     <h4 class = "proJects-group-title h4">
-      Sass Libraries
+      {{t 'projects.sassLibs'}}
     </h4>
 
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
@@ -23,14 +23,14 @@
 
   {{#with (filter-by 'group' 'ember' projects) as |projects|}}
     <h4 class = "proJects-group-title h4">
-      Ember Addons
+      {{t 'projects.emberAddons'}}
     </h4>
 
     {{project-group projects=(filter-by 'type' 'addon' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
 
 
     <h4 class = "proJects-group-title h4">
-      Ember Apps
+      {{t 'projects.emberApps'}}
     </h4>
 
     {{project-group projects=(filter-by 'type' 'app' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
@@ -40,7 +40,7 @@
 
   {{#with (filter-by 'group' 'js' projects) as |projects|}}
     <h4 class = "proJects-group-title h4">
-      JavaScript Libraries
+      {{t 'projects.jsLibs'}}
     </h4>
 
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
@@ -48,7 +48,7 @@
 
   {{#with (filter-by 'group' 'jquery' projects) as |projects|}}
     <h4 class = "proJects-group-title h4">
-      Old jQuery Plugins
+      {{t 'projects.jQueryPlugins'}}
     </h4>
 
     {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}

@@ -1,0 +1,7 @@
+=heading-sizes($min: 1.1em, $max: 2.2em)
+
+  $increment: ($max - $min) / 5
+
+  @for $i from 1 through 6
+    h#{$i}
+      font-size: $max - $increment * ($i - 1)

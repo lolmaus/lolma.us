@@ -8,7 +8,8 @@ import _ from 'npm:lodash'
 export default Route.extend({
 
   // ----- Services -----
-  i18n:     service(),
+  i18n:    service(),
+  moment:  service(),
 
 
 
@@ -28,6 +29,7 @@ export default Route.extend({
   model ({locale}) {
     if (!['en', 'ru'].includes(locale)) locale = 'en'
     this.set('i18n.locale', locale)
+    this.get('moment').changeLocale(locale)
 
     const store = this.get('store')
     const model = this.modelFor('application')

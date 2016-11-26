@@ -57,11 +57,17 @@ module.exports = function (env) {
       }
     },
 
-    webFontConfig: {
-      google: {
-        families: ['Open Sans:300:latin,cyrillic', 'Open Sans Condensed:300:latin,cyrillic']
-      },
+    moment: {
+      // To cherry-pick specific locale support into your application.
+      // Full list of locales: https://github.com/moment/moment/tree/2.10.3/locale
+      includeLocales: ['ru'],
     },
+
+    // webFontConfig: {
+    //   google: {
+    //     families: ['Open Sans:300:latin,cyrillic', 'Open Sans Condensed:300:latin,cyrillic']
+    //   },
+    // },
   }
 
   if (env === 'development') {

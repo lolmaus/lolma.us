@@ -31,7 +31,10 @@
     min-height:      100vh
     justify-content: space-between
 
-    padding: 5%
+    padding: 3rem 7%
+
+    +to(xs)
+      padding-bottom: 1.5rem
 
     // ----- Content layout -----
 
@@ -43,7 +46,13 @@
 
     // ----- Content layout -----
     .heroHeader-title
-      margin-bottom: 2rem
+      margin-bottom: 1rem
+
+      +from(xs)
+        margin-bottom: 1.5rem
+
+      +from(l)
+        margin-bottom: 2rem
 
 
 
@@ -52,7 +61,18 @@
     //------------------------------------------
 
     // ----- Text -----
-    font-size: 3rem
+    color: white !important
+
+    // ----- RWD -----
+    font-size:   1.5rem
+    text-shadow: 0 0 1px white
+
+    +from(xs)
+      font-size:   2.2rem
+      text-shadow: 0 0 2px white
+
+    +from(l)
+      font-size: 3rem
 
 
 
@@ -61,13 +81,22 @@
     //------------------------------------------
 
     // ----- Text -----
-    font-size: 1.7rem
     font-family: 'Open Sans', sans-serif
+    color:       #ddd !important
 
     // ----- Content layout -----
     .heroHeader-subtitle-element
       +to(s)
         display: block
+
+    // ----- RWD -----
+    font-size: 1.2rem
+
+    +from(xs)
+      font-size: 1.4rem
+
+    +from(l)
+      font-size: 1.7rem
 
 
 
@@ -76,12 +105,25 @@
     //------------------------------------------
 
     // ----- Layout -----
-    max-width: (522px / 2)
 
     // ----- Looks -----
     border:           5px solid white
     background-color: white
     border-radius:    50%
+    box-shadow:       0 0 2px white
+
+    // ----- RWD -----
+    $width: 512px
+    width:  ($width / 3)
+    height: ($width / 3)
+
+    +from(xs)
+      width:  ($width / 2.5)
+      height: ($width / 2.5)
+
+    +from(m)
+      width:  ($width / 2)
+      height: ($width / 2)
 
 
 
@@ -93,4 +135,13 @@
     max-width: 750px
 
     // ----- Text -----
-    font-size: 1.5rem
+    color:     white !important
+
+    // ----- RWD -----
+    font-size: 1.1rem
+
+    +from(xs)
+      font-size: 1.3rem
+
+    +from(l)
+      font-size: 1.5rem

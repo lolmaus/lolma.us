@@ -1,0 +1,107 @@
+@at-root
+
+  @import node_modules/sass-toolkit/stylesheets/toolkit/triangle
+
+
+
+  $icon-size:         25px
+  $border-width:      1px
+  $icon-inner-size:   $icon-size - 2 * $border-width
+  $border-color:      grey
+  $arrow-width:       9px
+  $arrow-offset:      floor($icon-inner-size / 2) - floor($arrow-width / 2)
+
+
+
+  ////------------------------------------------
+  .timeLine-list
+    //------------------------------------------
+
+    // ----- Layout -----
+    overflow:       hidden
+    position:       relative
+    padding-bottom: 0.5rem
+
+    // ----- Content layout -----
+    .timeLine-title
+      margin-bottom: 0.5rem
+
+    .timeLine-item
+      &:not(:last-child)
+        margin-bottom: 1rem
+
+    &:after
+      content:     ''
+      position:    absolute
+      left:        $arrow-offset + $border-width
+      bottom:      0
+      +triangle($border-color, 6px, $arrow-width, bottom)
+
+
+  ////------------------------------------------
+  .timeLine-item
+    //------------------------------------------
+
+    // ----- Layout -----
+    display:         flex
+    justify-content: flex-start
+    align-items:     center
+
+    // ----- Content layout -----
+    .timeLine-item-icon
+      flex-shrink:  0
+      margin-right: 1rem
+
+    .timeLine-item-info
+      flex-grow: 1
+
+
+
+  ////------------------------------------------
+  .timeLine-item-icon
+    //------------------------------------------
+
+    // ----- Layout -----
+    width:        $icon-size
+    height:       $icon-size
+    border-width: $border-width
+    line-height:  $icon-inner-size
+    text-align:   center
+    position:     relative
+    z-index:      2
+
+    // ----- Looks -----
+    border-color:     $border-color
+    border-style:     solid
+    border-radius:    50%
+    background-color: white
+
+    // ----- Content layout -----
+    .timeLine-item-icon-icon
+      font-size:      1rem
+
+    .timeLine-item:not(:last-child) &:after
+      content:     ''
+      position:    absolute
+      width:       0
+      height:      1000px
+      border-left: 1px solid $border-color
+      left:        floor($icon-inner-size / 2)
+      top:         100%
+
+    .timeLine-item:not(:first-child) &:before
+      content:     ''
+      position:    absolute
+      left:        $arrow-offset
+      bottom:      100%
+      +triangle($border-color, 6px, $arrow-width, bottom)
+
+
+
+  ////------------------------------------------
+  .timeLine-item-date
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 0.8em
+    color:     config-get('lolma-us.themes.light.label')

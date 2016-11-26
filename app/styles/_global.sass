@@ -1,17 +1,15 @@
 @import node_modules/sass-toolkit/stylesheets/toolkit/reset
 @import app/styles/helpers/theme
 
-@import app/styles/helpers/header-sizes
+@import app/styles/helpers/copy
 
-+header-sizes($tags: false)
-
-h1, h2, h3, h4, h5, h6
-  font-family: 'Open Sans Condensed', sans-serif
-  font-weight: normal
++copy
 
 body
   +theme(light)
-  font-family: 'Open Sans', sans-serif
+  font-family: 'PT Sans', sans-serif
   line-height: 1.3
 
 
+h1, h2, h3, h4, h5, h6
+  font-family: 'PT Sans Caption', sans-serif

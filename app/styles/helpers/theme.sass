@@ -1,3 +1,41 @@
 =theme($theme-name: "light", $bg: "bg1")
   background-color: config-get("lolma-us.themes.#{$theme-name}.#{$bg}")
   color:            config-get("lolma-us.themes.#{$theme-name}.text")
+
+  a:link
+    text-decoration: underline
+    color:           config-get("lolma-us.themes.#{$theme-name}.link.link")
+
+  a:active
+    text-decoration: underline
+    color:           config-get("lolma-us.themes.#{$theme-name}.link.active")
+
+  a:hover:not(:disabled)
+    text-decoration: underline
+    color:           config-get("lolma-us.themes.#{$theme-name}.link.hover")
+
+  a:visited
+    text-decoration: underline
+    color:           config-get("lolma-us.themes.#{$theme-name}.link.visited")
+
+  a, a.-disabled
+    text-decoration: none
+    color:           config-get("lolma-us.themes.#{$theme-name}.link.disabled")
+
+  h1, h2, h3, h4, h5, h6
+    color:                     config-get("lolma-us.themes.#{$theme-name}.heading2")
+    //text-shadow:     0 0 0.5px config-get("lolma-us.themes.#{$theme-name}.heading2")
+
+    &.-callout
+      color:                   config-get("lolma-us.themes.#{$theme-name}.heading1")
+      text-shadow:   0 0 0.5px config-get("lolma-us.themes.#{$theme-name}.heading1")
+
+      position: relative
+      &:after
+        content:  ''
+        position: absolute
+        bottom:   0
+        left:     0
+        width:    100%
+        box-shadow:    0 0 1px   config-get("lolma-us.themes.#{$theme-name}.heading1")
+        border-bottom: 1px solid config-get("lolma-us.themes.#{$theme-name}.heading1")

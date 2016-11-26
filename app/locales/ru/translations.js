@@ -5,6 +5,18 @@ export default {
     ember: 'специалист по EmberJS'
   },
   langSwitcher: 'english',
+  onlinePresence: {
+    title: 'В этих ваших интернетах'
+  },
+  projects: {
+    title: 'Вклад в Open Source',
+    showStalled: 'Показывать заброшенные проекты',
+    sassLibs: 'Sass-библиотеки',
+    emberAddons: 'Ember-аддоны',
+    emberApps: 'Приложения на Ember',
+    jsLibs: 'JavaScript-библиотеки',
+    jQueryPlugins: 'Старые jQuery-плагины',
+  },
   timeline: {
     title: 'Опыт',
     items: {

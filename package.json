@@ -47,7 +47,6 @@
     "ember-cli-staticboot": "^0.1.2",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-cli-webfontloader": "^0.3.1",
     "ember-composable-helpers": "^1.1.2",
     "ember-computed-template-string": "^0.1.4",
     "ember-cpm": "^2.1.3",
