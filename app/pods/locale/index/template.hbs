@@ -41,5 +41,10 @@
     {{time-line
       class = "route-localeIndex-card _timeline"
     }}
+
+    {{markdown-block
+      class = "route-localeIndex-card _about-site"
+      section = (find-by 'id' (concat 'about-site-' model.locale) model.markdownBlocks)
+    }}
   {{/sec-tion}}{{! route-localeIndex-cards }}
 </div>{{! route-localeIndex }}
