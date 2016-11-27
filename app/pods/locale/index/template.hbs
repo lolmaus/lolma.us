@@ -60,11 +60,11 @@
 
       <div>
         {{#if isAuthenticating}}
-          Logging in...
+          {{t 'login.loggingIn'}}
         {{else if session.isAuthenticated}}
-          <a href {{action 'logout'}}>Log out</a>
+          <a href {{action 'logout'}}>{{t 'login.logOut'}}</a>
         {{else}}
-          <a href {{action 'login'}}>Log in</a> to star projects
+          <a href {{action 'login'}}>{{t 'login.logIn'}}</a> {{t 'login.withGitHub'}}
         {{/if}}
       </div>
     {{/sec-tion}}

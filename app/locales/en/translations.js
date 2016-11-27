@@ -5,6 +5,12 @@ export default {
     ember: 'EmberJS specialist',
   },
   langSwitcher: 'по-русски',
+  login: {
+    logIn: 'Log in',
+    withGitHub: 'with GitHub to star projects',
+    logOut: 'Log out',
+    loggingIn: 'Заходим...',
+  },
   onlinePresence: {
     title: 'Online presence',
   },

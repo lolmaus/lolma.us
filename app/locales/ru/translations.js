@@ -5,6 +5,12 @@ export default {
     ember: 'специалист по EmberJS'
   },
   langSwitcher: 'english',
+  login: {
+    logIn: 'Войдите',
+    withGitHub: 'через GitHub, чтобы ставить звездочки',
+    logOut: 'Выход',
+    loggingIn: 'Заходим...',
+  },
   onlinePresence: {
     title: 'В этих ваших интернетах'
   },
