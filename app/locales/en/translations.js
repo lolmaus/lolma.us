@@ -2,14 +2,18 @@ export default {
   header: {
     title: 'Andrey Mikhaylov',
     frontend: 'frontend developer',
-    ember: 'EmberJS specialist',
+    ember: 'EmberJS enthusiast',
   },
-  langSwitcher: 'по-русски',
+  menu: {
+    greeting: 'You are awesome today!',
+    source:   'Source on GitHub',
+  },
+  langSwitcher: 'Моя не понимать',
   login: {
     logIn: 'Log in',
     withGitHub: 'with GitHub to star projects',
     logOut: 'Log out',
-    loggingIn: 'Заходим...',
+    loggingIn: 'Logging in...',
   },
   onlinePresence: {
     title: 'Online presence',

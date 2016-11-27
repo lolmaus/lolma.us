@@ -19,4 +19,6 @@ title: Об этом сайте
 
 *   Контент хранится в виде Markdown с <a href="https://jekyllrb.com/docs/frontmatter/" target="_blank">Front Matter</a>. Для работы с ним (а также с данными GitHub и SO) используются точечно переопределенные адаптеры и сериализаторы.
 
+*   Я не мог использовать <a href="https://github.com/offirgolan/ember-burger-menu" target="_blank">offirgolan/ember-burger-menu</a>, поскольку он не работает, пока приложение все еще грузится. Поэтому я погуглил и реализовал сдвижное меню на чистом CSS. У этого подхода есть ограничения, но в целом получилось супер!
+
 Исходники сайта доступны на GitHub: <a href="https://github.com/lolmaus/lolma.us" target="_blank">lolmaus/lolma.us</a>.

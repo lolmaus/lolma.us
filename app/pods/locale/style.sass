@@ -1,0 +1,195 @@
+@at-root
+
+  @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+  @import app/styles/helpers/theme
+
+
+
+  ////------------------------------------------
+  .route-locale
+    //------------------------------------------
+
+    $menu-width: 250px
+
+    // ----- Looks -----
+    background-color: black
+    background-image: repeating-linear-gradient(-45deg, black, black 4px, grey 4px, grey 8px)
+
+    // ----- Content layout -----
+    .route-locale-menu
+      position:   fixed
+      top:        0
+      right:      0
+      width:      $menu-width
+      height:     100vh
+      overflow-y: auto
+      transform:  translate(#{$menu-width}, 0)
+
+    .route-locale-menuToggler
+      position: fixed
+      clip:     rect(0, 0, 0, 0)
+
+    .route-locale-burger
+      position: fixed
+      z-index:  3
+      top:      1rem
+      right:    1rem
+      +from(m)
+        top:      1rem
+        right:    1.5rem
+      +from(l)
+        top:      1.5rem
+        right:    2rem
+      +from(xl)
+        top:      2rem
+        right:    2.5rem
+
+
+    .route-locale-content
+      position:   relative
+      height:     100vh
+      z-index:    1
+      overflow-y: scroll
+      box-shadow: -1px 0 8px black
+
+    .route-locale-backdrop
+      position: fixed
+      top:      0
+      left:     0
+      width:    calc(100% - #{$menu-width})
+      height:   100%
+      z-index:  3
+      display:  none
+
+    // ----- Behavior -----
+    .route-locale-burger, .route-locale-content, .route-locale-menu
+      transition: transform 0.25s ease-in-out, opacity 0.25s linear
+
+    .route-locale-menuToggler:checked
+      ~ .route-locale-burger
+        opacity: 1
+
+      ~ .route-locale-content
+        opacity: 0.7
+
+      ~ .route-locale-backdrop
+        display: block
+
+      ~ .route-locale-menu
+        transform: translate(0, 0)
+
+      ~ .route-locale-burger,
+      ~ .route-locale-content
+        transform: translate(-#{$menu-width}, 0)
+
+
+
+  ////------------------------------------------
+  .route-locale-menu
+    //------------------------------------------
+
+    // ----- Looks -----
+    +theme('red')
+
+    // ----- Content layout -----
+    .route-locale-menu-greeting
+      margin-bottom:  2rem
+      vertical-align: middle
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-greeting
+    //------------------------------------------
+
+    // ----- Layout -----
+    padding: 1rem
+
+    // ----- Text -----
+    text-align:  center
+    font-family: 'PT Sans Caption', sans-serif
+    font-size:   1.2rem
+    font-weight: bold
+
+    // ----- Content layout -----
+    .route-locale-menu-greeting-emoji
+      font-size:      1.5em
+      vertical-align: middle
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-items
+    //------------------------------------------
+
+    // ----- Content Layout -----
+    .route-locale-menu-item
+      display:    block
+      border-top: 1px solid white
+      &:last-child
+        border-bottom: 1px solid white
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-item
+    //------------------------------------------
+
+    // ----- Layout -----
+    padding: 0.8rem 1rem
+
+    // ----- Looks -----
+    font-size: 1.2rem
+    &, *
+      text-decoration: none !important
+
+    // ----- Behavior -----
+    &:hover
+      color:            white !important
+      background-color: rgba(255, 255, 255, 0.1)
+
+
+
+
+
+  ////------------------------------------------
+  .route-locale-backdrop
+    //------------------------------------------
+
+    // ----- Looks -----
+    cursor: pointer
+
+
+
+  ////------------------------------------------
+  .route-locale-burger
+    //------------------------------------------
+
+    // ----- Layout -----
+    padding: 0.5rem
+
+    // ----- Looks -----
+    border-radius:    50%
+    background-color: white
+    cursor:           pointer
+
+    // ----- Content layout -----
+    .route-locale-burger-icon
+      $size:   1.4rem
+      width:   $size
+      height:  $size
+      display: block
+
+    // ----- Behavior -----
+    opacity: 0.6
+    &:hover
+      opacity: 1
+
+
+
+  ////------------------------------------------
+  .route-locale-content
+    //------------------------------------------
+
+    // ----- Looks -----
+    background-color: white

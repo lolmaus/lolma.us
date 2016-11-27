@@ -3,11 +3,6 @@
     statement = (find-by 'id' (concat 'looking-for-job-' model.locale) model.markdownBlocks)
   }}
 
-  {{locale-switcher
-    class = "route-localeIndex-localeSwitcher"
-    toggleLocaleAction = (route-action 'toggleLocale')
-  }}
-
 
   {{#sec-tion
     class      = "route-localeIndex-cards"

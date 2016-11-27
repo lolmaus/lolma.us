@@ -38,7 +38,6 @@ export default Route.extend({
           .findAll('project-info')
           // Ignore 403 error
           .catch(response => {
-            console.log('projectInfos failed', response)
             if (response.status === 403) return null
             return RSVP.reject(response)
           }),
@@ -89,7 +88,6 @@ export default Route.extend({
           store
             .findRecord('project-info', id)
             .catch(response => {
-              console.log('remainingProjectInfo failed', id, response)
               if (response.status === 403) return null
               return RSVP.reject(response)
             })

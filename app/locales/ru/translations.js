@@ -2,9 +2,13 @@ export default {
   header: {
     title: 'Андрей Михайлов',
     frontend: 'фронтенд-разработчик',
-    ember: 'специалист по EmberJS'
+    ember: 'EmberJS-энтузиаст'
   },
-  langSwitcher: 'english',
+  menu: {
+    greeting: 'Ты сегодня лучше всех!',
+    source:   'Исходник на GitHub',
+  },
+  langSwitcher: 'Switch to English',
   login: {
     logIn: 'Войдите',
     withGitHub: 'через GitHub, чтобы ставить звездочки',
