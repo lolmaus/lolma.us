@@ -19,13 +19,15 @@
     <a href="https://github.com/lolmaus" target="_blank">lolmaus</a>
 
     {{#if projectInfos}}
-      ★{{starsCount}}
+      <span class = "onlinePresence-item-meta">
+        ★{{starsCount}}
+      </span>
     {{/if}}
   </li>
 
 
 
-  <li class = "onlinePresence-item">
+  <li class = "onlinePresence-item _so">
     <img
       src    = "/images/service-icons/stackoverflow.png"
       width  = "16"
@@ -42,24 +44,25 @@
     <a href="https://stackoverflow.com/users/901944/lolmaus-andrey-mikhaylov" target="_blank">StackOverflow</a>
 
     {{#if stackoverflowUser}}
-      <span>
-        {{stackoverflowUser.reputation}}
-      </span>
+      <span class = "onlinePresence-item-meta onlinePresence-item-so-stats">
+        <span class = "onlinePresence-item-so-stats-reputation">
+          {{stackoverflowUser.reputation}}
+        </span>{{! onlinePresence-item-so-stats-reputation }}
 
-      <span>
-        ●
-        {{stackoverflowUser.gold}}
-      </span>
+        <span class = "onlinePresence-item-so-stats-badges">
+          <span class = "onlinePresence-item-so-stats-badge _gold">
+            {{stackoverflowUser.gold}}
+          </span>{{! onlinePresence-item-so-stats-badge _gold }}
 
-      <span>
-        ◍
-        {{stackoverflowUser.silver}}
-      </span>
+          <span class = "onlinePresence-item-so-stats-badge _silver">
+            {{stackoverflowUser.silver}}
+          </span>{{! onlinePresence-item-so-stats-badge _silver }}
 
-      <span>
-        ○
-        {{stackoverflowUser.bronze}}
-      </span>
+          <span class = "onlinePresence-item-so-stats-badge _bronze">
+            {{stackoverflowUser.bronze}}
+          </span>{{! onlinePresence-item-so-stats-badge _bronze }}
+        </span>{{! onlinePresence-item-so-stats-badges }}
+      </span>{{! onlinePresence-item-so-stats }}
     {{/if}}
   </li>
 
