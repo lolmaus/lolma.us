@@ -1,0 +1,9 @@
+{
+  "group": "ember",
+  "type": "app",
+  "status": 1,
+  "description": {
+    "en": "this website, see a detailed description below",
+    "ru": "этот сайт, см. подробое описание ниже"
+  }
+}
