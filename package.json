@@ -34,6 +34,7 @@
     "ember-cli-dotenv": "^1.2.0",
     "ember-cli-eslint": "^3.0.0",
     "ember-cli-fastboot": "^1.0.0-beta.13",
+    "ember-cli-favicon": "^1.0.0-beta.4",
     "ember-cli-head": "^0.1.3",
     "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
