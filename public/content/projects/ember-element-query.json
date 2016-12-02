@@ -4,7 +4,7 @@
   "type": "addon",
   "emberObserver": true,
   "description": {
-    "en": "element query solution for your Ember apps",
-    "ru": "реализация element queries для ваших приложений"
+    "en": "element query solution for your Ember apps",
+    "ru": "реализация element queries для ваших приложений"
   }
 }

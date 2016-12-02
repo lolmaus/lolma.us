@@ -2,7 +2,7 @@
   "group": "jquery",
   "status": 1,
   "description": {
-    "en": "a no-bullshit alternative to `dragenter` and `dragleave` events behaving like `mouseenter` and `mouseleave`, not `mousein` and `mouseout`",
-    "ru": "избавляет от мозго#$%&ва с событиями `dragenter` и `dragleave`, предоставляя их аналоги, работающие как как `mouseenter` and `mouseleave`, а не `mousein` and `mouseout`"
+    "en": "a no-bullshit alternative to `dragenter` and `dragleave` events behaving like `mouseenter` and `mouseleave`, not `mousein` and `mouseout`",
+    "ru": "избавляет от мозго#$%&ва с событиями `dragenter` и `dragleave`, предоставляя их аналоги, работающие как `mouseenter` и `mouseleave`, а не `mousein` и `mouseout`"
   }
 }

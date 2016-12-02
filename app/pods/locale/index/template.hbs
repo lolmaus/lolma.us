@@ -1,10 +1,11 @@
 <div class = "route-localeIndex">
   {{hero-header
-    statement = (find-by 'id' (concat 'looking-for-job-' model.locale) model.markdownBlocks)
+    scrollToTarget = '#content'
   }}
 
 
   {{#sec-tion
+    id         = "content"
     class      = "route-localeIndex-cards"
     innerClass = "route-localeIndex-cards-inner"
   }}
@@ -31,6 +32,9 @@
       locale              = model.locale
       isFastBoot          = model.isFastBoot
       gitHubProjectsStats = model.gitHubProjectsStats
+      loginAction         = (action (if session.isAuthenticated 'logout' 'login'))
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
     }}
 
     {{time-line

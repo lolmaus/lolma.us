@@ -35,9 +35,11 @@
     padding: 3rem 7%
 
     +to(xs)
-      padding-bottom: 1.5rem
+      padding: 1rem
 
     // ----- Content layout -----
+    > *:not(:last-child)
+      margin-bottom: 1rem
 
 
 
@@ -85,11 +87,6 @@
     font-family: 'Open Sans', sans-serif
     color:       #ddd !important
 
-    // ----- Content layout -----
-    .heroHeader-subtitle-element
-      +to(s)
-        display: block
-
     // ----- RWD -----
     font-size: 1.2rem
 
@@ -115,21 +112,21 @@
 
     // ----- RWD -----
     $width: 512px
-    width:  ($width / 3)
-    height: ($width / 3)
+    width:  ($width / 4)
+    height: ($width / 4)
 
     +from(xs)
-      width:  ($width / 2.5)
-      height: ($width / 2.5)
+      width:  ($width / 3)
+      height: ($width / 3)
 
-    +from(m)
+    +from(s)
       width:  ($width / 2)
       height: ($width / 2)
 
 
 
   ////------------------------------------------
-  .heroHeader-statement
+  .heroHeader-hire
     //------------------------------------------
 
     // ----- Layout -----
@@ -139,10 +136,54 @@
     color:     white !important
 
     // ----- RWD -----
+    display:         flex
+    justify-content: space-between
+    align-items:     center
+
     font-size: 1.1rem
+
+    +to(xs)
+      .heroHeader-hire-stamp
+        display: none
 
     +from(xs)
       font-size: 1.3rem
 
+    +from(s)
+      font-size: 1.3rem
+
+      .heroHeader-hire-stamp
+        margin-right: 5%
+
+      .heroHeader-hire-message
+        flex-grow:  1
+        text-align: left
+
     +from(l)
       font-size: 1.5rem
+
+
+
+  ////------------------------------------------
+  .heroHeader-hire-stamp
+    //------------------------------------------
+
+    // ----- Layout -----
+    max-width: 223px
+
+
+
+  ////------------------------------------------
+  .heroHeader-scrollTo
+    //------------------------------------------
+
+    // ----- Looks -----
+    font-size:       3rem
+    line-height:     0.5
+    text-decoration: none !important
+    transform:       scale(1.75, 1)
+
+    // ----- Behavior -----
+    color: white
+    &:hover
+      color: #def

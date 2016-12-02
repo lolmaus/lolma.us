@@ -2,6 +2,9 @@
 
   @import node_modules/sass-toolkit/stylesheets/toolkit/triangle
 
+  $dark:  #d4d4d4
+  $light: #fafafa
+
 
 
   ////------------------------------------------
@@ -9,7 +12,7 @@
     //------------------------------------------
 
     // ----- Layout -----
-    display: inline-block
+    display:  inline-block
 
     // ----- Text -----
     font-size: 10px
@@ -20,6 +23,30 @@
 
     .starButton-count
       margin-left: 5px
+
+
+
+  ////------------------------------------------
+  .starButton-buttonWrapper
+    //------------------------------------------
+
+    // ----- Layout -----
+    position: relative
+
+    // ----- Content layout -----
+    .starButton-loginAction
+      opacity:        0
+      pointer-events: none
+      transition:     opacity 0.3s
+      position:       absolute
+      top:            100%
+      left:           50%
+      transform:      translate(-50%, 0)
+      z-index:        10
+
+    &:hover .starButton-loginAction
+      opacity:        1
+      pointer-events: auto
 
 
 
@@ -63,8 +90,8 @@
     position: relative
 
     // ----- Looks -----
-    background-color: #fafafa
-    border:           1px solid #d4d4d4
+    background-color: $light
+    border:           1px solid $dark
     color:            #333
     text-shadow:      0 1px 0 #fff
     white-space:      nowrap
@@ -82,9 +109,49 @@
       transform: translate(0, -50%)
 
     &:before
-      +triangle(#d4d4d4, $height, $width, left)
+      +triangle($dark, $height, $width, left)
 
     &:after
-      +triangle(#fafafa, $height, $width, left)
+      +triangle($light, $height, $width, left)
       margin-right: -2px
 
+
+
+  ////------------------------------------------
+  .starButton-loginAction-inner
+    //------------------------------------------
+
+    $triangle-height: 5px
+    $triangle-width:  8px
+
+    // ----- Layout -----
+    width:      12rem
+    padding:    0.5rem
+    margin-top: 8px
+    position:   relative
+
+    // ----- Looks -----
+    background-color: $light
+    border:           1px solid $dark
+    border-radius:    3px
+    box-shadow:       0 2px 3px lightgrey
+    font-size:        0.8rem
+
+    // ----- Triangle -----
+    &:before, &:after
+      content:  ''
+      position: absolute
+      bottom:   100%
+      left:     50%
+      transform: translate(-50%, 0)
+
+    &:before
+      +triangle($dark, $triangle-height, $triangle-width, top)
+
+    &:after
+      +triangle($light, $triangle-height, $triangle-width, top)
+      margin-bottom: -2px
+
+    // ----- Content layout -----
+    .starButton-loginAction-button
+      margin-top: 1rem

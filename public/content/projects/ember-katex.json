@@ -6,6 +6,6 @@
   "emberObserver": true,
   "description": {
     "en": "render your LaTeX formulas using <a href='https://github.com/Khan/KaTeX' target='_blank'>KaTeX</a>",
-    "ru": "рендеринг формул LaTeX с помощью <a href='https://github.com/Khan/KaTeX' target='_blank'>KaTeX</a>"
+    "ru": "рендеринг формул LaTeX с помощью <a href='https://github.com/Khan/KaTeX' target='_blank'>KaTeX</a>"
   }
 }

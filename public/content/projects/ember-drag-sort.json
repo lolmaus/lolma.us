@@ -3,7 +3,7 @@
   "status": 4,
   "type": "addon",
   "description": {
-    "en": "drag'n'drop sortable list component, with support for multiple and nested lists",
-    "ru": "компонент для drag'n'drop сортировки с поддержкой вложенных списков"
+    "en": "drag'n'drop sortable list component, with support for multiple and nested lists",
+    "ru": "компонент для drag'n'drop сортировки с поддержкой вложенных списков"
   }
 }

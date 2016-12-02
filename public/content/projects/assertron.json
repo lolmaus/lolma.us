@@ -2,7 +2,7 @@
   "group": "js",
   "status": 4,
   "description": {
-    "en": "standalone assertion library, aiming to be a tool for simple contract-driven development",
-    "ru": "самостоятельная assertion library, ориентированная для простого контрактного программирования"
+    "en": "standalone assertion library, aiming to be a tool for simple contract-driven development",
+    "ru": "самостоятельная assertion library, спроектированная для простого контрактного программирования"
   }
 }

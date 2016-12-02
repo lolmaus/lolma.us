@@ -5,7 +5,7 @@ import Component from 'ember-component'
 export default Component.extend({
 
   // ----- Arguments -----
-  statement: undefined,
+  scrollToTarget: '#content',
 
 
 

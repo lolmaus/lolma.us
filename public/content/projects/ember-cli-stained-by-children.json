@@ -4,7 +4,7 @@
   "type": "addon",
   "emberObserver": true,
   "description": {
-    "en": "mark records as dirty when related records get dirty",
+    "en": "mark records as dirty when related records get dirty",
     "ru": "отмечает записи как dirty, когда связанные записи становятся dirty"
   }
 }

@@ -16,7 +16,14 @@
       {{t 'projects.sassLibs'}}
     </h4>
 
-    {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
+    {{project-group
+      projects            = projects
+      locale              = locale
+      gitHubProjectsStats = gitHubProjectsStats
+      loginAction         = loginAction
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
+    }}
   {{/with}}
 
 
@@ -26,14 +33,28 @@
       {{t 'projects.emberAddons'}}
     </h4>
 
-    {{project-group projects=(filter-by 'type' 'addon' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
+    {{project-group
+      projects            = (filter-by 'type' 'addon' projects)
+      locale              = locale
+      gitHubProjectsStats = gitHubProjectsStats
+      loginAction         = loginAction
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
+    }}
 
 
     <h4 class = "proJects-group-title h4">
       {{t 'projects.emberApps'}}
     </h4>
 
-    {{project-group projects=(filter-by 'type' 'app' projects) locale=locale gitHubProjectsStats=gitHubProjectsStats}}
+    {{project-group
+      projects            = (filter-by 'type' 'app' projects)
+      locale              = locale
+      gitHubProjectsStats = gitHubProjectsStats
+      loginAction         = loginAction
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
+    }}
   {{/with}}
 
 
@@ -43,7 +64,14 @@
       {{t 'projects.jsLibs'}}
     </h4>
 
-    {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
+    {{project-group
+      projects            = projects
+      locale              = locale
+      gitHubProjectsStats = gitHubProjectsStats
+      loginAction         = loginAction
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
+    }}
   {{/with}}
 
   {{#with (filter-by 'group' 'jquery' projects) as |projects|}}
@@ -51,7 +79,14 @@
       {{t 'projects.jQueryPlugins'}}
     </h4>
 
-    {{project-group projects=projects locale=locale gitHubProjectsStats=gitHubProjectsStats}}
+    {{project-group
+      projects            = projects
+      locale              = locale
+      gitHubProjectsStats = gitHubProjectsStats
+      loginAction         = loginAction
+      isAuthenticating    = isAuthenticating
+      isAuthenticated     = session.isAuthenticated
+    }}
   {{/with}}
 
 {{/with}}

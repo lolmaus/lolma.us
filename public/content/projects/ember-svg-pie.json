@@ -4,7 +4,7 @@
   "type": "addon",
   "emberObserver": true,
   "description": {
-    "en": "an extremely simple SVG pie chart component",
-    "ru": "чрезвычайно простой компонент для круговых диаграмм на основе SVG"
+    "en": "an extremely simple SVG pie chart component",
+    "ru": "чрезвычайно простой компонент для круговых диаграмм на основе SVG"
   }
 }

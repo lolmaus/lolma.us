@@ -3,7 +3,7 @@
   "status": 3,
   "type": "app",
   "description": {
-    "en": "a quick and naive implementation of immutable state management and time travel slider in Ember",
-    "ru": "простая и наивная реализация иммутабельного состояния и слайдера для \"путешествий во времени\" в Ember"
+    "en": "a quick and naive implementation of immutable state management and time travel slider in Ember",
+    "ru": "простая и наивная реализация иммутабельного состояния и слайдера для \"путешествий во времени\" в Ember"
   }
 }

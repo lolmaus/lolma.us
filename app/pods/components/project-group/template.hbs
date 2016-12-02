@@ -1,8 +1,11 @@
 {{#each (sort-by 'status' 'name' projects) as |project|}}
   {{pro-ject
-    class              = 'projectGroup-project'
-    project            = project
-    locale             = locale
-   gitHubProjectsStats = gitHubProjectsStats
+    class               = 'projectGroup-project'
+    project             = project
+    locale              = locale
+    gitHubProjectsStats = gitHubProjectsStats
+    loginAction         = loginAction
+    isAuthenticating    = isAuthenticating
+    isAuthenticated     = session.isAuthenticated
   }}
 {{/each}}

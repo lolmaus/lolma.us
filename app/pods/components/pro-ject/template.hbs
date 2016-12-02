@@ -6,11 +6,14 @@
   >{{project.effectiveName}}</a>
 
   {{star-button
-    label    = starButtonLabel
-    count    = starCount
-    disabled = (and session.isAuthenticated project.projectInfo.starPromisePending)
-    link     = project.gitHubUrl
-    act      = (action 'toggleStar')
+    label            = starButtonLabel
+    count            = starCount
+    disabled         = (and session.isAuthenticated project.projectInfo.starPromisePending)
+    link             = project.gitHubUrl
+    act              = (action 'toggleStar')
+    loginAction      = loginAction
+    isAuthenticating = isAuthenticating
+    isAuthenticated  = session.isAuthenticated
   }}
 
   {{#if project.emberObserver}}

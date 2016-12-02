@@ -13,6 +13,9 @@ export default Component.extend({
   project:            undefined,
   gitHubProjectsStats: undefined,
   locale:             'en',
+  loginAction:         undefined,
+  isAuthenticating:    undefined,
+  isAuthenticated:     undefined,
 
 
 

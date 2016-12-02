@@ -4,7 +4,7 @@
   "type": "addon",
   "emberObserver": true,
   "description": {
-    "en": "a link/button component that performs animated scrolling to a specified selector",
-    "ru": "компонент в виде кнопки или ссылки, осуществляющей анимированную прокрутку до указанного селектора"
+    "en": "a link/button component that performs animated scrolling to a specified selector",
+    "ru": "компонент в виде кнопки или ссылки, осуществляющей анимированную прокрутку до указанного селектора"
   }
 }

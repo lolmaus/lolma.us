@@ -1,11 +1,37 @@
-<a
-  class  = "starButton-button {{if disabled '-disabled' ''}} -no-icon"
-  href   = {{link}}
-  target = '_blank'
-  {{action act}}
->
-  ★ {{label}}
-</a>
+<div class = "starButton-buttonWrapper">
+
+  <a
+    class  = "starButton-button {{if disabled '-disabled' ''}} -no-icon"
+    href   = {{link}}
+    target = '_blank'
+    {{action act}}
+  >
+    ★ {{label}}
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        {{t (if isAuthenticated 'login.goodbye' 'login.welcome')}}
+      </div>
+
+      <button
+        class    = "starButton-loginAction-button starButton-button"
+        disabled = {{isAuthenticating}}
+        {{action loginAction}}
+      >
+        {{t (if isAuthenticated 'login.logOut' (if isAuthenticating 'login.loggingIn' 'login.logIn'))}}
+      </button>
+
+      <span>
+        {{unless isAuthenticated (t 'login.withGitHub')}}
+      </span>
+    </div>{{! starButton-loginAction-inner }}
+  </div>{{! starButton-loginAction }}
+
+</div>{{! starButton-buttonWrapper }}
+
+
 
 {{#unless (is-nully count)}}
   <span class = "starButton-count">

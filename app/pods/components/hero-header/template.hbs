@@ -6,13 +6,7 @@
     </h1>
 
     <h2 class="heroHeader-subtitle">
-      <span class="heroHeader-subtitle-element _frontend">
-        {{t 'header.frontend'}},
-      </span>
-
-      <span class="heroHeader-subtitle-element _ember">
-        {{t 'header.ember'}}
-      </span>
+      {{t 'header.subtitle'}}
     </h2>
   </div>{{!heroHeader-header}}
 
@@ -27,12 +21,27 @@
   >
 
 
+  <div class = "heroHeader-footer">
+    <div class = "heroHeader-hire">
+      <img
+        class  = "heroHeader-hire-stamp"
+        src    = "/images/index/hire.png"
+        alt    = "Available for hire"
+        width  = "446"
+        height = "268"
+      >
 
-  {{#if statement}}
-    {{markdown-block
-      class="heroHeader-statement"
-      section = statement
+      <div class = "heroHeader-hire-message">
+        {{t "header.hire" tweetUrl = "https://twitter.com/lolmaus_en/status/803274593603461120"}}
+      </div>{{! heroHeader-hire-message }}
+    </div>{{! heroHeader-hire }}
+
+    {{#scroll-to
+      class  = "heroHeader-scrollTo"
+      target = scrollToTarget
     }}
-  {{/if}}
+      🞃
+    {{/scroll-to}}
+  </div>{{! heroHeader-footer }}
 
 {{/sec-tion}}

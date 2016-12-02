@@ -4,7 +4,7 @@
   "type": "addon",
   "emberObserver": true,
   "description": {
-    "en": "a set of custom assertions, aiming to substitute Chai in QUnit world. Go add you own assertions!",
-    "ru": "набор кастомных assertion'ов, цель которого &mdash; заменить Chai в мире QUnit. Пишите свои собственные assertion'ы!"
+    "en": "a set of custom assertions, aiming to substitute Chai in QUnit world. Go add your own assertions!",
+    "ru": "набор кастомных assertion'ов, цель которого &mdash; заменить Chai в мире QUnit. Пишите свои собственные assertion'ы!"
   }
 }
