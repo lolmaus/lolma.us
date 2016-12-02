@@ -68,6 +68,16 @@ module.exports = function (env) {
     //     families: ['Open Sans:300:latin,cyrillic', 'Open Sans Condensed:300:latin,cyrillic']
     //   },
     // },
+
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production'],
+        config: {
+          id: 'UA-77566978-1'
+        }
+      },
+    ]
   }
 
   if (env === 'development') {
