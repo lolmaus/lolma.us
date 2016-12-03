@@ -14,6 +14,27 @@
 
 
   ////------------------------------------------
+  .timeLine
+    //------------------------------------------
+
+    // ----- Layout -----
+    .timeLine-list
+      margin-top: 1rem
+
+    // ----- Behavior -----
+    .timeLine-showDetails
+      vertical-align: middle
+
+    .timeLine-item-desc
+      display: none
+
+    .timeLine-showDetails:checked ~ .timeLine-list .timeLine-item-desc
+      display: block
+
+
+
+
+  ////------------------------------------------
   .timeLine-list
     //------------------------------------------
 
@@ -30,12 +51,6 @@
       &:not(:last-child)
         margin-bottom: 1rem
 
-    &:after
-      content:     ''
-      position:    absolute
-      left:        $arrow-offset + $border-width
-      bottom:      0
-      +triangle($border-color, 6px, $arrow-width, bottom)
 
 
   ////------------------------------------------
@@ -45,7 +60,6 @@
     // ----- Layout -----
     display:         flex
     justify-content: flex-start
-    align-items:     center
 
     // ----- Content layout -----
     .timeLine-item-icon
@@ -65,7 +79,6 @@
     width:        $icon-size
     height:       $icon-size
     border-width: $border-width
-    line-height:  $icon-inner-size
     text-align:   center
     position:     relative
     z-index:      2
@@ -78,9 +91,19 @@
 
     // ----- Content layout -----
     .timeLine-item-icon-icon
-      font-size:      1rem
+      position:  absolute
+      top:       50%
+      left:      50%
+      transform: translate(-50%, -50%)
+      height:    auto
+      fill:      $border-color
 
-    .timeLine-item:not(:last-child) &:after
+      max-width: 50%
+      &._education
+        max-width: 60%
+
+    // Line
+    &:after
       content:     ''
       position:    absolute
       width:       0
@@ -89,12 +112,23 @@
       left:        floor($icon-inner-size / 2)
       top:         100%
 
-    .timeLine-item:not(:first-child) &:before
+    // Spearhead
+    &:before
       content:     ''
       position:    absolute
       left:        $arrow-offset
-      bottom:      100%
-      +triangle($border-color, 6px, $arrow-width, bottom)
+      top:         100%
+      +triangle($border-color, 6px, $arrow-width, top)
+
+
+
+  ////------------------------------------------
+  .timeLine-item-info
+    //------------------------------------------
+
+    // ----- Content layout -----
+    .timeLine-item-desc
+      margin-top: 0.5rem
 
 
 
@@ -105,3 +139,16 @@
     // ----- Text -----
     font-size: 0.8em
     color:     config-get('lolma-us.themes.light.label')
+
+
+
+  ////------------------------------------------
+  .timeLine-item-desc
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 0.8em
+
+    p, li, ul
+      margin-top:    0.1em
+      margin-bottom: 0.1em

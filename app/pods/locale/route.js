@@ -31,30 +31,20 @@ export default Route.extend({
     this.set('i18n.locale', locale)
     this.get('moment').changeLocale(locale)
 
-    const store = this.get('store')
     const model = this.modelFor('application')
 
     return RSVP
       .hash({
         ...model,
         locale,
-        markdownBlocks: this.getMarkdownBlocks({store, locale, website: model.website})
+        markdownBlocks: model.website.fetchChildRecords({locale, modelName: 'markdown-block'}),
+        experiences:    model.website.fetchChildRecords({locale, modelName: 'experience'}),
       })
   },
 
 
 
   // ----- Custom Methods -----
-  getMarkdownBlocks ({store, locale, website}) {
-    const promises =
-      website
-        .hasMany('markdownBlocks')
-        .ids()
-        .filter(id => _.endsWith(id, `-${locale}`))
-        .map(id => store.findRecord('markdown-block', id))
-
-    return RSVP.all(promises)
-  },
 
 
 

@@ -31,6 +31,7 @@ export default {
   },
   timeline: {
     title: 'Experience',
+    details: 'Show details',
     items: {
       mgimo: "Graduated from <a href='http://english.mgimo.ru/'>Moscow University of Foreign Affairs</a> (BoA)",
       adv: "Web Projects Manager at <a href='https://adv.ru/english/'>ADV.ru</a>, Russia",

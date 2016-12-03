@@ -1,4 +1,6 @@
 import Component from 'ember-component'
+import computed from 'ember-computed'
+import {randomString} from 'lolma-us/helpers/random-string'
 
 
 
@@ -22,6 +24,7 @@ export default Component.extend({
 
 
   // ----- Computed properties -----
+  checkboxId: computed(randomString),
 
 
 

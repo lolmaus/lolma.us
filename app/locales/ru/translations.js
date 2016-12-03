@@ -31,6 +31,7 @@ export default {
   },
   timeline: {
     title: 'Опыт',
+    details: 'Показывать подробности',
     items: {
       mgimo: "<a href='http://english.mgimo.ru/'>МГИМО</a> финишд! (бакалавр)",
       adv: "Менеджер вэб-проектов в <a href='https://adv.ru/english/'>ADV.ru</a>, Россия",

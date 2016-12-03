@@ -6,6 +6,8 @@ import _ from 'npm:lodash'
 
 
 
+
+
 export default Route.extend({
 
   // ----- Services -----
@@ -49,7 +51,7 @@ export default Route.extend({
 
       .then(model => RSVP.hash({
         ...model,
-        projects: this.fetchProjects(model.website),
+        projects: model.website.fetchChildRecords({modelName: 'project'}),
       }))
 
       .then(model => RSVP.hash({
@@ -61,18 +63,6 @@ export default Route.extend({
 
 
   // ----- Custom Methods -----
-  fetchProjects (website) {
-    const store = this.get('store')
-
-    const promises =
-      website
-        .hasMany('projects')
-        .ids()
-        .map(id => store.findRecord('project', id))
-
-    return RSVP.all(promises)
-  },
-
   fetchRemainingProjectInfos (projects) {
     const store           = this.get('store')
     const existingIds     = store.peekAll('project-info').mapBy('id')

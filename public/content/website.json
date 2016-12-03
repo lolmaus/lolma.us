@@ -9,6 +9,39 @@
     "about-site-en",
     "about-site-ru"
   ],
+
+  "experiences": [
+    "mgimo-en",
+    "mgimo-ru",
+
+    "adv-en",
+    "adv-ru",
+
+    "alfamb-en",
+    "alfamb-ru",
+
+    "stankin-en",
+    "stankin-ru",
+
+    "stkomp-en",
+    "stkomp-ru",
+
+    "hivemind-en",
+    "hivemind-ru",
+
+    "healthfundr-en",
+    "healthfundr-ru",
+
+    "nason-en",
+    "nason-ru",
+
+    "hell-o-baby-en",
+    "hell-o-baby-ru",
+
+    "firecracker-en",
+    "firecraker-ru"
+  ],
+
   "projects": [
     "assertron",
     "breakpoint-slicer",
