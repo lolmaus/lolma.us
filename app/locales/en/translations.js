@@ -7,6 +7,7 @@ export default {
   menu: {
     greeting: 'You are awesome today!',
     source:   'Source on GitHub',
+    blog:     'Blog',
   },
   langSwitcher: 'Моя не понимать',
   login: {

@@ -1,0 +1,95 @@
+@at-root
+
+  //@import app/styles/helpers/theme
+  @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+
+
+
+  ////------------------------------------------
+  .route-blog
+    //------------------------------------------
+
+    // ----- RWD -----
+    +from(l)
+      display: flex
+
+      .route-blog-sidebar
+        flex-shrink: 0
+        order:       1
+        width:       300px
+        min-height:  100vh
+
+        display:         flex
+        flex-direction:  column
+        justify-content: space-between
+
+      .route-blog-content
+        flex-grow: 1
+        order:     2
+
+
+
+
+  ////------------------------------------------
+  .route-blog-sidebar
+    //------------------------------------------
+
+    // ----- Looks -----
+    //+theme(dark, bg2)
+
+    // ----- Layout -----
+    padding:    2rem
+    text-align: center
+
+    // ----- Content layout -----
+    .route-blog-sidebar-avatar
+      width: 50%
+
+    .route-blog-sidebar-stamp
+      width: 75%
+
+    // ----- Behavior -----
+    opacity: 0.5
+    transition: opacity 0.3s
+
+    &:hover
+      opacity: 1
+
+
+
+  ////------------------------------------------
+  .route-blog-sidebar-avatar
+    //------------------------------------------
+
+    // ----- Looks -----
+    border-radius: 50%
+
+
+
+  ////------------------------------------------
+  .route-blog-sidebar-section._top
+    //------------------------------------------
+
+    // ----- Content layout -----
+    .route-blog-subtitle
+      margin-top: 1rem
+
+
+
+  ////------------------------------------------
+  .route-blog-subtitle
+    //------------------------------------------
+
+    // ----- Text -----
+    font-size: 1.2rem
+
+
+
+  ////------------------------------------------
+  .route-blog-sidebar-stamp
+    //------------------------------------------
+
+    // ----- Behavior -----
+    transision: opacity 0.3s
+    &:hover
+      opacity: 0.9

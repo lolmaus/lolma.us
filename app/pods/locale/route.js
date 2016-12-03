@@ -1,7 +1,7 @@
 import Route from 'ember-route'
 import service from 'ember-service/inject'
 import RSVP from 'rsvp'
-import _ from 'npm:lodash'
+// import _ from 'npm:lodash'
 
 
 
@@ -36,9 +36,7 @@ export default Route.extend({
     return RSVP
       .hash({
         ...model,
-        locale,
-        markdownBlocks: model.website.fetchChildRecords({locale, modelName: 'markdown-block'}),
-        experiences:    model.website.fetchChildRecords({locale, modelName: 'experience'}),
+        locale
       })
   },
 
@@ -57,21 +55,6 @@ export default Route.extend({
 
 
   // ----- Actions -----
-  actions: {
-    toggleLocale () {
-      const oppositeLocale      = this.get('i18n.oppositeLocale')
-      const currentRouteName    = this.get('router.currentRouteName')
-      const currentHandlerInfos = this.get('router.router.currentHandlerInfos')
-
-      const segments =
-        currentHandlerInfos
-          .slice(2)
-          .map(info =>
-            info._names.map(name => info.params[name])
-          )
-          .reduce((result, item) => result.concat(item), []) //flatten
-
-      this.transitionTo(currentRouteName, oppositeLocale, ...segments)
-    }
-  }
+  // actions: {
+  // }
 })

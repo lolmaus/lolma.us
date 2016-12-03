@@ -7,6 +7,7 @@ export default {
   menu: {
     greeting: 'Ты сегодня лучше всех!',
     source:   'Исходник на GitHub',
+    blog:     'Блог',
   },
   langSwitcher: 'Switch to English',
   login: {
