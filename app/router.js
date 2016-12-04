@@ -74,7 +74,7 @@ const Router = Ember.Router.extend({
 Router.map(function () {
   this.route('locale', {path: ':locale'}, function () {
     this.route('blog', function () {
-      this.route('post', {path: ':postId'})
+      this.route('post', {path: ':slug'})
     })
   })
 })

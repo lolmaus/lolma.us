@@ -10,6 +10,16 @@
     //------------------------------------------
 
     // ----- RWD -----
+    +between(s, m)
+      .route-blog-sidebar, .route-blog-sidebar-section._top
+        display:         flex
+        justify-content: space-around
+        align-items:     center
+
+        > *:not(:last-child)
+          margin-right: 2rem
+
+
     +from(l)
       display: flex
 
@@ -22,6 +32,12 @@
         display:         flex
         flex-direction:  column
         justify-content: space-between
+
+        opacity: 0.5
+        transition: opacity 0.3s
+
+        &:hover
+          opacity: 1
 
       .route-blog-content
         flex-grow: 1
@@ -42,18 +58,23 @@
     text-align: center
 
     // ----- Content layout -----
+    .route-blog-sidebar-section
+      &:not(:last-child)
+        margin-bottom: 2rem
+
     .route-blog-sidebar-avatar
-      width: 50%
+      width:     50%
+      max-width: 128px
 
     .route-blog-sidebar-stamp
       width: 75%
+      max-width: 223px
+
+      transision: opacity 0.3s
+      &:hover
+        opacity: 0.9
 
     // ----- Behavior -----
-    opacity: 0.5
-    transition: opacity 0.3s
-
-    &:hover
-      opacity: 1
 
 
 
@@ -86,10 +107,10 @@
 
 
   ////------------------------------------------
-  .route-blog-sidebar-stamp
+  .route-blog-content-inner
     //------------------------------------------
 
-    // ----- Behavior -----
-    transision: opacity 0.3s
-    &:hover
-      opacity: 0.9
+    // ----- Layout -----
+    $padding:       2rem
+    padding-top:    $padding
+    padding-bottom: $padding

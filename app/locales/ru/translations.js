@@ -8,6 +8,7 @@ export default {
     greeting: 'Ты сегодня лучше всех!',
     source:   'Исходник на GitHub',
     blog:     'Блог',
+    resume:   'Резюме',
   },
   langSwitcher: 'Switch to English',
   login: {

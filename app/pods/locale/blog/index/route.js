@@ -26,13 +26,18 @@ export default Route.extend({
   model () {
     const model  = this.modelFor('locale')
     const locale = model.locale
+    const store  = this.get('store')
 
     return RSVP
       .hash({
         ...model,
-        markdownBlocks: model.website.fetchChildRecords({locale, modelName: 'markdown-block'}),
-        experiences:    model.website.fetchChildRecords({locale, modelName: 'experience'}),
+        blog: store.findRecord('junction', 'blog'),
       })
+
+      .then(model => RSVP.hash({
+        ...model,
+        posts: model.blog.fetchChildRecords({locale, modelName: 'post'}),
+      }))
   },
 
 

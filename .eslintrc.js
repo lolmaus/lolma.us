@@ -24,6 +24,7 @@ module.exports = {
     "quotes": "off",
     "camelcase": "off",
     "padded-blocks": "off",
+    "standard/object-curly-even-spacing": "off",
     "operator-linebreak": "off",
     "no-return-assign": "off",
     "new-cap": "off",

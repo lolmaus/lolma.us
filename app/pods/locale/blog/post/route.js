@@ -1,20 +1,16 @@
 import Route from 'ember-route'
-import service from 'ember-service/inject'
 import RSVP from 'rsvp'
-// import _ from 'npm:lodash'
 
 
 
 export default Route.extend({
 
   // ----- Services -----
-  i18n:     service(),
-  moment:   service(),
-  fastboot: service(),
 
 
 
   // ----- Overridden properties -----
+  title: 'lolmaus - Andrey Mikhaylov',
 
 
 
@@ -27,18 +23,15 @@ export default Route.extend({
 
 
   // ----- Overridden Methods -----
-  model ({locale}) {
-    if (!['en', 'ru'].includes(locale)) locale = 'en'
-    this.set('i18n.locale', locale)
-    this.get('moment').changeLocale(locale)
-
-    // const model = this.modelFor('application')
+  model ({slug}) {
+    const model  = this.modelFor('locale')
+    const store  = this.get('store')
+    const id     = `${slug}-${model.locale}`
 
     return RSVP
       .hash({
-        // ...model,
-        locale,
-        isFastBoot: this.get('fastboot.isFastBoot'),
+        ...model,
+        post: store.findRecord('post', id),
       })
   },
 

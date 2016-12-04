@@ -1,9 +1,12 @@
 <div class = "route-blog">
 
 
-  <div class = "route-blog-content">
+  {{#sec-tion
+    class      = "route-blog-content"
+    innerClass = "route-blog-content-inner"
+  }}
     {{outlet}}
-  </div>
+  {{/sec-tion}}
 
 
   <div class = "route-blog-sidebar">
@@ -17,13 +20,15 @@
         height = "512"
       >
 
-      <h2 class = "route-blog-title">
-        {{t 'header.title'}}
-        @lolmaus
-      </h2>
+      <div>
+        <h2 class = "route-blog-title">
+          {{t 'header.title'}}
+          @lolmaus
+        </h2>
 
-      <div class = "route-blog-subtitle">
-        {{t 'header.subtitle'}}
+        <div class = "route-blog-subtitle">
+          {{t 'header.subtitle'}}
+        </div>
       </div>
     </div>{{! route-blog-sidebar-section }}
 

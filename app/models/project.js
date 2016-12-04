@@ -23,7 +23,7 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  website:     belongsTo('website'),
+  website:     belongsTo('junction.js'),
   projectInfo: belongsTo('project-info', {async: true}),
 
 

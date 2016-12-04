@@ -29,11 +29,21 @@
     </div>
 
     <div class = "route-locale-menu-items">
-      {{link-to
-        (t 'menu.blog')
-        'locale.blog'
-        class  = "route-locale-menu-item _blog"
-      }}
+      {{#if (not (starts-with routing.currentRouteName 'locale.blog.'))}}
+        {{link-to
+          (t 'menu.blog')
+          'locale.blog'
+          class  = "route-locale-menu-item _blog"
+        }}
+      {{/if}}
+
+      {{#if (not-eq routing.currentRouteName 'locale.index')}}
+        {{link-to
+          (t 'menu.resume')
+          'locale.index'
+          class  = "route-locale-menu-item _resume"
+        }}
+      {{/if}}
 
       <a
         class = "route-locale-menu-item _source -no-icon"
