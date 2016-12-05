@@ -6,7 +6,6 @@ import service from 'ember-service/inject'
 export default Controller.extend({
 
   // ----- Services -----
-  routing:   service('-routing'),
   htmlState: service(),
 
 

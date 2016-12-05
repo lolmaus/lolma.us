@@ -1,0 +1,69 @@
+@at-root
+
+  @import app/styles/helpers/theme
+
+
+
+  ////------------------------------------------
+  .route-locale-menu
+    //------------------------------------------
+
+    // ----- Looks -----
+    +theme('red')
+
+    // ----- Content layout -----
+    .route-locale-menu-greeting
+      margin-bottom:  2rem
+      vertical-align: middle
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-greeting
+    //------------------------------------------
+
+    // ----- Layout -----
+    padding: 1rem
+
+    // ----- Text -----
+    text-align:  center
+    font-family: 'PT Sans Caption', sans-serif
+    font-size:   1.2rem
+    font-weight: bold
+
+    // ----- Content layout -----
+    .route-locale-menu-greeting-emoji
+      font-size:      1.5em
+      vertical-align: middle
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-items
+    //------------------------------------------
+
+    // ----- Content Layout -----
+    .route-locale-menu-item
+      display:    block
+      border-top: 1px solid white
+      &:last-child
+        border-bottom: 1px solid white
+
+
+
+  ////------------------------------------------
+  .route-locale-menu-item
+    //------------------------------------------
+
+    // ----- Layout -----
+    padding: 0.8rem 1rem
+
+    // ----- Looks -----
+    font-size: 1.1rem
+    &, *
+      text-decoration: none !important
+
+    // ----- Behavior -----
+    &:hover
+      color:            white !important
+      background-color: rgba(255, 255, 255, 0.1)
