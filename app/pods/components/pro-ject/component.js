@@ -25,7 +25,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['proJect'],
+  classNameBindings: [':proJect', 'stalledClass'],
 
 
 
@@ -49,6 +49,16 @@ export default Component.extend({
       status === 3 ? 'PoC' :
       status === 4 ? 'stalled' :
                      ''
+    )
+  }),
+
+  statusTitle: computed('project.status', function () {
+    const status = this.get('project.status')
+
+    return (
+      status === 2 ? 'Work in Progress' :
+      status === 3 ? 'Proof of Concept' :
+                     null
     )
   }),
 
@@ -78,6 +88,10 @@ export default Component.extend({
       if (this.get('project.projectInfoSync')) return this.get('project.projectInfo.stargazersCount')
     }
   ),
+
+  stalledClass: computed('project.status', function () {
+    return this.get('project.status') === 4 ? '-stalled' : ''
+  }),
 
 
 
