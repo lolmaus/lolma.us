@@ -2,12 +2,19 @@
   {{t 'projects.title'}}
 </h2>
 
-{{#unless isFastBoot}}
-  <label class = "proJects-stalled">
-    {{input type="checkbox" checked=showStalled}}
-    <span>{{t 'projects.showStalled'}}</span>
-  </label>
-{{/unless}}
+{{input
+  type    = "checkbox"
+  id      = checkboxId
+  class   = 'proJects-stalledInput'
+  checked = htmlState.showStalledProjects
+}}
+
+<label
+  class = "proJects-stalledlabel"
+  for   = {{checkboxId}}
+>
+  {{t 'projects.showStalled'}}
+</label>
 
 {{#with (if showStalled projects (reject-by "status" 4 projects)) as |projects|}}
 

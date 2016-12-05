@@ -22,12 +22,13 @@
 
     +from(l)
       display: flex
+      height:  100vh
 
       .route-blog-sidebar
         flex-shrink: 0
         order:       1
         width:       300px
-        min-height:  100vh
+        overflow-y:  auto
 
         display:         flex
         flex-direction:  column
@@ -40,8 +41,9 @@
           opacity: 1
 
       .route-blog-content
-        flex-grow: 1
-        order:     2
+        flex-grow:  1
+        order:      2
+        overflow-y: auto
 
 
 

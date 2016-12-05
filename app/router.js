@@ -7,15 +7,20 @@ import {scheduleOnce} from 'ember-runloop'
 const Router = Ember.Router.extend({
 
   // ----- Services -----
-  headData: service(),
-  metrics:  service(),
-  i18n:     service(),
+  headData:  service(),
+  metrics:   service(),
+  i18n:      service(),
+  htmlState: service(),
 
 
 
   // ----- Overridden properties -----
   location: config.locationType,
   rootURL:  config.rootURL,
+
+
+
+  // ----- Custom properties -----
 
 
 
@@ -49,6 +54,7 @@ const Router = Ember.Router.extend({
   didTransition () {
     this._super(...arguments)
     this._trackPage()
+    this.get('htmlState').restoreHtmlState()
     this.propertyDidChange('oppositeLocaleURLParams')
   },
 

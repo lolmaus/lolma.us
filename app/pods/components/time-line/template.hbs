@@ -4,7 +4,13 @@
 
 
 
-<input type="checkbox" id={{checkboxId}} class="timeLine-showDetails">
+{{input
+  type    = "checkbox"
+  id      = checkboxId
+  class   = "timeLine-showDetails"
+  checked = htmlState.timelineShowDetails
+}}
+
 <label for={{checkboxId}}>
   {{t 'timeline.details'}}
 </label>

@@ -1,4 +1,7 @@
 import Component from 'ember-component'
+import computed from 'ember-computed'
+import {randomString} from 'lolma-us/helpers/random-string'
+import service from 'ember-service/inject'
 
 
 
@@ -15,6 +18,7 @@ export default Component.extend({
 
 
   // ----- Services -----
+  htmlState: service(),
 
 
 
@@ -24,11 +28,11 @@ export default Component.extend({
 
 
   // ----- Static properties -----
-  showStalled: false,
 
 
 
   // ----- Computed properties -----
+  checkboxId: computed(randomString),
 
 
 
