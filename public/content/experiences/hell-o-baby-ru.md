@@ -2,8 +2,8 @@
 id: hell-o-baby-ru
 title: EmberJS и AngularJS-разработчик в <a href='http://hell-o-baby.com'>Hell'o Baby</a>, Россия
 type: job
-start: "2015-08"
-end: "2014-09"
+start: 2015-08
+end: 2014-09
 ---
 
 Основной продукт Hell'o Baby был изначально реализован на Backbone, я руководил его переписыванием на Angular. Я занимался фронтенд-разработкой сам и руководил аутстафф-разработчиками.

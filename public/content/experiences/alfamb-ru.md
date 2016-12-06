@@ -2,8 +2,8 @@
 id: alfamb-ru
 title: Вэб-разработчик и сисадмин в <a href='http://alfamb.ru/'>AlfaMB.ru</a>, Россия
 type: job
-start: "2008-12"
-end: "2013-06"
+start: 2008-12
+end: 2013-06
 ---
 
 *   Администрирование сети и серверов компании.
