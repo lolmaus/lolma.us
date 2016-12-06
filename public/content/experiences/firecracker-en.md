@@ -1,5 +1,5 @@
 ---
-id: firecracker-ru
+id: firecracker-en
 title: EmberJS Developer at <a href='http://firecracker.me'>Firecracker.me</a>, US
 type: job
 start: 2015-09
