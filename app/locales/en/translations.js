@@ -2,11 +2,13 @@ export default {
   header: {
     title: 'Andrey Mikhaylov',
     subtitle: 'frontend&nbsp;developer, EmberJS&nbsp;enthusiast',
-    hire: "Looking for a full-time remote job as a senior EmberJS dev, preferably with subsequent relocation. Please <a href='{{tweetUrl}}'>retweet!</a>",
+    hire: "Looking for a full-time remote job as a senior EmberJS dev. Please <a href='{{tweetUrl}}'>retweet!</a>",
   },
   menu: {
     greeting: 'You are awesome today!',
     source:   'Source on GitHub',
+    blog:     'Blog',
+    resume:   'Résumé',
   },
   langSwitcher: 'Моя не понимать',
   login: {

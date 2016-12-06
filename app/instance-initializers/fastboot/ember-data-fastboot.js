@@ -1,9 +1,4 @@
 import _ from 'npm:lodash'
-import Ember from 'ember'
-
-const {
-  Inflector: {inflector}
-} = Ember
 
 
 
@@ -21,13 +16,17 @@ export function initialize (applicationInstance) {
 
         // Get record arrays
         .reduce((hash, modelName) => {
-          const modelNamePlural = inflector.pluralize(modelName)
+          // const modelNamePlural = inflector.pluralize(modelName)
 
-          hash[modelNamePlural] =
-            store
-              .peekAll(modelName)
-              .toArray()
-              .map(record => record.serialize({includeId: true}))
+          try {
+            hash[ modelName ] =
+              store
+                .peekAll(modelName)
+                .toArray()
+                .map(record => record.serialize({ includeId: true }))
+          } catch (e) {
+            console.error(`ember-data-fastboot: serializer crashed when trying to serialize records of "${modelName}"`, e)
+          }
 
           return hash
         }, {})

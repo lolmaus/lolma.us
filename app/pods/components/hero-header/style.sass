@@ -32,7 +32,7 @@
     min-height:      100vh
     justify-content: space-between
 
-    padding: 3rem 7%
+    padding: 3rem 7% 1rem
 
     +to(xs)
       padding: 1rem
@@ -84,7 +84,7 @@
     //------------------------------------------
 
     // ----- Text -----
-    font-family: 'Open Sans', sans-serif
+    font-family: Merriweather, serif
     color:       #ddd !important
 
     // ----- RWD -----
@@ -122,6 +122,16 @@
     +from(s)
       width:  ($width / 2)
       height: ($width / 2)
+
+
+
+  ////------------------------------------------
+  .heroHeader-footer
+    //------------------------------------------
+
+    // ----- Content layout -----
+    .heroHeader-scrollTo:not(:only-child)
+      margin-top: 1rem
 
 
 
@@ -177,13 +187,32 @@
   .heroHeader-scrollTo
     //------------------------------------------
 
+    // ----- Layout -----
+    display: block
+
     // ----- Looks -----
-    font-size:       3rem
-    line-height:     0.5
     text-decoration: none !important
-    transform:       scale(1.75, 1)
+
+    // ----- Content layout -----
+    .heroHeader-scrollTo-icon
+      display: table
+      margin-left:  auto
+      margin-right: auto
+
+
+
+  ////------------------------------------------
+  .heroHeader-scrollTo-icon
+    //------------------------------------------
+
+    // ----- Layout -----
+    width:  3rem
+    height: auto
 
     // ----- Behavior -----
-    color: white
-    &:hover
-      color: #def
+    fill: white
+    .heroHeader-scrollTo:hover &
+      fill: #def
+
+
+

@@ -13,5 +13,5 @@ My duties included:
 *   communicating with clients,
 *   estimating time and cost of implementing new features,
 *   breaking the features into assignable tasks,
-*   distributing tasks among visual designers, HTML/CSS coders, frontend and backend devopers,
+*   distributing tasks among visual designers, HTML/CSS coders, frontend and backend developers,
 *   controlling deadlines and quality.

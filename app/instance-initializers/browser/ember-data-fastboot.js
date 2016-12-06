@@ -1,9 +1,4 @@
 import _ from 'npm:lodash'
-import Ember from 'ember'
-
-const {
-  Inflector: {inflector}
-} = Ember
 
 
 
@@ -16,9 +11,8 @@ export function initialize (applicationInstance) {
 
   const store = applicationInstance.lookup('service:store')
 
-  _.forOwn(data.types, (records, modelNamePlural) => {
-    const modelName = inflector.singularize(modelNamePlural)
-    const payload   = {[modelNamePlural]: records}
+  _.forOwn(data.types, (records, modelName) => {
+    const payload = {[modelName]: records}
     store.pushPayload(modelName, payload)
   })
 }

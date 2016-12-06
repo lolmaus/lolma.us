@@ -1,0 +1,13 @@
+<div class = "route-blogIndex">
+
+  <div class = "route-blogIndex-posts">
+    {{#each (sort-by 'date:desc' model.posts) as |post|}}
+      {{blog-post
+        class   = "route-blogIndex-post"
+        post    = post
+        summary = true
+      }}
+    {{/each}}
+  </div>{{! route-blogIndex-posts }}
+
+</div>{{! route-blogIndex }}

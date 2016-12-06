@@ -16,9 +16,9 @@ export default JSONSerializer.extend({
 
 
   pushPayload (store, payload) {
-    const key             = Object.keys(payload)[0]
-    const payloadFragment = payload[key]
-    const modelName       = this.modelNameFromPayloadKey(key)
+    const modelName       = Object.keys(payload)[0]
+    const payloadFragment = payload[modelName]
+    // const modelName       = this.modelNameFromPayloadKey(key)
     const type            = store.modelFor(modelName)
     const typeSerializer  = store.serializerFor(type.modelName)
     const documentHash    = {included: []}
@@ -27,12 +27,12 @@ export default JSONSerializer.extend({
       documentHash.data = []
 
       payloadFragment.forEach(payloadItem => {
-        const { data, included } = typeSerializer.normalize(type, payloadItem, key)
+        const { data, included } = typeSerializer.normalize(type, payloadItem, modelName)
         documentHash.data.push(data)
         if (included) documentHash.included.push(...included)
       })
     } else {
-      const { data, included } = typeSerializer.normalize(type, payloadFragment, key)
+      const { data, included } = typeSerializer.normalize(type, payloadFragment, modelName)
       documentHash.data = data
       if (included) documentHash.included.push(...included)
     }

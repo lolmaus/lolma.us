@@ -1,10 +1,11 @@
 <div class = "route-locale">
 
-  <input
-    class = "route-locale-menuToggler"
-    id    = "route-locale-menuToggler"
-    type  = "checkbox"
-  >
+  {{input
+    class   = "route-locale-menuToggler"
+    id      = "route-locale-menuToggler"
+    type    = "checkbox"
+    checked = htmlState.menuToggler
+  }}
 
   <label
     class = "route-locale-burger"
@@ -20,29 +21,7 @@
 
 
 
-  <div class = "route-locale-menu">
-    <div class = "route-locale-menu-greeting">
-      {{t 'menu.greeting'}}
-      <span
-        class = "route-locale-menu-greeting-emoji"
-      >😎</span>
-    </div>
-
-    <div class = "route-locale-menu-items">
-      <a
-        class = "route-locale-menu-item _source -no-icon"
-        href="https://github.com/lolmaus/lolma.us"
-      >
-        {{t 'menu.source'}}
-        <span class = "externalLink"></span>
-      </a>
-
-      {{locale-switcher
-        class = "route-locale-menu-item _locale"
-        toggleLocaleAction = (route-action 'toggleLocale')
-      }}
-    </div>{{! route-locale-menu-items }}
-  </div>{{! route-locale-menu}}
+  {{side-menu class = "route-locale-menu"}}
 
 
 

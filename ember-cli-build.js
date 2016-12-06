@@ -1,7 +1,8 @@
 /*jshint node:true*/
 /* global require, module */
-const EmberApp          = require('ember-cli/lib/broccoli/ember-app')
-const fs                = require('fs')
+const EmberApp = require('ember-cli/lib/broccoli/ember-app')
+const fs       = require('fs')
+
 const environment       = process.env.EMBER_ENV || 'development'
 
 const defaultTarget = environment === 'production' ? 'prod' : 'localhost-4200'
@@ -9,6 +10,20 @@ const target        = process.env.LMS_DEPLOY_TARGET || defaultTarget
 
 const dotEnvFile = `./.env-${target}`
 if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env file not found: ${dotEnvFile}`)
+
+function readBlogPages () {
+  return fs
+    .readdirSync('./public/content/posts')
+    .map(filename => {
+      const slug   = filename.split('-').slice(0, -1).join('-')
+      const locale = filename.split('-').pop().split('.')[0]
+
+      return `/${locale}/blog/${slug}`
+    })
+}
+
+
+
 
 module.exports = function (defaults) {
   const app =
@@ -18,6 +33,9 @@ module.exports = function (defaults) {
           '/',
           '/en',
           '/ru',
+          '/en/blog',
+          '/ru/blog',
+          ...readBlogPages()
         ],
       },
 

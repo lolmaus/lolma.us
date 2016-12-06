@@ -18,13 +18,13 @@ export default Model.extend({
   markdownBlocks: hasMany('markdown-block'),
   projects:       hasMany('project'),
   experiences:    hasMany('experience'),
+  posts:          hasMany('post'),
 
 
 
   // ----- Custom methods -----
   fetchChildRecords ({
     modelName,
-    website,
     locale,
     relationshipName = camelize(inflector.pluralize(modelName))
   }) {

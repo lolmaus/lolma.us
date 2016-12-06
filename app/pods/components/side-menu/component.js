@@ -1,32 +1,28 @@
 import Component from 'ember-component'
-import computed from 'ember-computed'
 import service from 'ember-service/inject'
+import on from  'ember-evented/on'
+import $ from 'jquery'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  toggleLocaleAction: undefined,
 
 
 
   // ----- Services -----
-  i18n:   service('i18n'),
+  htmlState: service(),
+  routing:   service('-routing'),
 
 
 
   // ----- Overridden properties -----
-  attributeBindings: ['href'],
-  classNames:        ['localeSwitcher'],
-  tagName:           'a',
+  classNames: ['sideMenu'],
 
 
 
   // ----- Static properties -----
-  href: computed('i18n.oppositeLocale', function () {
-    return '/' + this.get('i18n.oppositeLocale')
-  }),
 
 
 
@@ -35,18 +31,20 @@ export default Component.extend({
 
 
   // ----- Overridden Methods -----
-  click (event) {
-    event.preventDefault()
-    this.get('toggleLocaleAction')()
-  },
 
 
 
   // ----- Custom Methods -----
+  _isElementAMenuItem (element) {
+    return $(element).closest('.route-locale-menu-item').length > 0
+  },
 
 
 
   // ----- Events and observers -----
+  collapseMenu: on('click', function ({target}) {
+    if (this._isElementAMenuItem(target)) this.set('htmlState.menuToggler', false)
+  }),
 
 
 

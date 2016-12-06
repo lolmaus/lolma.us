@@ -12,15 +12,10 @@
       margin-top:    2rem
       margin-bottom: 0.5rem
 
-
-
-  ////------------------------------------------
-  .proJects-stalled
-    //------------------------------------------
-
-    // ----- Looks -----
-    cursor: pointer
-
     // ----- Content layout -----
-    > *
-      vertical-align: middle
+    .proJect.-stalled
+      display: none
+
+    .proJects-stalledInput:checked ~ .projectGroup .proJect.-stalled
+      display: block
+

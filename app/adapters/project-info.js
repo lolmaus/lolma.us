@@ -42,8 +42,8 @@ export default Adapter.extend({
       // .then(projectInfos => (console.log('projectInfos', projectInfos), projectInfos))
   },
 
-  shouldBackgroundReloadAll    () { return false },
-  shouldBackgroundReloadRecord () { return false },
-  shouldReloadAll              () { return true },
-  shouldReloadRecord           () { return true },
+  // shouldBackgroundReloadAll    () { return false },
+  // shouldBackgroundReloadRecord () { return false },
+  // shouldReloadAll              () { return true },
+  // shouldReloadRecord           () { return true },
 })

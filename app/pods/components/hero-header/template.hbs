@@ -37,10 +37,13 @@
     </div>{{! heroHeader-hire }}
 
     {{#scroll-to
-      class  = "heroHeader-scrollTo"
-      target = scrollToTarget
+      class      = "heroHeader-scrollTo"
+      target     = scrollToTarget
+      scrollable = scrollable
     }}
-      🞃
+      {{svg-jar "triangle-down"
+        class = "heroHeader-scrollTo-icon"
+      }}
     {{/scroll-to}}
   </div>{{! heroHeader-footer }}
 

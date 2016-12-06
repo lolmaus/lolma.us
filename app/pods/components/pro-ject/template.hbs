@@ -28,7 +28,7 @@
   {{/if}}
 
   {{#if (gte project.status 2)}}
-    <span class = "proJect-status -{{project.status}}">
+    <span class = "proJect-status -status-{{project.status}}" title={{statusTitle}}>
       {{statusLabel}}
     </span>
   {{/if}}

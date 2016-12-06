@@ -1,0 +1,36 @@
+{{#if summary}}
+  <h2 class = "blogPost-title">
+    {{link-to
+      post.title 'locale.blog.post' post.slug
+      class = "blogPost-title-link"
+    }}
+  </h2>{{! blogPost-title }}
+{{else}}
+  <h1 class = "blogPost-title">
+    {{post.title}}
+  </h1>{{! blogPost-title }}
+{{/if}}
+
+
+
+<p class = "blogPost-date">
+  {{moment-format post.date 'Do MMMM YYYY'}}
+</p>{{! blogPost-date }}
+
+
+
+{{#if (and post.summary (or summary (not post.hideSummary)))}}
+  {{markdown-to-html
+    post.summary
+    class = "blogPost-summary"
+  }}
+{{/if}}
+
+
+
+{{#if (and post.body (not summary))}}
+  {{markdown-to-html
+    post.body
+    class = "blogPost-body"
+  }}
+{{/if}}
