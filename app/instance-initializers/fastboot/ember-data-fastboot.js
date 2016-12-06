@@ -1,9 +1,4 @@
 import _ from 'npm:lodash'
-import Ember from 'ember'
-
-const {
-  Inflector: {inflector}
-} = Ember
 
 
 
@@ -21,10 +16,10 @@ export function initialize (applicationInstance) {
 
         // Get record arrays
         .reduce((hash, modelName) => {
-          const modelNamePlural = inflector.pluralize(modelName)
+          // const modelNamePlural = inflector.pluralize(modelName)
 
           try {
-            hash[ modelNamePlural ] =
+            hash[ modelName ] =
               store
                 .peekAll(modelName)
                 .toArray()

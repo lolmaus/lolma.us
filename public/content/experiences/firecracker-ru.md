@@ -2,8 +2,8 @@
 id: firecracker-en
 title: EmberJS-разработчик в <a href='http://firecracker.me'>Firecracker.me</a>, США
 type: job
-start: 2015-09
-end: 2016-11
+start: "2015-09"
+end: "2016-11"
 ---
 
 Мое лучшее приключение! Команда была для меня словно семья. Вам обязательно стоит взять у них отзыв обо мне.

@@ -6,10 +6,11 @@ import computed from 'ember-computed'
 export default Model.extend({
 
   // ----- Attributes -----
-  title:   attr('string'),
-  body:    attr('string'),
-  summary: attr('string'),
-  date:    attr('date'),
+  title:       attr('string'),
+  body:        attr('string'),
+  summary:     attr('string'),
+  date:        attr('date'),
+  hideSummary: attr('boolean'),
 
 
 
