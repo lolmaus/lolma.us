@@ -1,6 +1,8 @@
 {
   "posts": [
     "new-website-en",
-    "new-website-ru"
+    "new-website-ru",
+
+    "route-model-hook-rsvp-hash-en"
   ]
 }

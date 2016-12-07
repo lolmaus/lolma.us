@@ -10,7 +10,7 @@
   em, i
     font-style: italic
 
-  p, li, ul
+  p, li, ul, pre
     &:not(:last-child)
       margin-bottom: 1em
 
@@ -27,7 +27,21 @@
       margin-bottom: 0.3em
 
   ul
-    margin-left: 2em
+    padding-left: 2em
 
   li
     list-style-type: disc
+
+  *:not(pre) > code
+    border-radius: 0.3em
+    padding-left:  0.2em
+    padding-right: 0.2em
+
+  pre
+    font-size:     0.9em
+    overflow:      auto
+    white-space:   pre
+    border-radius: 0.3em
+
+    > code
+      padding: 1rem !important

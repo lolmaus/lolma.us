@@ -34,6 +34,7 @@ module.exports = {
   },
 
   "globals": {
+    "showdown": false,
     // "d3": false,
     // "dc": false,
     // "crossfilter": false

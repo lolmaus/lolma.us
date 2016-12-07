@@ -12,6 +12,12 @@
       margin-left:  auto
       margin-right: auto
 
+    &:not(.-summary) .blogPost-summary
+      margin-top: 2rem
+
+    .blogPost-body
+      margin-top: 2rem
+
 
 
   ////------------------------------------------
@@ -21,3 +27,13 @@
     // ----- Text -----
     color:     config-get('lolma-us.themes.light.label')
     font-size: 0.8rem
+
+
+
+  ////------------------------------------------
+  .blogPost-summary
+    //------------------------------------------
+
+    // ----- Behavior -----
+    .blogPost.-full &
+      font-size: 1.2em
