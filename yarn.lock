@@ -784,7 +784,7 @@ broccoli-file-creator@^1.0.0:
     rsvp "~3.0.6"
     symlink-or-copy "^1.0.1"
 
-broccoli-filter@^0.1.11:
+broccoli-filter@^0.1.11, broccoli-filter@^0.1.6:
   version "0.1.14"
   resolved "https://registry.yarnpkg.com/broccoli-filter/-/broccoli-filter-0.1.14.tgz#23cae3891ff9ebb7b4d7db00c6dcf03535daf7ad"
   dependencies:
@@ -2210,6 +2210,13 @@ ember-cli-htmlbars-inline-precompile@^0.3.2, ember-cli-htmlbars-inline-precompil
     ember-cli-htmlbars "^1.0.0"
     hash-for-dep "^1.0.2"
 
+ember-cli-htmlbars@0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-0.7.6.tgz#07e068eea68133d7e2fa6b505d87673f4bce145f"
+  dependencies:
+    broccoli-filter "^0.1.6"
+    ember-cli-version-checker "^1.0.2"
+
 ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.1, ember-cli-htmlbars@^1.0.10, ember-cli-htmlbars@^1.0.3, ember-cli-htmlbars@^1.0.8:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-1.1.1.tgz#8776cf59796dac8f32e8625fc6d1ea45ffa55de1"
@@ -2554,6 +2561,13 @@ ember-deferred-content@^0.2.0:
   dependencies:
     ember-cli-babel "^5.1.5"
     ember-cli-htmlbars "^1.0.1"
+
+ember-disqus@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-disqus/-/ember-disqus-0.2.0.tgz#b2852188caa7d19d6efb74b2452b10c6c6d46394"
+  dependencies:
+    ember-cli-babel "^5.0.0"
+    ember-cli-htmlbars "0.7.6"
 
 ember-export-application-global@^1.0.5:
   version "1.1.1"

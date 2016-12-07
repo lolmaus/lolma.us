@@ -2,6 +2,7 @@ import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 import {belongsTo} from 'ember-data/relationships'
 import computed from 'ember-computed'
+import templateString from 'ember-computed-template-string'
 
 export default Model.extend({
 
@@ -28,4 +29,6 @@ export default Model.extend({
       .slice(0, -1)
       .join('-')
   }),
+
+  disqusId: templateString("blog-${id}"),
 })

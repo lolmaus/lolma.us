@@ -17,6 +17,10 @@
 
 <p class = "blogPost-date">
   {{moment-format post.date 'Do MMMM YYYY'}}
+
+  {{!--#if summary}}
+    {{disqus-comment-count identifier=post.disqusId}}
+  {{/if--}}
 </p>{{! blogPost-date }}
 
 

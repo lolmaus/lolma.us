@@ -10,4 +10,12 @@
     post    = model.post
   }}
 
+  {{#unless fastboot.isFastBoot}}
+    {{disqus-comments
+      class      = "route-blogPost-comments"
+      identifier = model.post.disqusId
+      title      = model.post.title
+    }}
+  {{/unless}}
+
 </div>{{! route-blogPost }}

@@ -10,7 +10,7 @@
   em, i
     font-style: italic
 
-  p, li, ul, pre
+  p, li, ul, pre, blockquote
     &:not(:last-child)
       margin-bottom: 1em
 
@@ -45,3 +45,23 @@
 
     > code
       padding: 1rem !important
+
+  blockquote, aside
+    padding-left: 3em
+    position:     relative
+    font-style:   italic
+    opacity:      0.9
+
+    &:before
+      position:   absolute
+      top:        0
+      left:       0
+      font-size:  4em
+      font-style: normal
+      opacity:    0.5
+
+  blockquote:before
+      content: '”'
+
+  aside:before
+      content: '!'

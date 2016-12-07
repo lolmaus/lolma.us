@@ -77,7 +77,11 @@ module.exports = function (env) {
           id: 'UA-77566978-1'
         }
       },
-    ]
+    ],
+
+    disqus: {
+      shortname: 'lolmaus'
+    },
   }
 
   if (env === 'development') {
