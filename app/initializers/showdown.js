@@ -16,20 +16,23 @@ export function initialize () {
           .replace(/&gt;/g, '>')
       )
     }
+
+    function replacement (wholeMatch, match, left, right) {
+      // unescape match to prevent double escaping
+      match = htmlunencode(match)
+      const newLeft = left.replace(/class="(.+?)"/, 'class="$1 hljs"')
+
+      return newLeft + hljs.highlightAuto(match).value + right
+    }
+
     return [
       {
         type: 'output',
         filter: function (text, converter, options) {
-          // use new shodown's regexp engine to conditionally parse codeblocks
-          var left  = '<pre><code\\b[^>]*>',
-              right = '</code></pre>',
-              flags = 'g',
-              replacement = function (wholeMatch, match, left, right) {
-                // unescape match to prevent double escaping
-                match = htmlunencode(match)
-                const newLeft = left.replace(/class="(.+?)"/, 'class="$1 hljs"')
-                return newLeft + hljs.highlightAuto(match).value + right
-              }
+          // use new showdown's regexp engine to conditionally parse code blocks
+          const left  = '<pre><code\\b[^>]*>'
+          const right = '</code></pre>'
+          const flags = 'g'
           return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags)
         }
       }
