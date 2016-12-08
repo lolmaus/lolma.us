@@ -61,7 +61,7 @@
       opacity:    0.5
 
   blockquote:before
-      content: '”'
+    content: '”'
 
-  aside:before
-      content: '!'
+  aside:before, .exclamation + blockquote:before
+    content: '!'
