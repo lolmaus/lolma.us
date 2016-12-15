@@ -1816,7 +1816,7 @@ debug@2.2.0, debug@~2.2.0:
   dependencies:
     ms "0.7.1"
 
-debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0:
+debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.3.3.tgz#40c453e67e6e13c901ddec317af8986cda9eff8c"
   dependencies:
@@ -2290,6 +2290,13 @@ ember-cli-normalize-entity-name@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-normalize-entity-name/-/ember-cli-normalize-entity-name-1.0.0.tgz#0b14f7bcbc599aa117b5fddc81e4fd03c4bad5b7"
   dependencies:
     silent-error "^1.0.0"
+
+ember-cli-nprogress@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-nprogress/-/ember-cli-nprogress-0.1.2.tgz#1627c213d2627d5c123848c096b1cc743cf9be41"
+  dependencies:
+    debug "^2.3.3"
+    ember-cli-babel "^5.1.7"
 
 ember-cli-path-utils@^1.0.0:
   version "1.0.0"

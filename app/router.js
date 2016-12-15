@@ -3,6 +3,7 @@ import computed from 'ember-computed'
 import config from './config/environment'
 import service from 'ember-service/inject'
 import {scheduleOnce} from 'ember-runloop'
+import nprogress from 'ember-cli-nprogress'
 
 const Router = Ember.Router.extend({
 
@@ -49,6 +50,7 @@ const Router = Ember.Router.extend({
   willTransition () {
     this._super(...arguments)
     this.propertyWillChange('oppositeLocaleURLParams')
+    nprogress.start()
   },
 
   didTransition () {
@@ -56,6 +58,7 @@ const Router = Ember.Router.extend({
     this._trackPage()
     this.get('htmlState').restoreHtmlState()
     this.propertyDidChange('oppositeLocaleURLParams')
+    nprogress.done()
   },
 
 
