@@ -26,23 +26,10 @@
 
       .route-blog-sidebar
         flex-shrink: 0
-        order:       1
         width:       300px
-        overflow-y:  auto
-
-        display:         flex
-        flex-direction:  column
-        justify-content: space-between
-
-        opacity: 0.5
-        transition: opacity 0.3s
-
-        &:hover
-          opacity: 1
 
       .route-blog-content
         flex-grow:  1
-        order:      2
         overflow-y: auto
 
 
@@ -52,31 +39,128 @@
   .route-blog-sidebar
     //------------------------------------------
 
-    // ----- Looks -----
-    //+theme(dark, bg2)
-
     // ----- Layout -----
-    padding:    2rem
+    padding:    1rem
     text-align: center
 
     // ----- Content layout -----
-    .route-blog-sidebar-section
-      &:not(:last-child)
-        margin-bottom: 2rem
-
     .route-blog-sidebar-avatar
-      width:     50%
-      max-width: 128px
+      width:     100%
+      max-width: 100px
 
     .route-blog-sidebar-stamp
-      width: 75%
-      max-width: 223px
+      width:     100%
+      max-width: 200px
 
-      transision: opacity 0.3s
+      transition: opacity 0.3s
       &:hover
         opacity: 0.9
 
+    .route-blog-hire2
+      display: none
+
     // ----- Behavior -----
+    opacity: 0.5
+    transition: opacity 0.3s
+
+    &:hover
+      opacity: 1
+
+    // ----- RWD -----
+    +at(xxs)
+      display:         flex
+      justify-content: space-between
+      flex-wrap:       wrap
+
+      .route-blog-sidebar-section
+        &._avatar
+          order:         1
+          width:         50%
+          padding-right: 0.5rem
+
+        &._hire
+          order:        2
+          width:        50%
+          display:      flex
+          align-items:  center
+          padding-left: 0.5rem
+
+        &._content
+          order:      3
+          width:      100%
+          margin-top: 1rem
+
+      .route-blog-title, .route-blog-subtitle
+        font-size: 1rem
+
+
+    +at(xs)
+      display:     flex
+      align-items: center
+
+      .route-blog-sidebar-section
+        &._avatar
+          padding-right: 0.5rem
+
+        &._hire
+          display: none
+
+        &._content
+          flex-grow: 1
+
+      .route-blog-title
+        font-size: 1.2rem
+
+      .route-blog-subtitle
+        font-size: 1rem
+
+      .route-blog-hire2
+        display: block
+
+
+    +between(s, m)
+      padding:     1.5rem
+      display:     flex
+      align-items: center
+
+      .route-blog-sidebar-section
+        &._avatar
+          padding-right: 0.5rem
+
+        &._hire
+          padding-left: 0.5rem
+          max-width:    150px
+
+        &._content
+          flex-grow: 1
+
+      .route-blog-title
+        font-size: 1.2rem
+
+      .route-blog-subtitle
+        font-size: 1rem
+
+
+    +at(m)
+      padding: 2rem
+
+      .route-blog-title
+        font-size: 1.6rem
+
+      .route-blog-subtitle
+        font-size: 1.3rem
+
+
+    +from(l)
+      overflow-y:  auto
+
+      display:         flex
+      flex-direction:  column
+      justify-content: space-between
+      align-items:     center
+
+      .route-blog-sidebar-section._content
+        flex-grow: 1
 
 
 

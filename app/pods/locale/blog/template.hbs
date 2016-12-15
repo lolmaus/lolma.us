@@ -1,50 +1,55 @@
 <div class = "route-blog">
 
 
+  <div class = "route-blog-sidebar">
+
+    <div class = "route-blog-sidebar-section _avatar">
+      <img
+        class  = "route-blog-sidebar-avatar"
+        src    = "https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg"
+        alt    = {{t 'header.title'}}
+        width  = "512"
+        height = "512"
+      >
+    </div>
+
+    <div class = "route-blog-sidebar-section _content">
+      <h2 class = "route-blog-title">
+        {{t 'header.title'}}
+        @lolmaus
+      </h2>
+
+      <div class = "route-blog-subtitle">
+        {{t 'header.subtitle'}}
+      </div>
+
+      <div class = "route-blog-hire2">
+        {{link-to (t 'header.hire2') 'locale.index'}}
+      </div>
+    </div>{{! route-blog-sidebar-content }}
+
+    {{#link-to
+      'locale.index'
+      class = "route-blog-sidebar-section _hire"
+    }}
+      <img
+        class  = "route-blog-sidebar-stamp"
+        src    = "/images/index/hire.png"
+        alt    = {{t 'header.hire2'}}
+        width  = "446"
+        height = "268"
+      >
+    {{/link-to}}
+
+  </div>{{! route-blog-sidebar }}
+
+
   {{#sec-tion
     class      = "route-blog-content"
     innerClass = "route-blog-content-inner"
   }}
     {{outlet}}
-  {{/sec-tion}}
-
-
-  <div class = "route-blog-sidebar">
-
-    <div class = "route-blog-sidebar-section _top">
-      <img
-        class  = "route-blog-sidebar-avatar"
-        src    = "https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg"
-        alt    = "My face"
-        width  = "512"
-        height = "512"
-      >
-
-      <div>
-        <h2 class = "route-blog-title">
-          {{t 'header.title'}}
-          @lolmaus
-        </h2>
-
-        <div class = "route-blog-subtitle">
-          {{t 'header.subtitle'}}
-        </div>
-      </div>
-    </div>{{! route-blog-sidebar-section }}
-
-    <div class = "route-blog-sidebar-section">
-      {{#link-to 'locale.index'}}
-        <img
-          class  = "route-blog-sidebar-stamp"
-          src    = "/images/index/hire.png"
-          alt    = "Available for hire"
-          width  = "446"
-          height = "268"
-        >
-      {{/link-to}}
-    </div>
-
-  </div>{{! route-blog-sidebar }}
+  {{/sec-tion}}{{! route-blog-content }}
 
 
 </div>{{! route-blog }}

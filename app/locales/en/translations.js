@@ -3,6 +3,7 @@ export default {
     title: 'Andrey Mikhaylov',
     subtitle: 'frontend&nbsp;developer, EmberJS&nbsp;enthusiast',
     hire: "Looking for a full-time remote job as a senior EmberJS dev. Please <a href='{{tweetUrl}}'>retweet!</a>",
+    hire2: "Available for hire",
   },
   menu: {
     greeting: 'You are awesome today!',
