@@ -39,4 +39,4 @@ module.exports = {
     // "dc": false,
     // "crossfilter": false
   }
-};
+}
