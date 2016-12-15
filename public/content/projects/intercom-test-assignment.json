@@ -1,0 +1,9 @@
+{
+  "group": "ember",
+  "type": "app",
+  "status": 1,
+  "description": {
+    "en": "a test assignment I've done for Intercom.io",
+    "ru": "тестовое задание, которое я выполнил для Intercom.io"
+  }
+}
