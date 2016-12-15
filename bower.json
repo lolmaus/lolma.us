@@ -3,7 +3,7 @@
   "dependencies": {
     "ember": "2.10.0-beta.3",
     "ember-cli-shims": "~0.1.1",
-    "showdown": "^1.5.0",
+    "showdown": "^1.5.1",
     "nprogress": "alexlafroscia/nprogress#allow-alternate-scheduler"
   }
 }

@@ -25,18 +25,16 @@ export function initialize () {
       return newLeft + hljs.highlightAuto(match).value + right
     }
 
-    return [
-      {
-        type: 'output',
-        filter: function (text, converter, options) {
-          // use new showdown's regexp engine to conditionally parse code blocks
-          const left  = '<pre><code\\b[^>]*>'
-          const right = '</code></pre>'
-          const flags = 'g'
-          return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags)
-        }
+    return {
+      type: 'output',
+      filter: function (text, converter, options) {
+        // use new showdown's regexp engine to conditionally parse code blocks
+        const left  = '<pre><code\\b[^>]*>'
+        const right = '</code></pre>'
+        const flags = 'g'
+        return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags)
       }
-    ]
+    }
   })
 
 }

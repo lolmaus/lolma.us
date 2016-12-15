@@ -12,6 +12,7 @@ const Router = Ember.Router.extend({
   metrics:   service(),
   i18n:      service(),
   htmlState: service(),
+  fastboot:  service(),
 
 
 
@@ -22,6 +23,7 @@ const Router = Ember.Router.extend({
 
 
   // ----- Custom properties -----
+  initialLoadingComplete: false,
 
 
 
@@ -50,7 +52,7 @@ const Router = Ember.Router.extend({
   willTransition () {
     this._super(...arguments)
     this.propertyWillChange('oppositeLocaleURLParams')
-    nprogress.start()
+    if (this.get('initialLoadingComplete') && !this.get('fastboot.isFastBoot')) nprogress.start()
   },
 
   didTransition () {
@@ -59,6 +61,8 @@ const Router = Ember.Router.extend({
     this.get('htmlState').restoreHtmlState()
     this.propertyDidChange('oppositeLocaleURLParams')
     nprogress.done()
+    if (this.get('initialLoadingComplete') && !this.get('fastboot.isFastBoot')) nprogress.done()
+    else this.set('initialLoadingComplete', true)
   },
 
 

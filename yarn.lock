@@ -2355,15 +2355,16 @@ ember-cli-sass@^5.6.0:
     ember-cli-version-checker "^1.0.2"
     merge "^1.2.0"
 
-"ember-cli-showdown@https://github.com/lolmaus/ember-cli-showdown.git#issue-34-safe-string":
-  version "2.8.0"
-  resolved "https://github.com/lolmaus/ember-cli-showdown.git#1b4216524d68945a2e5d9e94d5d478e4b6cec768"
+ember-cli-showdown@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-showdown/-/ember-cli-showdown-2.9.0.tgz#b188132c1c7ee15fa589ef1c07136dc2531c9dbf"
   dependencies:
     broccoli-funnel "^1.0.1"
     broccoli-merge-trees "^1.1.1"
     ember-cli-babel "^5.1.3"
     ember-cli-htmlbars "^1.0.8"
     ember-cli-htmlbars-inline-precompile "^0.3.2"
+    ember-cli-import-polyfill "^0.2.0"
     rsvp "^3.2.1"
 
 ember-cli-sri@^2.1.0:
@@ -6453,17 +6454,11 @@ shellwords@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.0.tgz#66afd47b6a12932d9071cbfd98a52e785cd0ba14"
 
-"showdown@https://github.com/lolmaus/ember-cli-showdown.git#issue-38-github-code-blocks":
-  version "2.8.0"
-  resolved "https://github.com/lolmaus/ember-cli-showdown.git#576348e5a92b00ff6a91f1ed92e030924d449a37"
+showdown@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/showdown/-/showdown-1.5.1.tgz#973fc11f1463898f2dad678279f6aa08ac0f82ce"
   dependencies:
-    broccoli-funnel "^1.0.1"
-    broccoli-merge-trees "^1.1.1"
-    ember-cli-babel "^5.1.3"
-    ember-cli-htmlbars "^1.0.8"
-    ember-cli-htmlbars-inline-precompile "^0.3.2"
-    ember-cli-import-polyfill "^0.2.0"
-    rsvp "^3.2.1"
+    yargs "^3.15.0"
 
 sigmund@~1.0.0:
   version "1.0.1"
@@ -7431,7 +7426,7 @@ yargs-parser@^2.4.1:
     camelcase "^3.0.0"
     lodash.assign "^4.0.6"
 
-yargs@^3.31.0, yargs@^3.4.5:
+yargs@^3.15.0, yargs@^3.31.0, yargs@^3.4.5:
   version "3.32.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.32.0.tgz#03088e9ebf9e756b69751611d2a5ef591482c995"
   dependencies:
