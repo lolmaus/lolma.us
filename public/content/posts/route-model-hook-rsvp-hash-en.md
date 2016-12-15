@@ -9,25 +9,21 @@ date: 2016-12-08
 
 ## Why is it considered a bad practice?
 
-I've never thought it's a bad thing to do, so let's see what a smarter Ember dev thinks.
+I've never thought it's a bad thing in the first place, so let's see what a smarter Ember dev thinks.
 
-Sam Selikoff, the heroic author of [Mirage](http://www.ember-cli-mirage.com/), supports in [his blog post](https://medium.com/@sam.selikoff/because-returning-a-single-domain-object-from-the-route-is-the-ember-pattern-the-very-name-of-the-94c4abf4ad58#.b6gzydbvt) the idea of never returning a hash from the `model` hook.
+Sam Selikoff, the heroic author of [Mirage](http://www.ember-cli-mirage.com/), in [his blog post](https://medium.com/@sam.selikoff/because-returning-a-single-domain-object-from-the-route-is-the-ember-pattern-the-very-name-of-the-94c4abf4ad58#.b6gzydbvt) supports the idea of never returning a hash from the `model` hook.
 
-  Though I definitely follow Sam's example on Ember patterns, I dare to disagree with this particular case.
+Though I definitely follow Sam's example on Ember patterns, I dare to disagree with this particular case.
 
 Here are some of his points summarized by me. Make sure to read the original post!
 
 *   The hook's name, `model`, implies that a single entity should be returned from it.
 *   A necessity to return more than one entity is an indication of bad [ERM](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) design.
 *   If you need to return several different models, you should refactor by introducing a junction model with relationships that represent a combination of the models you need, and return that junction model from the route.
-*   If the models are so independent that it's inappropriate to unite them under a single entity, you shouldn't load all of them in the route. Instead, load the most important one from the route and load the rest from the controller after the initial render.
+*   If the models are so independent that it's inappropriate to unite them under a single entity, you shouldn't load all of them in the route. Instead, load the most important one from the route and load the rest from the controller/components after the initial render.
 *   In Rails, controllers should instantiate only one object.
 
 Let's see.
-
-> In Rails, controllers should instantiate only one object.
-
-Rails isn't really something one should Compare Ember with. Though both are considered MVC frameworks, their architecture is very different. Rails doesn't have a "Route" class at all, and for a specific REST call it always calls exactly one controller, even if the URL represents a nested resource. In Ember, Routes are entities that a responsible for data loading and are called in a chain.
 
 > The hook's name, `model`, implies that a single entity should be returned from the hook.
 
@@ -39,15 +35,19 @@ Also, Sam is not against returning an array from the `model` hook, even though i
 >
 > If you can't unite unrelated models under a single entity, you shouldn't load all of them in the route.
 
-I find the recommendation to refactor the ERM in such a way, that every route can be represented with a single entity, to be idealistic and naive.
+I find the recommendation to refactor the ERM in such a way, that every route can be represented with a single entity, to be idealistic and naive: it is simply not always possible!
 
-This is simply not always possible. Quite often you do have routes that display several unrelated, yet equally important entities. Displaying the route without some of them makes no business-logical sense, and you can't reasonably unite them under a single junction entity.
+Quite often you do have routes that display several unrelated, yet equally important entities. Displaying the route without some of them makes no business-logical sense, yet you can't reasonably unite them under a single junction entity.
 
 Even if introducing a junction entity makes sense, updating the backend can be too hard or even impossible, for example, if you don't have access to and/or authority over the backend codebase.
 
-You could introduce a frontend-only junction model. In certain complicated cases, this is the optimal solution, and I did follow this path when it was appropriate. But the cost is high: your frontend and backend ERMs diverge. I believe, doing that simply to avoid returning a hash is absolutely unreasonable.
+You could introduce a frontend-only junction model. In certain complicated cases, this is the optimal solution, and I did follow this path when it was appropriate ([example](http://intercom.lolma.us/dublin/)). But the cost is high: your frontend and backend ERMs diverge. I believe, doing that simply to avoid returning a hash is absolutely unreasonable.
 
-Even if you can synchronize the ERM refactor between the frontend and the backend, it's still a terribly huge stretch for avoiding one trivial pattern.
+Even if you can synchronize the ERM refactor of the frontend and the backend, it's still a terribly huge stretch for avoiding one trivial pattern.
+
+> In Rails, controllers should instantiate only one object.
+
+Rails isn't really something one should Compare Ember with. Though both are considered MVC frameworks, their architecture is very different. Rails doesn't have a "Route" class at all, and for a specific REST call the router always calls exactly one controller, even if the URL represents a nested resource. In Ember, Routes are entities that a responsible for data loading and are called in a chain.
 
 But most importantly, Sam doesn't point out any *practical* disadvantage of returning a hash. That's because there are none! But there are benefits.
 
@@ -57,15 +57,15 @@ But most importantly, Sam doesn't point out any *practical* disadvantage of retu
 
 Let me explain how I do it and then we'll see what the advantages are.
 
-Every route's `model` hook should return an `RSVP.hash()`. Even if it loads only one entity, put it into a property on the hash.
+**Every route's `model` hook should return an `RSVP.hash()`. Even if it loads only one entity, put it into a property on the hash.**
 
-The trick is that **every model hash should extend its parent hash**. Except for topmost routes which have no parent model, of course.
+**The trick is that *every model hash should extend its parent hash*.** Except for topmost routes which have no parent model, of course.
 
 Here's how my typical model hooks look like:
 
 ```js
 // posts route
-model (}) {
+model () {
   const store = this.get('store')
   
   return RSVP.hash({
@@ -142,7 +142,7 @@ Say, on an individual post route I would like to show links to previous and next
 
 So I want to display links to previous and next posts.
 
-Knowing that all posts are available as `model.posts` in any controller, I can just toss a few computed properties where I need them:
+Knowing that all posts are available as `model.posts` in almost any controller, I can just toss a few computed properties where I need them:
 
 ```js
 import {sort}              from 'ember-computed'
@@ -171,7 +171,7 @@ import getFromArrayByIndex from 'it/is/easy/and/fun'
 {{/if}}
 ```
 
-This code is declarative, as bug-proof as it can be, easy to understand from a single glance.
+This code is declarative, as bug-proof as it can be and easy to understand from a single glance.
 
 It's also performant: CP values are cached, and once you leave and revisit the route, the controller/component won't have to recalculate those values. But they'll recalculate automatically if the array of posts changes.
 
@@ -221,7 +221,7 @@ In this example, we preload authors of the post and of all its comments:
 
 One of Sam's concerns is that this approach prevents devs from traversing the model graph.
 
-I fully agree that in most cases you should traverse the model graph via a chain like `model.currentPost.comments[n].author` rather than retrieve current author's comment from `model.commentAuthors`.
+I fully agree that in most cases you should traverse the model graph via a chain like `model.currentPost.comments[n].author` rather than filter current author's comment from `model.commentAuthors`.
 
 But the matter is that though you do have `model.commentAuthors` available, you still can access comment authors via the chain. `model.commentAuthors` was merely a self-explanatory way to preload data, it does not prevent you from using the other way.
 
@@ -233,7 +233,7 @@ One problem with this approach is that JSHint freaks out at the `...` spread ope
 
 It's not a problem of the approach itself but rather a matter of relying on outdated tooling.
 
-`ember install ember-eslint` resolves this problem for good. You shouldn't avoid the powerful spread operator only because JSHint sucks with ES2015.
+`ember install ember-eslint` resolves this problem for good. You shouldn't avoid the powerful spread operator only because JSHint sucks at ES2015.
 
 
 
