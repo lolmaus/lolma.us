@@ -1,6 +1,6 @@
 import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
-import {belongsTo} from 'ember-data/relationships'
+// import {belongsTo} from 'ember-data/relationships'
 import computed from 'ember-computed'
 import templateString from 'ember-computed-template-string'
 
@@ -16,7 +16,6 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  website: belongsTo('markdown-block'),
 
 
 

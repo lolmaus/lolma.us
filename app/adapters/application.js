@@ -31,12 +31,12 @@ export default RESTAdapter.extend({
   },
 
   urlForQueryRecord (query, modelName) {
-    const {id, locale} = query
-    if (!id)     throw new Error('id required for queryRecord')
+    const {slug, locale} = query
+    if (!slug)   throw new Error('slug required for queryRecord')
     if (!locale) throw new Error('locale required for queryRecord')
-    delete query.id
+    delete query.slug
     delete query.locale
-    return this._buildURL(modelName, id, locale)
+    return this._buildURL(modelName, slug, locale)
   },
 
   _buildURL (modelName, id, locale) {

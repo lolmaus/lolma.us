@@ -25,13 +25,13 @@ export default Route.extend({
   // ----- Overridden Methods -----
   model ({slug}) {
     const model  = this.modelFor('locale')
+    const locale = model.locale
     const store  = this.get('store')
-    const id     = `${slug}-${model.locale}`
 
     return RSVP
       .hash({
         ...model,
-        post: store.findRecord('post', id),
+        post: store.queryRecord('post', {locale, slug}),
       })
   },
 

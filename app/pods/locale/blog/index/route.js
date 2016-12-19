@@ -31,13 +31,8 @@ export default Route.extend({
     return RSVP
       .hash({
         ...model,
-        blog: store.findRecord('junction', 'blog'),
+        posts: store.query('post', {locale}),
       })
-
-      .then(model => RSVP.hash({
-        ...model,
-        posts: model.blog.fetchChildRecords({locale, modelName: 'post'}),
-      }))
   },
 
 

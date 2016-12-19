@@ -23,7 +23,6 @@ export default Model.extend({
 
 
   // ----- Relationships -----
-  junction:    belongsTo('junction'),
   projectInfo: belongsTo('project-info', {async: true}),
 
 
