@@ -11,16 +11,10 @@ const target        = process.env.LMS_DEPLOY_TARGET || defaultTarget
 const dotEnvFile = `./.env-${target}`
 if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env file not found: ${dotEnvFile}`)
 
-function readBlogPages () {
-  return fs
-    .readdirSync('./public/content/posts')
-    .map(filename => {
-      const slug   = filename.split('-').slice(0, -1).join('-')
-      const locale = filename.split('-').pop().split('.')[0]
+const listBlogPages   = require('./lib/list-blog-pages')
+const generateContent = require('./lib/generate-content')
 
-      return `/${locale}/blog/${slug}`
-    })
-}
+
 
 
 
@@ -35,7 +29,7 @@ module.exports = function (defaults) {
           '/ru',
           '/en/blog',
           '/ru/blog',
-          ...readBlogPages()
+          ...listBlogPages()
         ],
       },
 
@@ -58,6 +52,10 @@ module.exports = function (defaults) {
       nodeModulesToVendor: [
         'node_modules/highlight.js'
       ],
+
+      fileCreator: [
+        ...generateContent()
+      ]
     })
 
   // Use `app.import` to add additional libraries to the generated

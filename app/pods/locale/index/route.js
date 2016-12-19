@@ -32,7 +32,10 @@ export default Route.extend({
     return RSVP
       .hash({
         ...model,
-        cv: store.findRecord('junction', 'cv'),
+
+        projects:       store.findAll('project'),
+        markdownBlocks: store.query('markdown-block', {locale}),
+        experiences:    store.query('experience',     {locale}),
 
         projectInfos: store
           .findAll('project-info')
@@ -42,13 +45,6 @@ export default Route.extend({
           .findRecord('stackoverflowUser', '901944')
           .catch(() => store.peekRecord('stackoverflowUser', '901944'))
       })
-
-      .then(model => RSVP.hash({
-        ...model,
-        projects:       model.cv.fetchChildRecords({        modelName: 'project'}),
-        markdownBlocks: model.cv.fetchChildRecords({locale, modelName: 'markdown-block'}),
-        experiences:    model.cv.fetchChildRecords({locale, modelName: 'experience'}),
-      }))
 
       .then(model => RSVP.hash({
         ...model,
@@ -65,7 +61,7 @@ export default Route.extend({
 
     if (!existingIds.length) return RSVP.resolve()
 
-    const idsFormProjects = projects.map(project => project.belongsTo('projectInfo').id())
+    const idsFormProjects = projects.mapBy('gitHubId')
     const remainingIds    = _.reject(idsFormProjects, id => existingIds.includes(id))
 
     const promises =

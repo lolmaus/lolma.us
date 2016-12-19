@@ -3,6 +3,11 @@ import service from 'ember-service/inject'
 import {reads} from 'ember-computed'
 
 
+import Ember from 'ember'
+const {
+  Inflector: {inflector}
+} = Ember
+
 
 export default RESTAdapter.extend({
 
@@ -18,13 +23,28 @@ export default RESTAdapter.extend({
 
 
   // ----- Overridden methods -----
-  urlForFindRecord (id, modelName, snapshot) {
-    return this._super(id, modelName, snapshot) + '.json'
+  urlForQuery (query, modelName) {
+    const {locale} = query
+    if (!locale) throw new Error('locale required for queryRecord')
+    delete query.locale
+    return this._buildURL(modelName, null, locale)
   },
 
-  findRecord (store, type, id, snapshot) {
-    return this
-      ._super(store, type, id, snapshot)
-      .then(response => ({...response, id}))
-  }
+  urlForQueryRecord (query, modelName) {
+    const {id, locale} = query
+    if (!id)     throw new Error('id required for queryRecord')
+    if (!locale) throw new Error('locale required for queryRecord')
+    delete query.id
+    delete query.locale
+    return this._buildURL(modelName, id, locale)
+  },
+
+  _buildURL (modelName, id, locale) {
+    const suffix = locale ? `-${locale}.json` : `.json`
+    return this._super(modelName, id) + suffix
+  },
+
+  pathForType (modelName) {
+    return inflector.pluralize(modelName)
+  },
 })

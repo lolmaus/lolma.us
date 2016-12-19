@@ -1,10 +1,10 @@
-import ApplicationSerializer from './application'
+import CustomJSONSerializer from './_json'
 import _ from 'npm:lodash'
 import {underscore} from 'ember-string'
 
 
 
-export default ApplicationSerializer.extend({
+export default CustomJSONSerializer.extend({
 
   // ----- Overridden properties -----
   primaryKey: 'full_name',

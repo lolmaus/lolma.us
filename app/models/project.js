@@ -33,7 +33,8 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  gitHubUrl:     templateString("https://github.com/${owner}/${id}"),
+  gitHubId:      templateString("${owner}/${id}"),
+  gitHubUrl:     templateString("https://github.com/${gitHubId}"),
   effectiveUrl:  conditional('url', 'url', 'gitHubUrl'),
   effectiveName: conditional('name', 'name', 'id'),
 
