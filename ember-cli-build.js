@@ -13,6 +13,7 @@ if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env fil
 
 const listBlogPages   = require('./lib/list-blog-pages')
 const generateContent = require('./lib/generate-content')
+const generateRss     = require('./lib/generate-rss')
 
 
 
@@ -54,7 +55,8 @@ module.exports = function (defaults) {
       ],
 
       fileCreator: [
-        ...generateContent()
+        ...generateContent(),
+        ...generateRss(),
       ]
     })
 

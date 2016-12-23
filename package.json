@@ -79,6 +79,7 @@
     "js-yaml": "^3.7.0",
     "loader.js": "^4.0.10",
     "lodash": "^4.17.2",
+    "rss": "^1.2.1",
     "sass-config-manager-mk2": "^1.0.0-alpha.1",
     "sass-toolkit": "^2.10.2",
     "showdown": "^1.5.1",

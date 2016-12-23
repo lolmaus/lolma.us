@@ -5,6 +5,6 @@ summary: The new personal website is live!  Though it looks humble, it's packed 
 date: 2016-12-04
 ---
 
-I'm not gonna go into details here because my [CV](/) has a section about it. Please have a look!
+I'm not gonna go into details here because my [CV](http://lolma.us/en/) has a section about it. Please have a look!
 
 This website marks a new phase in my career. I'm now calmly confident to consider myself a senior EmberJS dev.
