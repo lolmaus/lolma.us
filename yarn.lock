@@ -412,6 +412,10 @@ babel-plugin-eval@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-eval/-/babel-plugin-eval-1.0.1.tgz#a2faed25ce6be69ade4bfec263f70169195950da"
 
+babel-plugin-fake-import-specifiers@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fake-import-specifiers/-/babel-plugin-fake-import-specifiers-1.1.1.tgz#bd013f3d25cf64730c9a4fb767e1506e2ca30e4f"
+
 babel-plugin-feature-flags@^0.2.1:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-feature-flags/-/babel-plugin-feature-flags-0.2.3.tgz#81d81ed77bda2014098fa8243abcf03a551cbd4d"
@@ -2098,6 +2102,15 @@ ember-array-computed-macros@^1.3.0:
   dependencies:
     ember-cli-babel "^5.0.0"
 
+ember-awesome-macros@^0.31.1:
+  version "0.31.1"
+  resolved "https://registry.yarnpkg.com/ember-awesome-macros/-/ember-awesome-macros-0.31.1.tgz#d131336e194f5883fc0b36235d01308dd6337118"
+  dependencies:
+    babel-plugin-fake-import-specifiers "^1.0.0"
+    ember-cli-babel "^5.1.7"
+    ember-macro-helpers "^0.9.0"
+    ember-string-ishtmlsafe-polyfill "^1.0.0"
+
 ember-browserify@^1.1.13:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/ember-browserify/-/ember-browserify-1.1.13.tgz#df74eea4adf4694e8c364222f9c5fd605000930b"
@@ -2291,15 +2304,6 @@ ember-cli-htmlbars-inline-precompile@^0.3.2, ember-cli-htmlbars-inline-precompil
     ember-cli-babel "^5.1.3"
     ember-cli-htmlbars "^1.0.0"
     hash-for-dep "^1.0.2"
-
-ember-cli-htmlbars@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-1.0.8.tgz#99710a83b31584100ccd7f2175beca4ec0e93210"
-  dependencies:
-    broccoli-persistent-filter "^1.0.3"
-    ember-cli-version-checker "^1.0.2"
-    json-stable-stringify "^1.0.0"
-    strip-bom "^2.0.0"
 
 ember-cli-htmlbars@1.1.1, ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.1, ember-cli-htmlbars@^1.0.3, ember-cli-htmlbars@^1.0.8, ember-cli-htmlbars@^1.1.1:
   version "1.1.1"
@@ -2506,7 +2510,7 @@ ember-cli-staticboot@^0.1.3:
     rsvp "^3.2.1"
     silent-error "^1.0.0"
 
-ember-cli-string-utils@^1.0.0:
+ember-cli-string-utils@^1.0.0, ember-cli-string-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-string-utils/-/ember-cli-string-utils-1.1.0.tgz#39b677fc2805f55173735376fcef278eaa4452a1"
 
@@ -2649,13 +2653,6 @@ ember-cookies@^0.0.11:
     ember-cli-babel "^5.1.6"
     ember-getowner-polyfill "~1.1.1"
 
-ember-cpm@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cpm/-/ember-cpm-3.0.0.tgz#7009c55551494dcaa76b1999cd4e649483fd4e95"
-  dependencies:
-    ember-cli-babel "^5.1.7"
-    ember-macro-helpers "^0.7.0"
-
 ember-data@~2.11.0:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.11.1.tgz#9bfd1298aee3e8471e8056e8b4839e21f6dffcd4"
@@ -2691,12 +2688,12 @@ ember-deferred-content@^0.2.0:
     ember-cli-babel "^5.1.5"
     ember-cli-htmlbars "^1.0.1"
 
-ember-disqus@Redsandro/ember-disqus#disqusUrlPatch, ember-disqus@lolmaus/ember-disqus#disqusUrlPatch:
+ember-disqus@lolmaus/ember-disqus#disqusUrlPatch:
   version "0.2.1"
   resolved "https://codeload.github.com/lolmaus/ember-disqus/tar.gz/748cb68b525ea07f5ca3e7786c5c11c4ba456836"
   dependencies:
     ember-cli-babel "^5.0.0"
-    ember-cli-htmlbars "1.0.8"
+    ember-cli-htmlbars "1.1.1"
 
 ember-export-application-global@^1.0.5:
   version "1.1.1"
@@ -2759,11 +2756,13 @@ ember-macro-helpers@^0.4.0:
   dependencies:
     ember-cli-babel "^5.1.7"
 
-ember-macro-helpers@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/ember-macro-helpers/-/ember-macro-helpers-0.7.0.tgz#482f0116f77349d1c3db8be3f53ae38bb4f8a4dc"
+ember-macro-helpers@^0.9.0:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/ember-macro-helpers/-/ember-macro-helpers-0.9.1.tgz#1603ce5dedd76319a4ee7d09eb27694d3c21f7d3"
   dependencies:
     ember-cli-babel "^5.1.7"
+    ember-cli-string-utils "^1.1.0"
+    ember-cli-test-info "^1.0.0"
 
 ember-metrics@~0.8.1:
   version "0.8.1"
@@ -2862,6 +2861,12 @@ ember-source@~2.11.0:
     resolve "^1.1.7"
     rsvp "^3.3.3"
     simple-dom "^0.3.0"
+
+ember-string-ishtmlsafe-polyfill@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-string-ishtmlsafe-polyfill/-/ember-string-ishtmlsafe-polyfill-1.0.1.tgz#b40a8c98663be5c16d16f31dc686102bb655abbd"
+  dependencies:
+    ember-cli-babel "^5.1.6"
 
 ember-svg-jar@0.9.3:
   version "0.9.3"

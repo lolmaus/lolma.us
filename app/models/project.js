@@ -2,7 +2,7 @@ import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 import {belongsTo} from 'ember-data/relationships'
 import computed from 'ember-computed'
-import conditional from "ember-cpm/macros/conditional"
+import conditional from "ember-awesome-macros/conditional"
 import templateString from 'ember-computed-template-string'
 // import service from 'ember-service/inject'
 // import _ from 'npm:lodash'
