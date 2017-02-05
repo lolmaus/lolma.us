@@ -3,7 +3,7 @@
   "status": 1,
   "type": "addon",
   "owner": "firecracker",
-  "emberObserver": true,
+  "ember-observer": true,
   "description": {
     "en": "render your LaTeX formulas using <a href='https://github.com/Khan/KaTeX'>KaTeX</a>",
     "ru": "рендеринг формул LaTeX с помощью <a href='https://github.com/Khan/KaTeX'>KaTeX</a>"

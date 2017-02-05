@@ -2,7 +2,7 @@
   "group": "ember",
   "status": 1,
   "type": "addon",
-  "emberObserver": true,
+  "ember-observer": true,
   "description": {
     "en": "element query solution for your Ember apps",
     "ru": "реализация element queries для ваших приложений"
