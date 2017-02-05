@@ -2,8 +2,7 @@ export default {
   header: {
     title: 'Andrey Mikhaylov',
     subtitle: 'frontend&nbsp;developer, EmberJS&nbsp;enthusiast',
-    hire: "Looking for a full-time remote job as a senior EmberJS dev. Please <a href='{{tweetUrl}}'>retweet!</a>",
-    hire2: "Available for hire",
+    footer: "Working with an amazing team at <a href=\"https://deveo.com/\">Deveo.com</a> — repository management platform done right.</a>",
   },
   menu: {
     greeting: 'You are awesome today!',

@@ -25,24 +25,25 @@
 
 
   <div class = "heroHeader-footer">
-    <div class = "heroHeader-hire">
-      <img
-        class  = "heroHeader-hire-stamp"
-        src    = "/images/index/hire.png"
-        alt    = "Available for hire"
-        width  = "446"
-        height = "268"
-      >
+    <div class = "heroHeader-footer-main">
+      <a href = "https://deveo.com" class = "-no-icon">
+        <img
+          class  = "heroHeader-footer-main-stamp"
+          src    = "https://deveo.com/wp-content/uploads/2016/04/D-deveo-fill.png"
+          alt    = "Deveo.com"
+          width  = "128"
+          height = "128"
+        >
+      </a>
 
-      <div class = "heroHeader-hire-message">
-        {{t "header.hire" tweetUrl = "https://twitter.com/lolmaus_en/status/803274593603461120"}}
-      </div>{{! heroHeader-hire-message }}
-    </div>{{! heroHeader-hire }}
+      <div class = "heroHeader-footer-main-message">
+        {{t "header.footer"}}
+      </div>{{! heroHeader-footer-main-message }}
+    </div>{{! heroHeader-footer-main }}
 
     {{#scroll-to
       class      = "heroHeader-scrollTo"
       target     = scrollToTarget
-      scrollable = scrollable
     }}
       {{svg-jar "triangle-down"
         class = "heroHeader-scrollTo-icon"
