@@ -11,15 +11,15 @@ const items = {
   '.proJects-stalledInput': {
     type: 'checkbox',
   },
-  '.route-locale-content': {
-    type: 'vertical-scroll',
-  },
+  // '.route-locale-content': {
+  //   type: 'vertical-scroll',
+  // },
   '.route-blog-sidebar': {
     type: 'vertical-scroll',
   },
-  '.route-blog-content': {
-    type: 'vertical-scroll',
-  },
+  // '.route-blog-content': {
+  //   type: 'vertical-scroll',
+  // },
 }
 
 export function initialize (/*applicationInstance*/) {
