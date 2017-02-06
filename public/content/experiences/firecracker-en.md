@@ -3,7 +3,7 @@ id: firecracker-en
 title: EmberJS Developer at <a href='http://firecracker.me'>Firecracker.me</a>, US
 type: job
 start: 2015-09
-end: 2016-11
+end: 2016-12
 ---
 
 My best adventure so far! The team was like a family. You should contact them for a reference.
