@@ -25,7 +25,7 @@ export default Route.extend({
 
   // ----- Overridden Methods -----
   redirect () {
-    if (!this.get('fastboot.isFastBoot')) this.transitionTo('locale', {locale: 'en'})
+    if (!this.get('fastboot.isFastBoot')) this.transitionTo('locale.blog', 'en')
     else this.set('headData.redirectToEn', true)
   },
   // model() {
