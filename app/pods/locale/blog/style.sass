@@ -57,9 +57,6 @@
       &:hover
         opacity: 0.9
 
-    .route-blog-hire2
-      display: none
-
     // ----- Behavior -----
     opacity:    0.5
     transition: opacity 0.3s
@@ -69,26 +66,11 @@
 
     // ----- RWD -----
     +at(xxs)
-      display:         flex
-      justify-content: space-between
-      flex-wrap:       wrap
-
       .route-blog-sidebar-section
         &._avatar
-          order:         1
-          width:         50%
-          padding-right: 0.5rem
-
-        &._hire
-          order:        2
-          width:        50%
-          display:      flex
-          align-items:  center
-          padding-left: 0.5rem
+          text-align: center
 
         &._content
-          order:      3
-          width:      100%
           margin-top: 1rem
 
       .route-blog-title, .route-blog-subtitle
@@ -103,9 +85,6 @@
         &._avatar
           padding-right: 0.5rem
 
-        &._hire
-          display: none
-
         &._content
           flex-grow: 1
 
@@ -115,22 +94,21 @@
       .route-blog-subtitle
         font-size: 1rem
 
-      .route-blog-hire2
-        display: block
-
 
     +between(s, m)
       padding:     1.5rem
       display:     flex
       align-items: center
 
+      max-width:     config-get('lolma-us.layout.text-max-width')
+      margin-left:   auto
+      margin-right:  auto
+      padding-left:  0
+      padding-right: 0
+
       .route-blog-sidebar-section
         &._avatar
           padding-right: 0.5rem
-
-        &._hire
-          padding-left: 0.5rem
-          max-width:    150px
 
         &._content
           flex-grow: 1
@@ -143,7 +121,8 @@
 
 
     +at(m)
-      padding: 2rem
+      padding-top:    2rem
+      padding-bottom: 2rem
 
       .route-blog-title
         font-size: 1.6rem
