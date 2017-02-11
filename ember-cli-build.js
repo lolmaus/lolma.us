@@ -3,7 +3,7 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app')
 const fs       = require('fs')
 
-const environment       = process.env.EMBER_ENV || 'development'
+const environment = process.env.EMBER_ENV || 'development'
 
 const defaultTarget = environment === 'production' ? 'prod' : 'localhost-4200'
 const target        = process.env.LMS_DEPLOY_TARGET || defaultTarget
@@ -14,9 +14,6 @@ if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env fil
 const listBlogPages   = require('./lib/list-blog-pages')
 const generateContent = require('./lib/generate-content')
 const generateRss     = require('./lib/generate-rss')
-
-
-
 
 
 
