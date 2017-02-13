@@ -3254,7 +3254,7 @@ express-cluster@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/express-cluster/-/express-cluster-0.0.4.tgz#7aa5c39779bbc7550a30525d02b4c022e40b8798"
 
-express@^4.10.7, express@^4.12.3, express@^4.13.3, express@^4.8.5:
+express@^4.10.7, express@^4.12.3, express@^4.13.3, express@^4.14.1, express@^4.8.5:
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.14.1.tgz#646c237f766f148c2120aff073817b9e4d7e0d33"
   dependencies:
@@ -3594,6 +3594,13 @@ fs-extra@^0.30.0:
     klaw "^1.0.0"
     path-is-absolute "^1.0.0"
     rimraf "^2.2.8"
+
+fs-extra@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-2.0.0.tgz#337352bded4a0b714f3eb84de8cea765e9d37600"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
 
 fs-readdir-recursive@^0.1.0:
   version "0.1.2"

@@ -1,4 +1,5 @@
 export default {
+  refreshSuggestion: "You're viewing cached version of the website. Refresh to see the up-to-date version?",
   header: {
     title: 'Andrey Mikhaylov',
     subtitle: 'frontend&nbsp;developer, EmberJS&nbsp;enthusiast',

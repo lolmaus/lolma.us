@@ -1,6 +1,7 @@
 import Route from 'ember-route'
 import service from 'ember-service/inject'
 import RSVP from 'rsvp'
+import $ from 'jquery'
 // import _ from 'npm:lodash'
 
 
@@ -33,18 +34,69 @@ export default Route.extend({
     this.get('moment').changeLocale(locale)
 
     // const model = this.modelFor('application')
+    const store      = this.get('store')
+    const isFastBoot = this.get('fastboot.isFastBoot')
 
     return RSVP
       .hash({
         // ...model,
         locale,
-        isFastBoot: this.get('fastboot.isFastBoot'),
+        isFastBoot,
+        cacheBuster: store.findRecord('cache-buster', 'buster')
+          .then(buster => {
+            console.log('buster', buster.get('string'))
+            return buster
+          })
       })
+  },
+
+  afterModel () {
+    this._checkCacheBuster()
   },
 
 
 
   // ----- Custom Methods -----
+  _checkCacheBuster () {
+    if (this.get('fastboot.isFastBoot')) return
+
+    const store  = this.get('store')
+    const buster = store.peekRecord('cache-buster', 'buster')
+
+    if (!buster) return
+
+    const oldString = buster.get('string')
+
+    store
+      .findRecord('cache-buster', 'buster', {reload: true})
+      .then(buster => {
+        console.log('oldString', oldString)
+        console.log('newString', buster.get('string'))
+        console.log('!==', oldString !== buster.get('string'))
+        if (oldString !== buster.get('string')) this._offerPageReload()
+      })
+  },
+
+  _offerPageReload () {
+    const i18n    = this.get('i18n')
+    const message = i18n.t('refreshSuggestion')
+
+    if (window.confirm(message)) window.location.reload(true)
+  },
+
+  _reloadPage () {
+    // http://stackoverflow.com/a/27058362/901944
+    $
+      .ajax({
+        url: window.location.href,
+        headers: {
+          "Pragma":        "no-cache",
+          "Expires":       -1,
+          "Cache-Control": "no-cache"
+        }
+      })
+      .done(() => window.location.reload(true))
+  }
 
 
 
