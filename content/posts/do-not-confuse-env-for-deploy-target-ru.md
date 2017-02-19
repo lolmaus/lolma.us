@@ -1,7 +1,7 @@
 ---
 id: do-not-confuse-env-for-deploy-target-ru
 title: Не путайте environment с deploy target
-summary: У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры разветывания, что неверно. 
+summary: У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры развертывания, что неверно. 
 date: 2017-02-18
 ---
 
