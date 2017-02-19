@@ -10,7 +10,7 @@
   em, i
     font-style: italic
 
-  p, li, ul, pre, blockquote
+  p, li, ul, ol, pre, blockquote
     &:not(:last-child)
       margin-bottom: 1em
 
@@ -26,10 +26,10 @@
     &:not(:last-child)
       margin-bottom: 0.3em
 
-  ul
+  ul, ol
     padding-left: 2em
 
-  li
+  ul li
     list-style-type: disc
 
   *:not(pre) > code

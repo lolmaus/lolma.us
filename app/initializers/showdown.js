@@ -18,9 +18,14 @@ export function initialize () {
     }
 
     function replacement (wholeMatch, match, left, right) {
+      const regex = /class="(.+?)"/
+
       // unescape match to prevent double escaping
       match = htmlunencode(match)
-      const newLeft = left.replace(/class="(.+?)"/, 'class="$1 hljs"')
+      const newLeft =
+        regex.test(left)
+        ? left.replace(regex, 'class="$1 hljs"')
+        : left.replace(/>$/,  ' class="hljs">')
 
       return newLeft + hljs.highlightAuto(match).value + right
     }
@@ -29,7 +34,7 @@ export function initialize () {
       type: 'output',
       filter: function (text, converter, options) {
         // use new showdown's regexp engine to conditionally parse code blocks
-        const left  = '<pre><code\\b[^>]*>'
+        const left  = '<pre.*?><code.*?>'
         const right = '</code></pre>'
         const flags = 'g'
         return showdown.helper.replaceRecursiveRegExp(text, replacement, left, right, flags)

@@ -19,20 +19,19 @@
         > *:not(:last-child)
           margin-right: 2rem
 
-
     +from(l)
       display:    flex
       min-height: 100vh
       //height:  100vh
 
+      $sidebar-width: 300px
+
       .route-blog-sidebar
         flex-shrink: 0
-        width:       300px
+        width:       $sidebar-width
 
       .route-blog-content
-        flex-grow:  1
-        //overflow-y: auto
-
+        width: calc(100% - #{$sidebar-width})
 
 
 
