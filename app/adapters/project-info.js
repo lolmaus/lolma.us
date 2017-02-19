@@ -39,7 +39,6 @@ export default Adapter.extend({
       // Join repo batches into a single array of batches
       .then(projectInfoBatches => projectInfoBatches.reduce((a, b) => a.concat(b), [])) //flatten
 
-      // .then(projectInfos => (console.log('projectInfos', projectInfos), projectInfos))
   },
 
   // shouldBackgroundReloadAll    () { return false },

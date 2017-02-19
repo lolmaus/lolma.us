@@ -1,6 +1,8 @@
 import RSVP from 'rsvp'
 import fetch from "ember-network/fetch"
 
+
+
 export function fetchRsvpRaw (...args) {
   const promise = fetch(...args)
 
@@ -8,6 +10,8 @@ export function fetchRsvpRaw (...args) {
     promise.then(resolve, reject)
   })
 }
+
+
 
 export function fetchRsvpText (...args) {
   return fetchRsvpRaw(...args)
@@ -18,6 +22,8 @@ export function fetchRsvpText (...args) {
     .then(response => response.text())
 }
 
+
+
 export default function fetchRsvpJson (...args) {
   return fetchRsvpRaw(...args)
     .then(response => {
@@ -25,6 +31,4 @@ export default function fetchRsvpJson (...args) {
       return RSVP.reject(response)
     })
     .then(response => response.json())
-    // .then(response => (console.log('response', response), response))
 }
-

@@ -43,10 +43,6 @@ export default Route.extend({
         locale,
         isFastBoot,
         cacheBuster: store.findRecord('cache-buster', 'buster')
-          .then(buster => {
-            console.log('buster', buster.get('string'))
-            return buster
-          })
       })
   },
 
@@ -70,9 +66,6 @@ export default Route.extend({
     store
       .findRecord('cache-buster', 'buster', {reload: true})
       .then(buster => {
-        console.log('oldString', oldString)
-        console.log('newString', buster.get('string'))
-        console.log('!==', oldString !== buster.get('string'))
         if (oldString !== buster.get('string')) this._offerPageReload()
       })
   },
