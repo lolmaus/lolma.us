@@ -27,8 +27,8 @@ export function fetchRsvpText (...args) {
 export default function fetchRsvpJson (...args) {
   return fetchRsvpRaw(...args)
     .then(response => {
-      if (response.status < 400) return response
-      return RSVP.reject(response)
+      if (response.status >= 400) return RSVP.reject(response) // fetch treats errors as non-errors
+      return response
     })
     .then(response => response.json())
 }
