@@ -1,7 +1,6 @@
 # lolma-us
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
 
 ## Prerequisites
 
@@ -10,8 +9,9 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Bower](https://bower.io/)
+* [Yarn](https://yarnpkg.com/)
 * [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+* [Chrome](https://www.google.com/chrome/)
 
 ## Installation
 
@@ -25,19 +25,27 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
+## Building
 
-Make use of the many generators for code, try `ember help generate` for more details
+1. Set up an `.env-something` file. Example:
 
-### Running Tests
+    ```js
+    LMS_GITHUB_CLIENT_ID = <github application key>
+    LMS_HOST             = http://localhost:8082
+    LMS_GATEKEEPER_URL   = https://lolma-us-dev-8082.herokuapp.com
+    ```
 
-* `ember test`
-* `ember test --server`
+2. Run:
 
-### Building
+    LMS_DEPLOY_TARGET=something ember b -prod
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+3. Try out your app with:
+
+    http-server dist/staticboot/ -p 8082 --cors
+
+If you run into a CORS issue, clear/disable your browser's cache.
+
+
 
 ### Deploying
 
