@@ -54,8 +54,9 @@
           {{/if}}
 
           {{#if item.end}}
-            —
-            {{moment-format item.end 'MMM YYYY'}}
+            — {{moment-format item.end 'MMM YYYY'}}
+          {{else if item.present}}
+            — {{t 'timeline.present'}}
           {{/if}}
         </div>{{! timeLine-item-date }}
 

@@ -1,6 +1,6 @@
 ---
 id: alfamb-en
-title: Web Developer and SysAdmin at <a href='http://alfamb.ru/'>AlfaMB.ru</a>, Russia
+title: Web Developer and SysAdmin at Alpha Media Buying, Russia
 type: job
 start: 2008-12
 end: 2013-06

@@ -1,4 +1,5 @@
-import Route from 'ember-route'
+import Route from '@ember/routing/route'
+import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
 
 
@@ -6,11 +7,12 @@ import RSVP from 'rsvp'
 export default Route.extend({
 
   // ----- Services -----
+  config : service(),
 
 
 
   // ----- Overridden properties -----
-  title: 'lolmaus - Andrey Mikhaylov',
+  title : 'lolmaus - Andrey Mikhaylov',
 
 
 
@@ -31,7 +33,7 @@ export default Route.extend({
     return RSVP
       .hash({
         ...model,
-        posts: store.query('post', {locale}),
+        posts : store.query('post', {locale}),
       })
   },
 

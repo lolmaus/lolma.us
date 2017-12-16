@@ -1,13 +1,15 @@
-import Component from 'ember-component'
-import { sumBy } from 'ember-array-computed-macros'
+import Component from '@ember/component'
+import {sum} from 'ember-awesome-macros'
+import {mapBy} from 'ember-awesome-macros/array'
+import raw from 'ember-macro-helpers/raw'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  projectInfos:      undefined,
-  stackoverflowUser: undefined,
+  projectInfos      : undefined,
+  stackoverflowUser : undefined,
 
 
 
@@ -16,7 +18,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['onlinePresence'],
+  classNames : ['onlinePresence'],
 
 
 
@@ -25,7 +27,7 @@ export default Component.extend({
 
 
   // ----- Computed properties -----
-  starsCount: sumBy('projectInfos', 'stargazersCount'),
+  starsCount : sum(mapBy('projectInfos', raw('stargazersCount'))),
 
 
 

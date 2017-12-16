@@ -1,11 +1,11 @@
-import Component from 'ember-component'
+import Component from '@ember/component'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  section: undefined, // title, body
+  section : undefined, // title, body
 
 
 
@@ -14,7 +14,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['markdownBlock'],
+  classNames : ['markdownBlock'],
 
 
 

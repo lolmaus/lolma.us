@@ -1,6 +1,6 @@
 ---
 id: healthfundr-en
-title: Frontend Developer (trial) at <a href='https://healthfundr.com'>Healthfundr.com</a>, US
+title: Frontend Developer at Healthfundr (now <a href='https://healthrosetta.org/'>Health Rosetta.com</a>), US (probation)
 type: job
 start: 2014-06
 end: 2014-07

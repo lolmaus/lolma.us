@@ -16,25 +16,25 @@ export function initialize (applicationInstance) {
 
         // Get record arrays
         .reduce((hash, modelName) => {
-          // const modelNamePlural = inflector.pluralize(modelName)
+          // const modelNamePlural = pluralize(modelName)
 
           try {
             hash[ modelName ] =
               store
                 .peekAll(modelName)
                 .toArray()
-                .map(record => record.serialize({ includeId: true }))
+                .map(record => record.serialize({includeId : true}))
           } catch (e) {
             console.error(`ember-data-fastboot: serializer crashed when trying to serialize records of "${modelName}"`, e)
           }
 
           return hash
         }, {})
-    }
+    },
   })
 }
 
 export default {
-  name: 'ember-data-fastboot',
-  initialize
+  name : 'ember-data-fastboot',
+  initialize,
 }

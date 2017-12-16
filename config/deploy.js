@@ -1,9 +1,9 @@
 module.exports = function (deployTarget) {
   const ENV = {
-    build: {},
+    build : {},
 
-    ghpages: {
-      gitRemoteUrl: 'git@github.com:lolmaus/lolma.us.git'
+    ghpages : {
+      gitRemoteUrl : 'git@github.com:lolmaus/lolma.us.git',
     },
   }
 

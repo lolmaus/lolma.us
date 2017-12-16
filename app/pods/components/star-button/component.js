@@ -1,17 +1,17 @@
-import Component from 'ember-component'
+import Component from '@ember/component'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  label:            undefined,
-  link:             undefined,
-  act:              undefined,
-  count:            undefined,
-  loginAction:      undefined,
-  isAuthenticating: undefined,
-  isAuthenticated:  undefined,
+  label            : undefined,
+  link             : undefined,
+  act              : undefined,
+  count            : undefined,
+  loginAction      : undefined,
+  isAuthenticating : undefined,
+  isAuthenticated  : undefined,
 
 
   // ----- Services -----
@@ -19,7 +19,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['starButton'],
+  classNames : ['starButton'],
 
 
 

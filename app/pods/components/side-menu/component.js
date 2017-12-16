@@ -1,6 +1,6 @@
-import Component from 'ember-component'
-import service from 'ember-service/inject'
-import on from  'ember-evented/on'
+import Component from '@ember/component'
+import {inject as service} from '@ember/service'
+import {on} from '@ember/object/evented'
 import $ from 'jquery'
 
 
@@ -12,13 +12,13 @@ export default Component.extend({
 
 
   // ----- Services -----
-  htmlState: service(),
-  routing:   service('-routing'),
+  htmlState : service(),
+  routing   : service('-routing'),
 
 
 
   // ----- Overridden properties -----
-  classNames: ['sideMenu'],
+  classNames : ['sideMenu'],
 
 
 
@@ -42,7 +42,7 @@ export default Component.extend({
 
 
   // ----- Events and observers -----
-  collapseMenu: on('click', function ({target}) {
+  collapseMenu : on('click', function ({target}) {
     if (this._isElementAMenuItem(target)) this.set('htmlState.menuToggler', false)
   }),
 

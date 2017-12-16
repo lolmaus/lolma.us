@@ -121,16 +121,16 @@
 
     // ----- RWD -----
     $width: 512px
-    width:  ($width / 4)
-    height: ($width / 4)
+    width:  ($width / 3)
+    height: ($width / 3)
 
     +from(xs)
-      width:  ($width / 3)
-      height: ($width / 3)
-
-    +from(s)
       width:  ($width / 2)
       height: ($width / 2)
+
+    +from(s)
+      width:  ($width / 1.5)
+      height: ($width / 1.5)
 
 
 
@@ -154,32 +154,30 @@
     // ----- Text -----
     color:     white !important
 
+    // ----- Content layout -----
+    .heroHeader-footer-main-stamp
+      display:        inline-block
+      vertical-align: middle
+      margin-left:    0.3em
+      margin-right:   0.3em
+
+    .heroHeader-footer-main-stamp-image
+      width: 150px
+
     // ----- RWD -----
-    display:         flex
-    justify-content: space-between
-    align-items:     center
-
     font-size: 1.1rem
-
-    +to(xs)
-      .heroHeader-footer-main-stamp
-        display: none
 
     +from(xs)
       font-size: 1.3rem
 
-    +from(s)
-      font-size: 1.3rem
-
-      .heroHeader-footer-main-stamp
-        margin-right: 5%
-
-      .heroHeader-footer-main-message
-        flex-grow:  1
-        text-align: left
+      .heroHeader-footer-main-stamp-image
+        width: 180px
 
     +from(l)
       font-size: 1.5rem
+
+      .heroHeader-footer-main-stamp-image
+        width: 200px
 
 
 
@@ -187,10 +185,21 @@
   .heroHeader-footer-main-stamp
     //------------------------------------------
 
-    // ----- Layout -----
-    display:   block
-    width:     100%
-    max-width: 128px
+    // ----- Content Layout -----
+    .heroHeader-footer-main-stamp-image
+      display:   block
+
+
+
+  ////------------------------------------------
+  .heroHeader-footer-main-stamp-image
+    //------------------------------------------
+
+    // ----- Looks -----
+    fill: white
+
+    &:hover
+      fill: config-get("lolma-us.themes.dark.link.hover")
 
 
 

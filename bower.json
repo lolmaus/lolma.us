@@ -1,7 +1,0 @@
-{
-  "name": "lolma-us",
-  "dependencies": {
-    "showdown": "^1.5.1",
-    "nprogress": "alexlafroscia/nprogress#allow-alternate-scheduler"
-  }
-}

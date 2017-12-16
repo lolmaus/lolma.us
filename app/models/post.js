@@ -1,17 +1,17 @@
 import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 // import {belongsTo} from 'ember-data/relationships'
-import computed from 'ember-computed'
-import templateString from 'ember-computed-template-string'
+import {computed} from '@ember/object'
+import {tag} from 'ember-awesome-macros'
 
 export default Model.extend({
 
   // ----- Attributes -----
-  title:       attr('string'),
-  body:        attr('string'),
-  summary:     attr('string'),
-  date:        attr('date'),
-  hideSummary: attr('boolean'),
+  title       : attr('string'),
+  body        : attr('string'),
+  summary     : attr('string'),
+  date        : attr('date'),
+  hideSummary : attr('boolean'),
 
 
 
@@ -20,7 +20,7 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  slug: computed('id', function () {
+  slug : computed('id', function () {
     // Removes locale from the id
     return this
       .get('id')
@@ -29,5 +29,5 @@ export default Model.extend({
       .join('-')
   }),
 
-  disqusId: templateString("blog-${id}"),
+  disqusId : tag`blog-${"id"}`,
 })

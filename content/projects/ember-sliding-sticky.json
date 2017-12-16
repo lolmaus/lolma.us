@@ -1,0 +1,11 @@
+{
+  "group": "ember",
+  "status": 1,
+  "type": "addon",
+  "owner": "Deveo",
+  "ember-observer": true,
+  "description": {
+    "en": "A `position: sticky` alternative that works inside parents with `overflow: hidden`",
+    "ru": "Альтернатива для `position: sticky`, которая работает внутри элементов с `overflow: hidden`"
+  }
+}

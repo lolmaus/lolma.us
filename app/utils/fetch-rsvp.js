@@ -1,20 +1,10 @@
 import RSVP from 'rsvp'
-import fetch from "ember-network/fetch"
-
-
-
-export function fetchRsvpRaw (...args) {
-  const promise = fetch(...args)
-
-  return new RSVP.Promise((resolve, reject) => {
-    promise.then(resolve, reject)
-  })
-}
+import fetch from 'fetch'
 
 
 
 export function fetchRsvpText (...args) {
-  return fetchRsvpRaw(...args)
+  return fetch(...args)
     .then(response => {
       if (response.status < 400) return response
       return RSVP.reject(response)
@@ -25,7 +15,7 @@ export function fetchRsvpText (...args) {
 
 
 export default function fetchRsvpJson (...args) {
-  return fetchRsvpRaw(...args)
+  return fetch(...args)
     .then(response => {
       if (response.status >= 400) return RSVP.reject(response) // fetch treats errors as non-errors
       return response

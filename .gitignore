@@ -14,6 +14,7 @@ bower_components/
 /coverage/
 /*.log
 /.env*
+/*.ember-try*
 
 # IDE
 /.idea/

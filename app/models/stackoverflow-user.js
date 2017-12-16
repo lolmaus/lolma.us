@@ -7,8 +7,8 @@ import attr from 'ember-data/attr'
 export default Model.extend({
 
   // ----- Attributes -----
-  reputation: attr('number'),
-  bronze:     attr('number'),
-  silver:     attr('number'),
-  gold:       attr('number'),
+  reputation : attr('number'),
+  bronze     : attr('number'),
+  silver     : attr('number'),
+  gold       : attr('number'),
 })

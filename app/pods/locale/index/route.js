@@ -1,4 +1,6 @@
-import Route from 'ember-route'
+import {observer} from '@ember/object'
+import Route from '@ember/routing/route'
+import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
 import _ from 'npm:lodash'
 
@@ -7,11 +9,13 @@ import _ from 'npm:lodash'
 export default Route.extend({
 
   // ----- Services -----
+  config  : service(),
+  session : service(),
 
 
 
   // ----- Overridden properties -----
-  title: 'lolmaus - Andrey Mikhaylov',
+  title : 'lolmaus - Andrey Mikhaylov',
 
 
 
@@ -29,26 +33,28 @@ export default Route.extend({
     const locale = model.locale
     const store  = this.get('store')
 
+    this.get('session.isAuthenticated') // consume the property for the observer to work
+
     return RSVP
       .hash({
         ...model,
 
-        projects:       store.findAll('project'),
-        markdownBlocks: store.query('markdown-block', {locale}),
-        experiences:    store.query('experience',     {locale}),
+        projects       : store.findAll('project'),
+        markdownBlocks : store.query('markdown-block', {locale}),
+        experiences    : store.query('experience',     {locale}),
 
-        projectInfos: store
+        projectInfos : store
           .findAll('project-info')
           .catch(response => response.status === 403 ? null : RSVP.reject(response)), // Ignore 403 error
 
-        stackoverflowUser: store
+        stackoverflowUser : store
           .findRecord('stackoverflowUser', '901944')
-          .catch(() => store.peekRecord('stackoverflowUser', '901944'))
+          .catch(() => store.peekRecord('stackoverflowUser', '901944')),
       })
 
       .then(model => RSVP.hash({
         ...model,
-        remainingProjectInfos: this.fetchRemainingProjectInfos(model.projects)
+        remainingProjectInfos : this.fetchRemainingProjectInfos(model.projects),
       }))
   },
 
@@ -81,6 +87,9 @@ export default Route.extend({
 
 
   // ----- Events and observers -----
+  reloadOnAuth : observer('session.isAuthenticated', function () {
+    if (this.get('session.isAuthenticated')) this.refresh()
+  }),
 
 
 

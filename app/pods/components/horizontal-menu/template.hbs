@@ -1,0 +1,25 @@
+<div class = "horizontalMenu-item _blog">
+  {{link-to (t 'menu.blog') 'locale.blog' class = "horizontalMenu-item-link"}}
+</div>{{! item _blog }}
+
+
+<div class = "horizontalMenu-item _resume">
+  {{link-to (t 'menu.resume') 'locale.index' class = "horizontalMenu-item-link"}}
+</div>{{! item _resume }}
+
+
+<div class = "horizontalMenu-item _source">
+  <a href = "https://github.com/lolmaus/lolma.us" class = "horizontalMenu-item-link">
+    {{t 'menu.source'}}
+  </a>
+</div>{{! item _source }}
+
+
+<div class = "horizontalMenu-item _locale">
+  {{#link-to
+    class  = "horizontalMenu-item-link"
+    params = routing.router.oppositeLocaleURLParams
+  }}
+    {{t 'langSwitcher'}}
+  {{/link-to}}
+</div>{{! item _locale }}

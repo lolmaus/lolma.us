@@ -1,0 +1,10 @@
+{
+  "group": "ember",
+  "status": 1,
+  "type": "addon",
+  "ember-observer": true,
+  "description": {
+    "en": "customizable implementation of `alert`, `confirm` and `prompt` modal dialogs with straightforward API",
+    "ru": "решение для диалогов `alert`, `confirm` and `prompt`, не блокирующее поток, поддающееся стилизации и обладающее простым API"
+  }
+}

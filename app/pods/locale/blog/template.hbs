@@ -1,30 +1,32 @@
 <div class = "route-blog">
 
 
-  <div class = "route-blog-sidebar">
-
-    <div class = "route-blog-sidebar-section _avatar">
-      <img
-        class  = "route-blog-sidebar-avatar"
-        src    = "https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg"
-        alt    = {{t 'header.title'}}
-        width  = "512"
-        height = "512"
-      >
-    </div>
-
-    <div class = "route-blog-sidebar-section _content">
-      <h2 class = "route-blog-title">
-        {{t 'header.title'}}
-        @lolmaus
-      </h2>
-
-      <div class = "route-blog-subtitle">
-        {{t 'header.subtitle'}}
+  {{#sec-tion}}
+    <div class = "route-blog-sidebar">
+      <div class = "route-blog-sidebar-section _avatar">
+        <img
+          class  = "route-blog-sidebar-avatar"
+          src    = "/images/lolmaus-profile-compressed.jpg"
+          alt    = {{t 'header.title'}}
+          width  = "512"
+          height = "512"
+        >
       </div>
-    </div>{{! route-blog-sidebar-content }}
 
-  </div>{{! route-blog-sidebar }}
+      <div class = "route-blog-sidebar-section _content">
+        <h2 class = "route-blog-title">
+          {{t 'header.title'}}
+          @lolmaus
+        </h2>
+
+        <div class = "route-blog-subtitle">
+          {{t 'header.subtitle'}}
+        </div>
+
+        {{horizontal-menu class = "route-blogIndex-menu"}}
+      </div>{{! route-blog-sidebar-content }}
+    </div>{{! route-blog-sidebar }}
+  {{/sec-tion}}
 
 
   {{#sec-tion

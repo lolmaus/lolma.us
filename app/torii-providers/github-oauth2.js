@@ -1,11 +1,11 @@
-import service from 'ember-service/inject'
-import {alias} from 'ember-computed'
+import {inject as service} from '@ember/service'
+import {tag} from 'ember-awesome-macros'
 import GitHubOAuth2Provider from 'torii/providers/github-oauth2'
 
 export default GitHubOAuth2Provider.extend({
 
   // ----- Services -----
-  config: service(),
+  config : service(),
 
 
 
@@ -14,5 +14,5 @@ export default GitHubOAuth2Provider.extend({
     return data
   },
 
-  redirectUri: alias('config.redirectUri'),
+  redirectUri : tag`${"config.host"}/torii/redirect.html`,
 })

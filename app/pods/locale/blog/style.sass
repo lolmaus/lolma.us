@@ -2,6 +2,7 @@
 
   //@import app/styles/helpers/theme
   @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+  @import ../../components/horizontal-menu/mixins
 
 
 
@@ -56,6 +57,9 @@
       &:hover
         opacity: 0.9
 
+    .route-blogIndex-menu
+      margin-top: 0.5rem
+
     // ----- Behavior -----
     opacity:    0.5
     transition: opacity 0.3s
@@ -64,7 +68,7 @@
       opacity: 1
 
     // ----- RWD -----
-    +at(xxs)
+    +to(xs)
       .route-blog-sidebar-section
         &._avatar
           text-align: center
@@ -75,30 +79,12 @@
       .route-blog-title, .route-blog-subtitle
         font-size: 1rem
 
-
-    +at(xs)
-      display:     flex
-      align-items: center
-
-      .route-blog-sidebar-section
-        &._avatar
-          padding-right: 0.5rem
-
-        &._content
-          flex-grow: 1
-
-      .route-blog-title
-        font-size: 1.2rem
-
-      .route-blog-subtitle
-        font-size: 1rem
-
+      .route-blogIndex-menu
+        display: none
 
     +between(s, m)
-      padding:     1.5rem
       display:     flex
       align-items: center
-
       max-width:     config-get('lolma-us.layout.text-max-width')
       margin-left:   auto
       margin-right:  auto
@@ -107,6 +93,7 @@
 
       .route-blog-sidebar-section
         &._avatar
+          flex-shrink: 0
           padding-right: 0.5rem
 
         &._content
@@ -117,6 +104,13 @@
 
       .route-blog-subtitle
         font-size: 1rem
+
+      .route-blogIndex-menu
+        +horizontal-menu-horizontal
+
+    +at(s)
+      padding-top:    1.5rem
+      padding-bottom: 1.5rem
 
 
     +at(m)
@@ -140,6 +134,10 @@
 
       .route-blog-sidebar-section._content
         flex-grow: 1
+
+      .route-blogIndex-menu
+        margin-top: 3rem
+        +horizontal-menu-vertical
 
 
 

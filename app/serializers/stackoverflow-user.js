@@ -1,13 +1,13 @@
 import CustomJSONSerializer from './_json'
 // import _ from 'npm:lodash'
-import {underscore} from 'ember-string'
+import {underscore} from '@ember/string'
 
 
 
 export default CustomJSONSerializer.extend({
 
   // ----- Overridden properties -----
-  primaryKey: 'user_id',
+  primaryKey : 'user_id',
 
 
 
@@ -19,9 +19,9 @@ export default CustomJSONSerializer.extend({
   normalize (primaryModelClass, payload)  {
     const user = payload.items[0]
     const newPayload = {
-      user_id:    user.user_id,
-      reputation: user.reputation,
-      ...user.badge_counts
+      user_id    : user.user_id,
+      reputation : user.reputation,
+      ...user.badge_counts,
     }
     return this._super(primaryModelClass, newPayload)
   },
@@ -32,17 +32,17 @@ export default CustomJSONSerializer.extend({
       reputation,
       bronze,
       silver,
-      gold
+      gold,
     } = this._super(snapshot, options)
 
     return {
-      items: [
+      items : [
         {
-          user_id: parseInt(user_id, 10),
+          user_id      : parseInt(user_id, 10),
           reputation,
-          badge_counts: {bronze, silver, gold}
-        }
-      ]
+          badge_counts : {bronze, silver, gold},
+        },
+      ],
     }
   },
 })

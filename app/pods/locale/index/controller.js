@@ -1,12 +1,12 @@
-import Controller from 'ember-controller'
-import service from 'ember-service/inject'
+import Controller from '@ember/controller'
+import {inject as service} from '@ember/service'
 
 
 
 export default Controller.extend({
 
   // ----- Services -----
-  session: service(),
+  session : service(),
 
 
 
@@ -15,7 +15,7 @@ export default Controller.extend({
 
 
   // ----- Static properties -----
-  isAuthenticating: false,
+  isAuthenticating : false,
 
 
 
@@ -40,7 +40,7 @@ export default Controller.extend({
 
 
   // ----- Actions -----
-  actions: {
+  actions : {
     login () {
       this.set('isAuthenticating', true)
 
@@ -53,5 +53,5 @@ export default Controller.extend({
     logout () {
       this.get('session').invalidate()
     },
-  }
+  },
 })

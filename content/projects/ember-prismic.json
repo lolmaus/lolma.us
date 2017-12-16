@@ -1,0 +1,9 @@
+{
+  "group": "ember",
+  "status": 4,
+  "type": "addon",
+  "description": {
+    "en": "<a href='https://prismic.io/'>Prismic.io</a> integration for Ember",
+    "ru": "интеграция <a href='https://prismic.io/'>Prismic.io</a> с Ember"
+  }
+}

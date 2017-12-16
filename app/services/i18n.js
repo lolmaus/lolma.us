@@ -1,5 +1,5 @@
 import I18NService from 'ember-i18n/services/i18n'
-import computed from 'ember-computed'
+import {computed} from '@ember/object'
 
 
 
@@ -18,7 +18,7 @@ export default I18NService.extend({
 
 
   // ----- Computed properties -----
-  oppositeLocale: computed('locale', function () {
+  oppositeLocale : computed('locale', function () {
     return this.get('locale') === 'en'
       ? 'ru'
       : 'en'

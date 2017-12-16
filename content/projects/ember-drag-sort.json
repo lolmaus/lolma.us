@@ -1,7 +1,9 @@
 {
   "group": "ember",
-  "status": 4,
+  "status": 1,
   "type": "addon",
+  "ember-observer": true,
+  "owner": "Deveo",
   "description": {
     "en": "drag'n'drop sortable list component, with support for multiple and nested lists",
     "ru": "компонент для drag'n'drop сортировки с поддержкой вложенных списков"

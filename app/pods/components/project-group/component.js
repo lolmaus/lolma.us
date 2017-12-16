@@ -1,16 +1,16 @@
-import Component from 'ember-component'
+import Component from '@ember/component'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  projects:            undefined,
-  gitHubProjectsStats: undefined,
-  locale:              'en',
-  loginAction:         undefined,
-  isAuthenticating:    undefined,
-  isAuthenticated:     undefined,
+  projects            : undefined,
+  gitHubProjectsStats : undefined,
+  locale              : 'en',
+  loginAction         : undefined,
+  isAuthenticating    : undefined,
+  isAuthenticated     : undefined,
 
 
 
@@ -19,7 +19,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNames: ['projectGroup'],
+  classNames : ['projectGroup'],
 
 
 

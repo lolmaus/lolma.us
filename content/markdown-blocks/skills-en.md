@@ -5,7 +5,7 @@ title: Skills
 
 #### Frontend development
 
-* Over five years in frontend development
+* Over six years in frontend development
 * Solid JavaScript skill, love modern tools, practices and patterns
 * Sass enthusiast
 * Highly experienced in Responsive Web Design, modular grids, mobile first, etc

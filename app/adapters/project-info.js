@@ -2,14 +2,14 @@ import Adapter from 'ember-data/adapter'
 import fetchGitHub from 'lolma-us/utils/fetch-github'
 import RSVP from 'rsvp'
 import _ from 'npm:lodash'
-import service from 'ember-service/inject'
+import {inject as service} from '@ember/service'
 
 
 
 export default Adapter.extend({
 
   // ----- Services -----
-  session: service(),
+  session : service(),
 
 
 

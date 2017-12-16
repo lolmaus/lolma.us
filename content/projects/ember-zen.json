@@ -1,0 +1,10 @@
+{
+  "group": "ember",
+  "status": 3,
+  "type": "addon",
+  "url": "https://github.com/lolmaus/ember-zen/tree/gen-1#ember-zen",
+  "description": {
+    "en": "an experiment with centralized state management, more appropriate in Ember than Redux",
+    "ru": "эксперимент с централизованным хранением состояния, более подходящим для Ember, чем Redux"
+  }
+}

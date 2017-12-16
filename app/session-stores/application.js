@@ -1,5 +1,5 @@
 import CookieStore from 'ember-simple-auth/session-stores/cookie'
-import computed from 'ember-computed'
+import {computed} from '@ember/object'
 // import RSVP from 'rsvp'
 // import config from 'lolma-us/config/environment'
 
@@ -8,7 +8,7 @@ import computed from 'ember-computed'
 export default CookieStore.extend({
 
   // ----- Services -----
-  _secureCookies: computed(function () {
+  _secureCookies : computed(function () {
     if (this.get('_fastboot.isFastBoot')) return this.get('_fastboot.request.protocol') === 'https'
     return window.location.protocol === 'https:'
   }).volatile(),

@@ -1,13 +1,13 @@
 import CustomJSONSerializer from './_json'
 import _ from 'npm:lodash'
-import {underscore} from 'ember-string'
+import {underscore} from '@ember/string'
 
 
 
 export default CustomJSONSerializer.extend({
 
   // ----- Overridden properties -----
-  primaryKey: 'full_name',
+  primaryKey : 'full_name',
 
 
 
@@ -19,5 +19,5 @@ export default CustomJSONSerializer.extend({
   normalize (primaryModelClass, payload)  {
     const newPayload = _.pick(payload, ['stargazers_count', 'full_name'])
     return this._super(primaryModelClass, newPayload)
-  }
+  },
 })

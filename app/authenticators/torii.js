@@ -1,5 +1,5 @@
 import ToriiAuthenticator from 'ember-simple-auth/authenticators/torii'
-import service from 'ember-service/inject'
+import {inject as service} from '@ember/service'
 import fetch from 'lolma-us/utils/fetch-rsvp'
 import RSVP from 'rsvp'
 
@@ -8,8 +8,8 @@ import RSVP from 'rsvp'
 export default ToriiAuthenticator.extend({
 
   // ----- Services -----
-  config: service(),
-  torii: service(),
+  config : service(),
+  torii  : service(),
 
 
 
@@ -31,5 +31,5 @@ export default ToriiAuthenticator.extend({
         return data
       })
       .then(data => (this._authenticateWithProvider(provider, data), data))
-  }
+  },
 })

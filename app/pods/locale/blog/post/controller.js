@@ -1,12 +1,12 @@
-import Controller from 'ember-controller'
-import service from 'ember-service/inject'
+import Controller from '@ember/controller'
+import {inject as service} from '@ember/service'
 
 
 
 export default Controller.extend({
 
   // ----- Services -----
-  fastboot: service(),
+  fastboot : service(),
 
 
 

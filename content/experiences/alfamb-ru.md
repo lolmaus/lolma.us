@@ -1,6 +1,6 @@
 ---
 id: alfamb-ru
-title: Вэб-разработчик и сисадмин в <a href='http://alfamb.ru/'>AlfaMB.ru</a>, Россия
+title: Вэб-разработчик и сисадмин в Альфа Медиа Баинг, Россия
 type: job
 start: 2008-12
 end: 2013-06

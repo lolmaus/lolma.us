@@ -12,12 +12,12 @@ export function initialize (applicationInstance) {
   const store = applicationInstance.lookup('service:store')
 
   _.forOwn(data.types, (records, modelName) => {
-    const payload = {[modelName]: records}
+    const payload = {[modelName] : records}
     store.pushPayload(modelName, payload)
   })
 }
 
 export default {
-  name: 'ember-data-fastboot',
-  initialize
+  name : 'ember-data-fastboot',
+  initialize,
 }

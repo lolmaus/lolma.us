@@ -1,7 +1,6 @@
-import Service from 'ember-service'
-import service from 'ember-service/inject'
-import computed from 'ember-computed'
-import {scheduleOnce} from 'ember-runloop'
+import Service, {inject as service} from '@ember/service'
+import {computed} from '@ember/object'
+import {scheduleOnce} from '@ember/runloop'
 import _ from 'npm:lodash'
 import $ from 'jquery'
 
@@ -10,7 +9,7 @@ import $ from 'jquery'
 export default Service.extend({
 
   // ----- Services -----
-  fastboot: service(),
+  fastboot : service(),
 
 
 
@@ -19,22 +18,22 @@ export default Service.extend({
 
 
   // ----- Static properties -----
-  htmlStateIsRestored: false,
+  htmlStateIsRestored : false,
 
 
 
   // ----- Computed properties -----
-  menuToggler: computed(function () {
+  menuToggler : computed(function () {
     if (this.get('fastboot.isFastBoot')) return false
     return window.lolmausHtmlState['#route-locale-menuToggler'].value
   }),
 
-  timelineShowDetails: computed(function () {
+  timelineShowDetails : computed(function () {
     if (this.get('fastboot.isFastBoot')) return false
     return window.lolmausHtmlState['.timeLine-showDetails'].value
   }),
 
-  showStalledProjects: computed(function () {
+  showStalledProjects : computed(function () {
     if (this.get('fastboot.isFastBoot')) return false
     return window.lolmausHtmlState['.proJects-stalledInput'].value
   }),

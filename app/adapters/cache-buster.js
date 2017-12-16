@@ -1,11 +1,11 @@
 import ApplicationAdapter from './application'
-import service from 'ember-service/inject'
+import {inject as service} from '@ember/service'
 
 
 
 export default ApplicationAdapter.extend({
 
-  fastboot: service(),
+  fastboot : service(),
 
   urlForFindRecord (id, modelName, snapshot) {
     const url  = this._super(id, modelName, snapshot)

@@ -1,16 +1,15 @@
 import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 // import {belongsTo} from 'ember-data/relationships'
-import computed, {alias} from 'ember-computed'
-import service from 'ember-service/inject'
+import EObject, {computed} from '@ember/object'
+import {alias} from '@ember/object/computed'
+import PromiseProxyMixin from '@ember/object/promise-proxy-mixin'
+import {inject as service} from '@ember/service'
 import fetchGitHub from 'lolma-us/utils/fetch-github'
 // import wait from 'lolma-us/utils/wait'
 import RSVP from 'rsvp'
-import templateString from 'ember-computed-template-string'
+import {tag} from 'ember-awesome-macros'
 
-import {default as EObject} from 'ember-object'
-import Ember from 'ember'
-const {PromiseProxyMixin} = Ember
 const PromiseProxy = EObject.extend(PromiseProxyMixin)
 
 
@@ -18,7 +17,7 @@ const PromiseProxy = EObject.extend(PromiseProxyMixin)
 export default Model.extend({
 
   // ----- Attributes -----
-  stargazersCount: attr('number'),
+  stargazersCount : attr('number'),
 
 
 
@@ -28,7 +27,7 @@ export default Model.extend({
 
 
   // ----- Services -----
-  session: service(),
+  session : service(),
 
 
 
@@ -37,24 +36,24 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  starUrl: templateString("user/starred/${id}"),
+  starUrl : tag`user/starred/${"id"}`,
 
-  isStarredPromise: computed('starUrl', 'session.isAuthenticated', function () {
+  isStarredPromise : computed('starUrl', 'session.isAuthenticated', function () {
     return this._requestIsStarred()
   }),
-  isStarredProxy: computed('isStarredPromise', function () {
+  isStarredProxy : computed('isStarredPromise', function () {
     const promise = this.get('isStarredPromise')
     return PromiseProxy.create({promise})
   }),
 
-  toggleStarPromise: undefined,
-  toggleStarProxy: computed('toggleStarPromise', function () {
+  toggleStarPromise : undefined,
+  toggleStarProxy   : computed('toggleStarPromise', function () {
     const promise = this.get('toggleStarPromise')
     if (!promise) return
     return PromiseProxy.create({promise})
   }),
 
-  starPromisePending: computed(
+  starPromisePending : computed(
     'session.isAuthenticated',
     'isStarredProxy.isPending',
     'toggleStarProxy.isPending',
@@ -64,7 +63,7 @@ export default Model.extend({
     }
   ),
 
-  starPromiseFailed: computed(
+  starPromiseFailed : computed(
     'session.isAuthenticated',
     'isStarredProxy.isRejected',
     'toggleStarProxy.isRejected',
@@ -74,16 +73,16 @@ export default Model.extend({
     }
   ),
 
-  originalIsStarred: alias('isStarredProxy.content'),
-  newIsStarred:      alias('toggleStarProxy.content'),
+  originalIsStarred : alias('isStarredProxy.content'),
+  newIsStarred      : alias('toggleStarProxy.content'),
 
-  effectiveIsStarred: computed('newIsStarred', 'originalIsStarred', function () {
+  effectiveIsStarred : computed('newIsStarred', 'originalIsStarred', function () {
     const newIsStarred = this.get('newIsStarred')
     if (newIsStarred != null) return newIsStarred
     return this.get('originalIsStarred')
   }),
 
-  effectiveStargazersCount: computed(
+  effectiveStargazersCount : computed(
     'stargazersCount',
     'originalIsStarred',
     'newIsStarred',
@@ -111,7 +110,7 @@ export default Model.extend({
     const starUrl = this.get('starUrl')
     const session = this.get('session')
 
-    return fetchGitHub(starUrl, session, {mode: false})
+    return fetchGitHub(starUrl, session, {mode : false})
       .then(() => true)
       .catch(response => {
         if (response.status === 404) return false
@@ -124,7 +123,7 @@ export default Model.extend({
     const starUrl = this.get('starUrl')
     const session = this.get('session')
 
-    return fetchGitHub(starUrl, session, {mode: false, method: 'PUT'})
+    return fetchGitHub(starUrl, session, {mode : false, method : 'PUT'})
       .then(() => true)
   },
 
@@ -132,7 +131,7 @@ export default Model.extend({
     const starUrl = this.get('starUrl')
     const session = this.get('session')
 
-    return fetchGitHub(starUrl, session, {mode: false, method: 'DELETE'})
+    return fetchGitHub(starUrl, session, {mode : false, method : 'DELETE'})
       .then(() => false)
   },
 
@@ -147,6 +146,6 @@ export default Model.extend({
 
     const toggleStarPromise = this.get('effectiveIsStarred') ? this._unstar() : this._star()
     this.setProperties({toggleStarPromise})
-  }
+  },
 
 })

@@ -5,8 +5,8 @@ import attr from 'ember-data/attr'
 export default Model.extend({
 
   // ----- Attributes -----
-  title:   attr('string'),
-  body:    attr('string'),
+  title : attr('string'),
+  body  : attr('string'),
 
 
 

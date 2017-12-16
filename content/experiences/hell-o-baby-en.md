@@ -1,9 +1,9 @@
 ---
 id: hell-o-baby-en
-title: EmberJS and AngularJS Developer at <a href='http://hell-o-baby.com'>Hell'o Baby</a>, Russia
+title: Frontend Developer with EmberJS and AngularJS at <a href='http://hello.babyalbum.com/'>Hell'o Baby</a>, Russia
 type: job
-start: 2015-08
-end: 2014-09
+start: 2014-08
+end: 2015-09
 ---
 
 The flagship product of Hell'o Baby was originally implemented in Backbone, I led it's reimplementation from scratch in Angular. I did frontend developer myself and managed outstaffed devs.

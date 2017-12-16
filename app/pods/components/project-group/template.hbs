@@ -1,4 +1,4 @@
-{{#each (sort-by 'status' 'name' projects) as |project|}}
+{{#each (sort-by 'status' 'effectiveName' projects) as |project|}}
   {{pro-ject
     class               = 'projectGroup-project'
     project             = project

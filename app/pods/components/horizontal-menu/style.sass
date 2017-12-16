@@ -1,0 +1,36 @@
+@at-root
+
+  ////------------------------------------------
+  .horizontalMenu-item-link
+    //------------------------------------------
+
+    // ----- Layout -----
+    display: inline-block
+    line-height: 1
+    white-space: nowrap
+
+    // ----- Behavior -----
+    text-decoration: none !important
+
+    &.active
+      &, &:hover
+        color:           config-get("lolma-us.themes.light.bold")
+        font-weight:     bold
+        cursor:          default
+
+    &:not(.active)
+      border-bottom: 1px solid
+
+    .horizontalMenu-item._locale &
+      border-bottom: 1px dashed
+
+    &:not(.active), .horizontalMenu-item._locale &
+
+      &, &:visited
+        border-color: config-get("lolma-us.themes.light.link.link")
+
+      &:hover
+        border-color: config-get("lolma-us.themes.light.link.hover")
+
+      &:active
+        border-color: config-get("lolma-us.themes.light.link.active")

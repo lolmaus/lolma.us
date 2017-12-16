@@ -1,6 +1,5 @@
 import Store from 'ember-data/store'
-import {assert} from  'ember-metal/utils'
-import {inspect} from 'ember-debug'
+import {assert, inspect} from '@ember/debug'
 
 export function initialize (/* application */) {
   Store.reopen({
@@ -24,6 +23,6 @@ export function initialize (/* application */) {
 }
 
 export default {
-  name: 'store-push-payload',
-  initialize
+  name : 'store-push-payload',
+  initialize,
 }

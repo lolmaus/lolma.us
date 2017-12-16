@@ -1,37 +1,37 @@
-import Ember from 'ember'
-import computed from 'ember-computed'
+import EmberRouter from '@ember/routing/router'
+import {computed} from '@ember/object'
 import config from './config/environment'
-import service from 'ember-service/inject'
-import {scheduleOnce} from 'ember-runloop'
+import {inject as service} from '@ember/service'
+import {scheduleOnce} from '@ember/runloop'
 import nprogress from 'ember-cli-nprogress'
 
-const Router = Ember.Router.extend({
 
+const Router = EmberRouter.extend({
   // ----- Services -----
-  headData:  service(),
-  metrics:   service(),
-  i18n:      service(),
-  htmlState: service(),
-  fastboot:  service(),
+  headData  : service(),
+  metrics   : service(),
+  i18n      : service(),
+  htmlState : service(),
+  fastboot  : service(),
 
 
 
   // ----- Overridden properties -----
-  location: config.locationType,
-  rootURL:  config.rootURL,
+  location : config.locationType,
+  rootURL  : config.rootURL,
 
 
 
   // ----- Custom properties -----
-  initialLoadingComplete: false,
+  initialLoadingComplete : false,
 
 
 
   // ----- Computed properties -----
-  oppositeLocaleURLParams: computed(function () {
+  oppositeLocaleURLParams : computed(function () {
     const oppositeLocale      = this.get('i18n.oppositeLocale')
     const currentRouteName    = this.get('currentRouteName')
-    const currentHandlerInfos = this.get('router.currentHandlerInfos')
+    const currentHandlerInfos = this.get('_routerMicrolib.currentHandlerInfos')
 
     const segments =
       currentHandlerInfos
@@ -69,14 +69,16 @@ const Router = Ember.Router.extend({
 
   // ----- Custom methods -----
   _trackPage () {
-    scheduleOnce('afterRender', this, () => {
-      this
-        .get('metrics')
-        .trackPage({
-          page:  this.get('url'),
-          title: this.get('currentRouteName') || 'unknown'
-        })
-    })
+    if (typeof FastBoot === 'undefined') {
+      scheduleOnce('afterRender', this, () => {
+        this
+          .get('metrics')
+          .trackPage({
+            page  : this.get('url'),
+            title : this.get('currentRouteName') || 'unknown',
+          })
+      })
+    }
   },
 
 
@@ -85,9 +87,9 @@ const Router = Ember.Router.extend({
 
 
 Router.map(function () {
-  this.route('locale', {path: ':locale'}, function () {
+  this.route('locale', {path : ':locale'}, function () {
     this.route('blog', function () {
-      this.route('post', {path: ':slug'})
+      this.route('post', {path : ':slug'})
     })
   })
 })

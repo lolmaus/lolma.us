@@ -1,12 +1,12 @@
 ---
 id: firecracker-en
-title: EmberJS Developer at <a href='http://firecracker.me'>Firecracker.me</a>, US
+title: Frontend Developer with EmberJS at <a href='http://firecracker.me'>Firecracker.me</a>, US
 type: job
 start: 2015-09
 end: 2016-12
 ---
 
-My best adventure so far! The team was like a family. You should contact them for a reference.
+An amazing adventure! The team was like a family to me.
 
 *   EmberJS/frontend development.
 *   Unit and user acceptance testing.

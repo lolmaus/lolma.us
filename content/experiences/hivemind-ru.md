@@ -1,6 +1,6 @@
 ---
 id: hivemind-ru
-title: Фронтенд-разработчик в <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>Hivemind.io</a>, Россия
+title: Фронтенд-разработчик в Hivemind, Россия
 type: project
 start: 2014-03
 end: 2014-06
@@ -11,3 +11,5 @@ end: 2014-06
 *   Работа с Rails API.
 
 MVP был выполнен, однако запуск проекта не состоялся по нетехническим причинам.
+
+См. <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>прототип</a> от 2014.

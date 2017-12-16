@@ -1,5 +1,5 @@
-import Route from 'ember-route'
-import service from 'ember-service/inject'
+import Route from '@ember/routing/route'
+import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
 import $ from 'jquery'
 // import _ from 'npm:lodash'
@@ -9,9 +9,10 @@ import $ from 'jquery'
 export default Route.extend({
 
   // ----- Services -----
-  i18n:     service(),
-  moment:   service(),
-  fastboot: service(),
+  config   : service(),
+  i18n     : service(),
+  moment   : service(),
+  fastboot : service(),
 
 
 
@@ -42,7 +43,7 @@ export default Route.extend({
         // ...model,
         locale,
         isFastBoot,
-        cacheBuster: store.findRecord('cache-buster', 'buster')
+        cacheBuster : store.findRecord('cache-buster', 'buster'),
       })
   },
 
@@ -64,7 +65,7 @@ export default Route.extend({
     const oldString = buster.get('string')
 
     store
-      .findRecord('cache-buster', 'buster', {reload: true})
+      .findRecord('cache-buster', 'buster', {reload : true})
       .then(buster => {
         if (oldString !== buster.get('string')) this._offerPageReload()
       })
@@ -81,15 +82,15 @@ export default Route.extend({
     // http://stackoverflow.com/a/27058362/901944
     $
       .ajax({
-        url: window.location.href,
-        headers: {
-          "Pragma":        "no-cache",
-          "Expires":       -1,
-          "Cache-Control": "no-cache"
-        }
+        url     : window.location.href,
+        headers : {
+          "Pragma"        : "no-cache",
+          "Expires"       : -1,
+          "Cache-Control" : "no-cache",
+        },
       })
       .done(() => window.location.reload(true))
-  }
+  },
 
 
 

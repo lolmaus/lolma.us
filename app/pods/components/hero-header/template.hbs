@@ -17,7 +17,7 @@
 
   <img
     class  = "heroHeader-avatar"
-    src    = "https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg"
+    src    = "/images/lolmaus-profile-compressed.jpg"
     alt    = "My face"
     width  = "512"
     height = "512"
@@ -26,20 +26,19 @@
 
   <div class = "heroHeader-footer">
     <div class = "heroHeader-footer-main">
-      <a
-        class  = "heroHeader-footer-main-stamp -no-icon"
-        href = "https://deveo.com"
-      >
-        <img
-          src    = "https://deveo.com/wp-content/uploads/2016/04/D-deveo-fill.png"
-          alt    = "Deveo.com"
-          width  = "128"
-          height = "128"
-        >
-      </a>
-
       <div class = "heroHeader-footer-main-message">
-        {{t "header.footer"}}
+        {{!t "header.footer"}}
+
+        Working with an amazing team at
+
+        <a
+          class  = "heroHeader-footer-main-stamp -no-icon"
+          href = "https://deveo.com"
+        >
+          {{svg-jar 'perforce' class = "heroHeader-footer-main-stamp-image"}}
+        </a>
+
+        — repository management platform done right
       </div>{{! heroHeader-footer-main-message }}
     </div>{{! heroHeader-footer-main }}
 

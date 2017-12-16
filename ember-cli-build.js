@@ -1,53 +1,37 @@
-/*jshint node:true*/
-/* global require, module */
-const EmberApp = require('ember-cli/lib/broccoli/ember-app')
-const fs       = require('fs')
+'use strict'
 
-const environment = process.env.EMBER_ENV || 'development'
-
-const defaultTarget = environment === 'production' ? 'prod' : 'localhost-4200'
-const target        = process.env.LMS_DEPLOY_TARGET || defaultTarget
-
-const dotEnvFile = `./.env-${target}`
-if (!fs.existsSync(dotEnvFile)) throw new Error(`ember-cli-build.js: dot-env file not found: ${dotEnvFile}`)
-
+const EmberApp      = require('ember-cli/lib/broccoli/ember-app')
 const listBlogPages = require('./lib/list-blog-pages')
-
-
 
 module.exports = function (defaults) {
   const app =
     new EmberApp(defaults, {
-      'ember-cli-staticboot': {
-        paths: [
+      babel : {
+        plugins : [
+          'transform-object-rest-spread',
+        ],
+      },
+
+      nodeModulesToVendor : [
+        'node_modules/highlight.js',
+      ],
+
+      prember : {
+        urls : [
           '/',
           '/en',
           '/ru',
           '/en/blog',
           '/ru/blog',
-          ...listBlogPages()
+          ...listBlogPages(),
         ],
       },
 
-      dotEnv: {
-        clientAllowedKeys: [
-          'LMS_DEPLOY_TARGET',
-          'LMS_GITHUB_CLIENT_ID',
-          'LMS_HOST',
-          'LMS_GATEKEEPER_URL',
+      sassOptions : {
+        includePaths : [
+          'app/pods',
         ],
-        path: dotEnvFile
       },
-
-      sassOptions: {
-        includePaths: [
-          'app/pods'
-        ]
-      },
-
-      nodeModulesToVendor: [
-        'node_modules/highlight.js'
-      ],
     })
 
   // Use `app.import` to add additional libraries to the generated

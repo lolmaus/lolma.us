@@ -1,6 +1,6 @@
 ---
 id: healthfundr-ru
-title: Фронтенд-разработчик (исп. срок) в <a href='https://healthfundr.com'>Healthfundr.com</a>, США
+title: Фронтенд-разработчик Healthfundr (теперь <a href='https://healthrosetta.org/'>Health Rosetta.com</a>), США (исп. срок)
 type: job
 start: 2014-06
 end: 2014-07

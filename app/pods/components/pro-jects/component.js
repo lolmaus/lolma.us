@@ -1,29 +1,29 @@
-import Component from 'ember-component'
-import computed from 'ember-computed'
+import Component from '@ember/component'
+import {computed} from '@ember/object'
 import {randomString} from 'lolma-us/helpers/random-string'
-import service from 'ember-service/inject'
+import {inject as service} from '@ember/service'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  projects:            undefined,
-  gitHubProjectsStats: undefined,
-  locale:              'en',
-  loginAction:         undefined,
-  isAuthenticating:    undefined,
-  isAuthenticated:     undefined,
+  projects            : undefined,
+  gitHubProjectsStats : undefined,
+  locale              : 'en',
+  loginAction         : undefined,
+  isAuthenticating    : undefined,
+  isAuthenticated     : undefined,
 
 
 
   // ----- Services -----
-  htmlState: service(),
+  htmlState : service(),
 
 
 
   // ----- Overridden properties -----
-  classNames: ['proJects'],
+  classNames : ['proJects'],
 
 
 
@@ -32,7 +32,7 @@ export default Component.extend({
 
 
   // ----- Computed properties -----
-  checkboxId: computed(randomString),
+  checkboxId : computed(randomString),
 
 
 

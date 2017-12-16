@@ -1,15 +1,15 @@
-import {fetchRsvpRaw} from "./fetch-rsvp"
+import fetch from 'fetch'
 import RSVP from "rsvp"
 
 export default function fetchGitHub (url, sessionService, {mode = 'json', method = 'GET'} = {}) {
   const fullUrl = `https://api.github.com/${url}`
   const token   = sessionService && sessionService.get('data.authenticated.token')
 
-  return fetchRsvpRaw(fullUrl, {
+  return fetch(fullUrl, {
     method,
-    headers: {
-      Accept: 'application/vnd.github.v3+json',
-      ...token ? {Authorization: `token ${token}`} : {},
+    headers : {
+      Accept : 'application/vnd.github.v3+json',
+      ...token ? {Authorization : `token ${token}`} : {},
     },
   })
     .then(response => {
@@ -18,8 +18,8 @@ export default function fetchGitHub (url, sessionService, {mode = 'json', method
     })
     .then(response =>
       mode === 'json' ? response.json() :
-      mode === 'text' ? response.text() :
-                        response
+        mode === 'text' ? response.text() :
+          response
     )
     .catch(response => {
       if (

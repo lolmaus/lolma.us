@@ -1,11 +1,8 @@
 import JSONSerializer from 'ember-data/serializers/json'
-import {isEmberArray} from 'ember-array/utils'
-import {dasherize} from 'ember-string'
+import {isArray as isEmberArray} from '@ember/array'
+import {dasherize} from '@ember/string'
+import {singularize} from 'ember-inflector'
 
-import Ember from 'ember'
-const {
-  Inflector: {inflector}
-} = Ember
 
 export default JSONSerializer.extend({
   // serialize (snapshot, options) {
@@ -21,18 +18,18 @@ export default JSONSerializer.extend({
     // const modelName       = this.modelNameFromPayloadKey(key)
     const type            = store.modelFor(modelName)
     const typeSerializer  = store.serializerFor(type.modelName)
-    const documentHash    = {included: []}
+    const documentHash    = {included : []}
 
     if (isEmberArray(payloadFragment)) {
       documentHash.data = []
 
       payloadFragment.forEach(payloadItem => {
-        const { data, included } = typeSerializer.normalize(type, payloadItem, modelName)
+        const {data, included} = typeSerializer.normalize(type, payloadItem, modelName)
         documentHash.data.push(data)
         if (included) documentHash.included.push(...included)
       })
     } else {
-      const { data, included } = typeSerializer.normalize(type, payloadFragment, modelName)
+      const {data, included} = typeSerializer.normalize(type, payloadFragment, modelName)
       documentHash.data = data
       if (included) documentHash.included.push(...included)
     }
@@ -41,6 +38,6 @@ export default JSONSerializer.extend({
   },
 
   modelNameFromPayloadKey (key) {
-    return inflector.singularize(dasherize(key))
+    return singularize(dasherize(key))
   },
 })

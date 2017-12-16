@@ -1,7 +1,7 @@
-import Component from 'ember-component'
-import computed from 'ember-computed'
+import Component from '@ember/component'
+import {computed} from '@ember/object'
 import {randomString} from 'lolma-us/helpers/random-string'
-import service from 'ember-service/inject'
+import {inject as service} from '@ember/service'
 
 
 
@@ -12,12 +12,12 @@ export default Component.extend({
 
 
   // ----- Services -----
-  htmlState: service(),
+  htmlState : service(),
 
 
 
   // ----- Overridden properties -----
-  classNames: ['timeLine'],
+  classNames : ['timeLine'],
 
 
 
@@ -26,7 +26,7 @@ export default Component.extend({
 
 
   // ----- Computed properties -----
-  checkboxId: computed(randomString),
+  checkboxId : computed(randomString),
 
 
 

@@ -1,12 +1,12 @@
-import Component from 'ember-component'
+import Component from '@ember/component'
 
 
 
 export default Component.extend({
 
   // ----- Arguments -----
-  post:    undefined,
-  summary: false,
+  post    : undefined,
+  summary : false,
 
 
 
@@ -16,7 +16,7 @@ export default Component.extend({
 
 
   // ----- Overridden properties -----
-  classNameBindings: [':blogPost', 'summary:-summary:-full'],
+  classNameBindings : [':blogPost', 'summary:-summary:-full'],
 
 
 

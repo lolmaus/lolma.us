@@ -1,6 +1,7 @@
 @at-root
 
   @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
+  @import ../../components/horizontal-menu/mixins
 
 
 
@@ -12,10 +13,19 @@
     position: relative
 
     // ----- Content layout -----
-    .route-localeIndex-localeSwitcher
-      position: fixed
-      top:      1rem
-      right:    1rem
+    .route-localeIndex-menu
+      margin-top:    2rem
+
+    // ----- RWD -----
+    +to(xs)
+      margin-bottom: 1rem
+
+      .route-localeIndex-horizontalMenu
+        +horizontal-menu-vertical
+
+    +from(s)
+      .route-localeIndex-horizontalMenu
+        +horizontal-menu-horizontal
 
 
   ////------------------------------------------

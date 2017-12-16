@@ -1,24 +1,20 @@
 import RESTAdapter from 'ember-data/adapters/rest'
-import service from 'ember-service/inject'
-import {reads} from 'ember-computed'
+import {inject as service} from '@ember/service'
+import {reads} from '@ember/object/computed'
+import {pluralize} from 'ember-inflector'
 
-
-import Ember from 'ember'
-const {
-  Inflector: {inflector}
-} = Ember
 
 
 export default RESTAdapter.extend({
 
   // ----- Services -----
-  config: service(),
+  config : service(),
 
 
 
   // ----- Overridden properties -----
-  host:      reads('config.contentApiHost'),
-  namespace: reads('config.namespace'),
+  host      : reads('config.contentApiHost'),
+  namespace : reads('config.namespace'),
 
 
 
@@ -45,6 +41,6 @@ export default RESTAdapter.extend({
   },
 
   pathForType (modelName) {
-    return inflector.pluralize(modelName)
+    return pluralize(modelName)
   },
 })
