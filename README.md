@@ -63,7 +63,7 @@ You will need the following things properly installed on your computer.
 
 4. Run:
 
-    LMS_DEPLOY_TARGET=prod ember b -prod
+    LMS_DEPLOY_TARGET=localhost-8082 ember b -prod
     
 5. Run a static server:
     
