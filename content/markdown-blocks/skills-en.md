@@ -15,7 +15,7 @@ title: Skills
 
 #### EmberJS
 
-* Over two years working exclusively with complex Ember apps
+* Over three years working exclusively with complex Ember apps
 * Have a gut feeling for the Ember Way and best practices
 * Focus on building robust, maintainable and scalable codebases
 * Strong believer in the Test-Build-Refactor cycle
