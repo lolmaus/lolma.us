@@ -10,7 +10,7 @@ export default Component.extend({
 
 
   // ----- Services -----
-  routing   : service('-routing'),
+  routing : service('-routing'),
 
 
 
