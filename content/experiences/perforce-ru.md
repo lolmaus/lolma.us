@@ -1,6 +1,6 @@
 ---
 id: perforce-ru
-title: Frontend-разработчик на EmberJS в <a href='https://perforce.com'>Perforce.com</a>, USA
+title: Frontend-разработчик на EmberJS в <a href='https://perforce.com'>Perforce.com</a>, США
 type: job
 start: 2017-09
 present: true

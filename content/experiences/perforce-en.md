@@ -1,6 +1,6 @@
 ---
 id: perforce-en
-title: Frontend Developer with EmberJS at <a href='https://perforce.com'>Perforce.com</a>, USA
+title: Frontend Developer with EmberJS at <a href='https://perforce.com'>Perforce.com</a>, US
 type: job
 start: 2017-09
 present: true
