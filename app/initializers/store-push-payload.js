@@ -17,7 +17,7 @@ export function initialize (/* application */) {
         serializer = this.serializerFor(modelName)
       }
 
-      return this._adapterRun(() => serializer.pushPayload(this, payload))
+      return serializer.pushPayload(this, payload)
     },
   })
 }
