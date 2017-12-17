@@ -13,8 +13,6 @@
     position: relative
 
     // ----- Content layout -----
-    .route-localeIndex-menu
-      margin-top:    2rem
 
     // ----- RWD -----
     +to(xs)
@@ -22,10 +20,12 @@
 
       .route-localeIndex-horizontalMenu
         +horizontal-menu-vertical
+        padding-top: 1rem
 
     +from(s)
       .route-localeIndex-horizontalMenu
         +horizontal-menu-horizontal
+        padding-top: 2rem
 
 
   ////------------------------------------------
