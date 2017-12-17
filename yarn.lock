@@ -3097,7 +3097,7 @@ ember-cli-htmlbars-inline-precompile@^1.0.0:
     heimdalljs-logger "^0.1.7"
     silent-error "^1.1.0"
 
-ember-cli-htmlbars@^1.0.1, ember-cli-htmlbars@^1.0.3, ember-cli-htmlbars@^1.1.1:
+ember-cli-htmlbars@^1.0.1, ember-cli-htmlbars@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-1.1.1.tgz#8776cf59796dac8f32e8625fc6d1ea45ffa55de1"
   dependencies:
@@ -3503,11 +3503,12 @@ ember-factory-for-polyfill@^1.3.1:
     node-fetch "^2.0.0-alpha.9"
     whatwg-fetch "^2.0.3"
 
-ember-get-config@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.0.3.tgz#aafbc51b8316303eaa308d6e32dcae360845ab32"
+ember-get-config@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.2.4.tgz#118492a2a03d73e46004ed777928942021fe1ecd"
   dependencies:
-    ember-cli-babel "^5.1.6"
+    broccoli-file-creator "^1.1.1"
+    ember-cli-babel "^6.3.0"
 
 ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.2.2:
   version "1.2.2"
@@ -3623,13 +3624,13 @@ ember-runtime-enumerable-includes-polyfill@^2.0.0:
     ember-cli-babel "^6.9.0"
     ember-cli-version-checker "^2.1.0"
 
-ember-scroll-to-mk2@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ember-scroll-to-mk2/-/ember-scroll-to-mk2-1.1.0.tgz#888c04d9b2f0fd5d3d2cbddd7f17a31c1ecb24d3"
+ember-scroll-to-mk2@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-scroll-to-mk2/-/ember-scroll-to-mk2-2.0.0.tgz#c0a90696683f03d3d18badd791d994176ef333dc"
   dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-htmlbars "^1.0.3"
-    ember-get-config "0.0.3"
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-get-config "^0.2.4"
 
 ember-simple-auth@^1.4.0:
   version "1.4.0"
