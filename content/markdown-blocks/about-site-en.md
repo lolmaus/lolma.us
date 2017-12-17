@@ -15,7 +15,7 @@ It leverages the following technologies:
 
 *   During build, the website is hitting GitHub and StackOverflow API to collect stats. As both services severely limit API usage, the app won't download stats if they're available from FastBoot.
 
-*   GitHub authentication is implemented: logging in lets you star/unstar projects from the app.
+*   GitHub authentication is implemented: log in to star/unstar projects without leaving the app.
 
 *   Content is stored as Markdown with [Front Matter](https://jekyllrb.com/docs/frontmatter/). Carefully overridden adapters and serializers are used to work with endpoints and data formats.
 
