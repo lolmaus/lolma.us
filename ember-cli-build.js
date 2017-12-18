@@ -12,6 +12,17 @@ module.exports = function (defaults) {
         ],
       },
 
+      favicons : {
+        imagePath : 'favicon.jpg',
+        // faviconsConfig : {
+        //   // these options are passed directly to the favicons module
+        // },
+      },
+
+      fingerprint : {
+        exclude : ['apple-touch-icon', 'favicon', 'mstile'],
+      },
+
       nodeModulesToVendor : [
         'node_modules/highlight.js',
       ],
