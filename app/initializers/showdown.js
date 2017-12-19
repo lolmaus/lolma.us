@@ -19,16 +19,29 @@ export function initialize () {
     }
 
     function replacement (wholeMatch, match, left, right) {
-      const regex = /class="(.+?)"/
+      const classesRegex = /class="(.+?)"/
+      const hasClasses = classesRegex.test(left)
 
       // unescape match to prevent double escaping
       match = htmlunencode(match)
+
       const newLeft =
-        regex.test(left)
-          ? left.replace(regex, 'class="$1 hljs"')
+        hasClasses
+          ? left.replace(classesRegex, 'class="$1 hljs"')
           : left.replace(/>$/,  ' class="hljs">')
 
-      return newLeft + hljs.highlightAuto(match).value + right
+      const lang = hasClasses && left.match(classesRegex)[1].split(" ")[0]
+
+      const code =
+        lang
+          ? hljs.highlight(lang, match).value
+          : hljs.highlightAuto(match).value
+
+      return '<div class="code-block">'
+        + newLeft
+        + code
+        + right
+        + '</div>'
     }
 
     return {
