@@ -12,25 +12,28 @@
     // ----- Behavior -----
     text-decoration: none !important
 
+    &-inner
+      display: inline-block
+
     &.active
       &, &:hover
         color:           config-get("lolma-us.themes.light.bold")
         font-weight:     bold
         cursor:          default
 
-    &:not(.active)
+    &:not(.active):not(.-has-inner), &:not(.active) &-inner
       border-bottom: 1px solid
 
-    .horizontalMenu-item._locale &
+    .horizontalMenu-item._locale &:not(.-has-inner), .horizontalMenu-item._locale &-inner
       border-bottom: 1px dashed
 
     &:not(.active), .horizontalMenu-item._locale &
+      &, &-inner
+        &, &:visited
+          border-color: config-get("lolma-us.themes.light.link.link")
 
-      &, &:visited
-        border-color: config-get("lolma-us.themes.light.link.link")
+        &:hover
+          border-color: config-get("lolma-us.themes.light.link.hover")
 
-      &:hover
-        border-color: config-get("lolma-us.themes.light.link.hover")
-
-      &:active
-        border-color: config-get("lolma-us.themes.light.link.active")
+        &:active
+          border-color: config-get("lolma-us.themes.light.link.active")
