@@ -4,6 +4,8 @@
   @import node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer
   @import ../../components/horizontal-menu/mixins
 
+  $padding-top: 2rem
+
 
 
   ////------------------------------------------
@@ -21,18 +23,19 @@
           margin-right: 2rem
 
     +from(l)
-      display:    flex
       min-height: 100vh
-      //height:  100vh
 
       $sidebar-width: 300px
 
       .route-blog-sidebar
-        flex-shrink: 0
-        width:       $sidebar-width
+        position: fixed
+        left:     0
+        top:      0
+        height:   100vh
+        width:    $sidebar-width
 
       .route-blog-content
-        width: calc(100% - #{$sidebar-width})
+        margin-left: $sidebar-width
 
 
 
@@ -41,7 +44,7 @@
     //------------------------------------------
 
     // ----- Layout -----
-    padding:    1rem
+    padding:    $padding-top 1rem 1rem
     text-align: center
 
     // ----- Content layout -----
@@ -114,8 +117,8 @@
 
 
     +at(m)
-      padding-top:    2rem
-      padding-bottom: 2rem
+      padding-top:    $padding-top
+      padding-bottom: $padding-top
 
       .route-blog-title
         font-size: 1.6rem
@@ -175,6 +178,5 @@
 
     // ----- Content Layout -----
     > *
-      $padding:       2rem
-      padding-top:    $padding
-      padding-bottom: $padding
+      padding-top:    $padding-top
+      padding-bottom: $padding-top
