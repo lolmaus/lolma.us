@@ -3,10 +3,6 @@ import hljs from 'npm:highlight.js'
 
 export function initialize () {
   showdown.setFlavor('github')
-  showdown.setOption('ghCodeBlocks',   true)
-  showdown.setOption('tablesHeaderId', true)
-  showdown.setOption('tables',         true)
-  showdown.setOption('strikethrough',  true)
 
   showdown.extension('codehighlight', function () {
     function htmlunencode (text) {
@@ -31,11 +27,7 @@ export function initialize () {
           : left.replace(/>$/,  ' class="hljs">')
 
       const lang = hasClasses && left.match(classesRegex)[1].split(" ")[0]
-
-      const code =
-        lang
-          ? hljs.highlight(lang, match).value
-          : hljs.highlightAuto(match).value
+      const code = lang ? hljs.highlight(lang, match).value : match
 
       return '<div class="code-block">'
         + newLeft
@@ -55,7 +47,6 @@ export function initialize () {
       },
     }
   })
-
 }
 
 export default {
