@@ -6,6 +6,7 @@ import {scheduleOnce} from '@ember/runloop'
 import nprogress from 'ember-cli-nprogress'
 
 
+
 const Router = EmberRouter.extend({
   // ----- Services -----
   headData  : service(),

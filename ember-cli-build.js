@@ -13,7 +13,7 @@ module.exports = function (defaults) {
       },
 
       favicons : {
-        imagePath : 'favicon.jpg',
+        imagePath : 'images/andrey-mikhaylov-lolmaus.jpg',
         // faviconsConfig : {
         //   // these options are passed directly to the favicons module
         // },

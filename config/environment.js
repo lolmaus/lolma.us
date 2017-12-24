@@ -73,9 +73,18 @@ module.exports = function (environment) {
     metricsAdapters : [
       {
         name         : 'GoogleAnalytics',
-        environments : ['production'],
+        environments : ['development', 'production'],
         config       : {
           id : 'UA-77566978-1',
+
+          // Use `analytics_debug.js` in development
+          debug : environment === 'development',
+
+          // Use verbose tracing of GA events
+          trace : environment === 'development',
+
+          // Ensure development env hits aren't sent to GA
+          sendHitTask : environment !== 'development',
         },
       },
     ],

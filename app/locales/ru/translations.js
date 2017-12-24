@@ -1,5 +1,5 @@
 export default {
-  refreshSuggestion : "Вы смотрите закэшированную версию сайта. Обновить страницу, чтобы увидеть свежую версию?",
+  refreshSuggestion : 'Вы смотрите закэшированную версию сайта. Обновить страницу, чтобы увидеть свежую версию?',
   header            : {
     title    : 'Андрей Михайлов',
     subtitle : 'фронтенд&#8209;разработчик, EmberJS&#8209;энтузиаст',
@@ -17,8 +17,8 @@ export default {
     withGitHub : 'через GitHub, чтобы ставить звездочки проектам, не покидая этот сайт.',
     logOut     : 'Выйти',
     loggingIn  : 'Заходим...',
-    welcome    : "Это внешняя ссылка на GitHub.",
-    goodbye    : "Вы залогинены! Звездочка будет поставлена через API GitHub.",
+    welcome    : 'Это внешняя ссылка на GitHub.',
+    goodbye    : 'Вы залогинены! Звездочка будет поставлена через API GitHub.',
   },
   onlinePresence : {
     title : 'В этих ваших интернетах',
@@ -36,6 +36,10 @@ export default {
     title   : 'Опыт',
     details : 'Показывать подробности',
     present : 'н. в.',
+  },
+  blogIndex : {
+    name        : 'Блог Андрея Михайлова (lolmaus)',
+    description : 'Заметки о вэб-разработке, в основном о JavaScript и EmberJS',
   },
   blogPost : {
     back : '← В блог',

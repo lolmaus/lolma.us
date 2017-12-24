@@ -3,7 +3,7 @@ export default {
   header            : {
     title    : 'Andrey Mikhaylov',
     subtitle : 'frontend&nbsp;developer, EmberJS&nbsp;enthusiast',
-    footer   : "Working with an amazing team at <a href=\"https://deveo.com/\">Deveo.com</a> — repository management platform done right.</a>",
+    footer   : 'Working with an amazing team at <a href="https://deveo.com/">Deveo.com</a> — repository management platform done right.</a>',
   },
   menu : {
     greeting : 'You are awesome today!',
@@ -17,7 +17,7 @@ export default {
     withGitHub : 'with GitHub to star projects',
     logOut     : 'Log out',
     loggingIn  : 'Logging in...',
-    welcome    : "This is an external link to GitHub.\n\nLog into GitHub to be able to star projects without leaving this website.",
+    welcome    : 'This is an external link to GitHub.\n\nLog into GitHub to be able to star projects without leaving this website.',
     goodbye    : "You're logged in! This button will toggle the star via GitHub API.",
   },
   onlinePresence : {
@@ -36,6 +36,10 @@ export default {
     title   : 'Experience',
     details : 'Show details',
     present : 'present',
+  },
+  blogIndex : {
+    name        : 'Blog of Andrey Mikhaylov (lolmaus)',
+    description : 'Musings on web development, mostly on JavaScript and EmberJS',
   },
   blogPost : {
     back : '← To blog index',

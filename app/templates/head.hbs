@@ -9,3 +9,9 @@
 {{#if model.redirectToEn}}
   <meta http-equiv="refresh" content="0; url=/en/blog/" />
 {{/if}}
+  {{log 'model' model}}
+{{#if model.linkedData}}
+  <script type="application/ld+json">
+    {{~json-stringify model.linkedData~}}
+  </script>
+{{/if}}

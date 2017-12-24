@@ -10,7 +10,7 @@ export function initialize (/* application */) {
       if (!inputPayload) {
         payload    = modelName
         serializer = this.serializerFor('application')
-        assert("You cannot use `store#pushPayload` without a modelName unless your default serializer defines `pushPayload`", typeof serializer.pushPayload === 'function')
+        assert('You cannot use `store#pushPayload` without a modelName unless your default serializer defines `pushPayload`', typeof serializer.pushPayload === 'function')
       } else {
         payload = inputPayload
         assert(`Passing classes to store methods has been removed. Please pass a dasherized string instead of ${inspect(modelName)}`, typeof modelName === 'string')

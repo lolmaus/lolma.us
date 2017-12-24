@@ -26,7 +26,7 @@ export function initialize () {
           ? left.replace(classesRegex, 'class="$1 hljs"')
           : left.replace(/>$/,  ' class="hljs">')
 
-      const lang = hasClasses && left.match(classesRegex)[1].split(" ")[0]
+      const lang = hasClasses && left.match(classesRegex)[1].split(' ')[0]
       const code = lang ? hljs.highlight(lang, match).value : match
 
       return '<div class="code-block">'

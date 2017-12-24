@@ -4,15 +4,21 @@ import attr from 'ember-data/attr'
 import {computed} from '@ember/object'
 import {tag} from 'ember-awesome-macros'
 
+
+
 export default Model.extend({
 
   // ----- Attributes -----
-  title       : attr('string'),
-  body        : attr('string'),
-  summary     : attr('string'),
-  created     : attr('date'),
-  updated     : attr('date'),
-  hideSummary : attr('boolean'),
+  title        : attr('string'),
+  body         : attr('string'),
+  summary      : attr('string'),
+  image        : attr('string'),
+  created      : attr('date'),
+  updated      : attr('date'),
+  hideSummary  : attr('boolean'),
+  dependencies : attr('string'),
+  proficiency  : attr('string'),
+  keywords     : attr(),
 
 
 
