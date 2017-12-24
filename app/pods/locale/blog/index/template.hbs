@@ -1,7 +1,7 @@
 <div class = "route-blogIndex">
 
   <div class = "route-blogIndex-posts">
-    {{#each (sort-by 'date:desc' model.posts) as |post|}}
+    {{#each (sort-by 'created:desc' model.posts) as |post|}}
       {{blog-post
         class   = "route-blogIndex-post"
         post    = post

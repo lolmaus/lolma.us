@@ -10,7 +10,8 @@ export default Model.extend({
   title       : attr('string'),
   body        : attr('string'),
   summary     : attr('string'),
-  date        : attr('date'),
+  created     : attr('date'),
+  updated     : attr('date'),
   hideSummary : attr('boolean'),
 
 

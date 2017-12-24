@@ -2,7 +2,7 @@
 id: deveo-en
 title: I've joined Deveo!
 summary: It's always been a dream of mine to build a product from developer for developers.
-date: 2017-02-07
+created: 2017-02-07
 ---
 
 [Deveo.com](https://deveo.com) — is a service offering private repositories: Git, SVN and Mercurial.

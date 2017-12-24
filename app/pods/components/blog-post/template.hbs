@@ -16,7 +16,11 @@
 
 
 <p class = "blogPost-date">
-  {{moment-format post.date 'Do MMMM YYYY'}}
+  {{moment-format post.created 'Do MMMM YYYY'}}
+
+  {{#if post.updated}}
+    (last updated at {{moment-format post.updated 'Do MMMM YYYY'}})
+  {{/if}}
 
   {{!--#if summary}}
     {{disqus-comment-count identifier=post.disqusId}}
