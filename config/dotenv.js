@@ -1,27 +1,32 @@
 const fs = require('fs')
 
+function getDeployTarget () {
+  return process.env.DEPLOY_TARGET || getDefaultDeployTarget()
+}
+
+function getDefaultDeployTarget () {
+  const environment =
+    process.env.EMBER_ENV
+    || deployEnv()
+    || 'development'
+
+  return environment === 'production' ? 'production' : 'localhost-4200'
+}
+
+
 function deployEnv () {
-  if (
-    process.argv[2] === 'deploy'
-    && (process.argv[3] === 'prod' || process.argv[3] === 'production')
-  ) {
+  if (process.argv[2] === 'deploy' && process.argv[3] === 'prod') {
+    throw new Error("Command `ember deploy prod` is not supported. Please use `ember deploy production`.")
+  } else if (process.argv[2] === 'deploy' && process.argv[3] === 'production') {
     return 'production'
   }
 }
 
 
 
-const environment =
-  process.env.EMBER_ENV
-  || deployEnv()
-  || 'development'
+const dotEnvFile   = `./.env-${getDeployTarget()}`
 
-const defaultTarget = environment === 'production' ? 'prod' : 'localhost-4200'
-const target        = process.env.LMS_DEPLOY_TARGET || defaultTarget
-
-const dotEnvFile = `./.env-${target}`
-
-if (fs.existsSync(dotEnvFile)) console.info(`using dotenv file: ${dotEnvFile}`)
+if (fs.existsSync(dotEnvFile)) console.info(`Using dotenv file: ${dotEnvFile}`)
 else console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are passed manually`)
 
 
@@ -29,7 +34,7 @@ else console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are 
 module.exports = function (env) {
   return {
     clientAllowedKeys : [
-      'LMS_DEPLOY_TARGET',
+      'DEPLOY_TARGET',
       'LMS_GITHUB_CLIENT_ID',
       'LMS_HOST',
       'LMS_GATEKEEPER_URL',
