@@ -120,3 +120,11 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+
+
+### License
+
+The source code (everything except for [content/](https://github.com/lolmaus/lolma.us/tree/master/content)) of this website is provided under the [MIT](https://github.com/lolmaus/lolma.us/blob/master/LICENSE.md) licence.
+
+The [content/](https://github.com/lolmaus/lolma.us/tree/master/content) of this website is provided under the [CC BY 4.0](https://github.com/lolmaus/lolma.us/blob/master/content/LICENSE.md) licence.
