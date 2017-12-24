@@ -1,8 +1,10 @@
 import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 // import {belongsTo} from 'ember-data/relationships'
-import {computed} from '@ember/object'
 import {tag} from 'ember-awesome-macros'
+import {slice} from 'ember-awesome-macros/array'
+import computed from 'ember-macro-helpers/computed'
+import reads from 'ember-macro-helpers/reads'
 
 
 
@@ -27,14 +29,13 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  slug : computed('id', function () {
-    // Removes locale from the id
-    return this
-      .get('id')
-      .split('-')
-      .slice(0, -1)
-      .join('-')
+  idSegments : computed('id', id => id.split('-')),
+  locale     : reads('idSegments.lastObject'),
+
+  slug : computed('idSegments.[]', segments => {
+    return segments.slice(0, -1).join('-')
   }),
 
-  disqusId : tag`blog-${"id"}`,
+  url      : tag`https://lolma.us/${'locale'}/blog/${'slug'}`,
+  disqusId : tag`blog-${'id'}`,
 })

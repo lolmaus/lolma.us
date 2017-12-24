@@ -42,6 +42,7 @@ export default {
     description : 'Заметки о вэб-разработке, в основном о JavaScript и EmberJS',
   },
   blogPost : {
-    back : '← В блог',
+    back          : '← В блог',
+    lastUpdatedAt : 'обновлено',
   },
 }

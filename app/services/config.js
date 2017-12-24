@@ -1,9 +1,9 @@
 import Service, {inject as service} from '@ember/service'
 import config from 'lolma-us/config/environment'
 
-import {conditional, equal} from "ember-awesome-macros"
-import raw from "ember-macro-helpers/raw"
-import reads from "ember-macro-helpers/reads"
+import {conditional, equal} from 'ember-awesome-macros'
+import raw from 'ember-macro-helpers/raw'
+import reads from 'ember-macro-helpers/reads'
 
 
 

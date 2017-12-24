@@ -50,6 +50,16 @@ export default Route.extend({
         stackoverflowUser : store
           .findRecord('stackoverflowUser', '901944')
           .catch(() => store.peekRecord('stackoverflowUser', '901944')),
+
+        linkedData : {
+          ...model.linkedData,
+
+          profile : {
+            ...model.linkedData.website,
+            '@type' : 'ProfilePage',
+            name    : 'Andrey Mikhaylov (lolmaus)',
+          },
+        },
       })
 
       .then(model => RSVP.hash({

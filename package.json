@@ -63,6 +63,7 @@
     "ember-fetch": "^3.4.3",
     "ember-i18n": "^5.0.2",
     "ember-load-initializers": "^1.0.0",
+    "ember-lodash": "^4.17.6",
     "ember-metrics": "^0.12.1",
     "ember-moment": "^7.5.0",
     "ember-resolver": "^4.0.0",

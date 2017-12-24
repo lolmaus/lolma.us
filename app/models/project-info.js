@@ -36,7 +36,7 @@ export default Model.extend({
 
 
   // ----- Computed properties -----
-  starUrl : tag`user/starred/${"id"}`,
+  starUrl : tag`user/starred/${'id'}`,
 
   isStarredPromise : computed('starUrl', 'session.isAuthenticated', function () {
     return this._requestIsStarred()

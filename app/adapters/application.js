@@ -36,7 +36,7 @@ export default RESTAdapter.extend({
   },
 
   _buildURL (modelName, id, locale) {
-    const suffix = locale ? `-${locale}.json` : `.json`
+    const suffix = locale ? `-${locale}.json` : '.json'
     return this._super(modelName, id) + suffix
   },
 

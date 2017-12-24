@@ -19,7 +19,7 @@
   {{moment-format post.created 'Do MMMM YYYY'}}
 
   {{#if post.updated}}
-    (last updated at {{moment-format post.updated 'Do MMMM YYYY'}})
+    ({{t 'blogPost.lastUpdatedAt'}} {{moment-format post.updated 'Do MMMM YYYY'}})
   {{/if}}
 
   {{!--#if summary}}

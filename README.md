@@ -91,7 +91,9 @@ You will need the following things properly installed on your computer.
     LMS_GATEKEEPER_URL   = https://<your Heroku app id>.herokuapp.com
     ```
     
-4. Pray and run:
+4. Make sure port `8081` is free.
+
+5. Pray and run:
 
     LMS_DEPLOY_TARGET=prod ember deploy prod
 

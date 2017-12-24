@@ -16,7 +16,7 @@ function getDefaultDeployTarget () {
 
 function deployEnv () {
   if (process.argv[2] === 'deploy' && process.argv[3] === 'prod') {
-    throw new Error("Command `ember deploy prod` is not supported. Please use `ember deploy production`.")
+    throw new Error('Command `ember deploy prod` is not supported. Please use `ember deploy production`.')
   } else if (process.argv[2] === 'deploy' && process.argv[3] === 'production') {
     return 'production'
   }

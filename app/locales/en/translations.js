@@ -42,6 +42,7 @@ export default {
     description : 'Musings on web development, mostly on JavaScript and EmberJS',
   },
   blogPost : {
-    back : '← To blog index',
+    back          : '← To blog index',
+    lastUpdatedAt : 'last updated at',
   },
 }

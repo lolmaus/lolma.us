@@ -8,7 +8,7 @@ export function initialize () {
 
     afterModel (model, transition) {
       if (model && model.linkedData) {
-        this.get('headData').set('linkedData', model.linkedData)
+        this.get('headData').set('linkedDataRaw', model.linkedData)
       }
     },
   })

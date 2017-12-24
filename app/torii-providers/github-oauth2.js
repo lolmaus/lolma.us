@@ -14,5 +14,5 @@ export default GitHubOAuth2Provider.extend({
     return data
   },
 
-  redirectUri : tag`${"config.host"}/torii/redirect.html`,
+  redirectUri : tag`${'config.host'}/torii/redirect.html`,
 })

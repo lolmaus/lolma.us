@@ -1,5 +1,5 @@
 import fetch from 'fetch'
-import RSVP from "rsvp"
+import RSVP from 'rsvp'
 
 export default function fetchGitHub (url, sessionService, {mode = 'json', method = 'GET'} = {}) {
   const fullUrl = `https://api.github.com/${url}`
