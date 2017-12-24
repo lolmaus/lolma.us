@@ -11,7 +11,7 @@ function deployEnv () {
 
 
 
-let environment =
+const environment =
   process.env.EMBER_ENV
   || deployEnv()
   || 'development'
