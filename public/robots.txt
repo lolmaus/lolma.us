@@ -1,3 +1,5 @@
 # http://www.robotstxt.org
 User-agent: *
-Disallow:
+Disallow: /
+Allow: /en/
+Allow: /ru/
