@@ -2,7 +2,7 @@ import Model from 'ember-data/model'
 import attr from 'ember-data/attr'
 // import {belongsTo} from 'ember-data/relationships'
 import {tag} from 'ember-awesome-macros'
-import {slice} from 'ember-awesome-macros/array'
+// import {slice} from 'ember-awesome-macros/array'
 import computed from 'ember-macro-helpers/computed'
 import reads from 'ember-macro-helpers/reads'
 

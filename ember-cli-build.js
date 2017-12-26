@@ -30,10 +30,10 @@ module.exports = function (defaults) {
       prember : {
         urls : [
           '/',
-          '/en',
-          '/ru',
-          '/en/blog',
-          '/ru/blog',
+          '/en/',
+          '/ru/',
+          '/en/blog/',
+          '/ru/blog/',
           ...listBlogPages(),
         ],
       },
@@ -42,6 +42,21 @@ module.exports = function (defaults) {
         includePaths : [
           'app/pods',
         ],
+      },
+
+      sitemap : {
+        options : {
+          hostname : 'https://lolma.us',
+
+          urls : [
+            {url : '/',        changefreq : 'daily'},
+            {url : '/en/',      changefreq : 'daily'},
+            {url : '/ru/',      changefreq : 'daily'},
+            {url : '/en/blog/', changefreq : 'daily'},
+            {url : '/ru/blog/', changefreq : 'daily'},
+            ...listBlogPages().map(url => ({url, changefreq : 'weekly'})),
+          ],
+        },
       },
     })
 

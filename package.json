@@ -24,6 +24,7 @@
     "breakpoint-sass": "^2.7.1",
     "breakpoint-slicer": "^2.0.0",
     "broccoli-asset-rev": "^2.6.0",
+    "broccoli-file-creator": "^1.1.1",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^2.0.0",
     "ember-awesome-macros": "^0.40.0",
@@ -94,6 +95,7 @@
     "sass-config-manager-mk2": "^1.0.0-alpha.1",
     "sass-toolkit": "^2.10.2",
     "showdown": "^1.8.5",
+    "sitemap": "^1.13.0",
     "torii": "^0.9.6"
   },
   "fastbootDependencies": [
@@ -101,7 +103,8 @@
   ],
   "ember-addon": {
     "paths": [
-      "lib/content-server"
+      "lib/content-server",
+      "lib/sitemap"
     ]
   }
 }
