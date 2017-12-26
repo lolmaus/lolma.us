@@ -1,6 +1,4 @@
 # http://www.robotstxt.org
 User-agent: *
-Disallow: /
-Allow: /sitemap.xml
-Allow: /en/
-Allow: /ru/
+Allow: /*/
+Disallow: /$
