@@ -49,7 +49,6 @@ module.exports = function (defaults) {
           hostname : 'https://lolma.us',
 
           urls : [
-            {url : '/',        changefreq : 'daily'},
             {url : '/en/',      changefreq : 'daily'},
             {url : '/ru/',      changefreq : 'daily'},
             {url : '/en/blog/', changefreq : 'daily'},
