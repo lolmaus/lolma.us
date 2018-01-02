@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route'
 import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
+import t from 'lolma-us/macros/t'
 
 
 
@@ -12,6 +13,7 @@ export default Route.extend({
 
 
   // ----- Overridden properties -----
+  titleToken : t('blog.title'),
 
 
 

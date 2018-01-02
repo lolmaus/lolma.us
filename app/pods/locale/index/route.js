@@ -3,6 +3,7 @@ import Route from '@ember/routing/route'
 import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
 import _ from 'npm:lodash'
+import t from 'lolma-us/macros/t'
 
 
 
@@ -10,12 +11,13 @@ export default Route.extend({
 
   // ----- Services -----
   config  : service(),
+  i18n    : service(),
   session : service(),
 
 
 
   // ----- Overridden properties -----
-  title : 'lolmaus - Andrey Mikhaylov',
+  titleToken : t('localeIndex.title'),
 
 
 

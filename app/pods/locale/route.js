@@ -1,8 +1,10 @@
+// import {computed} from '@ember/object'
 import Route from '@ember/routing/route'
 import {inject as service} from '@ember/service'
 import RSVP from 'rsvp'
 import $ from 'jquery'
 // import _ from 'npm:lodash'
+import t from 'lolma-us/macros/t'
 
 
 const linkedData = (locale) => ({
@@ -147,6 +149,7 @@ export default Route.extend({
 
 
   // ----- Overridden properties -----
+  titleToken : t('locale.title'),
 
 
 

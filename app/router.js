@@ -9,11 +9,11 @@ import nprogress from 'ember-cli-nprogress'
 
 const Router = EmberRouter.extend({
   // ----- Services -----
-  headData  : service(),
-  metrics   : service(),
-  i18n      : service(),
-  htmlState : service(),
   fastboot  : service(),
+  headData  : service(),
+  htmlState : service(),
+  i18n      : service(),
+  metrics   : service(),
 
 
 
@@ -47,6 +47,7 @@ const Router = EmberRouter.extend({
 
   // ----- Overridden methods -----
   setTitle (title) {
+    console.log('setTitle', title)
     this.get('headData').setProperties({title})
   },
 

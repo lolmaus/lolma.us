@@ -10,7 +10,7 @@ function getDefaultDeployTarget () {
     || deployEnv()
     || 'development'
 
-  return environment === 'production' ? 'production' : 'localhost-4200'
+  return environment === 'production' ? 'production' : 'local'
 }
 
 

@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route'
+import reads from 'ember-macro-helpers/reads'
 import RSVP from 'rsvp'
 
 
@@ -10,7 +11,6 @@ export default Route.extend({
 
 
   // ----- Overridden properties -----
-  title : 'lolmaus - Andrey Mikhaylov',
 
 
 
@@ -80,6 +80,10 @@ export default Route.extend({
           },
         },
       }))
+  },
+
+  titleToken (model) {
+    return model.post.get('title')
   },
 
 

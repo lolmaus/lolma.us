@@ -1,14 +1,14 @@
+// import {observer} from '@ember/object'
 import Route from '@ember/routing/route'
-import {inject as service} from '@ember/service'
-import RSVP from 'rsvp'
+// import {inject as service} from '@ember/service'
+// import RSVP from 'rsvp'
+// import _ from 'npm:lodash'
 
 
 
 export default Route.extend({
 
   // ----- Services -----
-  config : service(),
-  // i18n   : service(),
 
 
 
@@ -25,16 +25,8 @@ export default Route.extend({
 
 
   // ----- Overridden Methods -----
-  model () {
-    const model  = this.modelFor('locale.blog')
-    const locale = model.locale
-    const store  = this.get('store')
-
-    return RSVP
-      .hash({
-        ...model,
-        posts : store.query('post', {locale}),
-      })
+  title (tokens) {
+    return tokens.reverse().join(' | ')
   },
 
 

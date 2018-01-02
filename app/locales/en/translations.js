@@ -37,6 +37,9 @@ export default {
     details : 'Show details',
     present : 'present',
   },
+  blog : {
+    title : 'Blog',
+  },
   blogIndex : {
     name        : 'Blog of Andrey Mikhaylov (lolmaus)',
     description : 'Musings on web development, mostly on JavaScript and EmberJS',
@@ -44,5 +47,11 @@ export default {
   blogPost : {
     back          : '← To blog index',
     lastUpdatedAt : 'last updated at',
+  },
+  locale : {
+    title : 'Andrey Mikhaylov (lolmaus)',
+  },
+  localeIndex : {
+    title : 'Résumé',
   },
 }

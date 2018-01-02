@@ -37,6 +37,9 @@ export default {
     details : 'Показывать подробности',
     present : 'н. в.',
   },
+  blog : {
+    title : 'Блог',
+  },
   blogIndex : {
     name        : 'Блог Андрея Михайлова (lolmaus)',
     description : 'Заметки о вэб-разработке, в основном о JavaScript и EmberJS',
@@ -44,5 +47,11 @@ export default {
   blogPost : {
     back          : '← В блог',
     lastUpdatedAt : 'обновлено',
+  },
+  locale : {
+    title : 'Андрей Михайлов (lolmaus)',
+  },
+  localeIndex : {
+    title : 'Резюме',
   },
 }
