@@ -62,6 +62,8 @@ export default Route.extend({
             name    : 'Andrey Mikhaylov (lolmaus)',
           },
         },
+
+        ogType : 'profile',
       })
 
       .then(model => RSVP.hash({

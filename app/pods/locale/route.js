@@ -173,11 +173,12 @@ export default Route.extend({
 
     return RSVP
       .hash({
-        cacheBuster : store.findRecord('cache-buster', 'buster'),
-        isFastBoot,
         // ...model,
-        linkedData  : linkedData(locale),
+        isFastBoot,
         locale,
+        cacheBuster : store.findRecord('cache-buster', 'buster'),
+        linkedData  : linkedData(locale),
+        ogType      : 'website',
       })
   },
 

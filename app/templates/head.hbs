@@ -5,10 +5,43 @@
 --}}
 
 <title>{{model.title}}</title>
+<meta property="og:title" content={{or model.model.post.title model.title}}>
 
 {{#if model.redirectToEn}}
   <meta http-equiv="refresh" content="0; url=/en/blog/" />
 {{/if}}
+
+{{! og:locale }}
+{{#if model.model.locale}}
+  <meta property="og:locale" content={{model.model.locale}}>
+{{/if}}
+
+{{! og:description }}
+{{#if model.model.post.summary}}
+  <meta property="og:description" content={{model.model.post.summary}}>
+{{/if}}
+
+{{! og:locale }}
+<meta property="og:image" content={{or model.model.post.image "https://lolma.us/favicon.jpg"}}>
+
+{{! og:type }}
+<meta property="og:type" content={{or model.model.ogType 'website'}}>
+
+{{! og:type article }}
+{{#if model.model.post}}
+  <link rel="canonical"                    href={{model.model.post.url}}>
+  <meta property="og:url"                  content={{model.model.post.url}}>
+  <meta property="article:published_time"  content={{iso-date model.model.post.created}}>
+  <meta property="article:author"          content="https://lolma.us/{{model.model.locale}}/">
+
+  {{#if model.model.post.updated}}
+    <meta property="article:modified_time" content={{iso-date model.model.post.updated}}>
+  {{/if}}
+
+  {{#each model.model.post.keywords as |keyword|}}
+    <meta property="article:tag" content={{keyword}}>
+  {{/each}}
+  {{/if}}
 
 {{#if model.linkedData}}
   <script type="application/ld+json">

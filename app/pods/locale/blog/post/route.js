@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route'
-import reads from 'ember-macro-helpers/reads'
+// import reads from 'ember-macro-helpers/reads'
 import RSVP from 'rsvp'
 
 
@@ -35,6 +35,9 @@ export default Route.extend({
       })
       .then((model) => RSVP.hash({
         ...model,
+
+        ogType : 'article',
+
         linkedData : {
           ...model.linkedData,
 

@@ -36,6 +36,6 @@ export default Model.extend({
     return segments.slice(0, -1).join('-')
   }),
 
-  url      : tag`https://lolma.us/${'locale'}/blog/${'slug'}`,
+  url      : tag`https://lolma.us/${'locale'}/blog/${'slug'}/`,
   disqusId : tag`blog-${'id'}`,
 })

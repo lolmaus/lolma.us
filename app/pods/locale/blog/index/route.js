@@ -33,7 +33,8 @@ export default Route.extend({
     return RSVP
       .hash({
         ...model,
-        posts : store.query('post', {locale}),
+        posts  : store.query('post', {locale}),
+        ogType : 'blog',
       })
   },
 

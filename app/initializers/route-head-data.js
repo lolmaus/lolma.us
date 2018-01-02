@@ -7,9 +7,7 @@ export function initialize () {
     headData : service(),
 
     afterModel (model, transition) {
-      if (model && model.linkedData) {
-        this.get('headData').set('linkedDataRaw', model.linkedData)
-      }
+      this.get('headData').setProperties({model})
     },
   })
 

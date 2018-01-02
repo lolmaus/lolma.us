@@ -4,12 +4,12 @@ import _ from 'lodash'
 
 
 export default HeadDataService.extend({
-  linkedDataRaw : computed(() => ({})),
+  model : null,
 
-  linkedData : computed('linkedDataRaw', linkedData => {
+  linkedData : computed('model.linkedData', linkedData => {
     return {
       '@context' : 'http://schema.org',
-      '@graph'   : _.values(linkedData),
+      '@graph'   : _.values(linkedData || {}),
     }
   }),
 })
