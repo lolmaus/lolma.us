@@ -47,7 +47,6 @@ const Router = EmberRouter.extend({
 
   // ----- Overridden methods -----
   setTitle (title) {
-    console.log('setTitle', title)
     this.get('headData').setProperties({title})
   },
 
