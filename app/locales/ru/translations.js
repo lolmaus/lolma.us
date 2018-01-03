@@ -38,7 +38,8 @@ export default {
     present : 'н. в.',
   },
   blog : {
-    title : 'Блог',
+    title   : 'Блог',
+    license : 'Лицензия',
   },
   blogIndex : {
     name        : 'Блог Андрея Михайлова (lolmaus)',

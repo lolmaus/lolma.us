@@ -11,7 +11,7 @@
           width  = "512"
           height = "512"
         >
-      </div>
+      </div>{{! sidebar-section _avatar }}
 
       <div class = "route-blog-sidebar-section _content">
         <h2 class = "route-blog-title">
@@ -24,7 +24,33 @@
         </div>
 
         {{horizontal-menu class = "route-blogIndex-menu"}}
-      </div>{{! route-blog-sidebar-content }}
+      </div>{{! sidebar-section _content }}
+      
+      <div class = "route-blog-sidebar-section _bottom">
+
+        <a
+          class="route-blog-sidebar-section-bottom-link -no-icon"
+          href="https://creativecommons.org/licenses/by/4.0/"
+        >
+          {{svg-jar "cc-by"
+            class = "route-blog-sidebar-section-bottom-icon _cc"
+            alt   = (concat (t 'blog.license') ' Creative Commons 4.0 Attribution')
+            title = (concat (t 'blog.license') ' Creative Commons 4.0 Attribution')
+          }}
+        </a>{{! route-blog-sidebar-section-bottom-link}}
+
+        <a
+          class="route-blog-sidebar-section-bottom-link -no-icon"
+          href="https://lolma.us/rss_{{model.locale}}.xml"
+        >
+          {{svg-jar "rss"
+            class = "route-blog-sidebar-section-bottom-icon _rss"
+            alt   = 'RSS'
+            title = 'RSS'
+          }}
+        </a>{{! route-blog-sidebar-section-bottom-link}}
+      </div>{{! route-blog-sidebar-section _bottom }}
+      
     </div>{{! route-blog-sidebar }}
   {{/sec-tion}}
 

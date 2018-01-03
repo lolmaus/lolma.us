@@ -125,7 +125,10 @@
 
       .route-blog-subtitle
         font-size: 1.3rem
-
+        
+    +to(l)
+      .route-blog-sidebar-section._bottom
+        display: none
 
     +from(l)
       overflow-y:  auto
@@ -160,6 +163,59 @@
     // ----- Content layout -----
     .route-blog-subtitle
       margin-top: 1rem
+    border-radius: 50%
+
+
+
+  ////------------------------------------------
+  .route-blog-sidebar-section._bottom
+    //------------------------------------------
+
+    // ----- Layout -----
+
+    // ----- Content layout -----
+    .route-blog-sidebar-section-bottom-link
+      &:not(:last-child)
+        margin-right: 1rem
+
+  
+
+  ////------------------------------------------
+  .route-blog-sidebar-section-bottom-link
+    //------------------------------------------
+
+    // ----- Layout -----
+    display:  inline-block
+    position: relative
+
+    // ----- Link -----
+    text-decoration: none !important
+
+    // ----- Behavior -----
+    &:hover
+      padding-top:     1rem
+      padding-right:   1rem
+      margin-top:      -1rem
+      margin-right:    -1rem
+      background:      url('/images/icons/external-link.png') right center no-repeat transparent
+      background-size: 12px 12px
+      z-index:         2
+
+      &:not(:last-child)
+        margin-right: 0 !important
+    
+      .route-blog-sidebar-section-bottom-icon
+        fill: #222
+
+  
+
+  ////------------------------------------------
+  .route-blog-sidebar-section-bottom-icon
+    //------------------------------------------
+
+    // ----- Layout -----
+    width:  32px
+    height: auto
 
 
 

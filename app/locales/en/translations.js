@@ -38,7 +38,8 @@ export default {
     present : 'present',
   },
   blog : {
-    title : 'Blog',
+    title   : 'Blog',
+    license : 'License',
   },
   blogIndex : {
     name        : 'Blog of Andrey Mikhaylov (lolmaus)',
