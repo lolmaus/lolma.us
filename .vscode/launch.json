@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "lolma.us.local",
+      "type": "chrome",
+      "request": "launch",
+      "runtimeExecutable": "/usr/bin/google-chrome-beta",
+      "runtimeArgs": [ "--remote-debugging-port=9222" ],
+      "url": "http://lolma.us.local:4200/",
+      "sourceMapPathOverrides": {
+        "lolma-us/*": "${workspaceRoot}/app/*"
+      },
+      "port": 9222,
+      "diagnosticLogging": true,
+    },
+  ]
+}

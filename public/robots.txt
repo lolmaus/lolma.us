@@ -1,4 +1,6 @@
 # http://www.robotstxt.org
+Host: https://lolma.us
+Sitemap: https://lolma.us/sitemap.xml
 User-agent: *
 Allow: /*/
 Disallow: /$

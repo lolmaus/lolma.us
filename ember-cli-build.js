@@ -10,6 +10,7 @@ module.exports = function (defaults) {
         plugins : [
           'transform-object-rest-spread',
         ],
+        sourceMaps : 'inline',
       },
 
       favicons : {
