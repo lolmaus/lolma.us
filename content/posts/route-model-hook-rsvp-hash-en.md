@@ -3,6 +3,7 @@ id: route-model-hook-rsvp-hash-en
 title: Do return an `RSVP.hash()` from your routes' `model` hooks!
 summary: It's a relatively widespread opinion that returning a hash from the `model` hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.
 created: 2016-12-08
+proficiency: beginner
 ---
 
 

@@ -42,7 +42,7 @@ export default Route.extend({
           ...model.linkedData,
 
           article : {
-            '@type' : 'TechArticle',
+            '@type' : model.post.get('proficiency') ? 'TechArticle' : 'Article',
 
             author     : model.linkedData.website.author,
             accessMode : model.linkedData.website.accessMode,

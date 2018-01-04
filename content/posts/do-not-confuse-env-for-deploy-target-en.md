@@ -4,6 +4,7 @@ title: Do not confuse environment for deploy target
 summary: Most frameworks have a concept of *environment*. Many developers are misusing it as a deploy target.
 created: 2017-02-18
 updated: 2017-12-24
+proficiency: beginner
 ---
 
 <div class="exclamation"></div>
