@@ -36,6 +36,7 @@ module.exports = function (env) {
     clientAllowedKeys : [
       'DEPLOY_TARGET',
       'LMS_GITHUB_CLIENT_ID',
+      'LMS_ROLLBAR_CLIENT_ID',
       'LMS_HOST',
       'LMS_GATEKEEPER_URL',
     ],

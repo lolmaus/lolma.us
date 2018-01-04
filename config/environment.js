@@ -5,6 +5,7 @@ const _ = require('lodash')
 const envVars = _.pick(process.env, [
   'LMS_DEPLOY_TARGET',
   'LMS_GITHUB_CLIENT_ID',
+  'LMS_ROLLBAR_CLIENT_ID',
   'LMS_HOST',
   'LMS_GATEKEEPER_URL',
 ])
@@ -35,6 +36,11 @@ module.exports = function (environment) {
     APP : {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    emberRollbarClient : {
+      accessToken : envVars.LMS_ROLLBAR_CLIENT_ID,
+      enabled     : environment === 'production',
     },
 
     i18n : {
