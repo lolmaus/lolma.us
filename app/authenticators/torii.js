@@ -78,6 +78,8 @@ export default ToriiAuthenticator.extend({
             value    : gitHubLogin,
           })
         }
+
+        return data
       })
   },
 
