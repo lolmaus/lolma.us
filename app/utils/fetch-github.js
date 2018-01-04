@@ -1,9 +1,17 @@
 import fetch from 'fetch'
 import RSVP from 'rsvp'
 
-export default function fetchGitHub (url, sessionService, {mode = 'json', method = 'GET'} = {}) {
+export default function fetchGitHub (url, sessionServiceOrToken, {mode = 'json', method = 'GET'} = {}) {
+  let sessionService, token
+
+  if (typeof sessionServiceOrToken === 'string') {
+    token = sessionServiceOrToken
+  } else {
+    sessionService = sessionServiceOrToken
+    token          = sessionService.get('data.authenticated.token')
+  }
+
   const fullUrl = `https://api.github.com/${url}`
-  const token   = sessionService && sessionService.get('data.authenticated.token')
 
   return fetch(fullUrl, {
     method,

@@ -53,6 +53,7 @@ export default {
     title : 'Андрей Михайлов (lolmaus)',
   },
   localeIndex : {
-    title : 'Резюме',
+    title        : 'Резюме',
+    loginWarning : 'Могу я передать ваш GitHub юзернэйм в мой аккаунт Google Analytics?',
   },
 }

@@ -53,6 +53,7 @@ export default {
     title : 'Andrey Mikhaylov (lolmaus)',
   },
   localeIndex : {
-    title : 'Résumé',
+    title        : 'Résumé',
+    loginWarning : 'May I track your GitHub user id to my Google Analytics account?',
   },
 }
