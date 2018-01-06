@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "assertron",
+    "type": "projects",
+    "attributes": {
+      "group": "js",
+      "status": 4,
+      "description": {
+        "en": "standalone assertion library, aiming to be a tool for simple contract-driven development",
+        "ru": "самостоятельная assertion library, спроектированная для простого контрактного программирования"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/assertron",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

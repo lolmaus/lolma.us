@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": "ember-gist",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 3,
+      "type": "addon",
+      "description": {
+        "en": "use gist.github.com as a poor man's backend",
+        "ru": "позволяет использовать gist.github.com в качестве замены бэкенда"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/ember-gist",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

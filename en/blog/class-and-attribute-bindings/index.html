@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>What you didn't know about passing dynamic classname and attribute bidings from parent template | Blog | Andrey Mikhaylov (lolmaus)</title>
+<meta property="og:title" content="What you didn't know about passing dynamic classname and attribute bidings from parent template">
+
+<!---->
+  <meta property="og:locale" content="en">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_en.xml">
+
+  <meta property="og:description" content="The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.">
+
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="article">
+
+  <link rel="canonical" href="https://lolma.us/en/blog/class-and-attribute-bindings/">
+  <meta property="og:url" content="https://lolma.us/en/blog/class-and-attribute-bindings/">
+  <meta property="article:published_time" content="2017-04-13T00:00:00.000Z">
+  <meta property="article:author" content="https://lolma.us/en/">
+
+    <meta property="article:modified_time" content="2018-01-06T00:00:00.000Z">
+
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"Blog","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Blog of Andrey Mikhaylov (lolmaus)","description":"Musings on web development, mostly on JavaScript and EmberJS","url":"https://lolma.us/en/blog/","keywords":["development","web development","webdev","ember","emberjs","js","javascript","frontend"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://lolma.us/en/blog/","name":"Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://lolma.us/en/blog/class-and-attribute-bindings/","name":"What you didn't know about passing dynamic classname and attribute bidings from parent template"}}]},{"@type":"TechArticle","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"headline":"What you didn't know about passing dynamic classname and attribute bidings from parent template","description":"The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.","image":"https://lolma.us/favicon.jpg","datePublished":"2017-04-13T00:00:00.000Z","dateModified":"2018-01-06T00:00:00.000Z","proficiency":"beginner","mainEntityOfPage":{"@type":"WebPage","@id":"https://lolma.us/en/blog/class-and-attribute-bindings/"}}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember2109" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember2113" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  You are awesome today!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+<!---->
+    <a href="/en" id="ember2118" class="route-locale-menu-item _resume ember-view">Résumé</a>
+
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Source on GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/ru/blog/class-and-attribute-bindings" id="ember2127" class="route-locale-menu-item _locale ember-view">    Моя не понимать
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-blog">
+
+
+<div id="ember2133" class="secTion ember-view"><div class="secTion-inner ">
+      <div class="route-blog-sidebar">
+      <div class="route-blog-sidebar-section _avatar">
+        <img src="/favicon.jpg" alt="Andrey Mikhaylov" width="512" height="512" class="route-blog-sidebar-avatar">
+      </div>
+
+      <div class="route-blog-sidebar-section _content">
+        <h2 class="route-blog-title">
+          Andrey Mikhaylov
+          @lolmaus
+        </h2>
+
+        <div class="route-blog-subtitle">
+          frontend&nbsp;developer, EmberJS&nbsp;enthusiast
+        </div>
+
+        <div id="ember2146" class="route-blogIndex-menu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/en/blog" id="ember2147" class="horizontalMenu-item-link active ember-view">Blog</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/en" id="ember2152" class="horizontalMenu-item-link ember-view">Résumé</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Source on GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/ru/blog/class-and-attribute-bindings" id="ember2161" class="horizontalMenu-item-link ember-view">    Моя не понимать
+</a></div></div>
+      </div>
+      
+      <div class="route-blog-sidebar-section _bottom">
+
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg version="1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="5.5 -3.5 64 64" class="route-blog-sidebar-section-bottom-icon _cc" alt="License Creative Commons 4.0 Attribution" title="License Creative Commons 4.0 Attribution"><circle fill="#FFF" cx="37.637" cy="28.806" r="28.276"/><path d="M37.443-3.5c8.988 0 16.57 3.085 22.742 9.257C66.393 11.967 69.5 19.548 69.5 28.5c0 8.991-3.049 16.476-9.145 22.456-6.476 6.363-14.113 9.544-22.912 9.544-8.649 0-16.153-3.144-22.514-9.43C8.644 44.784 5.5 37.262 5.5 28.5c0-8.761 3.144-16.342 9.429-22.742C21.101-.415 28.604-3.5 37.443-3.5zm.114 5.772c-7.276 0-13.428 2.553-18.457 7.657-5.22 5.334-7.829 11.525-7.829 18.572 0 7.086 2.59 13.22 7.77 18.398 5.181 5.182 11.352 7.771 18.514 7.771 7.123 0 13.334-2.607 18.629-7.828 5.029-4.838 7.543-10.952 7.543-18.343 0-7.276-2.553-13.465-7.656-18.571-5.104-5.104-11.276-7.656-18.514-7.656zm8.572 18.285v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557c0-.572.2-1.057.599-1.457.401-.399.887-.6 1.457-.6h13.144c.533 0 1.01.2 1.428.6.417.4.628.886.628 1.457zm-13.087-8.228c0-3.008 1.485-4.514 4.458-4.514s4.457 1.504 4.457 4.514c0 2.971-1.486 4.457-4.457 4.457s-4.458-1.486-4.458-4.457z"/></svg>
+        </a>
+
+        <a href="https://lolma.us/rss_en.xml" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="49.25" viewBox="0 0 49.249999 49.249999" width="49.25" class="route-blog-sidebar-section-bottom-icon _rss" alt="RSS" title="RSS"><path d="M24.625 0C11.025 0 0 11.025 0 24.625 0 38.227 11.024 49.25 24.625 49.25c13.602 0 24.625-11.023 24.625-24.625C49.25 11.025 38.226 0 24.625 0zm-7.637 35.735a3.238 3.238 0 1 1 .002-6.476 3.238 3.238 0 0 1-.002 6.476zm8.123.021c0-3.057-1.182-5.928-3.33-8.082a11.247 11.247 0 0 0-8.028-3.342v-4.674c8.84 0 16.03 7.223 16.03 16.098h-4.672zm8.256.004c0-10.867-8.795-19.711-19.606-19.711v-4.676c13.387 0 24.28 10.942 24.28 24.387h-4.674z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+
+</div></div>
+
+<div id="ember2174" class="route-blog-content secTion ember-view"><div class="secTion-inner route-blog-content-inner">
+      <div class="route-blogPost">
+
+  <a href="/en/blog" id="ember2176" class="route-blogPost-back active ember-view">← To blog index</a>
+
+  <div id="ember2181" class="route-blogPost-post blogPost -full ember-view">  <h1 id="ember2182" class="blogPost-title ember-view"><p>What you didn't know about passing dynamic classname and attribute bidings from parent template</p>
+</h1>
+
+
+
+<p class="blogPost-date">
+  13th April 2017
+
+    (last updated at 6th January 2018)
+
+</p>
+
+
+
+  <div id="ember2187" class="blogPost-summary ember-view"><p>The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.</p>
+</div>
+
+
+
+  <div id="ember2188" class="blogPost-body ember-view"><div class="exclamation"></div>
+<blockquote>
+  <p>This article was originally posted on Deveo blog.</p>
+  <p>When Deveo was acquired by Perforce, Deveo blog was turned down.</p>
+</blockquote>
+<p>Every Ember developer has done this many times:</p>
+<div class="code-block"><pre><code class="js language-js hljs">Ember.Component.extend({
+  <span class="hljs-attr">validationResult</span>: Ember.computed(<span class="hljs-comment">/*...*/</span>),
+  <span class="hljs-attr">classNameBindings</span>: [<span class="hljs-string">'validationResult:is-valid:is-invalid'</span>]
+})</code></pre></div>
+<p>Ember will apply either <code>is-valid</code> or <code>is-invalid</code> HTML class to the component depending on whether <code>validationResult</code> property is truthy.</p>
+<p>In this case, the <code>validationResult</code> property is looked upon the component.</p>
+<h2 id="trying-to-pass-classnamebindings-externally" class="headingWithLink"><a href="#trying-to-pass-classnamebindings-externally" class="headingWithLink-link">#</a>Trying to pass <code>classNameBindings</code> externally</h2>
+<p>There are situations when you want to pass <code>classNameBindings</code> into a component from the parent template.</p>
+<p>Say, you need a custom HTML class on the <code>{{textarea}}</code> component, but you don't want to bother subclassing the <code>Ember.TextArea</code> component. Why create a custom component when you can simply pass <code>classNameBindings</code> and <code>validationResult</code> into the standard <code>{{textarea}}</code>, right?</p>
+<p>This is what my intuition tells me to do, but it <strong>does not work</strong>:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{textarea
+  validationResult  = (gte myText.length 100),
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</span><span class="xml"></span></code></pre></div>
+<h2 id="what-happens" class="headingWithLink"><a href="#what-happens" class="headingWithLink-link">#</a>What happens</h2>
+<p><code>classNameBindings</code> is operated by Ember's <strong>deprecated</strong> binding mechanism. The mechanism is documented <a href="http://emberjs.com/api/classes/Ember.Binding.html">here</a> and is removed in Ember 3.</p>
+<p>Historically, this low-level API was used to set up bindings in EmberJS. Then it was replaced with the convenient high-level API that we know today, and instead of <code>myPropBinding='foo'</code> we can simply do <code>myProp=foo</code> in our templates. Note that the former uses quotes and the latter doesn't.</p>
+<p>This code:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{textarea
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</span><span class="xml"></span></code></pre></div>
+<p>is roughly equivalent to this:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{textarea
+  classNames = (<span class="hljs-builtin-name">if</span> validationResult 'is-valid' 'is-invalid')
+}}</span><span class="xml"></span></code></pre></div>
+<p>But if you use the latter in your template, the HTML class will not be dynamic. It will use the initial value of <code>validationResult</code>, and when <code>validationResult</code> changes, the HTML class will not be updated.</p>
+<p>This is why <code>classNameBindings</code> is there for you.</p>
+<h2 id="passing-classnamebindings-into-the-default-textarea-component" class="headingWithLink"><a href="#passing-classnamebindings-into-the-default-textarea-component" class="headingWithLink-link">#</a>Passing <code>classNameBindings</code> into the default textarea component</h2>
+<p>You have to define the property on the <em>parent</em> component/controller and use its name in <code>classNameBindings</code>:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-comment">// app/components/parent-component.js</span>
+Ember.Component.extend({
+  <span class="hljs-attr">validationResult</span>: Ember.computed(<span class="hljs-comment">/*...*/</span>),
+})</code></pre></div>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-comment">{{! app/components/parent-component.hbs }}</span><span class="xml">
+
+</span><span class="hljs-template-variable">{{textarea
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</span><span class="xml"></span></code></pre></div>
+<p>It is very important to understand that this example is different from the first example in this article, even though it feels identical to <code>classNameBindings: 'validationResult:is-valid:is-invalid'</code>.</p>
+<ul>
+<li><p>In the first example of this article, <code>classNameBindings</code> is evaluated in the context of the same component that it's applied to.</p></li>
+<li><p>In this example, <code>classNameBindings</code> is applied to the <code>{{textarea}}</code> component, but it is evaluated in the context of the parent component/controller!</p></li>
+</ul>
+<h2 id="passing-multiple-properties-into-classnamebindings-externally-seems-to-be-impossible" class="headingWithLink"><a href="#passing-multiple-properties-into-classnamebindings-externally-seems-to-be-impossible" class="headingWithLink-link">#</a>Passing multiple properties into <code>classNameBindings</code> externally seems to be impossible</h2>
+<p>I assumed this would work, but it doesn't:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{textarea
+  classNameBindings = (array 'validationResult:is-valid:is-invalid')
+}}</span><span class="xml"></span></code></pre></div>
+<p>…where <code>array</code> is a simple helper that returns its arguments as an array.</p>
+<p>I did not find a way to pass more than one property into <code>classNameBindings</code>. If you need that, you'll have to subclass the component in question, so that you can apply <code>classNameBindings</code> internally, in the component's own JS file.</p>
+<p>Luckily, there's a better way.</p>
+<h2 id="use-class-instead-of-classnamebindings-in-the-parent-template" class="headingWithLink"><a href="#use-class-instead-of-classnamebindings-in-the-parent-template" class="headingWithLink-link">#</a>Use class instead of classNameBindings in the parent template</h2>
+<p>The <code>class</code> property, unavailable (or at least not documented) inside a component class, can be passed externally. And it allows defining multiple dynamic bindings!</p>
+<p>You've probably done that many times:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span> = <span class="hljs-string">"foo </span></span></span><span class="hljs-template-variable">{{bar}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">if</span> baz 'quux' 'zomg'}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span></code></pre></div>
+<p>If you pass <code>class</code> to a component, you need concatenation:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{my-component
+  class = (concat 'foo ' bar (<span class="hljs-builtin-name">if</span> baz ' quux' ' zomg'))
+}}</span><span class="xml"></span></code></pre></div>
+<p>Note extra spaces in string literals.</p>
+<h2 id="what-about-attributebindings" class="headingWithLink"><a href="#what-about-attributebindings" class="headingWithLink-link">#</a>What about attributeBindings?</h2>
+<p>Ember (Glimmer?) explicitly forbids passing <code>attributeBindings</code> from inside a parent tempalte. This will crash your app:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{my-component
+  attributeBindings = "foo"
+}}</span><span class="xml"></span></code></pre></div>
+<p>Some Ember addons use a mixin that binds all properties passed from parent template to HTML attributes. With such a mixin, you could do this:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{my-component
+  disabled = isDisabled
+  data-foo = "bar"
+}}</span><span class="xml"></span></code></pre></div>
+<p>Here's how a private mixin <code>dynamic-attribute-bindings</code> from <code>ember-one-way-controls</code>[<a href="https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js](looks">https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js](looks</a> like):</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-comment">// https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js</span>
+<span class="hljs-keyword">import</span> Ember <span class="hljs-keyword">from</span> <span class="hljs-string">'ember'</span>;
+
+<span class="hljs-keyword">const</span> { Mixin, set } = Ember;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Mixin.create({
+  <span class="hljs-attr">NON_ATTRIBUTE_BOUND_PROPS</span>: [<span class="hljs-string">'class'</span>, <span class="hljs-string">'classNames'</span>],
+  <span class="hljs-attr">concatenatedProperties</span>: [<span class="hljs-string">'NON_ATTRIBUTE_BOUND_PROPS'</span>],
+  init() {
+    <span class="hljs-keyword">this</span>._super(...arguments);
+
+    <span class="hljs-keyword">let</span> newAttributeBindings = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.attrs) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.NON_ATTRIBUTE_BOUND_PROPS.indexOf(key) === <span class="hljs-number">-1</span> &amp;&amp; <span class="hljs-keyword">this</span>.attributeBindings.indexOf(key) === <span class="hljs-number">-1</span>) {
+        newAttributeBindings.push(key);
+      }
+    }
+
+    set(<span class="hljs-keyword">this</span>, <span class="hljs-string">'attributeBindings'</span>, <span class="hljs-keyword">this</span>.attributeBindings.concat(newAttributeBindings));
+  }
+});</code></pre></div>
+<p>Note that this approach uses a blacklist. I. e. it would process any attribute that is not mentioned in <code>NON_ATTRIBUTE_BOUND_PROPS</code> (which is a concatenated property: if you try to override it, you will instead append to it).</p>
+<p>You can adjust this logic to use a whitelist instead.</p>
+<h2 id="know-more-share" class="headingWithLink"><a href="#know-more-share" class="headingWithLink-link">#</a>Know more? Share!</h2>
+<p>Kudos to Ricardo Mendes (<a href="https://github.com/locks">@locks</a>) for kind explanations of how <code>classNameBindings</code> work.</p>
+<p>If you see an inaccuracy or have a better explanation of the matter, don't hesitate to share in the comments!</p>
+</div>
+</div>
+
+<!---->
+</div>
+
+  
+</div></div>
+
+
+</div>
+
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[],"markdown-block":[],"post":[{"data":{"id":"class-and-attribute-bindings-en","attributes":{"title":"What you didn't know about passing dynamic classname and attribute bidings from parent template","body":"\n\u003cdiv class=\"exclamation\"\u003e\u003c/div\u003e\n\n\u003e This article was originally posted on Deveo blog.\n\u003e \n\u003e When Deveo was acquired by Perforce, Deveo blog was turned down.\n\n\n\nEvery Ember developer has done this many times:\n\n```js\nEmber.Component.extend({\n  validationResult: Ember.computed(/*...*/),\n  classNameBindings: ['validationResult:is-valid:is-invalid']\n})\n```\n\nEmber will apply either `is-valid` or `is-invalid` HTML class to the component depending on whether `validationResult` property is truthy.\n\nIn this case, the `validationResult` property is looked upon the component.\n\n\n\n## Trying to pass `classNameBindings` externally\n\nThere are situations when you want to pass `classNameBindings` into a component from the parent template.\n\nSay, you need a custom HTML class on the `{{textarea}}` component, but you don't want to bother subclassing the `Ember.TextArea` component. Why create a custom component when you can simply pass `classNameBindings` and `validationResult` into the standard `{{textarea}}`, right?\n\nThis is what my intuition tells me to do, but it **does not work**:\n\n```handlebars\n{{textarea\n  validationResult  = (gte myText.length 100),\n  classNameBindings = 'validationResult:is-valid:is-invalid'\n}}\n```\n\n\n## What happens\n\n`classNameBindings` is operated by Ember's **deprecated** binding mechanism. The mechanism is documented [here](http://emberjs.com/api/classes/Ember.Binding.html) and is removed in Ember 3.\n\nHistorically, this low-level API was used to set up bindings in EmberJS. Then it was replaced with the convenient high-level API that we know today, and instead of `myPropBinding='foo'` we can simply do `myProp=foo` in our templates. Note that the former uses quotes and the latter doesn't.\n\nThis code:\n\n```handlebars\n{{textarea\n  classNameBindings = 'validationResult:is-valid:is-invalid'\n}}\n```\n\nis roughly equivalent to this:\n\n```handlebars\n{{textarea\n  classNames = (if validationResult 'is-valid' 'is-invalid')\n}}\n```\n\nBut if you use the latter in your template, the HTML class will not be dynamic. It will use the initial value of `validationResult`, and when `validationResult` changes, the HTML class will not be updated.\n\nThis is why `classNameBindings` is there for you.\n\n\n\n## Passing `classNameBindings` into the default textarea component\n\nYou have to define the property on the *parent* component/controller and use its name in `classNameBindings`:\n\n```js\n// app/components/parent-component.js\nEmber.Component.extend({\n  validationResult: Ember.computed(/*...*/),\n})\n```\n\n```handlebars\n{{! app/components/parent-component.hbs }}\n\n{{textarea\n  classNameBindings = 'validationResult:is-valid:is-invalid'\n}}\n```\n\nIt is very important to understand that this example is different from the first example in this article, even though it feels identical to `classNameBindings: 'validationResult:is-valid:is-invalid'`.\n\n* In the first example of this article, `classNameBindings` is evaluated in the context of the same component that it's applied to.\n\n* In this example, `classNameBindings` is applied to the `{{textarea}}` component, but it is evaluated in the context of the parent component/controller!\n\n\n\n## Passing multiple properties into `classNameBindings` externally seems to be impossible\n\nI assumed this would work, but it doesn't:\n\n```handlebars\n{{textarea\n  classNameBindings = (array 'validationResult:is-valid:is-invalid')\n}}\n```\n\n...where `array` is a simple helper that returns its arguments as an array.\n\n\nI did not find a way to pass more than one property into `classNameBindings`. If you need that, you'll have to subclass the component in question, so that you can apply `classNameBindings` internally, in the component's own JS file.\n\nLuckily, there's a better way.\n\n\n\n## Use class instead of classNameBindings in the parent template\n\nThe `class` property, unavailable (or at least not documented) inside a component class, can be passed externally. And it allows defining multiple dynamic bindings!\n\nYou've probably done that many times:\n\n```handlebars\n\u003cdiv class = \"foo {{bar}} {{if baz 'quux' 'zomg'}}\"\u003e\n```\n\nIf you pass `class` to a component, you need concatenation:\n\n```handlebars\n{{my-component\n  class = (concat 'foo ' bar (if baz ' quux' ' zomg'))\n}}\n```\n\nNote extra spaces in string literals.\n\n\n\n## What about attributeBindings?\n\nEmber (Glimmer?) explicitly forbids passing `attributeBindings` from inside a parent tempalte. This will crash your app:\n\n```handlebars\n{{my-component\n  attributeBindings = \"foo\"\n}}\n```\n\nSome Ember addons use a mixin that binds all properties passed from parent template to HTML attributes. With such a mixin, you could do this:\n\n```handlebars\n{{my-component\n  disabled = isDisabled\n  data-foo = \"bar\"\n}}\n```\n\nHere's how a private mixin `dynamic-attribute-bindings` from `ember-one-way-controls`[https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js](looks like):\n\n```js\n// https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js\nimport Ember from 'ember';\n\nconst { Mixin, set } = Ember;\n\nexport default Mixin.create({\n  NON_ATTRIBUTE_BOUND_PROPS: ['class', 'classNames'],\n  concatenatedProperties: ['NON_ATTRIBUTE_BOUND_PROPS'],\n  init() {\n    this._super(...arguments);\n\n    let newAttributeBindings = [];\n    for (let key in this.attrs) {\n      if (this.NON_ATTRIBUTE_BOUND_PROPS.indexOf(key) === -1 \u0026\u0026 this.attributeBindings.indexOf(key) === -1) {\n        newAttributeBindings.push(key);\n      }\n    }\n\n    set(this, 'attributeBindings', this.attributeBindings.concat(newAttributeBindings));\n  }\n});\n```\n\nNote that this approach uses a blacklist. I. e. it would process any attribute that is not mentioned in `NON_ATTRIBUTE_BOUND_PROPS` (which is a concatenated property: if you try to override it, you will instead append to it).\n\nYou can adjust this logic to use a whitelist instead.\n\n\n\n## Know more? Share!\n\nKudos to Ricardo Mendes ([@locks](https://github.com/locks)) for kind explanations of how `classNameBindings` work.\n\nIf you see an inaccuracy or have a better explanation of the matter, don't hesitate to share in the comments!\n","summary":"The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.","image":null,"created":"2017-04-13T00:00:00.000Z","updated":"2018-01-06T00:00:00.000Z","hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}}],"project-info":[],"project":[],"stackoverflow-user":[]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

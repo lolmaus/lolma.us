@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "breakpoint-slicer",
+    "type": "projects",
+    "attributes": {
+      "group": "sass",
+      "status": 1,
+      "description": {
+        "en": "slicing media queries with ease",
+        "ru": "нарезка media queries без труда"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/breakpoint-slicer",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

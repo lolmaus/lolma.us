@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "jquery.dragbetter",
+    "type": "projects",
+    "attributes": {
+      "group": "jquery",
+      "status": 1,
+      "description": {
+        "en": "a no-bullshit alternative to `dragenter` and `dragleave` events behaving like `mouseenter` and `mouseleave`, not `mousein` and `mouseout`",
+        "ru": "избавляет от мозго#$%&ва с событиями `dragenter` и `dragleave`, предоставляя их аналоги, работающие как `mouseenter` и `mouseleave`, а не `mousein` и `mouseout`"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/jquery.dragbetter",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

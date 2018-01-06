@@ -1,0 +1,497 @@
+{
+  "data": [
+    {
+      "id": "assertron",
+      "type": "projects",
+      "attributes": {
+        "group": "js",
+        "status": 4,
+        "description": {
+          "en": "standalone assertion library, aiming to be a tool for simple contract-driven development",
+          "ru": "самостоятельная assertion library, спроектированная для простого контрактного программирования"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/assertron",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "breakpoint-slicer",
+      "type": "projects",
+      "attributes": {
+        "group": "sass",
+        "status": 1,
+        "description": {
+          "en": "slicing media queries with ease",
+          "ru": "нарезка media queries без труда"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/breakpoint-slicer",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-app-state-slider",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 3,
+        "type": "app",
+        "description": {
+          "en": "a quick and naive implementation of immutable state management and time travel slider in Ember",
+          "ru": "простая и наивная реализация иммутабельного состояния и слайдера для \"путешествий во времени\" в Ember"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-app-state-slider",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-cli-custom-assertions-collection",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "a set of custom assertions, aiming to substitute Chai in QUnit world. Go add your own assertions!",
+          "ru": "набор кастомных assertion'ов, цель которого &mdash; заменить Chai в мире QUnit. Пишите свои собственные assertion'ы!"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-cli-custom-assertions-collection",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-cli-stained-by-children",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 4,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "mark records as dirty when related records get dirty",
+          "ru": "отмечает записи как dirty, когда связанные записи становятся dirty"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-cli-stained-by-children",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-dialogs",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "customizable implementation of `alert`, `confirm` and `prompt` modal dialogs with straightforward API",
+          "ru": "решение для диалогов `alert`, `confirm` and `prompt`, не блокирующее поток, поддающееся стилизации и обладающее простым API"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-dialogs",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-drag-sort",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "owner": "Deveo",
+        "description": {
+          "en": "drag'n'drop sortable list component, with support for multiple and nested lists",
+          "ru": "компонент для drag'n'drop сортировки с поддержкой вложенных списков"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "Deveo/ember-drag-sort",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-element-query",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "element query solution for your Ember apps",
+          "ru": "реализация element queries для ваших приложений"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-element-query",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-emojione",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "owner": "Deveo",
+        "ember-observer": true,
+        "description": {
+          "en": "your complete emoji solution",
+          "ru": "полное решение для поддержки эмодзи в вашем приложении"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "Deveo/ember-emojione",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-gist",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 3,
+        "type": "addon",
+        "description": {
+          "en": "use gist.github.com as a poor man's backend",
+          "ru": "позволяет использовать gist.github.com в качестве замены бэкенда"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-gist",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-katex",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "owner": "firecracker",
+        "ember-observer": true,
+        "description": {
+          "en": "render your LaTeX formulas using <a href='https://github.com/Khan/KaTeX'>KaTeX</a>",
+          "ru": "рендеринг формул LaTeX с помощью <a href='https://github.com/Khan/KaTeX'>KaTeX</a>"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "firecracker/ember-katex",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-prismic",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 4,
+        "type": "addon",
+        "description": {
+          "en": "<a href='https://prismic.io/'>Prismic.io</a> integration for Ember",
+          "ru": "интеграция <a href='https://prismic.io/'>Prismic.io</a> с Ember"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-prismic",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-scroll-to-mk2",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "a link/button component that performs animated scrolling to a specified selector",
+          "ru": "компонент в виде кнопки или ссылки, осуществляющей анимированную прокрутку до указанного селектора"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-scroll-to-mk2",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-sliding-sticky",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "owner": "Deveo",
+        "ember-observer": true,
+        "description": {
+          "en": "A `position: sticky` alternative that works inside parents with `overflow: hidden`",
+          "ru": "Альтернатива для `position: sticky`, которая работает внутри элементов с `overflow: hidden`"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "Deveo/ember-sliding-sticky",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-stamplay",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 4,
+        "type": "addon",
+        "description": {
+          "en": "integrate with the Stamplay.com backend-as-a-service",
+          "ru": "интеграция с BaaS Stamplay.com"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-stamplay",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-svg-pie",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 1,
+        "type": "addon",
+        "ember-observer": true,
+        "description": {
+          "en": "an extremely simple SVG pie chart component",
+          "ru": "чрезвычайно простой компонент для круговых диаграмм на основе SVG"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-svg-pie",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "ember-zen",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 3,
+        "type": "addon",
+        "url": "https://github.com/lolmaus/ember-zen/tree/gen-1#ember-zen",
+        "description": {
+          "en": "an experiment with centralized state management, more appropriate in Ember than Redux",
+          "ru": "эксперимент с централизованным хранением состояния, более подходящим для Ember, чем Redux"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/ember-zen",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "intercom-test-assignment",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "type": "app",
+        "status": 1,
+        "description": {
+          "en": "a test assignment I've done for Intercom.io",
+          "ru": "тестовое задание, которое я выполнил для Intercom.io"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/intercom-test-assignment",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "jquery.closestchild",
+      "type": "projects",
+      "attributes": {
+        "group": "jquery",
+        "status": 1,
+        "description": {
+          "en": "an opposite of `closest()`: find the nearest child that matches a selector, ignore deeper matching children",
+          "ru": "метод, противоположный `closest()`: находит ближайшего потомка, соответствующего селектору, игнорируя вложенных в него потомков"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/jquery.closestchild",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "jquery.dragbetter",
+      "type": "projects",
+      "attributes": {
+        "group": "jquery",
+        "status": 1,
+        "description": {
+          "en": "a no-bullshit alternative to `dragenter` and `dragleave` events behaving like `mouseenter` and `mouseleave`, not `mousein` and `mouseout`",
+          "ru": "избавляет от мозго#$%&ва с событиями `dragenter` и `dragleave`, предоставляя их аналоги, работающие как `mouseenter` и `mouseleave`, а не `mousein` и `mouseout`"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/jquery.dragbetter",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "lolma.us",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "type": "app",
+        "status": 1,
+        "description": {
+          "en": "this website, please see a detailed description below",
+          "ru": "этот сайт, см. подробое описание ниже"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/lolma.us",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "singularity-quick-spanner",
+      "type": "projects",
+      "attributes": {
+        "group": "sass",
+        "status": 4,
+        "description": {
+          "en": "collection of handy shortcut mixins for the Singularity grid system",
+          "ru": "подборка удобных mixin'ов для системы модульных сеток Singularity"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/singularity-quick-spanner",
+            "type": "project-infos"
+          }
+        }
+      }
+    },
+    {
+      "id": "yuidork",
+      "type": "projects",
+      "attributes": {
+        "group": "ember",
+        "status": 2,
+        "type": "app",
+        "description": {
+          "en": "view YUIDoc/JSDoc documentation for any project and any branch/tag/commit directly from GitHub",
+          "ru": "просмотр YUIDoc- и JSDoc-документации любого проекта, любой его ветки/тэга/коммита непосредственно с GitHub"
+        }
+      },
+      "relationships": {
+        "project-info": {
+          "data": {
+            "id": "lolmaus/yuidork",
+            "type": "project-infos"
+          }
+        }
+      }
+    }
+  ]
+}

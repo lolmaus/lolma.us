@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "adv-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "adv-en",
+      "title": "Web Projects Manager at <a href='https://adv.ru/english/'>ADV.ru</a>, Russia",
+      "type": "job",
+      "start": "2008-07",
+      "end": "2008-12",
+      "body": "\nI was a manager in the department of supporting and extending existing projects.\n\nMy duties included:\n \n*   communicating with clients,\n*   estimating time and cost of implementing new features,\n*   breaking the features into assignable tasks,\n*   distributing tasks among visual designers, HTML/CSS coders, frontend and backend developers,\n*   controlling deadlines and quality.\n"
+    }
+  }
+}

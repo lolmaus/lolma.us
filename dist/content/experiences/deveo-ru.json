@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "deveo-ru",
+    "type": "experiences",
+    "attributes": {
+      "id": "deveo-ru",
+      "title": "Frontend-разработчик на EmberJS в <a href='https://deveo.com'>Deveo.com</a>, Финляндия",
+      "type": "job",
+      "start": "2017-01",
+      "end": "2017-08",
+      "body": "\nПродукт, создаваемый с любовью разработчиками для разработчиков.\n\n*   Frontend-разработка на EmberJS\n*   HTML и CSS на Sass.\n*   Юнит- и приемочное тестирование.\n*   Имитация API/слоя модели при помощи Mirage.\n*   Поддержка и рефакторинг старого кода.\n*   Разработка нового захватывающего функционала.\n"
+    }
+  }
+}

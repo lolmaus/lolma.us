@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "firecracker-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "firecracker-en",
+      "title": "Frontend Developer with EmberJS at <a href='http://firecracker.me'>Firecracker.me</a>, US",
+      "type": "job",
+      "start": "2015-09",
+      "end": "2016-12",
+      "body": "\nAn amazing adventure! The team was like a family to me.\n\n*   EmberJS/frontend development.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Designing conventions, project structure and code style.\n*   Took part in API design.\n*   Heavy HTML/CSS development with Sass.\n*   Designing CSS methodology to scale infinitely and prevent leaks.\n*   Second tier of tech support.\n"
+    }
+  }
+}

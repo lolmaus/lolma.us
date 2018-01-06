@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "hell-o-baby-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "hell-o-baby-en",
+      "title": "Frontend Developer with EmberJS and AngularJS at <a href='http://hello.babyalbum.com/'>Hell'o Baby</a>, Russia",
+      "type": "job",
+      "start": "2014-08",
+      "end": "2015-09",
+      "body": "\nThe flagship product of Hell'o Baby was originally implemented in Backbone, I led it's reimplementation from scratch in Angular. I did frontend developer myself and managed outstaffed devs.\n\nI leveraged Ember to implement the company's internal admin panel. In its core was a builder of high-level database requests. A sophisticated form was generated dynamically according to a structure determined by the backend.\n\nThe resulting data selections were presented as various graphs built with [Highcharts](http://www.highcharts.com/demo) for analytics.\n\nThe admin panel also offered an email builder — for both newsletters and individual messages. All email templates were rendered live into a thumbnail gallery. The gallery could be filtered.\n\nHell'o Baby homepage contains complex canvas animations, designed by company's artists. In order to keep performance stable, I had to orchestrate animations, so that only currently visible animations were playing. Animations that appeared nearby were synchronized.\n"
+    }
+  }
+}

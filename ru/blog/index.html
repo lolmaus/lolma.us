@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>Блог | Андрей Михайлов (lolmaus)</title>
+<meta property="og:title" content="Блог | Андрей Михайлов (lolmaus)">
+
+<!---->
+  <meta property="og:locale" content="ru">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_ru.xml">
+
+<!---->
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="blog">
+
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"ru","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"Blog","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"ru","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Блог Андрея Михайлова (lolmaus)","description":"Заметки о вэб-разработке, в основном о JavaScript и EmberJS","url":"https://lolma.us/ru/blog/","keywords":["development","web development","webdev","ember","emberjs","js","javascript","frontend"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://lolma.us/ru/blog/","name":"Блог"}}]}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember1999" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember2003" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  Ты сегодня лучше всех!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+<!---->
+    <a href="/ru" id="ember2008" class="route-locale-menu-item _resume ember-view">Резюме</a>
+
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Исходник на GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/en/blog" id="ember2017" class="route-locale-menu-item _locale ember-view">    Switch to English
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-blog">
+
+
+<div id="ember2023" class="secTion ember-view"><div class="secTion-inner ">
+      <div class="route-blog-sidebar">
+      <div class="route-blog-sidebar-section _avatar">
+        <img src="/favicon.jpg" alt="Андрей Михайлов" width="512" height="512" class="route-blog-sidebar-avatar">
+      </div>
+
+      <div class="route-blog-sidebar-section _content">
+        <h2 class="route-blog-title">
+          Андрей Михайлов
+          @lolmaus
+        </h2>
+
+        <div class="route-blog-subtitle">
+          фронтенд&#8209;разработчик, EmberJS&#8209;энтузиаст
+        </div>
+
+        <div id="ember2036" class="route-blogIndex-menu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/ru/blog" id="ember2037" class="horizontalMenu-item-link active ember-view">Блог</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/ru" id="ember2042" class="horizontalMenu-item-link ember-view">Резюме</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Исходник на GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/en/blog" id="ember2051" class="horizontalMenu-item-link ember-view">    Switch to English
+</a></div></div>
+      </div>
+      
+      <div class="route-blog-sidebar-section _bottom">
+
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg version="1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="5.5 -3.5 64 64" class="route-blog-sidebar-section-bottom-icon _cc" alt="Лицензия Creative Commons 4.0 Attribution" title="Лицензия Creative Commons 4.0 Attribution"><circle fill="#FFF" cx="37.637" cy="28.806" r="28.276"/><path d="M37.443-3.5c8.988 0 16.57 3.085 22.742 9.257C66.393 11.967 69.5 19.548 69.5 28.5c0 8.991-3.049 16.476-9.145 22.456-6.476 6.363-14.113 9.544-22.912 9.544-8.649 0-16.153-3.144-22.514-9.43C8.644 44.784 5.5 37.262 5.5 28.5c0-8.761 3.144-16.342 9.429-22.742C21.101-.415 28.604-3.5 37.443-3.5zm.114 5.772c-7.276 0-13.428 2.553-18.457 7.657-5.22 5.334-7.829 11.525-7.829 18.572 0 7.086 2.59 13.22 7.77 18.398 5.181 5.182 11.352 7.771 18.514 7.771 7.123 0 13.334-2.607 18.629-7.828 5.029-4.838 7.543-10.952 7.543-18.343 0-7.276-2.553-13.465-7.656-18.571-5.104-5.104-11.276-7.656-18.514-7.656zm8.572 18.285v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557c0-.572.2-1.057.599-1.457.401-.399.887-.6 1.457-.6h13.144c.533 0 1.01.2 1.428.6.417.4.628.886.628 1.457zm-13.087-8.228c0-3.008 1.485-4.514 4.458-4.514s4.457 1.504 4.457 4.514c0 2.971-1.486 4.457-4.457 4.457s-4.458-1.486-4.458-4.457z"/></svg>
+        </a>
+
+        <a href="https://lolma.us/rss_ru.xml" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="49.25" viewBox="0 0 49.249999 49.249999" width="49.25" class="route-blog-sidebar-section-bottom-icon _rss" alt="RSS" title="RSS"><path d="M24.625 0C11.025 0 0 11.025 0 24.625 0 38.227 11.024 49.25 24.625 49.25c13.602 0 24.625-11.023 24.625-24.625C49.25 11.025 38.226 0 24.625 0zm-7.637 35.735a3.238 3.238 0 1 1 .002-6.476 3.238 3.238 0 0 1-.002 6.476zm8.123.021c0-3.057-1.182-5.928-3.33-8.082a11.247 11.247 0 0 0-8.028-3.342v-4.674c8.84 0 16.03 7.223 16.03 16.098h-4.672zm8.256.004c0-10.867-8.795-19.711-19.606-19.711v-4.676c13.387 0 24.28 10.942 24.28 24.387h-4.674z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+
+</div></div>
+
+<div id="ember2064" class="route-blog-content secTion ember-view"><div class="secTion-inner route-blog-content-inner">
+      <div class="route-blogIndex">
+
+  <div class="route-blogIndex-posts">
+      <div id="ember2067" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/class-and-attribute-bindings" id="ember2068" class="blogPost-title-link ember-view">Делаем динамические binding'и HTML-классов и атрибутов из родительского шаблона</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  6-го января 2018
+
+<!---->
+</p>
+
+
+
+  <div id="ember2069" class="blogPost-summary ember-view"><p>Стандартный способ применить динамические binding'и классов и атрибутов к компоненту ­— это определить их в классе компонента. Для встроенных и аддоновых компонентов для этого потребуется переопределять классы, чего часто делать не хочется. Хотелось бы просто передать binding'и из родительского шаблона без переопределения классов, но это работает не так, как вы думаете.</p>
+</div>
+
+
+
+<!----></div>
+      <div id="ember2071" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/promise-proxy-mixin" id="ember2072" class="blogPost-title-link ember-view">PromiseProxyMixin: нативная альтернатива ember-concurrency</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  5-го января 2018
+
+<!---->
+</p>
+
+
+
+  <div id="ember2073" class="blogPost-summary ember-view"><p>ember-concurrency — исключительно мощный и полезный аддон. Однако если ваш единственный юз-кейс — это обращаться к серверу, то взгляните на легковесную альтернативу</p>
+</div>
+
+
+
+<!----></div>
+      <div id="ember2075" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/do-not-confuse-env-for-deploy-target" id="ember2076" class="blogPost-title-link ember-view">Не путайте environment с deploy target</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  18-го февраля 2017
+
+    (обновлено 24-го декабря 2017)
+
+</p>
+
+
+
+  <div id="ember2081" class="blogPost-summary ember-view"><p>У большинства фрэймворков есть понятие <em>environment</em>. Многие разработчики привязывают к environment параметры развертывания, что неверно.</p>
+</div>
+
+
+
+<!----></div>
+      <div id="ember2083" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/deveo" id="ember2084" class="blogPost-title-link ember-view">Теперь я работаю в Deveo!</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  7-го февраля 2017
+
+<!---->
+</p>
+
+
+
+  <div id="ember2085" class="blogPost-summary ember-view"><p>Мне всегда хотелось разрабатывать продукт от разработчиков для разработчиков.</p>
+</div>
+
+
+
+<!----></div>
+      <div id="ember2087" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/route-model-hook-rsvp-hash" id="ember2088" class="blogPost-title-link ember-view">Возвращайте `RSVP.hash()` из `model`-хуков ваших маршрутов!</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  8-го декабря 2016
+
+<!---->
+</p>
+
+
+
+  <div id="ember2089" class="blogPost-summary ember-view"><p>Принято считать, что возврат хэша из <code>model</code>-хука — это плохая практика. Я убежден, что это не так! Я всегда возвращаю хэш по определенной схеме, и нахожу это чрезвычайно удобным.</p>
+</div>
+
+
+
+<!----></div>
+      <div id="ember2091" class="route-blogIndex-post blogPost -summary ember-view">  <h2 class="blogPost-title">
+    <a href="/ru/blog/new-website" id="ember2092" class="blogPost-title-link ember-view">Новый сайт!</a>
+  </h2>
+
+
+
+<p class="blogPost-date">
+  4-го декабря 2016
+
+<!---->
+</p>
+
+
+
+  <div id="ember2093" class="blogPost-summary ember-view"><p>Я выложил новый сайт! Он выглядит скромно, но напичкан различными фичами и лучшими практиками EmberJS. Он задуман как демонстрация моих навыков.</p>
+</div>
+
+
+
+<!----></div>
+  </div>
+
+</div>
+  
+</div></div>
+
+
+</div>
+
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[],"markdown-block":[],"post":[{"data":{"id":"class-and-attribute-bindings-ru","attributes":{"title":"Делаем динамические binding'и HTML-классов и атрибутов из родительского шаблона","body":null,"summary":"Стандартный способ применить динамические binding'и классов и атрибутов к компоненту ­— это определить их в классе компонента. Для встроенных и аддоновых компонентов для этого потребуется переопределять классы, чего часто делать не хочется. Хотелось бы просто передать binding'и из родительского шаблона без переопределения классов, но это работает не так, как вы думаете.","image":null,"created":"2018-01-06T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}},{"data":{"id":"deveo-ru","attributes":{"title":"Теперь я работаю в Deveo!","body":null,"summary":"Мне всегда хотелось разрабатывать продукт от разработчиков для разработчиков.","image":null,"created":"2017-02-07T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":null},"type":"posts"}},{"data":{"id":"do-not-confuse-env-for-deploy-target-ru","attributes":{"title":"Не путайте environment с deploy target","body":null,"summary":"У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры развертывания, что неверно.","image":null,"created":"2017-02-18T00:00:00.000Z","updated":"2017-12-24T00:00:00.000Z","hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}},{"data":{"id":"new-website-ru","attributes":{"title":"Новый сайт!","body":null,"summary":"Я выложил новый сайт! Он выглядит скромно, но напичкан различными фичами и лучшими практиками EmberJS. Он задуман как демонстрация моих навыков.","image":null,"created":"2016-12-04T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":null},"type":"posts"}},{"data":{"id":"promise-proxy-mixin-ru","attributes":{"title":"PromiseProxyMixin: нативная альтернатива ember-concurrency","body":null,"summary":"ember-concurrency — исключительно мощный и полезный аддон. Однако если ваш единственный юз-кейс — это обращаться к серверу, то взгляните на легковесную альтернативу","image":null,"created":"2018-01-05T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}},{"data":{"id":"route-model-hook-rsvp-hash-ru","attributes":{"title":"Возвращайте `RSVP.hash()` из `model`-хуков ваших маршрутов!","body":null,"summary":"Принято считать, что возврат хэша из `model`-хука — это плохая практика. Я убежден, что это не так! Я всегда возвращаю хэш по определенной схеме, и нахожу это чрезвычайно удобным.","image":null,"created":"2016-12-08T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}}],"project-info":[],"project":[],"stackoverflow-user":[]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

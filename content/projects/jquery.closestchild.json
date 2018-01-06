@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "jquery.closestchild",
+    "type": "projects",
+    "attributes": {
+      "group": "jquery",
+      "status": 1,
+      "description": {
+        "en": "an opposite of `closest()`: find the nearest child that matches a selector, ignore deeper matching children",
+        "ru": "метод, противоположный `closest()`: находит ближайшего потомка, соответствующего селектору, игнорируя вложенных в него потомков"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/jquery.closestchild",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

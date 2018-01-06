@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": "skills-en",
+    "type": "markdown-blocks",
+    "attributes": {
+      "id": "skills-en",
+      "title": "Skills",
+      "body": "\n#### Frontend development\n\n* Over six years in frontend development\n* Solid JavaScript skill, love modern tools, practices and patterns\n* Sass enthusiast\n* Highly experienced in Responsive Web Design, modular grids, mobile first, etc\n* Using a BEM-like methodology to scale infinitely and prevent style leaks\n* Not a visual designer\n\n\n#### EmberJS\n\n* Over three years working exclusively with complex Ember apps\n* Have a gut feeling for the Ember Way and best practices\n* Focus on building robust, maintainable and scalable codebases\n* Strong believer in the Test-Build-Refactor cycle\n* Into testing: unit & user acceptance, work in TDD/BDD style, API/model layer mocking, CI\n* Experience with advanced features: polymorphic relationships, FastBoot, Concurrency, Element Queries, etc\n* Active member of the Ember community with humble open source contributions\n\n\n#### Other tech skills\n\n* Proficient in using dev tools: git, terminal, SSH, Docker, package managers, build tools, StackOverflow/Google, etc\n* Linux user, not a DevOps guy but have basic sysadmin skills\n* Experience in distributed teams, SCRUM\n* Know Ruby and looking into Elixir\n* Active GitHub and StackOverflow profiles\n\n\n#### Non-tech skills\n\n* Fluent English\n* Fast typist\n* Aware of own drawbacks and will let you know of them\n"
+    }
+  }
+}

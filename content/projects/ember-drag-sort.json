@@ -1,0 +1,25 @@
+{
+  "data": {
+    "id": "ember-drag-sort",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "ember-observer": true,
+      "owner": "Deveo",
+      "description": {
+        "en": "drag'n'drop sortable list component, with support for multiple and nested lists",
+        "ru": "компонент для drag'n'drop сортировки с поддержкой вложенных списков"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "Deveo/ember-drag-sort",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

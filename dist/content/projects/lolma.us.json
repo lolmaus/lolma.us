@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": "lolma.us",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "type": "app",
+      "status": 1,
+      "description": {
+        "en": "this website, please see a detailed description below",
+        "ru": "этот сайт, см. подробое описание ниже"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/lolma.us",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

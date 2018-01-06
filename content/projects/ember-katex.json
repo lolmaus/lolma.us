@@ -1,0 +1,25 @@
+{
+  "data": {
+    "id": "ember-katex",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "owner": "firecracker",
+      "ember-observer": true,
+      "description": {
+        "en": "render your LaTeX formulas using <a href='https://github.com/Khan/KaTeX'>KaTeX</a>",
+        "ru": "рендеринг формул LaTeX с помощью <a href='https://github.com/Khan/KaTeX'>KaTeX</a>"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "firecracker/ember-katex",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

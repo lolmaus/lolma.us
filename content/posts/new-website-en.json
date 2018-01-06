@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": "new-website-en",
+    "type": "posts",
+    "attributes": {
+      "id": "new-website-en",
+      "title": "New website!",
+      "summary": "The new personal website is live!  Though it looks humble, it's packed with Ember features and best practices. Meant to be a showcase of my skills.",
+      "created": "2016-12-04T00:00:00.000Z",
+      "body": "\nI'm not gonna go into details here because my [CV](http://lolma.us/en/) has a section about it. Please have a look!\n\nThis website marks a new phase in my career. I'm now calmly confident to consider myself a senior EmberJS dev.\n"
+    }
+  }
+}

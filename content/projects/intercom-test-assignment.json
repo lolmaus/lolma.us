@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": "intercom-test-assignment",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "type": "app",
+      "status": 1,
+      "description": {
+        "en": "a test assignment I've done for Intercom.io",
+        "ru": "тестовое задание, которое я выполнил для Intercom.io"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/intercom-test-assignment",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "stkomp-ru",
+    "type": "experiences",
+    "attributes": {
+      "id": "stkomp-ru",
+      "title": "Руководитель технического отдела в <a href='http://stkomp.ru/'>STKomp.ru</a>, Россия",
+      "type": "job",
+      "start": "2013-07",
+      "end": "2014-03",
+      "body": "\n*   Управление IT-инфраструктурой компании.\n*   Разработка и поддержка сайта компании.\n"
+    }
+  }
+}

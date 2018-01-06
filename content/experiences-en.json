@@ -1,0 +1,145 @@
+{
+  "data": [
+    {
+      "id": "adv-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "adv-en",
+        "title": "Web Projects Manager at <a href='https://adv.ru/english/'>ADV.ru</a>, Russia",
+        "type": "job",
+        "start": "2008-07",
+        "end": "2008-12",
+        "body": "\nI was a manager in the department of supporting and extending existing projects.\n\nMy duties included:\n \n*   communicating with clients,\n*   estimating time and cost of implementing new features,\n*   breaking the features into assignable tasks,\n*   distributing tasks among visual designers, HTML/CSS coders, frontend and backend developers,\n*   controlling deadlines and quality.\n"
+      }
+    },
+    {
+      "id": "alfamb-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "alfamb-en",
+        "title": "Web Developer and SysAdmin at Alpha Media Buying, Russia",
+        "type": "job",
+        "start": "2008-12",
+        "end": "2013-06",
+        "body": "\n*   Administrating company's network and servers.\n*   Building and maintaining company's website.\n"
+      }
+    },
+    {
+      "id": "deveo-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "deveo-en",
+        "title": "Frontend Developer with EmberJS at <a href='https://deveo.com'>Deveo.com</a>, Finland",
+        "type": "job",
+        "start": "2017-01",
+        "end": "2017-08",
+        "body": "\nFostering a product from developers, for developers.\n\n*   EmberJS/frontend development.\n*   HTML/CSS with Sass.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Maintaining and refactoring legacy code.\n*   Building new exciting features.\n"
+      }
+    },
+    {
+      "id": "firecracker-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "firecracker-en",
+        "title": "Frontend Developer with EmberJS at <a href='http://firecracker.me'>Firecracker.me</a>, US",
+        "type": "job",
+        "start": "2015-09",
+        "end": "2016-12",
+        "body": "\nAn amazing adventure! The team was like a family to me.\n\n*   EmberJS/frontend development.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Designing conventions, project structure and code style.\n*   Took part in API design.\n*   Heavy HTML/CSS development with Sass.\n*   Designing CSS methodology to scale infinitely and prevent leaks.\n*   Second tier of tech support.\n"
+      }
+    },
+    {
+      "id": "healthfundr-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "healthfundr-en",
+        "title": "Frontend Developer at Healthfundr (now <a href='https://healthrosetta.org/'>Health Rosetta.com</a>), US (probation)",
+        "type": "job",
+        "start": "2014-06",
+        "end": "2014-07",
+        "body": "\nI was hired as an experienced frontend dev, yet what team really needed was a CakePHP dev with some Bootstrap knowledge.\n\nFor me it was a step back, so we mutually agreed to part ways.\n"
+      }
+    },
+    {
+      "id": "hell-o-baby-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "hell-o-baby-en",
+        "title": "Frontend Developer with EmberJS and AngularJS at <a href='http://hello.babyalbum.com/'>Hell'o Baby</a>, Russia",
+        "type": "job",
+        "start": "2014-08",
+        "end": "2015-09",
+        "body": "\nThe flagship product of Hell'o Baby was originally implemented in Backbone, I led it's reimplementation from scratch in Angular. I did frontend developer myself and managed outstaffed devs.\n\nI leveraged Ember to implement the company's internal admin panel. In its core was a builder of high-level database requests. A sophisticated form was generated dynamically according to a structure determined by the backend.\n\nThe resulting data selections were presented as various graphs built with [Highcharts](http://www.highcharts.com/demo) for analytics.\n\nThe admin panel also offered an email builder — for both newsletters and individual messages. All email templates were rendered live into a thumbnail gallery. The gallery could be filtered.\n\nHell'o Baby homepage contains complex canvas animations, designed by company's artists. In order to keep performance stable, I had to orchestrate animations, so that only currently visible animations were playing. Animations that appeared nearby were synchronized.\n"
+      }
+    },
+    {
+      "id": "hivemind-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "hivemind-en",
+        "title": "Frontend Developer at Hivemind, Russia",
+        "type": "project",
+        "start": "2014-03",
+        "end": "2014-06",
+        "body": "\n*   Prototyping the UI (linked above).\n*   Building the frontend.\n*   Working against a Rails API.\n\nThe MVP was complete, yet the project did not launch due to non-technical reasons.\n\nSee a <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>prototype</a> from 2014.\n"
+      }
+    },
+    {
+      "id": "mgimo-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "mgimo-en",
+        "title": "Graduated from <a href='http://english.mgimo.ru/'>Moscow University of Foreign Affairs</a> (BoA)",
+        "type": "education",
+        "start": "2008-06",
+        "body": ""
+      }
+    },
+    {
+      "id": "nason-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "nason-en",
+        "title": "Frontend Developer for <a href='https://nasonpearl.ru'>NasonPearl.ru</a>, Russia",
+        "type": "project",
+        "start": "2014-08",
+        "body": "\nImplemented the frontend for the online jewelry store NasonPearl.\n"
+      }
+    },
+    {
+      "id": "perforce-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "perforce-en",
+        "title": "Frontend Developer with EmberJS at <a href='https://perforce.com'>Perforce.com</a>, US",
+        "type": "job",
+        "start": "2017-09",
+        "present": true,
+        "body": "\nIn September 2017 Perforce has [acquired](https://www.perforce.com/deveo-customer-info) Deveo. The product has been renamed to Helix TeamHub, the development team has joined the Perforce family.\n\nBacked by Perforce technology, Helix TeamHub delivers Git hosting and management with unique features.\n\n*   EmberJS/frontend development.\n*   HTML/CSS with Sass.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Maintaining and refactoring legacy code.\n*   Building new exciting features.\n"
+      }
+    },
+    {
+      "id": "stankin-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "stankin-en",
+        "title": "Graduated from <a href='http://stankin.ru/en/education/faculty-of-computer-science-and-control-systems/'>Moscow State Technological University \"Stankin\"</a> (Software engineer, Specialist degree)",
+        "type": "education",
+        "start": "2011-12",
+        "body": ""
+      }
+    },
+    {
+      "id": "stkomp-en",
+      "type": "experiences",
+      "attributes": {
+        "id": "stkomp-en",
+        "title": "Head of Tech Dept at <a href='http://stkomp.ru/'>STKomp.ru</a>, Russia",
+        "type": "job",
+        "start": "2013-07",
+        "end": "2014-03",
+        "body": "\n*   Managing company's IT infrastructure.\n*   Building and maintaining company's website.\n"
+      }
+    }
+  ]
+}

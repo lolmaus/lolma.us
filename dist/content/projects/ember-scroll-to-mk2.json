@@ -1,0 +1,24 @@
+{
+  "data": {
+    "id": "ember-scroll-to-mk2",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "ember-observer": true,
+      "description": {
+        "en": "a link/button component that performs animated scrolling to a specified selector",
+        "ru": "компонент в виде кнопки или ссылки, осуществляющей анимированную прокрутку до указанного селектора"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/ember-scroll-to-mk2",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

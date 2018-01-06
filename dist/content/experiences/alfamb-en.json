@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "alfamb-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "alfamb-en",
+      "title": "Web Developer and SysAdmin at Alpha Media Buying, Russia",
+      "type": "job",
+      "start": "2008-12",
+      "end": "2013-06",
+      "body": "\n*   Administrating company's network and servers.\n*   Building and maintaining company's website.\n"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "hivemind-ru",
+    "type": "experiences",
+    "attributes": {
+      "id": "hivemind-ru",
+      "title": "Фронтенд-разработчик в Hivemind, Россия",
+      "type": "project",
+      "start": "2014-03",
+      "end": "2014-06",
+      "body": "\n*   Прототипирование интерфейса (см. ссылку выше).\n*   Разработка фронтенда.\n*   Работа с Rails API.\n\nMVP был выполнен, однако запуск проекта не состоялся по нетехническим причинам.\n\nСм. <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>прототип</a> от 2014.\n"
+    }
+  }
+}

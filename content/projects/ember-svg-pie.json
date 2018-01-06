@@ -1,0 +1,24 @@
+{
+  "data": {
+    "id": "ember-svg-pie",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "ember-observer": true,
+      "description": {
+        "en": "an extremely simple SVG pie chart component",
+        "ru": "чрезвычайно простой компонент для круговых диаграмм на основе SVG"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/ember-svg-pie",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

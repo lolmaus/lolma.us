@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>Résumé | Andrey Mikhaylov (lolmaus)</title>
+<meta property="og:title" content="Résumé | Andrey Mikhaylov (lolmaus)">
+
+<!---->
+  <meta property="og:locale" content="en">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_en.xml">
+
+<!---->
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="profile">
+
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"ProfilePage","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Andrey Mikhaylov (lolmaus)"}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember574" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember584" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  You are awesome today!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+    <a href="/en/blog" id="ember597" class="route-locale-menu-item _blog ember-view">Blog</a>
+
+<!---->
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Source on GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/ru" id="ember614" class="route-locale-menu-item _locale ember-view">    Моя не понимать
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-localeIndex">
+  <div id="ember626" class="heroHeader ember-view"><div id="ember629" class="heroHeader-inner secTion ember-view"><div class="secTion-inner heroHeader-inner2">
+  
+  <div class="heroHeader-header">
+    <h1 class="heroHeader-title h1">
+      Andrey Mikhaylov (lolmaus)
+    </h1>
+
+    <h2 class="heroHeader-subtitle">
+      frontend&nbsp;developer, EmberJS&nbsp;enthusiast
+    </h2>
+  </div>
+
+
+
+  <img src="/favicon.jpg" alt="My face" width="512" height="512" class="heroHeader-avatar">
+
+
+  <div class="heroHeader-footer">
+    <div class="heroHeader-footer-main">
+      <div class="heroHeader-footer-main-message">
+
+        Working with an amazing team at
+
+        <a href="https://deveo.com" class="heroHeader-footer-main-stamp -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="238" height="28" viewBox="0 0 238 28" class="heroHeader-footer-main-stamp-image"><title>Perforce</title><desc>Perforce logo</desc><path d="M3.4 15.82c-.42 0-.77-.35-.77-.77V4.01c0-.42.35-.77.77-.77h4.92c3.58 0 6.47 2.24 6.61 5.97-.14 3.81-3.03 6.61-6.57 6.61zM1.82 27.18c.37 0 .79-.19.81-.52v-7.87c0-.42.35-.77.77-.77h5.96c4.55 0 8.32-3.51 8.32-8.3 0-.09-.01-.17-.01-.26s.01-.18.01-.26c0-4.72-3.77-8.2-8.36-8.2H.78C.35 1 0 1.35 0 1.77v24.59c0 .51.5.82.93.82zM45.91 1H30.78c-.43 0-.78.35-.78.77v24.59c0 .43.35.77.78.77h15.13c.42 0 .77-.34.77-.77v-.52c0-.42-.35-.77-.77-.77H33.44c-.43 0-.78-.34-.78-.77v-8.76c0-.43.35-.77.78-.77H44.1c.42 0 .77-.35.77-.77v-.04c0-.08 0 0 .01-.2-.02-.25-.01-.2-.01-.28v-.04a.77.77 0 0 0-.77-.77H33.44c-.43 0-.78-.34-.78-.77V3.87c0-.43.35-.77.78-.77h12.47c.42 0 .77-.35.77-.77v-.56c0-.42-.35-.77-.77-.77M62.44 15.05c-.43 0-.78-.35-.78-.77V3.98c0-.43.35-.77.78-.77h6.11c3.49 0 5.96 2.22 6.11 5.56-.15 3.49-2.62 6.28-6.08 6.28zm-1.51 12.08c.43 0 .7-.22.7-.47v-8.64c0-.42.34-.77.77-.77h6.14c.25.03.48.17.61.39l5.06 9.05c.18.33.33.44.77.44h1.94s.79 0 .17-1.18l-4.95-8.68.04.06c-.24-.42.36-.62.36-.62 2.93-.95 5.19-4.53 5.07-8.04.09-2.8-1.27-5.64-4.98-7.14-.19-.08-1.41-.53-3.49-.53h-9.66c-.3 0-.48.22-.48.47v24.89c0 .43.35.77.78.77zM92.66 27.13h.37c.37 0 .6-.22.6-.47V16.52c0-.42.35-.76.77-.76h10.99c.56 0 .48-.66.48-1.07v-.02c.01-.17 0-.35 0-.5 0-.26-.22-.48-.48-.48H94.4a.77.77 0 0 1-.77-.77V3.87c0-.43.35-.77.77-.77h12.51c.42 0 .77-.35.77-.77v-.56c0-.42-.35-.77-.77-.77H91.78c-.43 0-.78.35-.78.77v24.59c0 .43.35.77.78.77h.37zM119.57 10.5c.2-.52.43-1.02.7-1.49-.26-.24-.91-.75-.87-.79 3.39-4.06 7.81-5.28 11.72-4.57.8.11 1.6.3 2.39.59 5.6 2.08 8.43 8.25 6.33 13.79-.21.55-.47 1.08-.75 1.57.31.27.99.77.95.81-3.76 4.45-8.77 5.48-12.94 4.24-.4-.1-.8-.22-1.2-.36-5.59-2.08-8.43-8.25-6.33-13.79zm19.1-9.5c-.71.68-1.56 1.5-1.98 1.87-.66-.37-1.37-.71-2.11-.98-6.36-2.36-13.06.31-16.75 5.28-1.93 2.85-3.07 6.36-2.79 9.97 0 0 .01 6.79 6.28 10.79.51-.7 1.16-1.6 1.59-2.18.7.4 1.44.76 2.22 1.05 7.2 2.67 15.18-.74 17.79-7.61 0 0 1.91-4.19 1.28-8.77 0 0-.49-6.18-5.53-9.42zM158.44 15.05c-.43 0-.78-.35-.78-.77V3.98c0-.43.35-.77.78-.77h6.11c3.49 0 5.96 2.22 6.11 5.56-.15 3.49-2.62 6.28-6.08 6.28zm-1.51 12.08c.43 0 .7-.22.7-.47v-8.64c0-.42.35-.77.77-.77h6.14c.25.03.48.17.61.39l5.05 9.05c.19.33.34.44.78.44h1.94s.79 0 .17-1.18l-4.95-8.68.04.06c-.24-.42.36-.62.36-.62 2.93-.95 5.19-4.53 5.07-8.04.09-2.8-1.27-5.64-4.98-7.14-.19-.08-1.41-.53-3.49-.53h-9.66c-.3 0-.48.22-.48.47v24.89c0 .43.35.77.78.77zM209.02 21.87c.3.27.92.95.29 1.45-2.75 2.15-5.74 3.55-9.03 3.55-.16 0-.31-.01-.46-.02-.14.01-.28.02-.43.02-7.4 0-13.39-5.78-13.39-13.14 0-.09.01-.17.01-.26s-.01-.17-.01-.26C186 5.89 191.99 0 199.39 0c.12 0 .22.01.33.01.19 0 .37-.01.56-.01 3.77 0 6.58 1.24 8.99 3.4.75.63.04 1.19.04 1.19l-.57.54c-.22.22-.83.7-1.11.44-.35-.34-.43-.4-.43-.4l.43.4c-.35-.32-.18-.17-.43-.4-2-1.77-4.51-2.87-7.35-2.98-6.18.23-10.97 5.21-11.11 11.28.14 6.03 4.93 10.97 11.1 11.2 2.96-.11 5.24-1.31 7.36-3.05 0 0 .91-.7 1.82.25M236.91 1h-15.13c-.43 0-.78.35-.78.77v24.59c0 .43.35.77.78.77h15.13c.43 0 .78-.34.78-.77v-.52c0-.42-.35-.77-.78-.77h-12.47c-.43 0-.78-.34-.78-.77v-8.76c0-.43.35-.77.78-.77h10.66c.42 0 .77-.35.77-.77v-.04c0-.08 0 0 .01-.2-.01-.25-.01-.2-.01-.28v-.04a.77.77 0 0 0-.77-.77h-10.66c-.43 0-.78-.34-.78-.77V3.87c0-.43.35-.77.78-.77h12.47c.43 0 .78-.35.78-.77v-.56c0-.42-.35-.77-.78-.77"/></svg>
+        </a>
+
+        — repository management platform done right
+      </div>
+    </div>
+
+<a href="#menu" id="ember642" class="heroHeader-scrollTo scrollTo ember-view">        <svg xmlns="http://www.w3.org/2000/svg" height="191.9" viewBox="0 0 320 191.89999" width="320" class="heroHeader-scrollTo-icon"><path d="M2.9 24.7l1.8 2.1 136 156.5c4.6 5.3 11.5 8.6 19.2 8.6 7.7 0 14.6-3.4 19.2-8.6L315 27.1l2.3-2.6C319 22 320 19 320 15.8 320 7.1 312.6 0 303.4 0H16.6C7.4 0 0 7.1 0 15.8c0 3.3 1.1 6.4 2.9 8.9z"/></svg>
+
+</a>  </div>
+
+
+</div></div></div>
+
+<div id="menu" class="route-localeIndex-menu secTion ember-view"><div class="secTion-inner route-localeIndex-menu-inner">
+      <div id="ember647" class="route-localeIndex-horizontalMenu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/en/blog" id="ember648" class="horizontalMenu-item-link ember-view">Blog</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/en" id="ember653" class="horizontalMenu-item-link active ember-view">Résumé</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Source on GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/ru" id="ember662" class="horizontalMenu-item-link ember-view">    Моя не понимать
+</a></div></div>
+  
+</div></div>
+
+
+<div id="content" class="route-localeIndex-cards secTion ember-view"><div class="secTion-inner route-localeIndex-cards-inner">
+  
+    <div id="ember683" class="route-localeIndex-card _personality markdownBlock ember-view">  <h2 class="markdownBlock-title -callout">
+    Personality
+  </h2>
+
+  <div id="ember688" class="markdownBlock-body ember-view"><p>At work I'm a passionate developer; strong supporter of best practices and patterns; serious about code readability, maintainability and scalability; believe in testing. On the scale from quick-n-dirty to slow-but-thorough, I lean toward the latter.</p>
+<p>Off duty, I'm a loving husband and father, an avid debater, a board game geek, a retired recreational cyclist, a crazy Russian and an affable guy with a slightly twisted sense of humor.</p>
+<p>I live in Moscow, Russia. Love working remotely from other beautiful places. Able to adjust to your timezone for partial or full work hours overlap.</p>
+</div>
+</div>
+
+    <div id="ember691" class="route-localeIndex-card _presence onlinePresence ember-view"><h2 class="onlinePresence-title -callout">
+  Online presence
+</h2>
+
+<ul class="onlinePresence-list">
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/github-438c17272c5f0e9f4a6da34d3e4bc5bd.png" width="16" height="16" alt="GitHub" class="onlinePresence-item-icon">
+
+    <span class="onlinePresence-item-service">
+      GitHub:
+    </span>
+
+    <a href="https://github.com/lolmaus">lolmaus</a>
+
+      <span class="onlinePresence-item-meta">
+        ★587
+      </span>
+  </li>
+
+
+
+  <li class="onlinePresence-item _so">
+    <img src="/images/service-icons/stackoverflow-de6d326a2749f7df07bdd1f9f94628cb.png" width="16" height="16" alt="StackOverflow">
+
+
+    <a href="https://stackoverflow.com/users/901944/lolmaus-andrey-mikhaylov">StackOverflow</a>
+
+      <span class="onlinePresence-item-meta onlinePresence-item-so-stats">
+        <span class="onlinePresence-item-so-stats-reputation">
+          16157
+        </span>
+
+        <span class="onlinePresence-item-so-stats-badges">
+          <span class="onlinePresence-item-so-stats-badge _gold">
+            4
+          </span>
+
+          <span class="onlinePresence-item-so-stats-badge _silver">
+            48
+          </span>
+
+          <span class="onlinePresence-item-so-stats-badge _bronze">
+            95
+          </span>
+        </span>
+      </span>
+  </li>
+
+
+
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/twitter-3404b526c7ae98833e98ac37d86ae516.png" width="16" height="13" alt="Twitter">
+
+    <span class="onlinePresence-item-service">
+      Twitter:
+    </span>
+
+    <a href="https://twitter.com/lolmaus_en">@lolmaus_en</a>
+  </li>
+
+
+
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/telegram-1330ba39ac54aa1c67c7f6f12db4af20.png" width="16" height="16" alt="Telegram">
+
+    <span class="onlinePresence-item-service">
+      Telegram:
+    </span>
+
+    <a href="https://telegram.me/lolmaus">@lolmaus</a>
+  </li>
+
+
+
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/gitter-bac175d0510c8390141e10a8361f2b86.png" width="16" height="16" alt="Gitter">
+
+    <span class="onlinePresence-item-service">
+      Gitter:
+    </span>
+
+    <a href="https://gitter.im/lolmaus">lolmaus</a>
+  </li>
+
+
+
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/ember-f2d07120d2bb7f0d4a63810011903d75.png" width="16" height="16" alt="Ember Slack Community">
+
+    <span class="onlinePresence-item-service">
+      Slack:
+    </span>
+
+    <a href="https://embercommunity.slack.com/messages/@lolmaus/">@lolmaus</a>
+  </li>
+
+
+
+  <li class="onlinePresence-item">
+    <img src="/images/service-icons/email-66fdb5bac70634741053301ca0956560.png" width="16" height="16" alt="E-mail">
+
+    <span class="onlinePresence-item-service">
+      E-mail:
+    </span>
+
+    <a href="mailto:lolmaus@gmail.com">lolmaus@gmail.com</a>
+  </li>
+
+
+</ul></div>
+
+    <div id="ember703" class="route-localeIndex-card _skills markdownBlock ember-view">  <h2 class="markdownBlock-title -callout">
+    Skills
+  </h2>
+
+  <div id="ember704" class="markdownBlock-body ember-view"><h4 id="frontend-development">Frontend development</h4>
+<ul>
+<li>Over six years in frontend development</li>
+<li>Solid JavaScript skill, love modern tools, practices and patterns</li>
+<li>Sass enthusiast</li>
+<li>Highly experienced in Responsive Web Design, modular grids, mobile first, etc</li>
+<li>Using a BEM-like methodology to scale infinitely and prevent style leaks</li>
+<li>Not a visual designer</li>
+</ul>
+<h4 id="emberjs">EmberJS</h4>
+<ul>
+<li>Over three years working exclusively with complex Ember apps</li>
+<li>Have a gut feeling for the Ember Way and best practices</li>
+<li>Focus on building robust, maintainable and scalable codebases</li>
+<li>Strong believer in the Test-Build-Refactor cycle</li>
+<li>Into testing: unit &amp; user acceptance, work in TDD/BDD style, API/model layer mocking, CI</li>
+<li>Experience with advanced features: polymorphic relationships, FastBoot, Concurrency, Element Queries, etc</li>
+<li>Active member of the Ember community with humble open source contributions</li>
+</ul>
+<h4 id="other-tech-skills">Other tech skills</h4>
+<ul>
+<li>Proficient in using dev tools: git, terminal, SSH, Docker, package managers, build tools, StackOverflow/Google, etc</li>
+<li>Linux user, not a DevOps guy but have basic sysadmin skills</li>
+<li>Experience in distributed teams, SCRUM</li>
+<li>Know Ruby and looking into Elixir</li>
+<li>Active GitHub and StackOverflow profiles</li>
+</ul>
+<h4 id="non-tech-skills">Non-tech skills</h4>
+<ul>
+<li>Fluent English</li>
+<li>Fast typist</li>
+<li>Aware of own drawbacks and will let you know of them</li>
+</ul>
+</div>
+</div>
+
+    <div id="ember707" class="route-localeIndex-card _projects proJects ember-view"><h2 class="proJects-title -callout">
+  Open Source Contributions
+</h2>
+
+
+
+<input type="checkbox" id="caz0f" class="proJects-stalledInput ember-checkbox ember-view">
+
+<label for="caz0f" class="proJects-stalledlabel">
+  Show stalled projects
+</label>
+
+
+
+  <h4 class="proJects-group-title h4">
+    Sass Libraries
+  </h4>
+
+  <div id="ember728" class="projectGroup ember-view">  <div id="ember738" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/breakpoint-slicer">breakpoint-slicer</a>
+
+  <div id="ember743" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/breakpoint-slicer" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    317
+  </span>
+</div>
+
+<!---->
+<!----></div>
+
+  <div id="ember758" class="proJect-description ember-view"><p>slicing media queries with ease</p>
+</div>
+</div>
+  <div id="ember760" class="projectGroup-project proJect -stalled ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/singularity-quick-spanner">singularity-quick-spanner</a>
+
+  <div id="ember761" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/singularity-quick-spanner" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    2
+  </span>
+</div>
+
+<!---->
+    <span class="proJect-status -status-4">
+      stalled
+    </span>
+</div>
+
+  <div id="ember776" class="proJect-description ember-view"><p>collection of handy shortcut mixins for the Singularity grid system</p>
+</div>
+</div>
+</div>
+
+
+
+  <h4 class="proJects-group-title h4">
+    Ember Addons
+  </h4>
+
+  <div id="ember781" class="projectGroup ember-view">  <div id="ember783" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-cli-custom-assertions-collection">ember-cli-custom-assertions-collection</a>
+
+  <div id="ember784" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-cli-custom-assertions-collection" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    26
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-cli-custom-assertions-collection" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-cli-custom-assertions-collection.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember799" class="proJect-description ember-view"><p>a set of custom assertions, aiming to substitute Chai in QUnit world. Go add your own assertions!</p>
+</div>
+</div>
+  <div id="ember801" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-dialogs">ember-dialogs</a>
+
+  <div id="ember802" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-dialogs" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    8
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-dialogs" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-dialogs.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember817" class="proJect-description ember-view"><p>customizable implementation of <code>alert</code>, <code>confirm</code> and <code>prompt</code> modal dialogs with straightforward API</p>
+</div>
+</div>
+  <div id="ember819" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/Deveo/ember-drag-sort">ember-drag-sort</a>
+
+  <div id="ember820" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/Deveo/ember-drag-sort" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    46
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-drag-sort" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-drag-sort.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember835" class="proJect-description ember-view"><p>drag'n'drop sortable list component, with support for multiple and nested lists</p>
+</div>
+</div>
+  <div id="ember837" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-element-query">ember-element-query</a>
+
+  <div id="ember838" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-element-query" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    13
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-element-query" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-element-query.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember853" class="proJect-description ember-view"><p>element query solution for your Ember apps</p>
+</div>
+</div>
+  <div id="ember855" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/Deveo/ember-emojione">ember-emojione</a>
+
+  <div id="ember856" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/Deveo/ember-emojione" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    13
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-emojione" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-emojione.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember871" class="proJect-description ember-view"><p>your complete emoji solution</p>
+</div>
+</div>
+  <div id="ember873" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/firecracker/ember-katex">ember-katex</a>
+
+  <div id="ember874" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/firecracker/ember-katex" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    1
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-katex" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-katex.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember889" class="proJect-description ember-view"><p>render your LaTeX formulas using <a href='https://github.com/Khan/KaTeX'>KaTeX</a></p>
+</div>
+</div>
+  <div id="ember891" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-scroll-to-mk2">ember-scroll-to-mk2</a>
+
+  <div id="ember892" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-scroll-to-mk2" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    3
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-scroll-to-mk2" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-scroll-to-mk2.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember907" class="proJect-description ember-view"><p>a link/button component that performs animated scrolling to a specified selector</p>
+</div>
+</div>
+  <div id="ember909" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/Deveo/ember-sliding-sticky">ember-sliding-sticky</a>
+
+  <div id="ember910" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/Deveo/ember-sliding-sticky" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    1
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-sliding-sticky" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-sliding-sticky.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember925" class="proJect-description ember-view"><p>A <code>position: sticky</code> alternative that works inside parents with <code>overflow: hidden</code></p>
+</div>
+</div>
+  <div id="ember927" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-svg-pie">ember-svg-pie</a>
+
+  <div id="ember928" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-svg-pie" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    11
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-svg-pie" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-svg-pie.svg" alt="Ember Observer Score">
+    </a>
+
+<!----></div>
+
+  <div id="ember943" class="proJect-description ember-view"><p>an extremely simple SVG pie chart component</p>
+</div>
+</div>
+  <div id="ember945" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-gist">ember-gist</a>
+
+  <div id="ember946" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-gist" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    1
+  </span>
+</div>
+
+<!---->
+    <span title="Proof of Concept" class="proJect-status -status-3">
+      PoC
+    </span>
+</div>
+
+  <div id="ember961" class="proJect-description ember-view"><p>use gist.github.com as a poor man's backend</p>
+</div>
+</div>
+  <div id="ember963" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-zen/tree/gen-1#ember-zen">ember-zen</a>
+
+  <div id="ember964" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-zen" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    2
+  </span>
+</div>
+
+<!---->
+    <span title="Proof of Concept" class="proJect-status -status-3">
+      PoC
+    </span>
+</div>
+
+  <div id="ember979" class="proJect-description ember-view"><p>an experiment with centralized state management, more appropriate in Ember than Redux</p>
+</div>
+</div>
+  <div id="ember981" class="projectGroup-project proJect -stalled ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-cli-stained-by-children">ember-cli-stained-by-children</a>
+
+  <div id="ember982" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-cli-stained-by-children" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    29
+  </span>
+</div>
+
+    <a href="https://emberobserver.com/addons/ember-cli-stained-by-children" class="-no-icon">
+      <img src="https://emberobserver.com/badges/ember-cli-stained-by-children.svg" alt="Ember Observer Score">
+    </a>
+
+    <span class="proJect-status -status-4">
+      stalled
+    </span>
+</div>
+
+  <div id="ember997" class="proJect-description ember-view"><p>mark records as dirty when related records get dirty</p>
+</div>
+</div>
+  <div id="ember999" class="projectGroup-project proJect -stalled ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-prismic">ember-prismic</a>
+
+  <div id="ember1000" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-prismic" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    0
+  </span>
+</div>
+
+<!---->
+    <span class="proJect-status -status-4">
+      stalled
+    </span>
+</div>
+
+  <div id="ember1015" class="proJect-description ember-view"><p><a href='https://prismic.io/'>Prismic.io</a> integration for Ember</p>
+</div>
+</div>
+  <div id="ember1017" class="projectGroup-project proJect -stalled ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-stamplay">ember-stamplay</a>
+
+  <div id="ember1018" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-stamplay" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    7
+  </span>
+</div>
+
+<!---->
+    <span class="proJect-status -status-4">
+      stalled
+    </span>
+</div>
+
+  <div id="ember1033" class="proJect-description ember-view"><p>integrate with the Stamplay.com backend-as-a-service</p>
+</div>
+</div>
+</div>
+
+
+  <h4 class="proJects-group-title h4">
+    Ember Apps
+  </h4>
+
+  <div id="ember1038" class="projectGroup ember-view">  <div id="ember1040" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/intercom-test-assignment">intercom-test-assignment</a>
+
+  <div id="ember1041" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/intercom-test-assignment" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    1
+  </span>
+</div>
+
+<!---->
+<!----></div>
+
+  <div id="ember1056" class="proJect-description ember-view"><p>a test assignment I've done for Intercom.io</p>
+</div>
+</div>
+  <div id="ember1058" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/lolma.us">lolma.us</a>
+
+  <div id="ember1059" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/lolma.us" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    2
+  </span>
+</div>
+
+<!---->
+<!----></div>
+
+  <div id="ember1074" class="proJect-description ember-view"><p>this website, please see a detailed description below</p>
+</div>
+</div>
+  <div id="ember1076" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/yuidork">yuidork</a>
+
+  <div id="ember1077" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/yuidork" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    5
+  </span>
+</div>
+
+<!---->
+    <span title="Work in Progress" class="proJect-status -status-2">
+      WIP
+    </span>
+</div>
+
+  <div id="ember1092" class="proJect-description ember-view"><p>view YUIDoc/JSDoc documentation for any project and any branch/tag/commit directly from GitHub</p>
+</div>
+</div>
+  <div id="ember1094" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/ember-app-state-slider">ember-app-state-slider</a>
+
+  <div id="ember1095" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/ember-app-state-slider" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    9
+  </span>
+</div>
+
+<!---->
+    <span title="Proof of Concept" class="proJect-status -status-3">
+      PoC
+    </span>
+</div>
+
+  <div id="ember1110" class="proJect-description ember-view"><p>a quick and naive implementation of immutable state management and time travel slider in Ember</p>
+</div>
+</div>
+</div>
+
+
+
+  <h4 class="proJects-group-title h4">
+    JavaScript Libraries
+  </h4>
+
+  <div id="ember1115" class="projectGroup ember-view">  <div id="ember1117" class="projectGroup-project proJect -stalled ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/assertron">assertron</a>
+
+  <div id="ember1118" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/assertron" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    2
+  </span>
+</div>
+
+<!---->
+    <span class="proJect-status -status-4">
+      stalled
+    </span>
+</div>
+
+  <div id="ember1133" class="proJect-description ember-view"><p>standalone assertion library, aiming to be a tool for simple contract-driven development</p>
+</div>
+</div>
+</div>
+
+  <h4 class="proJects-group-title h4">
+    Old jQuery Plugins
+  </h4>
+
+  <div id="ember1138" class="projectGroup ember-view">  <div id="ember1140" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/jquery.closestchild">jquery.closestchild</a>
+
+  <div id="ember1141" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/jquery.closestchild" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    5
+  </span>
+</div>
+
+<!---->
+<!----></div>
+
+  <div id="ember1156" class="proJect-description ember-view"><p>an opposite of <code>closest()</code>: find the nearest child that matches a selector, ignore deeper matching children</p>
+</div>
+</div>
+  <div id="ember1158" class="projectGroup-project proJect ember-view"><div class="proJect-meta">
+
+  <a href="https://github.com/lolmaus/jquery.dragbetter">jquery.dragbetter</a>
+
+  <div id="ember1159" class="starButton ember-view"><div class="starButton-buttonWrapper">
+
+  <a href="https://github.com/lolmaus/jquery.dragbetter" class="starButton-button  -no-icon">
+    ★ Star
+  </a>
+
+  <div class="starButton-loginAction">
+    <div class="starButton-loginAction-inner">
+      <div class="starButton-loginAction-text">
+        This is an external link to GitHub.
+
+Log into GitHub to be able to star projects without leaving this website.
+      </div>
+
+      <button class="starButton-loginAction-button starButton-button">
+        Log in
+      </button>
+
+      <span>
+        with GitHub to star projects
+      </span>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <span class="starButton-count">
+    29
+  </span>
+</div>
+
+<!---->
+<!----></div>
+
+  <div id="ember1174" class="proJect-description ember-view"><p>a no-bullshit alternative to <code>dragenter</code> and <code>dragleave</code> events behaving like <code>mouseenter</code> and <code>mouseleave</code>, not <code>mousein</code> and <code>mouseout</code></p>
+</div>
+</div>
+</div>
+</div>
+
+    <div id="ember1177" class="route-localeIndex-card _timeline timeLine ember-view"><h2 class="timeLine-title -callout">
+  Experience
+</h2>
+
+
+
+<input type="checkbox" id="bl437" class="timeLine-showDetails ember-checkbox ember-view">
+
+<label for="bl437">
+  Show details
+</label>
+
+
+
+<div class="timeLine-list">
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Sep 2017
+
+            — present
+                  </div>
+
+        <div id="ember1199" class="timeLine-item-name ember-view"><p>Frontend Developer with EmberJS at <a href='https://perforce.com'>Perforce.com</a>, US</p>
+</div>
+
+          <div id="ember1200" class="timeLine-item-desc ember-view"><p>In September 2017 Perforce has <a href="https://www.perforce.com/deveo-customer-info">acquired</a> Deveo. The product has been renamed to Helix TeamHub, the development team has joined the Perforce family.</p>
+<p>Backed by Perforce technology, Helix TeamHub delivers Git hosting and management with unique features.</p>
+<ul>
+<li>EmberJS/frontend development.</li>
+<li>HTML/CSS with Sass.</li>
+<li>Unit and user acceptance testing.</li>
+<li>API/model layer mocking with Mirage.</li>
+<li>Maintaining and refactoring legacy code.</li>
+<li>Building new exciting features.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Jan 2017
+
+            — Aug 2017
+        </div>
+
+        <div id="ember1202" class="timeLine-item-name ember-view"><p>Frontend Developer with EmberJS at <a href='https://deveo.com'>Deveo.com</a>, Finland</p>
+</div>
+
+          <div id="ember1203" class="timeLine-item-desc ember-view"><p>Fostering a product from developers, for developers.</p>
+<ul>
+<li>EmberJS/frontend development.</li>
+<li>HTML/CSS with Sass.</li>
+<li>Unit and user acceptance testing.</li>
+<li>API/model layer mocking with Mirage.</li>
+<li>Maintaining and refactoring legacy code.</li>
+<li>Building new exciting features.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Sep 2015
+
+            — Dec 2016
+        </div>
+
+        <div id="ember1205" class="timeLine-item-name ember-view"><p>Frontend Developer with EmberJS at <a href='http://firecracker.me'>Firecracker.me</a>, US</p>
+</div>
+
+          <div id="ember1206" class="timeLine-item-desc ember-view"><p>An amazing adventure! The team was like a family to me.</p>
+<ul>
+<li>EmberJS/frontend development.</li>
+<li>Unit and user acceptance testing.</li>
+<li>API/model layer mocking with Mirage.</li>
+<li>Designing conventions, project structure and code style.</li>
+<li>Took part in API design.</li>
+<li>Heavy HTML/CSS development with Sass.</li>
+<li>Designing CSS methodology to scale infinitely and prevent leaks.</li>
+<li>Second tier of tech support.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Aug 2014
+
+            — Sep 2015
+        </div>
+
+        <div id="ember1208" class="timeLine-item-name ember-view"><p>Frontend Developer with EmberJS and AngularJS at <a href='http://hello.babyalbum.com/'>Hell'o Baby</a>, Russia</p>
+</div>
+
+          <div id="ember1209" class="timeLine-item-desc ember-view"><p>The flagship product of Hell'o Baby was originally implemented in Backbone, I led it's reimplementation from scratch in Angular. I did frontend developer myself and managed outstaffed devs.</p>
+<p>I leveraged Ember to implement the company's internal admin panel. In its core was a builder of high-level database requests. A sophisticated form was generated dynamically according to a structure determined by the backend.</p>
+<p>The resulting data selections were presented as various graphs built with <a href="http://www.highcharts.com/demo">Highcharts</a> for analytics.</p>
+<p>The admin panel also offered an email builder — for both newsletters and individual messages. All email templates were rendered live into a thumbnail gallery. The gallery could be filtered.</p>
+<p>Hell'o Baby homepage contains complex canvas animations, designed by company's artists. In order to keep performance stable, I had to orchestrate animations, so that only currently visible animations were playing. Animations that appeared nearby were synchronized.</p>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="320.03" viewBox="0 0 384.00604 320.03033" width="384.006" class="timeLine-item-icon-icon _project"><path d="M366.073 96.03h-348.2c-17.7 0-18.6 9.2-17.6 20.5l13 183c.9 11.2 3.5 20.5 21.1 20.5h316.2c18 0 20.1-9.2 21.1-20.5l12.1-185.3c.9-11.2 0-18.2-17.7-18.2zM362.173 47.33c-.5-12.4-4.5-15.3-15.1-15.3h-143.2c-21.8 0-24.4.3-40.9-17.4-13.7-14.8-8.3-14.6-36.6-14.6h-75.3c-17.4 0-23.6-1.5-25.2 16.6-1.5 16.7-5 57.2-5.5 63.4h343.4l-1.6-32.7z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Aug 2014
+
+<!---->        </div>
+
+        <div id="ember1211" class="timeLine-item-name ember-view"><p>Frontend Developer for <a href='https://nasonpearl.ru'>NasonPearl.ru</a>, Russia</p>
+</div>
+
+          <div id="ember1212" class="timeLine-item-desc ember-view"><p>Implemented the frontend for the online jewelry store NasonPearl.</p>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Jun 2014
+
+            — Jul 2014
+        </div>
+
+        <div id="ember1214" class="timeLine-item-name ember-view"><p>Frontend Developer at Healthfundr (now <a href='https://healthrosetta.org/'>Health Rosetta.com</a>), US (probation)</p>
+</div>
+
+          <div id="ember1215" class="timeLine-item-desc ember-view"><p>I was hired as an experienced frontend dev, yet what team really needed was a CakePHP dev with some Bootstrap knowledge.</p>
+<p>For me it was a step back, so we mutually agreed to part ways.</p>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="320.03" viewBox="0 0 384.00604 320.03033" width="384.006" class="timeLine-item-icon-icon _project"><path d="M366.073 96.03h-348.2c-17.7 0-18.6 9.2-17.6 20.5l13 183c.9 11.2 3.5 20.5 21.1 20.5h316.2c18 0 20.1-9.2 21.1-20.5l12.1-185.3c.9-11.2 0-18.2-17.7-18.2zM362.173 47.33c-.5-12.4-4.5-15.3-15.1-15.3h-143.2c-21.8 0-24.4.3-40.9-17.4-13.7-14.8-8.3-14.6-36.6-14.6h-75.3c-17.4 0-23.6-1.5-25.2 16.6-1.5 16.7-5 57.2-5.5 63.4h343.4l-1.6-32.7z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Mar 2014
+
+            — Jun 2014
+        </div>
+
+        <div id="ember1217" class="timeLine-item-name ember-view"><p>Frontend Developer at Hivemind, Russia</p>
+</div>
+
+          <div id="ember1218" class="timeLine-item-desc ember-view"><ul>
+<li>Prototyping the UI (linked above).</li>
+<li>Building the frontend.</li>
+<li>Working against a Rails API.</li>
+</ul>
+<p>The MVP was complete, yet the project did not launch due to non-technical reasons.</p>
+<p>See a <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>prototype</a> from 2014.</p>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Jul 2013
+
+            — Mar 2014
+        </div>
+
+        <div id="ember1220" class="timeLine-item-name ember-view"><p>Head of Tech Dept at <a href='http://stkomp.ru/'>STKomp.ru</a>, Russia</p>
+</div>
+
+          <div id="ember1221" class="timeLine-item-desc ember-view"><ul>
+<li>Managing company's IT infrastructure.</li>
+<li>Building and maintaining company's website.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 22 18" width="22" height="18" class="timeLine-item-icon-icon _education"><path d="M22 6L11 0 0 6l11 6z"/><path d="M4 14.2l7 3.8 7-3.8V9.8L11 14 4 9.8zM20 6h2v8h-2z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Dec 2011
+
+<!---->        </div>
+
+        <div id="ember1223" class="timeLine-item-name ember-view"><p>Graduated from <a href='http://stankin.ru/en/education/faculty-of-computer-science-and-control-systems/'>Moscow State Technological University "Stankin"</a> (Software engineer, Specialist degree)</p>
+</div>
+
+<!---->      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Dec 2008
+
+            — Jun 2013
+        </div>
+
+        <div id="ember1225" class="timeLine-item-name ember-view"><p>Web Developer and SysAdmin at Alpha Media Buying, Russia</p>
+</div>
+
+          <div id="ember1226" class="timeLine-item-desc ember-view"><ul>
+<li>Administrating company's network and servers.</li>
+<li>Building and maintaining company's website.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg height="30.433" viewBox="0 0 291 301" width="29.378" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="timeLine-item-icon-icon _job"><path class="fil0" d="M0 301h204v-84h50v84h37L289 0 124 78l2-59L0 82v219zm43-160h50v49H43v-49zm81 0h49v49h-49v-49zm80 0h50v49h-50v-49z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Jul 2008
+
+            — Dec 2008
+        </div>
+
+        <div id="ember1228" class="timeLine-item-name ember-view"><p>Web Projects Manager at <a href='https://adv.ru/english/'>ADV.ru</a>, Russia</p>
+</div>
+
+          <div id="ember1229" class="timeLine-item-desc ember-view"><p>I was a manager in the department of supporting and extending existing projects.</p>
+<p>My duties included:</p>
+<ul>
+<li>communicating with clients,</li>
+<li>estimating time and cost of implementing new features,</li>
+<li>breaking the features into assignable tasks,</li>
+<li>distributing tasks among visual designers, HTML/CSS coders, frontend and backend developers,</li>
+<li>controlling deadlines and quality.</li>
+</ul>
+</div>
+      </div>
+    </div>
+
+
+    <div class="timeLine-item">
+      <div class="timeLine-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 22 18" width="22" height="18" class="timeLine-item-icon-icon _education"><path d="M22 6L11 0 0 6l11 6z"/><path d="M4 14.2l7 3.8 7-3.8V9.8L11 14 4 9.8zM20 6h2v8h-2z"/></svg>
+      </div>
+
+      <div class="timeLine-item-info">
+        <div class="timeLine-item-date">
+            Jun 2008
+
+<!---->        </div>
+
+        <div id="ember1231" class="timeLine-item-name ember-view"><p>Graduated from <a href='http://english.mgimo.ru/'>Moscow University of Foreign Affairs</a> (BoA)</p>
+</div>
+
+<!---->      </div>
+    </div>
+
+</div></div>
+
+    <div id="ember1232" class="route-localeIndex-card _about-site markdownBlock ember-view">  <h2 class="markdownBlock-title -callout">
+    About This Website
+  </h2>
+
+  <div id="ember1233" class="markdownBlock-body ember-view"><p>This website is supposed to be a humble showcase of my skills and some Ember features.</p>
+<p>It leverages the following technologies:</p>
+<ul>
+<li><p>All pages are prerendered into static HTML and display immediately on page load. All links behave like regular HTML links. When the Ember app loads, it takes control, turning the website into an SPA. This is possible thanks to <a href="https://ember-fastboot.com">FastBoot</a> and <a href="https://github.com/ef4/prember">ef4/prember</a>.</p></li>
+<li><p>Internationalization (i18n): the website is available in two languages. UI labels, content and dates are translated. For translating UI, I use <a href="https://github.com/jamesarosen/ember-i18n">jamesarosen/ember-i18n</a>.</p></li>
+<li><p>Responsive Web Design is coded with the <a href="https://github.com/lolmaus/breakpoint-slicer">lolmaus/breakpoint-slicer</a> Sass lib. It allows defining responsive rules effortlessly. I would use <a href="https://github.com/lolmaus/ember-element-query">lolmaus/ember-element-query</a> for granular control, but element queries require JS which is not available in FastBoot.</p></li>
+<li><p>During build, the website is hitting GitHub and StackOverflow API to collect stats. As both services severely limit API usage, the app won't download stats if they're available from FastBoot.</p></li>
+<li><p>GitHub authentication is implemented: log in to star/unstar projects without leaving the app.</p></li>
+<li><p>Content is stored as Markdown with <a href="https://jekyllrb.com/docs/frontmatter/">Front Matter</a>. Carefully overridden adapters and serializers are used to work with endpoints and data formats.</p></li>
+<li><p>I couldn't use <a href="https://github.com/offirgolan/ember-burger-menu">offirgolan/ember-burger-menu</a> because its menu is unavailable while app is still loading. So I googled a bit and implemented an off-screen menu with pure CSS. It has some restrictions, but overall result is super sleek!</p></li>
+</ul>
+<p>Website source is available on GitHub: <a href="https://github.com/lolmaus/lolma.us">lolmaus/lolma.us</a>.</p>
+</div>
+</div>
+  
+</div></div>
+
+
+
+
+<!---->
+</div>
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[{"data":{"id":"adv-en","attributes":{"title":"Web Projects Manager at \u003ca href='https://adv.ru/english/'\u003eADV.ru\u003c/a\u003e, Russia","body":"\nI was a manager in the department of supporting and extending existing projects.\n\nMy duties included:\n \n*   communicating with clients,\n*   estimating time and cost of implementing new features,\n*   breaking the features into assignable tasks,\n*   distributing tasks among visual designers, HTML/CSS coders, frontend and backend developers,\n*   controlling deadlines and quality.\n","type":"job","start":"2008-07-01T00:00:00.000Z","end":"2008-12-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"alfamb-en","attributes":{"title":"Web Developer and SysAdmin at Alpha Media Buying, Russia","body":"\n*   Administrating company's network and servers.\n*   Building and maintaining company's website.\n","type":"job","start":"2008-12-01T00:00:00.000Z","end":"2013-06-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"deveo-en","attributes":{"title":"Frontend Developer with EmberJS at \u003ca href='https://deveo.com'\u003eDeveo.com\u003c/a\u003e, Finland","body":"\nFostering a product from developers, for developers.\n\n*   EmberJS/frontend development.\n*   HTML/CSS with Sass.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Maintaining and refactoring legacy code.\n*   Building new exciting features.\n","type":"job","start":"2017-01-01T00:00:00.000Z","end":"2017-08-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"firecracker-en","attributes":{"title":"Frontend Developer with EmberJS at \u003ca href='http://firecracker.me'\u003eFirecracker.me\u003c/a\u003e, US","body":"\nAn amazing adventure! The team was like a family to me.\n\n*   EmberJS/frontend development.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Designing conventions, project structure and code style.\n*   Took part in API design.\n*   Heavy HTML/CSS development with Sass.\n*   Designing CSS methodology to scale infinitely and prevent leaks.\n*   Second tier of tech support.\n","type":"job","start":"2015-09-01T00:00:00.000Z","end":"2016-12-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"healthfundr-en","attributes":{"title":"Frontend Developer at Healthfundr (now \u003ca href='https://healthrosetta.org/'\u003eHealth Rosetta.com\u003c/a\u003e), US (probation)","body":"\nI was hired as an experienced frontend dev, yet what team really needed was a CakePHP dev with some Bootstrap knowledge.\n\nFor me it was a step back, so we mutually agreed to part ways.\n","type":"job","start":"2014-06-01T00:00:00.000Z","end":"2014-07-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"hell-o-baby-en","attributes":{"title":"Frontend Developer with EmberJS and AngularJS at \u003ca href='http://hello.babyalbum.com/'\u003eHell'o Baby\u003c/a\u003e, Russia","body":"\nThe flagship product of Hell'o Baby was originally implemented in Backbone, I led it's reimplementation from scratch in Angular. I did frontend developer myself and managed outstaffed devs.\n\nI leveraged Ember to implement the company's internal admin panel. In its core was a builder of high-level database requests. A sophisticated form was generated dynamically according to a structure determined by the backend.\n\nThe resulting data selections were presented as various graphs built with [Highcharts](http://www.highcharts.com/demo) for analytics.\n\nThe admin panel also offered an email builder — for both newsletters and individual messages. All email templates were rendered live into a thumbnail gallery. The gallery could be filtered.\n\nHell'o Baby homepage contains complex canvas animations, designed by company's artists. In order to keep performance stable, I had to orchestrate animations, so that only currently visible animations were playing. Animations that appeared nearby were synchronized.\n","type":"job","start":"2014-08-01T00:00:00.000Z","end":"2015-09-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"hivemind-en","attributes":{"title":"Frontend Developer at Hivemind, Russia","body":"\n*   Prototyping the UI (linked above).\n*   Building the frontend.\n*   Working against a Rails API.\n\nThe MVP was complete, yet the project did not launch due to non-technical reasons.\n\nSee a \u003ca href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'\u003eprototype\u003c/a\u003e from 2014.\n","type":"project","start":"2014-03-01T00:00:00.000Z","end":"2014-06-01T00:00:00.000Z","present":false},"type":"experiences"}},{"data":{"id":"mgimo-en","attributes":{"title":"Graduated from \u003ca href='http://english.mgimo.ru/'\u003eMoscow University of Foreign Affairs\u003c/a\u003e (BoA)","body":"","type":"education","start":"2008-06-01T00:00:00.000Z","end":null,"present":false},"type":"experiences"}},{"data":{"id":"nason-en","attributes":{"title":"Frontend Developer for \u003ca href='https://nasonpearl.ru'\u003eNasonPearl.ru\u003c/a\u003e, Russia","body":"\nImplemented the frontend for the online jewelry store NasonPearl.\n","type":"project","start":"2014-08-01T00:00:00.000Z","end":null,"present":false},"type":"experiences"}},{"data":{"id":"perforce-en","attributes":{"title":"Frontend Developer with EmberJS at \u003ca href='https://perforce.com'\u003ePerforce.com\u003c/a\u003e, US","body":"\nIn September 2017 Perforce has [acquired](https://www.perforce.com/deveo-customer-info) Deveo. The product has been renamed to Helix TeamHub, the development team has joined the Perforce family.\n\nBacked by Perforce technology, Helix TeamHub delivers Git hosting and management with unique features.\n\n*   EmberJS/frontend development.\n*   HTML/CSS with Sass.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Maintaining and refactoring legacy code.\n*   Building new exciting features.\n","type":"job","start":"2017-09-01T00:00:00.000Z","end":null,"present":true},"type":"experiences"}},{"data":{"id":"stankin-en","attributes":{"title":"Graduated from \u003ca href='http://stankin.ru/en/education/faculty-of-computer-science-and-control-systems/'\u003eMoscow State Technological University \"Stankin\"\u003c/a\u003e (Software engineer, Specialist degree)","body":"","type":"education","start":"2011-12-01T00:00:00.000Z","end":null,"present":false},"type":"experiences"}},{"data":{"id":"stkomp-en","attributes":{"title":"Head of Tech Dept at \u003ca href='http://stkomp.ru/'\u003eSTKomp.ru\u003c/a\u003e, Russia","body":"\n*   Managing company's IT infrastructure.\n*   Building and maintaining company's website.\n","type":"job","start":"2013-07-01T00:00:00.000Z","end":"2014-03-01T00:00:00.000Z","present":false},"type":"experiences"}}],"markdown-block":[{"data":{"id":"about-site-en","attributes":{"title":"About This Website","body":"\nThis website is supposed to be a humble showcase of my skills and some Ember features.\n\nIt leverages the following technologies:\n\n*   All pages are prerendered into static HTML and display immediately on page load. All links behave like regular HTML links. When the Ember app loads, it takes control, turning the website into an SPA. This is possible thanks to [FastBoot](https://ember-fastboot.com) and [ef4/prember](https://github.com/ef4/prember).\n\n*   Internationalization (i18n): the website is available in two languages. UI labels, content and dates are translated. For translating UI, I use [jamesarosen/ember-i18n](https://github.com/jamesarosen/ember-i18n).\n\n*   Responsive Web Design is coded with the [lolmaus/breakpoint-slicer](https://github.com/lolmaus/breakpoint-slicer) Sass lib. It allows defining responsive rules effortlessly. I would use [lolmaus/ember-element-query](https://github.com/lolmaus/ember-element-query) for granular control, but element queries require JS which is not available in FastBoot.\n\n*   During build, the website is hitting GitHub and StackOverflow API to collect stats. As both services severely limit API usage, the app won't download stats if they're available from FastBoot.\n\n*   GitHub authentication is implemented: log in to star/unstar projects without leaving the app.\n\n*   Content is stored as Markdown with [Front Matter](https://jekyllrb.com/docs/frontmatter/). Carefully overridden adapters and serializers are used to work with endpoints and data formats.\n\n*   I couldn't use [offirgolan/ember-burger-menu](https://github.com/offirgolan/ember-burger-menu) because its menu is unavailable while app is still loading. So I googled a bit and implemented an off-screen menu with pure CSS. It has some restrictions, but overall result is super sleek!\n\nWebsite source is available on GitHub: [lolmaus/lolma.us](https://github.com/lolmaus/lolma.us).\n"},"type":"markdown-blocks"}},{"data":{"id":"personality-en","attributes":{"title":"Personality","body":"\nAt work I'm a passionate developer; strong supporter of best practices and patterns; serious about code readability, maintainability and scalability; believe in testing. On the scale from quick-n-dirty to slow-but-thorough, I lean toward the latter.\n\nOff duty, I'm a loving husband and father, an avid debater, a board game geek, a retired recreational cyclist, a crazy Russian and an affable guy with a slightly twisted sense of humor.\n\nI live in Moscow, Russia. Love working remotely from other beautiful places. Able to adjust to your timezone for partial or full work hours overlap.\n"},"type":"markdown-blocks"}},{"data":{"id":"skills-en","attributes":{"title":"Skills","body":"\n#### Frontend development\n\n* Over six years in frontend development\n* Solid JavaScript skill, love modern tools, practices and patterns\n* Sass enthusiast\n* Highly experienced in Responsive Web Design, modular grids, mobile first, etc\n* Using a BEM-like methodology to scale infinitely and prevent style leaks\n* Not a visual designer\n\n\n#### EmberJS\n\n* Over three years working exclusively with complex Ember apps\n* Have a gut feeling for the Ember Way and best practices\n* Focus on building robust, maintainable and scalable codebases\n* Strong believer in the Test-Build-Refactor cycle\n* Into testing: unit \u0026 user acceptance, work in TDD/BDD style, API/model layer mocking, CI\n* Experience with advanced features: polymorphic relationships, FastBoot, Concurrency, Element Queries, etc\n* Active member of the Ember community with humble open source contributions\n\n\n#### Other tech skills\n\n* Proficient in using dev tools: git, terminal, SSH, Docker, package managers, build tools, StackOverflow/Google, etc\n* Linux user, not a DevOps guy but have basic sysadmin skills\n* Experience in distributed teams, SCRUM\n* Know Ruby and looking into Elixir\n* Active GitHub and StackOverflow profiles\n\n\n#### Non-tech skills\n\n* Fluent English\n* Fast typist\n* Aware of own drawbacks and will let you know of them\n"},"type":"markdown-blocks"}}],"post":[],"project-info":[{"full_name":"lolmaus/abrk","stargazers_count":0},{"full_name":"lolmaus/acts_as_versioned","stargazers_count":0},{"full_name":"lolmaus/airport-codes","stargazers_count":0},{"full_name":"lolmaus/amt_boron","stargazers_count":0},{"full_name":"lolmaus/angular-datepicker","stargazers_count":0},{"full_name":"lolmaus/angular.js","stargazers_count":0},{"full_name":"lolmaus/annotator-store","stargazers_count":0},{"full_name":"lolmaus/asdf","stargazers_count":0},{"full_name":"lolmaus/assertron","stargazers_count":2},{"full_name":"lolmaus/beauty_corner","stargazers_count":0},{"full_name":"lolmaus/beerjs-moscow","stargazers_count":0},{"full_name":"lolmaus/booking-app-ember","stargazers_count":0},{"full_name":"lolmaus/bower","stargazers_count":0},{"full_name":"lolmaus/bower.github.io","stargazers_count":0},{"full_name":"lolmaus/branch","stargazers_count":0},{"full_name":"lolmaus/breakpoint","stargazers_count":0},{"full_name":"lolmaus/breakpoint-slicer","stargazers_count":317},{"full_name":"lolmaus/broccoli-funnel","stargazers_count":0},{"full_name":"lolmaus/broccoli-sass","stargazers_count":0},{"full_name":"lolmaus/broccoli-stew","stargazers_count":0},{"full_name":"lolmaus/bystander","stargazers_count":0},{"full_name":"lolmaus/cambridge_voting_locations","stargazers_count":0},{"full_name":"lolmaus/codepage1251","stargazers_count":1},{"full_name":"lolmaus/coffeescript-cookbook","stargazers_count":0},{"full_name":"lolmaus/compass","stargazers_count":0},{"full_name":"lolmaus/compass-rails","stargazers_count":0},{"full_name":"lolmaus/contracts.ruby","stargazers_count":0},{"full_name":"lolmaus/coolgirl-frontend","stargazers_count":0},{"full_name":"lolmaus/craftberi","stargazers_count":0},{"full_name":"lolmaus/csspre","stargazers_count":0},{"full_name":"lolmaus/data","stargazers_count":0},{"full_name":"lolmaus/depot_agilewebdevrails3","stargazers_count":1},{"full_name":"lolmaus/derbyjs-helloworld1","stargazers_count":0},{"full_name":"lolmaus/derbyjs-talk-ru","stargazers_count":6},{"full_name":"lolmaus/diff-test","stargazers_count":0},{"full_name":"lolmaus/dir_size_renamer","stargazers_count":1},{"full_name":"lolmaus/districomp","stargazers_count":1},{"full_name":"lolmaus/docs","stargazers_count":0},{"full_name":"lolmaus/dropdown-menu-prototype","stargazers_count":0},{"full_name":"lolmaus/drupal-platform","stargazers_count":1},{"full_name":"lolmaus/elementQuery","stargazers_count":0},{"full_name":"lolmaus/ember-a11y-testing","stargazers_count":1},{"full_name":"lolmaus/ember-app-state-slider","stargazers_count":9},{"full_name":"lolmaus/ember-array-computed-macros","stargazers_count":1},{"full_name":"lolmaus/ember-awesome-macros","stargazers_count":0},{"full_name":"lolmaus/ember-changeset-cp-validations","stargazers_count":1},{"full_name":"lolmaus/ember-cli","stargazers_count":0},{"full_name":"lolmaus/ember-cli-ass-butt","stargazers_count":0},{"full_name":"lolmaus/ember-cli-async-button","stargazers_count":0},{"full_name":"lolmaus/ember-cli-blanket","stargazers_count":0},{"full_name":"lolmaus/ember-cli-cookie","stargazers_count":0},{"full_name":"lolmaus/ember-cli-custom-assertions","stargazers_count":0},{"full_name":"lolmaus/ember-cli-custom-assertions-collection","stargazers_count":26},{"full_name":"lolmaus/ember-cli-deploy","stargazers_count":0},{"full_name":"lolmaus/ember-cli-deploy-github-pages","stargazers_count":0},{"full_name":"lolmaus/ember-cli-eyeglass","stargazers_count":0},{"full_name":"lolmaus/ember-cli-favicon","stargazers_count":0},{"full_name":"lolmaus/ember-cli-file-creator","stargazers_count":0},{"full_name":"lolmaus/ember-cli-fixtures-problem-demo","stargazers_count":0},{"full_name":"lolmaus/ember-cli-htmlbars-inline-precompile","stargazers_count":0},{"full_name":"lolmaus/ember-cli-i18n-bug","stargazers_count":0},{"full_name":"lolmaus/ember-cli-loading-slider","stargazers_count":0},{"full_name":"lolmaus/ember-cli-lolmaus-blueprints","stargazers_count":1},{"full_name":"lolmaus/ember-cli-mirage","stargazers_count":0},{"full_name":"lolmaus/ember-cli-mocha-reporter","stargazers_count":1},{"full_name":"lolmaus/ember-cli-notifications","stargazers_count":0},{"full_name":"lolmaus/ember-cli-page-object","stargazers_count":0},{"full_name":"lolmaus/ember-cli-shims","stargazers_count":0},{"full_name":"lolmaus/ember-cli-showdown","stargazers_count":0},{"full_name":"lolmaus/ember-cli-sortable-test","stargazers_count":0},{"full_name":"lolmaus/ember-cli-stained-by-children","stargazers_count":29},{"full_name":"lolmaus/ember-cli-sticky","stargazers_count":0},{"full_name":"lolmaus/ember-cli-trackjs","stargazers_count":0},{"full_name":"lolmaus/ember-collection","stargazers_count":0},{"full_name":"lolmaus/ember-components","stargazers_count":0},{"full_name":"lolmaus/ember-composability-tools","stargazers_count":0},{"full_name":"lolmaus/ember-computed-style","stargazers_count":0},{"full_name":"lolmaus/ember-computed-template-string","stargazers_count":0},{"full_name":"lolmaus/ember-concurrency","stargazers_count":0},{"full_name":"lolmaus/ember-cookies","stargazers_count":0},{"full_name":"lolmaus/ember-cpm","stargazers_count":0},{"full_name":"lolmaus/ember-d3-helpers","stargazers_count":0},{"full_name":"lolmaus/ember-data-model-fragments","stargazers_count":0},{"full_name":"lolmaus/ember-devtools","stargazers_count":1},{"full_name":"lolmaus/ember-dialogs","stargazers_count":8},{"full_name":"lolmaus/ember-diff-attrs-test","stargazers_count":0},{"full_name":"lolmaus/ember-disqus","stargazers_count":0},{"full_name":"lolmaus/ember-drag-drop","stargazers_count":0},{"full_name":"lolmaus/ember-drag-sort","stargazers_count":1},{"full_name":"lolmaus/ember-element-query","stargazers_count":13},{"full_name":"lolmaus/ember-exam-issue-108","stargazers_count":0},{"full_name":"lolmaus/ember-example","stargazers_count":0},{"full_name":"lolmaus/ember-gestures","stargazers_count":0},{"full_name":"lolmaus/ember-gist","stargazers_count":1},{"full_name":"lolmaus/ember-highcharts","stargazers_count":0},{"full_name":"lolmaus/ember-idx-modal","stargazers_count":0},{"full_name":"lolmaus/ember-idx-tabs","stargazers_count":0},{"full_name":"lolmaus/ember-keyboard","stargazers_count":0},{"full_name":"lolmaus/ember-leaflet","stargazers_count":1},{"full_name":"lolmaus/ember-learn","stargazers_count":0},{"full_name":"lolmaus/ember-lodash-compat","stargazers_count":0},{"full_name":"lolmaus/ember-macaroni","stargazers_count":0},{"full_name":"lolmaus/ember-macro-helpers","stargazers_count":0},{"full_name":"lolmaus/ember-macro-test-helpers","stargazers_count":0},{"full_name":"lolmaus/ember-markdown-section","stargazers_count":1},{"full_name":"lolmaus/ember-mocha","stargazers_count":0},{"full_name":"lolmaus/ember-one-way-controls","stargazers_count":0},{"full_name":"lolmaus/ember-particle","stargazers_count":0},{"full_name":"lolmaus/ember-prismic","stargazers_count":0},{"full_name":"lolmaus/ember-redux","stargazers_count":0},{"full_name":"lolmaus/ember-remarkable","stargazers_count":0},{"full_name":"lolmaus/ember-rollbar-client","stargazers_count":0},{"full_name":"lolmaus/ember-rollup","stargazers_count":0},{"full_name":"lolmaus/ember-s-select","stargazers_count":0},{"full_name":"lolmaus/ember-scroll-to-mk2","stargazers_count":3},{"full_name":"lolmaus/ember-simple-auth","stargazers_count":0},{"full_name":"lolmaus/ember-sinon","stargazers_count":0},{"full_name":"lolmaus/ember-stamplay","stargazers_count":7},{"full_name":"lolmaus/ember-svg-pie","stargazers_count":11},{"full_name":"lolmaus/ember-ted-select","stargazers_count":0},{"full_name":"lolmaus/ember-toggle","stargazers_count":0},{"full_name":"lolmaus/ember-uploader","stargazers_count":0},{"full_name":"lolmaus/ember-zen","stargazers_count":2},{"full_name":"lolmaus/ember.js","stargazers_count":0},{"full_name":"lolmaus/emberCodeschooltry","stargazers_count":0},{"full_name":"lolmaus/emblem-site","stargazers_count":0},{"full_name":"lolmaus/eq.js","stargazers_count":0},{"full_name":"lolmaus/fatoak","stargazers_count":0},{"full_name":"lolmaus/findaroom-frontend","stargazers_count":0},{"full_name":"lolmaus/food_finder","stargazers_count":1},{"full_name":"lolmaus/food_finder2","stargazers_count":1},{"full_name":"lolmaus/frame","stargazers_count":0},{"full_name":"lolmaus/fugue-icons","stargazers_count":0},{"full_name":"lolmaus/generator-babel-boilerplate","stargazers_count":0},{"full_name":"lolmaus/git-test","stargazers_count":0},{"full_name":"lolmaus/gulpjs.github.io","stargazers_count":0},{"full_name":"lolmaus/habbit","stargazers_count":0},{"full_name":"lolmaus/habbit-shelf","stargazers_count":0},{"full_name":"lolmaus/haml-rails","stargazers_count":0},{"full_name":"lolmaus/intellij-idea-bug-demonstration-WEB-10845","stargazers_count":0},{"full_name":"lolmaus/intercom-test-assignment","stargazers_count":1},{"full_name":"lolmaus/itunes_client","stargazers_count":0},{"full_name":"lolmaus/jQuery-One-Page-Nav","stargazers_count":0},{"full_name":"lolmaus/jQuery-ui-Slider-Pips","stargazers_count":0},{"full_name":"lolmaus/jquery.closestchild","stargazers_count":5},{"full_name":"lolmaus/jquery.dragbetter","stargazers_count":29},{"full_name":"lolmaus/jquery.timer-tools","stargazers_count":13},{"full_name":"lolmaus/KaTeX","stargazers_count":0},{"full_name":"lolmaus/kss","stargazers_count":0},{"full_name":"lolmaus/liquid-fire","stargazers_count":0},{"full_name":"lolmaus/loadimpact-assignment","stargazers_count":0},{"full_name":"lolmaus/lodash","stargazers_count":0},{"full_name":"lolmaus/lolma.us","stargazers_count":2},{"full_name":"lolmaus/lolmaus.github.io","stargazers_count":0},{"full_name":"lolmaus/loltodo","stargazers_count":0},{"full_name":"lolmaus/lsizerenamer","stargazers_count":1},{"full_name":"lolmaus/memory-scroll","stargazers_count":0},{"full_name":"lolmaus/middleman","stargazers_count":0},{"full_name":"lolmaus/middleman-alias","stargazers_count":0},{"full_name":"lolmaus/middleman-assets-folder-bug","stargazers_count":0},{"full_name":"lolmaus/middleman-blog","stargazers_count":0},{"full_name":"lolmaus/middleman-guides","stargazers_count":0},{"full_name":"lolmaus/middleman-kss-sandbox","stargazers_count":0},{"full_name":"lolmaus/middleman-padrino-test-partial-block","stargazers_count":0},{"full_name":"lolmaus/middleman-recursion-test","stargazers_count":0},{"full_name":"lolmaus/middleman-slim-wrap-layout-bug","stargazers_count":0},{"full_name":"lolmaus/middleman-test-layouts_dir","stargazers_count":0},{"full_name":"lolmaus/middleman-test-wrap-layout-local-var","stargazers_count":0},{"full_name":"lolmaus/moscow","stargazers_count":0},{"full_name":"lolmaus/MtHaml","stargazers_count":0},{"full_name":"lolmaus/nodeframework","stargazers_count":0},{"full_name":"lolmaus/nova_bs","stargazers_count":0},{"full_name":"lolmaus/omega2-pwm","stargazers_count":0},{"full_name":"lolmaus/open-ethereum-pool","stargazers_count":0},{"full_name":"lolmaus/padrino-docs","stargazers_count":0},{"full_name":"lolmaus/pedrosi","stargazers_count":0},{"full_name":"lolmaus/proto2type","stargazers_count":0},{"full_name":"lolmaus/rfcs","stargazers_count":0},{"full_name":"lolmaus/ruscup_aurora","stargazers_count":0},{"full_name":"lolmaus/saasy","stargazers_count":0},{"full_name":"lolmaus/sample-for-DenisNazarenko","stargazers_count":0},{"full_name":"lolmaus/sass-config-manager-mk2","stargazers_count":1},{"full_name":"lolmaus/sassbin","stargazers_count":5},{"full_name":"lolmaus/SassDoc","stargazers_count":0},{"full_name":"lolmaus/SassMeister","stargazers_count":0},{"full_name":"lolmaus/SassyLists","stargazers_count":0},{"full_name":"lolmaus/scut","stargazers_count":0},{"full_name":"lolmaus/selectel-s3ql-backup","stargazers_count":2},{"full_name":"lolmaus/sendmail","stargazers_count":0},{"full_name":"lolmaus/sharing-variables-between-sass-and-js","stargazers_count":2},{"full_name":"lolmaus/Singularity","stargazers_count":0},{"full_name":"lolmaus/singularity-quick-spanner","stargazers_count":2},{"full_name":"lolmaus/sinon-chai","stargazers_count":0},{"full_name":"lolmaus/sinon.js","stargazers_count":0},{"full_name":"lolmaus/sinonjs","stargazers_count":0},{"full_name":"lolmaus/slack-integration-test","stargazers_count":0},{"full_name":"lolmaus/sprity","stargazers_count":0},{"full_name":"lolmaus/sprity-sass","stargazers_count":0},{"full_name":"lolmaus/stamplay-product-development","stargazers_count":0},{"full_name":"lolmaus/stefanpenner.github.com","stargazers_count":0},{"full_name":"lolmaus/stickUp","stargazers_count":0},{"full_name":"lolmaus/svg-font-dump","stargazers_count":0},{"full_name":"lolmaus/taskaparilla","stargazers_count":0},{"full_name":"lolmaus/taskaparilla-stamplay-client","stargazers_count":1},{"full_name":"lolmaus/test","stargazers_count":1},{"full_name":"lolmaus/test01","stargazers_count":1},{"full_name":"lolmaus/test123","stargazers_count":1},{"full_name":"lolmaus/test2","stargazers_count":1},{"full_name":"lolmaus/test3","stargazers_count":1},{"full_name":"lolmaus/tocdown","stargazers_count":0},{"full_name":"lolmaus/toolkit","stargazers_count":0},{"full_name":"lolmaus/tp-compact-keyboard","stargazers_count":0},{"full_name":"lolmaus/ui-base-theme","stargazers_count":0},{"full_name":"lolmaus/umd","stargazers_count":0},{"full_name":"lolmaus/url-decode-filenames","stargazers_count":1},{"full_name":"lolmaus/url.js","stargazers_count":0},{"full_name":"lolmaus/vagrant-chef","stargazers_count":1},{"full_name":"lolmaus/valeriya-concert-build","stargazers_count":0},{"full_name":"lolmaus/valeriya-concert-production","stargazers_count":0},{"full_name":"lolmaus/web-storage-demo","stargazers_count":0},{"full_name":"lolmaus/website","stargazers_count":0},{"full_name":"lolmaus/yadda","stargazers_count":0},{"full_name":"lolmaus/yuidork","stargazers_count":5},{"full_name":"Deveo/ember-drag-sort","stargazers_count":46},{"full_name":"Deveo/ember-emojione","stargazers_count":13},{"full_name":"firecracker/ember-katex","stargazers_count":1},{"full_name":"Deveo/ember-sliding-sticky","stargazers_count":1}],"project":[{"data":{"id":"assertron","attributes":{"group":"js","status":4,"type":null,"owner":"lolmaus","url":null,"description":{"en":"standalone assertion library, aiming to be a tool for simple contract-driven development","ru":"самостоятельная assertion library, спроектированная для простого контрактного программирования"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/assertron"}}},"type":"projects"}},{"data":{"id":"breakpoint-slicer","attributes":{"group":"sass","status":1,"type":null,"owner":"lolmaus","url":null,"description":{"en":"slicing media queries with ease","ru":"нарезка media queries без труда"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/breakpoint-slicer"}}},"type":"projects"}},{"data":{"id":"ember-app-state-slider","attributes":{"group":"ember","status":3,"type":"app","owner":"lolmaus","url":null,"description":{"en":"a quick and naive implementation of immutable state management and time travel slider in Ember","ru":"простая и наивная реализация иммутабельного состояния и слайдера для \"путешествий во времени\" в Ember"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-app-state-slider"}}},"type":"projects"}},{"data":{"id":"ember-cli-custom-assertions-collection","attributes":{"group":"ember","status":1,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"a set of custom assertions, aiming to substitute Chai in QUnit world. Go add your own assertions!","ru":"набор кастомных assertion'ов, цель которого \u0026mdash; заменить Chai в мире QUnit. Пишите свои собственные assertion'ы!"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-cli-custom-assertions-collection"}}},"type":"projects"}},{"data":{"id":"ember-cli-stained-by-children","attributes":{"group":"ember","status":4,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"mark records as dirty when related records get dirty","ru":"отмечает записи как dirty, когда связанные записи становятся dirty"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-cli-stained-by-children"}}},"type":"projects"}},{"data":{"id":"ember-dialogs","attributes":{"group":"ember","status":1,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"customizable implementation of `alert`, `confirm` and `prompt` modal dialogs with straightforward API","ru":"решение для диалогов `alert`, `confirm` and `prompt`, не блокирующее поток, поддающееся стилизации и обладающее простым API"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-dialogs"}}},"type":"projects"}},{"data":{"id":"ember-drag-sort","attributes":{"group":"ember","status":1,"type":"addon","owner":"Deveo","url":null,"description":{"en":"drag'n'drop sortable list component, with support for multiple and nested lists","ru":"компонент для drag'n'drop сортировки с поддержкой вложенных списков"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"Deveo/ember-drag-sort"}}},"type":"projects"}},{"data":{"id":"ember-element-query","attributes":{"group":"ember","status":1,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"element query solution for your Ember apps","ru":"реализация element queries для ваших приложений"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-element-query"}}},"type":"projects"}},{"data":{"id":"ember-emojione","attributes":{"group":"ember","status":1,"type":"addon","owner":"Deveo","url":null,"description":{"en":"your complete emoji solution","ru":"полное решение для поддержки эмодзи в вашем приложении"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"Deveo/ember-emojione"}}},"type":"projects"}},{"data":{"id":"ember-gist","attributes":{"group":"ember","status":3,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"use gist.github.com as a poor man's backend","ru":"позволяет использовать gist.github.com в качестве замены бэкенда"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-gist"}}},"type":"projects"}},{"data":{"id":"ember-katex","attributes":{"group":"ember","status":1,"type":"addon","owner":"firecracker","url":null,"description":{"en":"render your LaTeX formulas using \u003ca href='https://github.com/Khan/KaTeX'\u003eKaTeX\u003c/a\u003e","ru":"рендеринг формул LaTeX с помощью \u003ca href='https://github.com/Khan/KaTeX'\u003eKaTeX\u003c/a\u003e"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"firecracker/ember-katex"}}},"type":"projects"}},{"data":{"id":"ember-prismic","attributes":{"group":"ember","status":4,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"\u003ca href='https://prismic.io/'\u003ePrismic.io\u003c/a\u003e integration for Ember","ru":"интеграция \u003ca href='https://prismic.io/'\u003ePrismic.io\u003c/a\u003e с Ember"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-prismic"}}},"type":"projects"}},{"data":{"id":"ember-scroll-to-mk2","attributes":{"group":"ember","status":1,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"a link/button component that performs animated scrolling to a specified selector","ru":"компонент в виде кнопки или ссылки, осуществляющей анимированную прокрутку до указанного селектора"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-scroll-to-mk2"}}},"type":"projects"}},{"data":{"id":"ember-sliding-sticky","attributes":{"group":"ember","status":1,"type":"addon","owner":"Deveo","url":null,"description":{"en":"A `position: sticky` alternative that works inside parents with `overflow: hidden`","ru":"Альтернатива для `position: sticky`, которая работает внутри элементов с `overflow: hidden`"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"Deveo/ember-sliding-sticky"}}},"type":"projects"}},{"data":{"id":"ember-stamplay","attributes":{"group":"ember","status":4,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"integrate with the Stamplay.com backend-as-a-service","ru":"интеграция с BaaS Stamplay.com"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-stamplay"}}},"type":"projects"}},{"data":{"id":"ember-svg-pie","attributes":{"group":"ember","status":1,"type":"addon","owner":"lolmaus","url":null,"description":{"en":"an extremely simple SVG pie chart component","ru":"чрезвычайно простой компонент для круговых диаграмм на основе SVG"},"ember-observer":true},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-svg-pie"}}},"type":"projects"}},{"data":{"id":"ember-zen","attributes":{"group":"ember","status":3,"type":"addon","owner":"lolmaus","url":"https://github.com/lolmaus/ember-zen/tree/gen-1#ember-zen","description":{"en":"an experiment with centralized state management, more appropriate in Ember than Redux","ru":"эксперимент с централизованным хранением состояния, более подходящим для Ember, чем Redux"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/ember-zen"}}},"type":"projects"}},{"data":{"id":"intercom-test-assignment","attributes":{"group":"ember","status":1,"type":"app","owner":"lolmaus","url":null,"description":{"en":"a test assignment I've done for Intercom.io","ru":"тестовое задание, которое я выполнил для Intercom.io"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/intercom-test-assignment"}}},"type":"projects"}},{"data":{"id":"jquery.closestchild","attributes":{"group":"jquery","status":1,"type":null,"owner":"lolmaus","url":null,"description":{"en":"an opposite of `closest()`: find the nearest child that matches a selector, ignore deeper matching children","ru":"метод, противоположный `closest()`: находит ближайшего потомка, соответствующего селектору, игнорируя вложенных в него потомков"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/jquery.closestchild"}}},"type":"projects"}},{"data":{"id":"jquery.dragbetter","attributes":{"group":"jquery","status":1,"type":null,"owner":"lolmaus","url":null,"description":{"en":"a no-bullshit alternative to `dragenter` and `dragleave` events behaving like `mouseenter` and `mouseleave`, not `mousein` and `mouseout`","ru":"избавляет от мозго#$%\u0026ва с событиями `dragenter` и `dragleave`, предоставляя их аналоги, работающие как `mouseenter` и `mouseleave`, а не `mousein` и `mouseout`"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/jquery.dragbetter"}}},"type":"projects"}},{"data":{"id":"lolma.us","attributes":{"group":"ember","status":1,"type":"app","owner":"lolmaus","url":null,"description":{"en":"this website, please see a detailed description below","ru":"этот сайт, см. подробое описание ниже"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/lolma.us"}}},"type":"projects"}},{"data":{"id":"singularity-quick-spanner","attributes":{"group":"sass","status":4,"type":null,"owner":"lolmaus","url":null,"description":{"en":"collection of handy shortcut mixins for the Singularity grid system","ru":"подборка удобных mixin'ов для системы модульных сеток Singularity"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/singularity-quick-spanner"}}},"type":"projects"}},{"data":{"id":"yuidork","attributes":{"group":"ember","status":2,"type":"app","owner":"lolmaus","url":null,"description":{"en":"view YUIDoc/JSDoc documentation for any project and any branch/tag/commit directly from GitHub","ru":"просмотр YUIDoc- и JSDoc-документации любого проекта, любой его ветки/тэга/коммита непосредственно с GitHub"},"ember-observer":false},"relationships":{"project-info":{"data":{"type":"project-infos","id":"lolmaus/yuidork"}}},"type":"projects"}}],"stackoverflow-user":[{"items":[{"user_id":901944,"reputation":16157,"badge_counts":{"bronze":95,"silver":48,"gold":4}}]}]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>PromiseProxyMixin: pure Ember alternative to ember-concurrency | Blog | Andrey Mikhaylov (lolmaus)</title>
+<meta property="og:title" content="PromiseProxyMixin: pure Ember alternative to ember-concurrency">
+
+<!---->
+  <meta property="og:locale" content="en">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_en.xml">
+
+  <meta property="og:description" content="ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.">
+
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="article">
+
+  <link rel="canonical" href="https://lolma.us/en/blog/promise-proxy-mixin/">
+  <meta property="og:url" content="https://lolma.us/en/blog/promise-proxy-mixin/">
+  <meta property="article:published_time" content="2017-03-07T00:00:00.000Z">
+  <meta property="article:author" content="https://lolma.us/en/">
+
+    <meta property="article:modified_time" content="2018-01-05T00:00:00.000Z">
+
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"Blog","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Blog of Andrey Mikhaylov (lolmaus)","description":"Musings on web development, mostly on JavaScript and EmberJS","url":"https://lolma.us/en/blog/","keywords":["development","web development","webdev","ember","emberjs","js","javascript","frontend"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://lolma.us/en/blog/","name":"Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://lolma.us/en/blog/promise-proxy-mixin/","name":"PromiseProxyMixin: pure Ember alternative to ember-concurrency"}}]},{"@type":"TechArticle","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"headline":"PromiseProxyMixin: pure Ember alternative to ember-concurrency","description":"ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.","image":"https://lolma.us/favicon.jpg","datePublished":"2017-03-07T00:00:00.000Z","dateModified":"2018-01-05T00:00:00.000Z","proficiency":"beginner","mainEntityOfPage":{"@type":"WebPage","@id":"https://lolma.us/en/blog/promise-proxy-mixin/"}}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember2833" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember2837" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  You are awesome today!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+<!---->
+    <a href="/en" id="ember2842" class="route-locale-menu-item _resume ember-view">Résumé</a>
+
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Source on GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/ru/blog/promise-proxy-mixin" id="ember2851" class="route-locale-menu-item _locale ember-view">    Моя не понимать
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-blog">
+
+
+<div id="ember2857" class="secTion ember-view"><div class="secTion-inner ">
+      <div class="route-blog-sidebar">
+      <div class="route-blog-sidebar-section _avatar">
+        <img src="/favicon.jpg" alt="Andrey Mikhaylov" width="512" height="512" class="route-blog-sidebar-avatar">
+      </div>
+
+      <div class="route-blog-sidebar-section _content">
+        <h2 class="route-blog-title">
+          Andrey Mikhaylov
+          @lolmaus
+        </h2>
+
+        <div class="route-blog-subtitle">
+          frontend&nbsp;developer, EmberJS&nbsp;enthusiast
+        </div>
+
+        <div id="ember2870" class="route-blogIndex-menu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/en/blog" id="ember2871" class="horizontalMenu-item-link active ember-view">Blog</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/en" id="ember2876" class="horizontalMenu-item-link ember-view">Résumé</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Source on GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/ru/blog/promise-proxy-mixin" id="ember2885" class="horizontalMenu-item-link ember-view">    Моя не понимать
+</a></div></div>
+      </div>
+      
+      <div class="route-blog-sidebar-section _bottom">
+
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg version="1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="5.5 -3.5 64 64" class="route-blog-sidebar-section-bottom-icon _cc" alt="License Creative Commons 4.0 Attribution" title="License Creative Commons 4.0 Attribution"><circle fill="#FFF" cx="37.637" cy="28.806" r="28.276"/><path d="M37.443-3.5c8.988 0 16.57 3.085 22.742 9.257C66.393 11.967 69.5 19.548 69.5 28.5c0 8.991-3.049 16.476-9.145 22.456-6.476 6.363-14.113 9.544-22.912 9.544-8.649 0-16.153-3.144-22.514-9.43C8.644 44.784 5.5 37.262 5.5 28.5c0-8.761 3.144-16.342 9.429-22.742C21.101-.415 28.604-3.5 37.443-3.5zm.114 5.772c-7.276 0-13.428 2.553-18.457 7.657-5.22 5.334-7.829 11.525-7.829 18.572 0 7.086 2.59 13.22 7.77 18.398 5.181 5.182 11.352 7.771 18.514 7.771 7.123 0 13.334-2.607 18.629-7.828 5.029-4.838 7.543-10.952 7.543-18.343 0-7.276-2.553-13.465-7.656-18.571-5.104-5.104-11.276-7.656-18.514-7.656zm8.572 18.285v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557c0-.572.2-1.057.599-1.457.401-.399.887-.6 1.457-.6h13.144c.533 0 1.01.2 1.428.6.417.4.628.886.628 1.457zm-13.087-8.228c0-3.008 1.485-4.514 4.458-4.514s4.457 1.504 4.457 4.514c0 2.971-1.486 4.457-4.457 4.457s-4.458-1.486-4.458-4.457z"/></svg>
+        </a>
+
+        <a href="https://lolma.us/rss_en.xml" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="49.25" viewBox="0 0 49.249999 49.249999" width="49.25" class="route-blog-sidebar-section-bottom-icon _rss" alt="RSS" title="RSS"><path d="M24.625 0C11.025 0 0 11.025 0 24.625 0 38.227 11.024 49.25 24.625 49.25c13.602 0 24.625-11.023 24.625-24.625C49.25 11.025 38.226 0 24.625 0zm-7.637 35.735a3.238 3.238 0 1 1 .002-6.476 3.238 3.238 0 0 1-.002 6.476zm8.123.021c0-3.057-1.182-5.928-3.33-8.082a11.247 11.247 0 0 0-8.028-3.342v-4.674c8.84 0 16.03 7.223 16.03 16.098h-4.672zm8.256.004c0-10.867-8.795-19.711-19.606-19.711v-4.676c13.387 0 24.28 10.942 24.28 24.387h-4.674z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+
+</div></div>
+
+<div id="ember2898" class="route-blog-content secTion ember-view"><div class="secTion-inner route-blog-content-inner">
+      <div class="route-blogPost">
+
+  <a href="/en/blog" id="ember2900" class="route-blogPost-back active ember-view">← To blog index</a>
+
+  <div id="ember2905" class="route-blogPost-post blogPost -full ember-view">  <h1 id="ember2906" class="blogPost-title ember-view"><p>PromiseProxyMixin: pure Ember alternative to ember-concurrency</p>
+</h1>
+
+
+
+<p class="blogPost-date">
+  7th March 2017
+
+    (last updated at 5th January 2018)
+
+</p>
+
+
+
+  <div id="ember2911" class="blogPost-summary ember-view"><p>ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.</p>
+</div>
+
+
+
+  <div id="ember2912" class="blogPost-body ember-view"><div class="exclamation"></div>
+<blockquote>
+  <p>This article was originally posted on Deveo blog.</p>
+  <p>When Deveo was acquired by Perforce, Deveo blog was turned down.</p>
+</blockquote>
+<p><a href="http://ember-concurrency.com">ember-concurrency</a> is an exceptionally powerful add-on with numerous use cases.</p>
+<p>The most common use case though is simply fetching or submitting data. You may be hesitant to include <code>ember-concurrency</code> into your app only for this use case.</p>
+<p>The matter is that Ember has all the necessary pieces included for implementing this kind of data fetching with simplicity and efficiency while staying true to the Ember way.</p>
+<h2 id="example-use-case" class="headingWithLink"><a href="#example-use-case" class="headingWithLink-link">#</a>Example use case</h2>
+<p>Let me demonstrate on a simple example. We are going to fetch the remaining number of available requests from GitHub API:</p>
+<div class="code-block"><pre><code class="hljs">GET http://api.github.com/rate_limit</code></pre></div>
+<p>I've chosen this particular API endpoint because it's the only one that GitHub doesn't rate-limit. :trollface:</p>
+<p>Let's implement a data fetching method:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-keyword">import</span> Controller <span class="hljs-keyword">from</span> <span class="hljs-string">'@ember/controller'</span>
+<span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">'fetch'</span>
+
+Controller.extend({
+  _fetchGitHubRate () {
+    <span class="hljs-keyword">return</span> fetch(<span class="hljs-string">'https://api.github.com/rate_limit'</span>)
+      .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json());
+  },
+});</code></pre></div>
+<p>I'm using <a href="https://github.com/ember-cli/ember-fetch">ember-fetch</a>, but it can be anything that returns a promise, for example, the <a href="https://github.com/ember-cli/ember-ajax">ember-ajax</a> service.</p>
+<p>And it can happen not only in a controller, but in any other Ember entity: component, service, model, etc.</p>
+<h2 id="enter-promiseproxymixin" class="headingWithLink"><a href="#enter-promiseproxymixin" class="headingWithLink-link">#</a>Enter <code>PromiseProxyMixin</code></h2>
+<p>You've probably heard an opinion that returning a promise from a computed property is a bad idea. Well, with <a href="https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin">PromiseProxyMixin</a> that's not true.</p>
+<p>Let's create an Ember Object enhanced with <code>PromiseProxyMixin</code>. You can do this on the root level of your module:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-keyword">import</span> EmberObject <span class="hljs-keyword">from</span> <span class="hljs-string">'@ember/object'</span>
+<span class="hljs-keyword">import</span> PromiseProxyMixin <span class="hljs-keyword">from</span> <span class="hljs-string">'@ember/object/promise-proxy-mixin'</span>
+
+<span class="hljs-keyword">const</span> PromiseObject = EmberObject.extend(PromiseProxyMixin);</code></pre></div>
+<p>Now we can wrap the promise into <code>PromiseObject</code>. Make sure to create two distinct computed properties (CPs):</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-comment">// This CP returns a simple promise</span>
+gitHubRatePromise: computed(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._fetchGitHubRate();
+}),
+
+<span class="hljs-comment">// This CP wraps the promise with with `PromiseObject` </span>
+gitHubRateProxy: computed(<span class="hljs-string">'gitHubRatePromise'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'gitHubRatePromise'</span>);
+  <span class="hljs-keyword">return</span> promise &amp;&amp; PromiseObject.create({promise});
+}),</code></pre></div>
+<p>Note the <code>promise &amp;&amp;</code> part. We don't want the promise proxy to be created when the promise does not exist because it would crash in that case.</p>
+<h2 id="accessing-the-content-of-a-promise" class="headingWithLink"><a href="#accessing-the-content-of-a-promise" class="headingWithLink-link">#</a>Accessing the content of a promise</h2>
+<p>The API endpoint we're accessing returns the data in this format (fragment shown):</p>
+<div class="code-block"><pre><code class="js language-js hljs">{
+  <span class="hljs-string">"resources"</span>: {
+    <span class="hljs-string">"core"</span>: {
+      <span class="hljs-string">"limit"</span>: <span class="hljs-number">60</span>,
+      <span class="hljs-string">"remaining"</span>: <span class="hljs-number">60</span>,
+      <span class="hljs-string">"reset"</span>: <span class="hljs-number">1486831110</span>
+    },
+}</code></pre></div>
+<p>This hash will become available in the template as <code>gitHubRateProxy.content</code>. You can work with this property normally, as shown below:</p>
+<div class="code-block"><pre><code class="js language-js hljs">  gitHubRate:          reads(<span class="hljs-string">'gitHubRateProxy.content'</span>),
+  <span class="hljs-attr">gitHubRateRemaining</span>: reads(<span class="hljs-string">'gitHubRate.resources.core.remaining'</span>),
+  <span class="hljs-attr">gitHubRateLimit</span>:     reads(<span class="hljs-string">'gitHubRate.resources.core.limit'</span>),</code></pre></div>
+<p>While the promise is not resolved, those properties will be <code>undefined</code>. Make sure to account for that when you use them downstream:</p>
+<div class="code-block"><pre><code class="js language-js hljs">  gitHubRatePercentage: computed(<span class="hljs-string">'gitHubRateRemaining'</span>, <span class="hljs-string">'gitHubRateLimit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> gitHubRateRemaining = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'gitHubRateRemaining'</span>);
+    <span class="hljs-keyword">const</span> gitHubRateLimit     = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'gitHubRateLimit'</span>);
+
+    <span class="hljs-comment">// We don't want a `NaN`!</span>
+    <span class="hljs-keyword">if</span> (gitHubRateRemaining == <span class="hljs-literal">null</span> || gitHubRateLimit == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">const</span> percentage  = <span class="hljs-built_in">Math</span>.round(gitHubRateRemaining / gitHubRateLimit * <span class="hljs-number">100</span>);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${percentage}</span>%`</span>;
+  }),</code></pre></div>
+<p>Now you can simply use these properties in your template!</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml">Your GitHub rate limit: </span><span class="hljs-template-variable">{{gitHubRateRemaining}}</span><span class="xml"> (</span><span class="hljs-template-variable">{{gitHubRatePercentage}}</span><span class="xml">)</span></code></pre></div>
+<h2 id="how-it-works" class="headingWithLink"><a href="#how-it-works" class="headingWithLink-link">#</a>How it works</h2>
+<p>Initially, the <code>gitHubRatePromise</code> CP is not consumed, and the request isn't made.</p>
+<p>When the template is rendered, the <code>gitHubRateRemaining</code> computed property is accessed. This CP depends on <code>gitHubRateProxy</code>. The <code>gitHubRateProxy</code> in turn reads <code>gitHubRatePromise</code>.</p>
+<p>When the <code>gitHubRatePromise</code> computed property is accessed for the first time, it calls the data fetching method and returns the promise.</p>
+<p>This promise is cached, so when it is accessed again, the computed property returns the same promise, and duplicate requests are not performed. Essentially, it implements a pattern that <code>ember-concurrency</code> calls <code>drop</code>!</p>
+<p>The promise is wrapped into the <code>PromiseObject</code> available as <code>gitHubRateProxy</code>. When the promise resolves, its return value becomes available as <code>gitHubRateProxy.content</code>.</p>
+<p>Note that this approach is declarative. I. e. you don't have to do this:</p>
+<div class="code-block"><pre><code class="js language-js hljs">didInsertElement () {
+  <span class="hljs-keyword">this</span>._super()
+  <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'fetchGitHubRateTask'</span>).perform()
+}</code></pre></div>
+<h2 id="accounting-for-a-pending-promise" class="headingWithLink"><a href="#accounting-for-a-pending-promise" class="headingWithLink-link">#</a>Accounting for a pending promise</h2>
+<p>Before the promise is resolved, <code>gitHubRateProxy.content</code> will be <code>undefined</code>. This means that while the promise is pending, the user will see nothing. Let's fix that.</p>
+<p><code>PromiseProxyMixin</code> exposes the <code>gitHubRateProxy.isPending</code> property. We can read it in our template:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> gitHubRateProxy.isPending}}</span><span class="xml">
+
+  Retrieving GitHub rate limit...
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">else</span>}}</span><span class="xml">
+
+  Your GitHub rate limit: </span><span class="hljs-template-variable">{{gitHubRateRemaining}}</span><span class="xml"> (</span><span class="hljs-template-variable">{{gitHubRatePercentage}}</span><span class="xml">)
+
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml"></span></code></pre></div>
+<p>Doing this feels quite natural. Turns out, returning promises from computed properties isn't that bad! 😉</p>
+<h2 id="accounting-for-a-rejected-promise" class="headingWithLink"><a href="#accounting-for-a-rejected-promise" class="headingWithLink-link">#</a>Accounting for a rejected promise</h2>
+<p>You might have already noticed a problem in this example: if a promise is rejected (due to a network hiccup, for example), it's rejected value will be cached forever. This is where <code>ember-concurrency</code> shines: it lets you restart a rejected task with very little boilerplate code.</p>
+<p>We can restart our promise with a few extra lines of code. The trick is to overwrite the <code>gitHubRatePromise</code> computed property with a static promise:</p>
+<div class="code-block"><pre><code class="js language-js hljs">  actions: {
+    refetchGitHubRate () {
+      <span class="hljs-keyword">this</span>.set(<span class="hljs-string">'gitHubRatePromise'</span>, <span class="hljs-keyword">this</span>._fetchGitHubRate());
+    }
+  },</code></pre></div>
+<p>Calling this action will start a new network request, put its promise into <code>gitHubRatePromise</code> and force all dependent computed properties to recalculate! <code>gitHubRateProxy.isRejected</code> will be true when the promise is rejected. <code>gitHubRateProxy.reason</code> will contain the rejection message. Let's do it:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> gitHubRateProxy.isRejected}}</span><span class="xml">
+
+  Failed to retrieve GitHub rate limit.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+  Reason: </span><span class="hljs-template-variable">{{gitHubRateProxy.reason}}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">action</span> 'refetchGitHubRate'}}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+    Retry
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">else</span> <span class="hljs-builtin-name">if</span> gitHubRateProxy.isPending}}</span><span class="xml">
+
+  Retrieving GitHub rate limit...
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">else</span>}}</span><span class="xml">
+
+  Your GitHub rate limit: </span><span class="hljs-template-variable">{{gitHubRateRemaining}}</span><span class="xml"> (</span><span class="hljs-template-variable">{{gitHubRatePercentage}}</span><span class="xml">)
+
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml"></span></code></pre></div>
+<h2 id="demo" class="headingWithLink"><a href="#demo" class="headingWithLink-link">#</a>Demo</h2>
+<p>See the complete code sample and try it in action <a href="https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">on Ember Twiddle</a>:</p>
+<iframe src="https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?fullScreen=true" style="width: 100%; height: 500px; border: 2px solid biege;"></iframe>
+<p><br></p>
+<p><a href="https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">Here</a> you can find the <code>ember-concurrency</code> variant for comparison.</p>
+<h2 id="keeping-the-logic-on-a-service-for-reusability" class="headingWithLink"><a href="#keeping-the-logic-on-a-service-for-reusability" class="headingWithLink-link">#</a>Keeping the logic on a service for reusability</h2>
+<p>If you have the described logic on a component and render the component in two distinct routes, it will redownload the data every time the user switches routes.</p>
+<p>This is likely not desirable. Instead, you want the response to be cached globally, it should be redownloaded only when explicitly told to.</p>
+<p>The solution to this is simple: move the logic into a service. It's very convenient to subclass <code>ember-ajax</code> and enhance it with custom methods and computed properties.</p>
+<h2 id="emberobjectproxy-is-not-necessary" class="headingWithLink"><a href="#emberobjectproxy-is-not-necessary" class="headingWithLink-link">#</a><code>Ember.ObjectProxy</code> is not necessary</h2>
+<p>Note that official <a href="https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin">PromiseProxyMixin</a> docs suggest using <code>Ember.ObjectProxy</code>. However, it is doing some black magic with the only purpose of which is to shorten this path:</p>
+<div class="code-block"><pre><code class="hljs">gitHubRateProxy.content.resources.core.remaining</code></pre></div>
+<p>by removing the <code>.content</code> segment so that it looks like this:</p>
+<div class="code-block"><pre><code class="hljs">gitHubRateProxy.resources.core.remaining</code></pre></div>
+<p>Naturally, this black magic doesn't work for arrays. For arrays, you have to use <code>Ember.ArrayProxy</code> which of course doesn't work with objects. And if your promise returns a class instance rather than a hash (POJO), you can use neither of them.</p>
+<p><code>Ember.Object</code> is universal. Having this extra <code>.content</code> segment is a tiny price to pay for the straightforwardness it offers. I believe, <code>ObjectProxy</code> and <code>ArrayProxy</code> are the remnants of the bygone era of <code>ObjectController</code> and <code>ArrayController</code>.</p>
+<h2 id="neither-are-ember-deferred-content-and-ember-async-button" class="headingWithLink"><a href="#neither-are-ember-deferred-content-and-ember-async-button" class="headingWithLink-link">#</a>Neither are <code>ember-deferred-content</code> and <code>ember-async-button</code></h2>
+<p>These two addons approach promise wrapping on template level. They offer funky template APIs without offering anything that the described approach does not offer. </p>
+<p>Compare these:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> gitHubRateProxy.isRejected}}</span><span class="xml">
+
+  Failed to retrieve GitHub rate limit.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+  Reason: </span><span class="hljs-template-variable">{{gitHubRateProxy.reason}}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">action</span> 'refetchGitHubRate'}}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+    Retry
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">else</span> <span class="hljs-builtin-name">if</span> gitHubRateProxy.isPending}}</span><span class="xml">
+
+  Retrieving GitHub rate limit...
+
+</span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">else</span>}}</span><span class="xml">
+
+  Your GitHub rate limit: </span><span class="hljs-template-variable">{{gitHubRateRemaining}}</span><span class="xml"> (</span><span class="hljs-template-variable">{{gitHubRatePercentage}}</span><span class="xml">)
+
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml"></span></code></pre></div>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-tag">{{#<span class="hljs-name">deferred-content</span> gitHubRatePromise as |d|}}</span><span class="xml">
+  </span><span class="hljs-template-tag">{{#<span class="hljs-name">d.pending</span>}}</span><span class="xml">
+    Retrieving GitHub rate limit...
+  </span><span class="hljs-template-tag">{{/<span class="hljs-name">d.pending</span>}}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{{#<span class="hljs-name">d.fulfilled</span> as |gitHubRate|}}</span><span class="xml">
+    Your GitHub rate limit:
+
+    </span><span class="hljs-template-variable">{{gitHubRate.resources.core.remaining}}</span><span class="xml">
+
+    (</span><span class="hljs-template-variable">{{multiply
+      (divide gitHubRate.resources.core.remaining gitHubRate.resources.core.limit)
+      100
+    }}</span><span class="xml">%)
+  </span><span class="hljs-template-tag">{{/<span class="hljs-name">d.fulfilled</span>}}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{{#<span class="hljs-name">d.rejected</span> as |reason|}}</span><span class="xml">
+    Failed to retrieve GitHub rate limit.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+    Reason: </span><span class="hljs-template-variable">{{reason}}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span> </span></span><span class="hljs-template-variable">{{<span class="hljs-builtin-name">action</span> 'refetchGitHubRate'}}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+      Retry
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  </span><span class="hljs-template-tag">{{/<span class="hljs-name">d.rejected</span>}}</span><span class="xml">
+</span><span class="hljs-template-tag">{{/<span class="hljs-name">deferred-content</span>}}</span><span class="xml"></span></code></pre></div>
+<p>Note how <code>ember-deferred-content</code> forces you to calculate percentage on the template level.</p>
+<h2 id="im-not-advocating-against-ember-concurrency" class="headingWithLink"><a href="#im-not-advocating-against-ember-concurrency" class="headingWithLink-link">#</a>I'm not advocating against <code>ember-concurrency</code></h2>
+<p>The main purpose of this article is to show you a pattern and make you give it a little thought. The pattern is fully legit and I'm using it whenever I don't feel like including <code>ember-concurrency</code> into my project.</p>
+<p>There are at least two reasons to do this:</p>
+<ul>
+<li>you care for your distribution size too much, and</li>
+<li>you want to keep it simple and avoid extra layers of unnecessary abstraction and complexity</li>
+</ul>
+<p>If you're already familiar with <code>ember-concurrency</code> and have it included in your project, there's no reason not to employ it for this use case. It may save you some typing:</p>
+<div class="code-block"><pre><code class="js language-js hljs">gitHubRateTask: task(<span class="hljs-function"><span class="hljs-keyword">function</span> * (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">yield</span> <span class="hljs-keyword">this</span>._fetchGitHubRate();
+}).restartable().on(<span class="hljs-string">'didInsertElement'</span>)
+
+gitHubRate:          reads(<span class="hljs-string">'gitHubRateTask.last.value'</span>),
+<span class="hljs-attr">gitHubRateRemaining</span>: reads(<span class="hljs-string">'gitHubRate.resources.core.remaining'</span>),
+<span class="hljs-attr">gitHubRateLimit</span>:     reads(<span class="hljs-string">'gitHubRate.resources.core.limit'</span>),
+
+<span class="hljs-comment">// If we don't do this, the request will not be made. Smells imperative. :(</span>
+didInsertElement () {
+  <span class="hljs-keyword">this</span>._super()
+  <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'fetchGitHubRateTask'</span>).perform()
+}</code></pre></div>
+<p><a href="https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">Here</a>'s the link to th full <code>ember-concurrency</code> example again.</p>
+<h2 id="accessing-the-previous-response-after-the-request-is-repeated-and-fails" class="headingWithLink"><a href="#accessing-the-previous-response-after-the-request-is-repeated-and-fails" class="headingWithLink-link">#</a>Accessing the previous response after the request is repeated and fails</h2>
+<p>Consider this use case. We're polling the backend every second and we want the last available result to be displayed at all times.</p>
+<p><code>ember-concurrency</code> offers access to the last resolution and rejection values even after the task has been restarted:</p>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-variable">{{gitHubRateTask.lastSuccessful.value}}</span><span class="xml"></span></code></pre></div>
+<p>If we do the same with the <code>PromiseProxyMixin</code> approach, the value on the page will be flashing every second. This is because the promise gets overwritten every second, and the previous resolution value becomes unavailable.</p>
+<p>A quick solution would be to add <code>.then(result =&gt; this.set('result', result))</code> to the promise, so that the resolved value gets extracted from the promise and stored separately.</p>
+<p>This is a valid solution, but I don't like it for its imperativeness. Instead, consider this CP macro:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cachingMacro</span> (<span class="hljs-params">key</span>) </span>{
+  <span class="hljs-keyword">let</span> cache
+
+  <span class="hljs-keyword">return</span> computed(key, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> value = <span class="hljs-keyword">this</span>.get(key)
+
+    <span class="hljs-keyword">return</span> value == <span class="hljs-literal">null</span>
+      ? cache
+      : cache = value
+  })
+}</code></pre></div>
+<p>It can be used like this: </p>
+<div class="code-block"><pre><code class="js language-js hljs">gitHubRate:          cachingMacro(<span class="hljs-string">'gitHubRateProxy.content'</span>),
+<span class="hljs-attr">gitHubRateRemaining</span>: reads(<span class="hljs-string">'gitHubRate.resources.core.remaining'</span>),
+<span class="hljs-attr">gitHubRateLimit</span>:     reads(<span class="hljs-string">'gitHubRate.resources.core.limit'</span>),</code></pre></div>
+<p>Now, when the promise is overwritten with another promise that rejects, <code>gitHubRate</code> will still contain the resolved value of the first promise.</p>
+<p>Or you can use <code>ember-concurrency</code> after all. 😬</p>
+<h2 id="tell-me-what-you-think" class="headingWithLink"><a href="#tell-me-what-you-think" class="headingWithLink-link">#</a>Tell me what you think</h2>
+<p>Use the comments below to share your impressions, objections, and ideas. The most valuable part of an article is always the discussion that follows!</p>
+</div>
+</div>
+
+<!---->
+</div>
+
+  
+</div></div>
+
+
+</div>
+
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[],"markdown-block":[],"post":[{"data":{"id":"promise-proxy-mixin-en","attributes":{"title":"PromiseProxyMixin: pure Ember alternative to ember-concurrency","body":"\n\u003cdiv class=\"exclamation\"\u003e\u003c/div\u003e\n\n\u003e This article was originally posted on Deveo blog.\n\u003e \n\u003e When Deveo was acquired by Perforce, Deveo blog was turned down.\n\n\n\n[ember-concurrency](http://ember-concurrency.com) is an exceptionally powerful add-on with numerous use cases.\n\nThe most common use case though is simply fetching or submitting data. You may be hesitant to include `ember-concurrency` into your app only for this use case.\n\nThe matter is that Ember has all the necessary pieces included for implementing this kind of data fetching with simplicity and efficiency while staying true to the Ember way.\n\n\n\n## Example use case\n\nLet me demonstrate on a simple example. We are going to fetch the remaining number of available requests from GitHub API:\n\n    GET http://api.github.com/rate_limit\n\nI've chosen this particular API endpoint because it's the only one that GitHub doesn't rate-limit. :trollface:\n\nLet's implement a data fetching method:\n\n```js\nimport Controller from '@ember/controller'\nimport fetch from 'fetch'\n\nController.extend({\n  _fetchGitHubRate () {\n    return fetch('https://api.github.com/rate_limit')\n      .then(response =\u003e response.json());\n  },\n});\n```\n\nI'm using [ember-fetch](https://github.com/ember-cli/ember-fetch), but it can be anything that returns a promise, for example, the [ember-ajax](https://github.com/ember-cli/ember-ajax) service.\n\nAnd it can happen not only in a controller, but in any other Ember entity: component, service, model, etc.\n\n\n\n## Enter `PromiseProxyMixin`\n\nYou've probably heard an opinion that returning a promise from a computed property is a bad idea. Well, with [PromiseProxyMixin](https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin) that's not true.\n\nLet's create an Ember Object enhanced with `PromiseProxyMixin`. You can do this on the root level of your module:\n\n```js\nimport EmberObject from '@ember/object'\nimport PromiseProxyMixin from '@ember/object/promise-proxy-mixin'\n\nconst PromiseObject = EmberObject.extend(PromiseProxyMixin);\n```\n\nNow we can wrap the promise into `PromiseObject`. Make sure to create two distinct computed properties (CPs):\n\n```js\n// This CP returns a simple promise\ngitHubRatePromise: computed(function () {\n  return this._fetchGitHubRate();\n}),\n\n// This CP wraps the promise with with `PromiseObject` \ngitHubRateProxy: computed('gitHubRatePromise', function () {\n  const promise = this.get('gitHubRatePromise');\n  return promise \u0026\u0026 PromiseObject.create({promise});\n}),\n```\n\nNote the `promise \u0026\u0026` part. We don't want the promise proxy to be created when the promise does not exist because it would crash in that case.\n\n\n\n## Accessing the content of a promise\n\nThe API endpoint we're accessing returns the data in this format (fragment shown):\n\n```js\n{\n  \"resources\": {\n    \"core\": {\n      \"limit\": 60,\n      \"remaining\": 60,\n      \"reset\": 1486831110\n    },\n}\n```\n\nThis hash will become available in the template as `gitHubRateProxy.content`. You can work with this property normally, as shown below:\n\n```js\n  gitHubRate:          reads('gitHubRateProxy.content'),\n  gitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),\n  gitHubRateLimit:     reads('gitHubRate.resources.core.limit'),\n```\n\nWhile the promise is not resolved, those properties will be `undefined`. Make sure to account for that when you use them downstream:\n\n```js\n  gitHubRatePercentage: computed('gitHubRateRemaining', 'gitHubRateLimit', function () {\n    const gitHubRateRemaining = this.get('gitHubRateRemaining');\n    const gitHubRateLimit     = this.get('gitHubRateLimit');\n    \n    // We don't want a `NaN`!\n    if (gitHubRateRemaining == null || gitHubRateLimit == null) return;\n    \n    const percentage  = Math.round(gitHubRateRemaining / gitHubRateLimit * 100);\n    \n    return `${percentage}%`;\n  }),\n```\n\nNow you can simply use these properties in your template!\n\n```handlebars\nYour GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})\n```\n\n\n\n## How it works\n\nInitially, the `gitHubRatePromise` CP is not consumed, and the request isn't made.\n\nWhen the template is rendered, the `gitHubRateRemaining` computed property is accessed. This CP depends on `gitHubRateProxy`. The `gitHubRateProxy` in turn reads `gitHubRatePromise`.\n\nWhen the `gitHubRatePromise` computed property is accessed for the first time, it calls the data fetching method and returns the promise.\n\nThis promise is cached, so when it is accessed again, the computed property returns the same promise, and duplicate requests are not performed. Essentially, it implements a pattern that `ember-concurrency` calls `drop`!\n\nThe promise is wrapped into the `PromiseObject` available as `gitHubRateProxy`. When the promise resolves, its return value becomes available as `gitHubRateProxy.content`.\n\nNote that this approach is declarative. I. e. you don't have to do this:\n\n```js\ndidInsertElement () {\n  this._super()\n  this.get('fetchGitHubRateTask').perform()\n}\n```\n\n\n\n## Accounting for a pending promise\n\nBefore the promise is resolved, `gitHubRateProxy.content` will be `undefined`. This means that while the promise is pending, the user will see nothing. Let's fix that.\n\n`PromiseProxyMixin` exposes the `gitHubRateProxy.isPending` property. We can read it in our template:\n\n```handlebars\n{{#if gitHubRateProxy.isPending}}\n\n  Retrieving GitHub rate limit...\n\n{{else}}\n\n  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})\n  \n{{/if}}\n```\n\nDoing this feels quite natural. Turns out, returning promises from computed properties isn't that bad! :wink:\n\n\n\n## Accounting for a rejected promise\n\nYou might have already noticed a problem in this example: if a promise is rejected (due to a network hiccup, for example), it's rejected value will be cached forever. This is where `ember-concurrency` shines: it lets you restart a rejected task with very little boilerplate code.\n\nWe can restart our promise with a few extra lines of code. The trick is to overwrite the `gitHubRatePromise` computed property with a static promise:\n\n```js\n  actions: {\n    refetchGitHubRate () {\n      this.set('gitHubRatePromise', this._fetchGitHubRate());\n    }\n  },\n```\n\nCalling this action will start a new network request, put its promise into `gitHubRatePromise` and force all dependent computed properties to recalculate! `gitHubRateProxy.isRejected` will be true when the promise is rejected. `gitHubRateProxy.reason` will contain the rejection message. Let's do it:\n\n```handlebars\n{{#if gitHubRateProxy.isRejected}}\n\n  Failed to retrieve GitHub rate limit.\u003cbr\u003e\n    \n  Reason: {{gitHubRateProxy.reason}}\u003cbr\u003e\n    \n  \u003ca href {{action 'refetchGitHubRate'}}\u003e\n    Retry\n  \u003c/a\u003e\n    \n{{else if gitHubRateProxy.isPending}}\n\n  Retrieving GitHub rate limit...\n\n{{else}}\n\n  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})\n  \n{{/if}}\n```\n\n\n## Demo\n\nSee the complete code sample and try it in action [on Ember Twiddle](https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?numColumns=2\u0026openFiles=controllers.application.js%2Ctemplates.application.hbs):\n\u003ciframe src=\"https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?fullScreen=true\" style=\"width: 100%; height: 500px; border: 2px solid biege;\"\u003e\u003c/iframe\u003e\u003cbr\u003e\n\n[Here](https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2\u0026openFiles=controllers.application.js%2Ctemplates.application.hbs) you can find the `ember-concurrency` variant for comparison.\n\n\n\n## Keeping the logic on a service for reusability\n\nIf you have the described logic on a component and render the component in two distinct routes, it will redownload the data every time the user switches routes.\n\nThis is likely not desirable. Instead, you want the response to be cached globally, it should be redownloaded only when explicitly told to.\n\nThe solution to this is simple: move the logic into a service. It's very convenient to subclass `ember-ajax` and enhance it with custom methods and computed properties.\n\n\n\n## `Ember.ObjectProxy` is not necessary\n\nNote that official [PromiseProxyMixin](https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin) docs suggest using `Ember.ObjectProxy`. However, it is doing some black magic with the only purpose of which is to shorten this path:\n\n    gitHubRateProxy.content.resources.core.remaining\n\nby removing the `.content` segment so that it looks like this:\n\n    gitHubRateProxy.resources.core.remaining\n\nNaturally, this black magic doesn't work for arrays. For arrays, you have to use `Ember.ArrayProxy` which of course doesn't work with objects. And if your promise returns a class instance rather than a hash (POJO), you can use neither of them.\n\n`Ember.Object` is universal. Having this extra `.content` segment is a tiny price to pay for the straightforwardness it offers. I believe, `ObjectProxy` and `ArrayProxy` are the remnants of the bygone era of `ObjectController` and `ArrayController`.\n\n\n\n## Neither are `ember-deferred-content` and `ember-async-button`\n\nThese two addons approach promise wrapping on template level. They offer funky template APIs without offering anything that the described approach does not offer. \n\nCompare these:\n\n```handlebars\n{{#if gitHubRateProxy.isRejected}}\n\n  Failed to retrieve GitHub rate limit.\u003cbr\u003e\n    \n  Reason: {{gitHubRateProxy.reason}}\u003cbr\u003e\n    \n  \u003ca href {{action 'refetchGitHubRate'}}\u003e\n    Retry\n  \u003c/a\u003e\n    \n{{else if gitHubRateProxy.isPending}}\n\n  Retrieving GitHub rate limit...\n\n{{else}}\n\n  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})\n  \n{{/if}}\n```\n\n```handlebars\n{{#deferred-content gitHubRatePromise as |d|}}\n  {{#d.pending}}\n    Retrieving GitHub rate limit...\n  {{/d.pending}}\n\n  {{#d.fulfilled as |gitHubRate|}}\n    Your GitHub rate limit:\n\n    {{gitHubRate.resources.core.remaining}}\n\n    ({{multiply\n      (divide gitHubRate.resources.core.remaining gitHubRate.resources.core.limit)\n      100\n    }}%)\n  {{/d.fulfilled}}\n\n  {{#d.rejected as |reason|}}\n    Failed to retrieve GitHub rate limit.\u003cbr\u003e\n      \n    Reason: {{reason}}\u003cbr\u003e\n      \n    \u003ca href {{action 'refetchGitHubRate'}}\u003e\n      Retry\n    \u003c/a\u003e\n  {{/d.rejected}}\n{{/deferred-content}}\n```\n\nNote how `ember-deferred-content` forces you to calculate percentage on the template level.\n\n\n\n## I'm not advocating against `ember-concurrency`\n\nThe main purpose of this article is to show you a pattern and make you give it a little thought. The pattern is fully legit and I'm using it whenever I don't feel like including `ember-concurrency` into my project.\n\nThere are at least two reasons to do this:\n\n* you care for your distribution size too much, and\n* you want to keep it simple and avoid extra layers of unnecessary abstraction and complexity\n\nIf you're already familiar with `ember-concurrency` and have it included in your project, there's no reason not to employ it for this use case. It may save you some typing:\n\n```js\ngitHubRateTask: task(function * () {\n  return yield this._fetchGitHubRate();\n}).restartable().on('didInsertElement')\n\ngitHubRate:          reads('gitHubRateTask.last.value'),\ngitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),\ngitHubRateLimit:     reads('gitHubRate.resources.core.limit'),\n\n// If we don't do this, the request will not be made. Smells imperative. :(\ndidInsertElement () {\n  this._super()\n  this.get('fetchGitHubRateTask').perform()\n}\n```\n\n[Here](https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2\u0026openFiles=controllers.application.js%2Ctemplates.application.hbs)'s the link to th full `ember-concurrency` example again.\n\n\n\n## Accessing the previous response after the request is repeated and fails\n\nConsider this use case. We're polling the backend every second and we want the last available result to be displayed at all times.\n\n`ember-concurrency` offers access to the last resolution and rejection values even after the task has been restarted:\n\n```handlebars\n{{gitHubRateTask.lastSuccessful.value}}\n```\n\nIf we do the same with the `PromiseProxyMixin` approach, the value on the page will be flashing every second. This is because the promise gets overwritten every second, and the previous resolution value becomes unavailable.\n\nA quick solution would be to add `.then(result =\u003e this.set('result', result))` to the promise, so that the resolved value gets extracted from the promise and stored separately.\n\nThis is a valid solution, but I don't like it for its imperativeness. Instead, consider this CP macro:\n\n```js\nfunction cachingMacro (key) {\n  let cache\n\n  return computed(key, function () {\n    const value = this.get(key)\n    \n    return value == null\n      ? cache\n      : cache = value\n  })\n}\n```\n\nIt can be used like this: \n\n```js\ngitHubRate:          cachingMacro('gitHubRateProxy.content'),\ngitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),\ngitHubRateLimit:     reads('gitHubRate.resources.core.limit'),\n```\n\nNow, when the promise is overwritten with another promise that rejects, `gitHubRate` will still contain the resolved value of the first promise.\n\nOr you can use `ember-concurrency` after all. :grimacing:\n\n\n\n## Tell me what you think\n\nUse the comments below to share your impressions, objections, and ideas. The most valuable part of an article is always the discussion that follows!","summary":"ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.","image":null,"created":"2017-03-07T00:00:00.000Z","updated":"2018-01-05T00:00:00.000Z","hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}}],"project-info":[],"project":[],"stackoverflow-user":[]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

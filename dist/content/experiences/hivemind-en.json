@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "hivemind-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "hivemind-en",
+      "title": "Frontend Developer at Hivemind, Russia",
+      "type": "project",
+      "start": "2014-03",
+      "end": "2014-06",
+      "body": "\n*   Prototyping the UI (linked above).\n*   Building the frontend.\n*   Working against a Rails API.\n\nThe MVP was complete, yet the project did not launch due to non-technical reasons.\n\nSee a <a href='http://hivemindunit.github.io/hivemind-frontend-prototype/settings/domains/categories2/'>prototype</a> from 2014.\n"
+    }
+  }
+}

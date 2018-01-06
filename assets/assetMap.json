@@ -1,0 +1,29 @@
+{
+  "assets": {
+    "assets/assetMap.json": "assets/assetMap.json",
+    "assets/lolma-us-fastboot.js": "assets/lolma-us-fastboot-422937c103369e39d6361b056cfe7e7f.js",
+    "assets/lolma-us.css": "assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css",
+    "assets/lolma-us.js": "assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js",
+    "assets/vendor.css": "assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css",
+    "assets/vendor.js": "assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js",
+    "ember-fetch/fastboot-fetch.js": "ember-fetch/fastboot-fetch-805e176077930c98aec5834ae48bd0f2.js",
+    "images/backgrounds/gplaypattern_@2X.png": "images/backgrounds/gplaypattern_@2X-c0e006eff24b03460c2bbcfacd6f579b.png",
+    "images/icons/external-link.png": "images/icons/external-link-8d36617bafaf7825908d34f0a0ddb2bb.png",
+    "images/index/hire.png": "images/index/hire-64f8a1f4efefbbdb451bf663e33def9f.png",
+    "images/linked-data/hansoft-logo.png": "images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png",
+    "images/linked-data/helix-alm-logo.png": "images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png",
+    "images/linked-data/helix-core-logo.png": "images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png",
+    "images/linked-data/helix-teamhub-logo.png": "images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png",
+    "images/service-icons/email.png": "images/service-icons/email-66fdb5bac70634741053301ca0956560.png",
+    "images/service-icons/ember.png": "images/service-icons/ember-f2d07120d2bb7f0d4a63810011903d75.png",
+    "images/service-icons/github.png": "images/service-icons/github-438c17272c5f0e9f4a6da34d3e4bc5bd.png",
+    "images/service-icons/gitter.png": "images/service-icons/gitter-bac175d0510c8390141e10a8361f2b86.png",
+    "images/service-icons/hangouts.png": "images/service-icons/hangouts-05a04c240ccbca330ef4fc955211434d.png",
+    "images/service-icons/stackoverflow.png": "images/service-icons/stackoverflow-de6d326a2749f7df07bdd1f9f94628cb.png",
+    "images/service-icons/telegram.png": "images/service-icons/telegram-1330ba39ac54aa1c67c7f6f12db4af20.png",
+    "images/service-icons/twitter.png": "images/service-icons/twitter-3404b526c7ae98833e98ac37d86ae516.png",
+    "moment/fastboot-moment-timezone.js": "moment/fastboot-moment-timezone-578ab4bc24839c1fa18fc484b2cf5d0d.js",
+    "moment/fastboot-moment.js": "moment/fastboot-moment-fc1d02c2a35021ee4ca1a6f87a5a64c7.js"
+  },
+  "prepend": ""
+}

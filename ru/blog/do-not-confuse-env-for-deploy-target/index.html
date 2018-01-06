@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>Не путайте environment с deploy target | Блог | Андрей Михайлов (lolmaus)</title>
+<meta property="og:title" content="Не путайте environment с deploy target">
+
+<!---->
+  <meta property="og:locale" content="ru">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_ru.xml">
+
+  <meta property="og:description" content="У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры развертывания, что неверно.">
+
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="article">
+
+  <link rel="canonical" href="https://lolma.us/ru/blog/do-not-confuse-env-for-deploy-target/">
+  <meta property="og:url" content="https://lolma.us/ru/blog/do-not-confuse-env-for-deploy-target/">
+  <meta property="article:published_time" content="2017-02-18T00:00:00.000Z">
+  <meta property="article:author" content="https://lolma.us/ru/">
+
+    <meta property="article:modified_time" content="2017-12-24T00:00:00.000Z">
+
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"ru","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"Blog","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"ru","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Блог Андрея Михайлова (lolmaus)","description":"Заметки о вэб-разработке, в основном о JavaScript и EmberJS","url":"https://lolma.us/ru/blog/","keywords":["development","web development","webdev","ember","emberjs","js","javascript","frontend"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://lolma.us/ru/blog/","name":"Блог"}},{"@type":"ListItem","position":2,"item":{"@id":"https://lolma.us/ru/blog/do-not-confuse-env-for-deploy-target/","name":"Не путайте environment с deploy target"}}]},{"@type":"TechArticle","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"ru","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"headline":"Не путайте environment с deploy target","description":"У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры развертывания, что неверно.","image":"https://lolma.us/favicon.jpg","datePublished":"2017-02-18T00:00:00.000Z","dateModified":"2017-12-24T00:00:00.000Z","proficiency":"beginner","mainEntityOfPage":{"@type":"WebPage","@id":"https://lolma.us/ru/blog/do-not-confuse-env-for-deploy-target/"}}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember2562" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember2566" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  Ты сегодня лучше всех!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+<!---->
+    <a href="/ru" id="ember2571" class="route-locale-menu-item _resume ember-view">Резюме</a>
+
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Исходник на GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/en/blog/do-not-confuse-env-for-deploy-target" id="ember2580" class="route-locale-menu-item _locale ember-view">    Switch to English
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-blog">
+
+
+<div id="ember2586" class="secTion ember-view"><div class="secTion-inner ">
+      <div class="route-blog-sidebar">
+      <div class="route-blog-sidebar-section _avatar">
+        <img src="/favicon.jpg" alt="Андрей Михайлов" width="512" height="512" class="route-blog-sidebar-avatar">
+      </div>
+
+      <div class="route-blog-sidebar-section _content">
+        <h2 class="route-blog-title">
+          Андрей Михайлов
+          @lolmaus
+        </h2>
+
+        <div class="route-blog-subtitle">
+          фронтенд&#8209;разработчик, EmberJS&#8209;энтузиаст
+        </div>
+
+        <div id="ember2599" class="route-blogIndex-menu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/ru/blog" id="ember2600" class="horizontalMenu-item-link active ember-view">Блог</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/ru" id="ember2605" class="horizontalMenu-item-link ember-view">Резюме</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Исходник на GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/en/blog/do-not-confuse-env-for-deploy-target" id="ember2614" class="horizontalMenu-item-link ember-view">    Switch to English
+</a></div></div>
+      </div>
+      
+      <div class="route-blog-sidebar-section _bottom">
+
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg version="1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="5.5 -3.5 64 64" class="route-blog-sidebar-section-bottom-icon _cc" alt="Лицензия Creative Commons 4.0 Attribution" title="Лицензия Creative Commons 4.0 Attribution"><circle fill="#FFF" cx="37.637" cy="28.806" r="28.276"/><path d="M37.443-3.5c8.988 0 16.57 3.085 22.742 9.257C66.393 11.967 69.5 19.548 69.5 28.5c0 8.991-3.049 16.476-9.145 22.456-6.476 6.363-14.113 9.544-22.912 9.544-8.649 0-16.153-3.144-22.514-9.43C8.644 44.784 5.5 37.262 5.5 28.5c0-8.761 3.144-16.342 9.429-22.742C21.101-.415 28.604-3.5 37.443-3.5zm.114 5.772c-7.276 0-13.428 2.553-18.457 7.657-5.22 5.334-7.829 11.525-7.829 18.572 0 7.086 2.59 13.22 7.77 18.398 5.181 5.182 11.352 7.771 18.514 7.771 7.123 0 13.334-2.607 18.629-7.828 5.029-4.838 7.543-10.952 7.543-18.343 0-7.276-2.553-13.465-7.656-18.571-5.104-5.104-11.276-7.656-18.514-7.656zm8.572 18.285v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557c0-.572.2-1.057.599-1.457.401-.399.887-.6 1.457-.6h13.144c.533 0 1.01.2 1.428.6.417.4.628.886.628 1.457zm-13.087-8.228c0-3.008 1.485-4.514 4.458-4.514s4.457 1.504 4.457 4.514c0 2.971-1.486 4.457-4.457 4.457s-4.458-1.486-4.458-4.457z"/></svg>
+        </a>
+
+        <a href="https://lolma.us/rss_ru.xml" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="49.25" viewBox="0 0 49.249999 49.249999" width="49.25" class="route-blog-sidebar-section-bottom-icon _rss" alt="RSS" title="RSS"><path d="M24.625 0C11.025 0 0 11.025 0 24.625 0 38.227 11.024 49.25 24.625 49.25c13.602 0 24.625-11.023 24.625-24.625C49.25 11.025 38.226 0 24.625 0zm-7.637 35.735a3.238 3.238 0 1 1 .002-6.476 3.238 3.238 0 0 1-.002 6.476zm8.123.021c0-3.057-1.182-5.928-3.33-8.082a11.247 11.247 0 0 0-8.028-3.342v-4.674c8.84 0 16.03 7.223 16.03 16.098h-4.672zm8.256.004c0-10.867-8.795-19.711-19.606-19.711v-4.676c13.387 0 24.28 10.942 24.28 24.387h-4.674z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+
+</div></div>
+
+<div id="ember2627" class="route-blog-content secTion ember-view"><div class="secTion-inner route-blog-content-inner">
+      <div class="route-blogPost">
+
+  <a href="/ru/blog" id="ember2629" class="route-blogPost-back active ember-view">← В блог</a>
+
+  <div id="ember2634" class="route-blogPost-post blogPost -full ember-view">  <h1 id="ember2635" class="blogPost-title ember-view"><p>Не путайте environment с deploy target</p>
+</h1>
+
+
+
+<p class="blogPost-date">
+  18-го февраля 2017
+
+    (обновлено 24-го декабря 2017)
+
+</p>
+
+
+
+  <div id="ember2640" class="blogPost-summary ember-view"><p>У большинства фрэймворков есть понятие <em>environment</em>. Многие разработчики привязывают к environment параметры развертывания, что неверно.</p>
+</div>
+
+
+
+  <div id="ember2641" class="blogPost-body ember-view"><p>Недавно я в очередной раз наткнулся на эту проблему и решил написать о ней данную заметку. Пишу с оглядкой на фронтенд-фрэймворк <strong>EmberJS</strong>, но суть применима к любому фронтенд- и бэкенд-фрйэмворку.</p>
+<h2 id="термин-environment-слишком-размыт" class="headingWithLink"><a href="#термин-environment-слишком-размыт" class="headingWithLink-link">#</a>Термин environment слишком размыт</h2>
+<p>Термин <strong>environment</strong> применяется очень широко, что вызывает путаницу. В интернете есть много статей, которые, если прочитать их поверхностно, противоречат тому, что я хочу посоветовать ниже. Долгое время эти статьи вызывали у меня недоумение. Пораскинув мозгами, я понял, что дело в путаной терминологии.</p>
+<p>В <strong>EmberJS</strong> и многих других вэб-фрэймворках понятие <strong>environment</strong> применяется в достаточно узком смысле, и я далее буду придеживаться именно его. <strong>Environment</strong> — это набор параметров, конфигурирующих сборку и запуск вэб-приложения:</p>
+<ul>
+<li>минификация кода,</li>
+<li>asset fingerprinting/cache busting,</li>
+<li>генерация source maps,</li>
+<li>внедрение различных средств, облегчающих отладку,</li>
+<li>тестирование,</li>
+<li>внедрение маркеров для оценки покрытия кода,</li>
+<li>удаление тестировочных селекторов из HTML.</li>
+</ul>
+<p>Но есть и другая группа параметров, которую также принято включать в понятие <strong>environment</strong>. Я считаю, что это большая ошибка, и предлагаю отличать две группы. Вторую группу параметров я называю <strong>deploy target</strong>:</p>
+<ul>
+<li>адреса API,</li>
+<li>адреса CDN,</li>
+<li>настройки CSP (content security policy) и CORS (cross-origin resource sharing),</li>
+<li>ключи API.</li>
+</ul>
+<h2 id="в-чем-собственно-проблема" class="headingWithLink"><a href="#в-чем-собственно-проблема" class="headingWithLink-link">#</a>В чем, собственно, проблема</h2>
+<p>Многие разработчики сваливают обе группы параметров в одну кучу и привязывают к параметру <strong>environment</strong>, который у большинства фрэймворков может принимать всего три значения: <code>development</code>, <code>production</code> и <code>test</code>.</p>
+<p>В результате приложение по сути имеет всего два режима сборки: production-билд, привязанный к production серверу, и development-билд привязанный к локальному серверу или моку (имитации сервера).</p>
+<p>Сделать сборку в development-режиме, но привязанную к production серверу, затруднительно: для этого приходится временно редактировать конфиг. А ведь такая сборка может очень выручить, когда нужно отладить пробему, которая проявляется в продакшене, но не воспроизводится локально.</p>
+<p>Обратное тоже порой необходимо: сделать сборку для локального сервера, но в production режиме. Это нужно, например, чтобы замерить производительность или чтобы отладить проблему, возникающую во время минификации и фингерпринтинга.</p>
+<p>А хуже всего то, что ключи API хранятся прямо в конфиге и попадают в систему контроля версий, что угрожает безопасности вашего сервиса.</p>
+<h2 id="как-надо-делать" class="headingWithLink"><a href="#как-надо-делать" class="headingWithLink-link">#</a>Как надо делать</h2>
+<p>Я рекомендую использовать так называемые <em>dotenv</em>-файлы.</p>
+<p>Это конфигурационные файлы, имена которых начинаются с <code>.env-</code>. Они содержат определения переменных окружения в виде пар ключ=значение, по одной на строку:</p>
+<div class="code-block"><pre><code class="hljs">FOO=bar
+BAZ=quux</code></pre></div>
+<p>Ваше приложение будет считывать нужный файл во время сборки и использовать соответствующие настройки.</p>
+<p>Переменные окружения по-английски называются <strong>environment variables</strong>, что добавляет путаницы, так что будьте внимательны. Переменные окружения — это такие переменные, которые можно передать из командной строки.</p>
+<p>Вот, что вы должны сделать:</p>
+<ol>
+<li><p>Удалите параметры группы <strong>deploy target</strong> из конфига приложения.</p></li>
+<li><p>Вынесите их в dotenv-файлы, по одному для каждого сервера: <code>.env-production</code>, <code>.env-staging</code>, <code>.env-sandbox</code>, <code>.env-local</code>, <code>.env-mock</code> и т. д. Их может быть столько, сколько вам нужно, а не только production и development.</p></li>
+<li><p>Обязательно добавьте dotenv-файлы в <code>.gitignore</code>, чтобы ключи API не засветились в системе контроля версий.</p></li>
+<li><p>Если вы используете <abbr title="continuous integration">CI</abbr>, содержимое этих файлов можно скопировать в настройки каждого сервера. На CodeShip, например, соответствующий раздел настроек называется "deployment pipelines".</p></li>
+<li><p>Настройте приложение так, чтобы при сборке можно было указать, какой <strong>deploy target</strong> использовать. Большинство платформ имеют для этого библиотеку <code>dotenv</code>.</p></li>
+</ol>
+<p>Теперь <strong>deploy target</strong> можно выбирать отдельно от <strong>environment</strong>, получая любое нужное вам сочетание <strong>deploy target</strong> и <strong>environment</strong>. Например, я это делаю так:</p>
+<div class="code-block"><pre><code class="hljs">DEPLOY_TARGET=local ember serve --environment=production</code></pre></div>
+<p>Разумеется, для удобства вы можете настроить, чтобы для каждого <strong>environment</strong> автоматически использовался определенный <strong>deploy target</strong>, чтобы не приходилось указывать каждый раз.</p>
+<p>Внимательный читатель возразит: круг замкнулся, и <strong>environment</strong> снова опеределяет <strong>deploy target</strong>. За что боролись?</p>
+<p>По-умолчанию всё останется как было, но у вас теперь появилась возможность в нужный момент вручную задействовать любое сочетание <strong>environment</strong> и <strong>deploy target</strong> — без необходимости редактировать код, а потом откатывать.</p>
+<h2 id="как-использовать-dotenv-в-ember" class="headingWithLink"><a href="#как-использовать-dotenv-в-ember" class="headingWithLink-link">#</a>Как использовать dotenv в Ember</h2>
+<p>Npm-библиотека <a href="https://www.npmjs.com/package/dotenv">dotenv</a> может использоваться в Ember напрямую. Однако если вам нужно считывать параметры <strong>deploy target</strong> как в <code>config/environment.js</code>, так и в <code>ember-cli-build.js</code>, либо если вы используете FastBoot, то воспользуйтесь аддоном <a href="https://github.com/fivetanley/ember-cli-dotenv">ember-cli-dotenv</a>.</p>
+<p>Создайте в корневой папке вашего Ember-приложения <code>.env</code>-файлы, по одному для каждого вашего сервера, включая локальный и мок-сервер, если вы их используете:</p>
+<div class="code-block"><pre><code class="hljs">.env-production
+.env-staging
+.env-sandbox
+.env-local
+.env-mock</code></pre></div>
+<p>Особенно круто, если у ваших серверов есть имена собственные. В таком случае используйте эти имена в названиях <code>.env</code>-файлов.</p>
+<p>В каждом файле храните параметры <strong>deploy target</strong> в таком виде:</p>
+<div class="code-block"><pre><code class="hljs">MYAPP_BACKEND_API_URL=https://bravo.horns-and-hooves.com/api
+MYAPP_BACKEND_API_VERSION=v18
+MYAPP_IMAGES_CDN_URL=http://horns-and-hooves.cloudfront.net/bravo/images
+MYAPP_GITHUB_API_KEY=jFViG9kZtY4NAJA8I65s</code></pre></div>
+<p><code>MYAPP</code> — это отсылка к названию вашего приложения. Добавлять его полезно, чтобы не переопределить какую-либо внешнюю переменную, которая может потребоваться и навзание которой может совпадать с одним из ваших.</p>
+<p>Теперь нам нужно добиться, чтобы <code>ember-cli-dotenv</code> подгружал нужный dotenv-файл. Для этого воспользуйтесь таким трюком в файле <code>config/environment.js</code>:</p>
+<div class="code-block"><pre><code class="javascript language-javascript hljs"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>)
+
+<span class="hljs-keyword">const</span> environment   = process.env.EMBER_ENV || <span class="hljs-string">'development'</span>
+<span class="hljs-keyword">const</span> defaultTarget = environment === <span class="hljs-string">'production'</span> ? <span class="hljs-string">'production'</span> : <span class="hljs-string">'localhost-4200'</span>
+<span class="hljs-keyword">const</span> target        = process.env.DEPLOY_TARGET || defaultTarget
+<span class="hljs-keyword">const</span> dotEnvFile    = <span class="hljs-string">`./.env-<span class="hljs-subst">${target}</span>`</span>
+
+<span class="hljs-keyword">if</span> (fs.existsSync(dotEnvFile)) <span class="hljs-built_in">console</span>.info(<span class="hljs-string">`using dotenv file: <span class="hljs-subst">${dotEnvFile}</span>`</span>)
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">`dot-env file not found: <span class="hljs-subst">${dotEnvFile}</span>, assuming env vars are passed manually`</span>)
+
+
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">env</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">clientAllowedKeys</span> : [
+      <span class="hljs-string">'MYAPP_BACKEND_API_URL'</span>,
+      <span class="hljs-string">'MYAPP_BACKEND_API_VERSION'</span>,
+      <span class="hljs-string">'MYAPP_IMAGES_CDN_URL'</span>,
+      <span class="hljs-string">'MYAPP_GITHUB_API_KEY'</span>,
+    ],
+    <span class="hljs-attr">path</span> : dotEnvFile,
+  }
+}</code></pre></div>
+<p>Теперь параметры из dotenv-файла попадут в хэш <code>process.env</code>, который вы можете использовать в <code>config/environment.js</code> и <code>ember-cli-build.js</code> следующим образом:</p>
+<div class="code-block"><pre><code class="javascript language-javascript hljs">{
+  <span class="hljs-attr">gitHubApiKey</span>: process.env.MYAPP_GITHUB_API_KEY
+}</code></pre></div>
+<div class="exclamation"></div>
+<blockquote>
+  <p>Рекомендую дополнительно создать в вашем Ember-приложении сервис <code>config</code>, который будет проксировать настройки из <code>config/environment.js</code>. Это дает возможность использовать computed properties для формирования производных параметров, например, добавления версии API в адрес сервера.</p>
+</blockquote>
+<p>По умолчанию, приведенный выше кгод будет использовать <strong>deploy target</strong> <code>production</code> в <strong>environment</strong> <code>production</code> и <code>localhost-4200</code> в <code>development</code>. Одредактируйте названия <strong>deploy targets</strong>, используемые в коде, чтобы совпали с вашими.</p>
+<div class="code-block"><pre><code class="hljs"> ember s -prod   # использует `production` environment с `production` deploy target
+ ember s         # использует `development` environment с `localhost-4200` deploy target</code></pre></div>
+<p>Вы можете указать, какой dotenv-файл использовать:</p>
+<div class="code-block"><pre><code class="hljs">DEPLOY_TARGET=localhost-4200 ember s -prod   # использует `production` environment с `localhost-4200` deploy target
+DEPLOY_TARGET=production ember s             # использует `development` environment с `production` deploy target</code></pre></div>
+<h2 id="в-сочетании-с-ember-cli-deploy" class="headingWithLink"><a href="#в-сочетании-с-ember-cli-deploy" class="headingWithLink-link">#</a>В сочетании с ember-cli-deploy</h2>
+<p><code>ember-cli-deploy</code> <a href="http://ember-cli-deploy.com/docs/v1.0.x/using-env-for-secrets/">имеет встроенную поодержку dotenv-файлов</a>, однако они используются только для команд <code>ember deploy</code>, в то время как описанный выше способ подходит не только для <code>ember deploy</code>, но и для <code>ember serve</code>, <code>ember build</code>, <code>ember test</code> и т. п.</p>
+<p>При работе с <code>ember-cli-deploy</code> стоит обратить внимание на несколько нюансов.</p>
+<p>Во-первых, документация <code>ember-cli-deploy</code> использует словосочетание "build environment" в качестве синонима <strong>deploy target</strong>, что добавляет путаницы.</p>
+<p>Во-вторых, в конфиге <code>config/deploy.js</code> можно настраивать параметры сборки в зависимости от <strong>deploy target</strong>. Обязательно переименуйте <strong>deploy targets</strong> в этом файле, приведя их в соответствие названиям ваших dotenv-файлов.</p>
+<p>В-третьих, не используйте сокращения <code>dev</code> и <code>prod</code> вместо <code>development</code> и <code>production</code>. </p>
+<p>В-четвертых, обратите внимание, что <code>ember-cli-deploy</code> также применяет переменную окружения <code>DEPLOY_TARGET</code>. Однако она почему-то не используется для конфигурации из командной строки.</p>
+<p>Использовать ее так нельзя:</p>
+<div class="code-block"><pre><code class="hljs">DEPLOY_TARGET=production ember deploy</code></pre></div>
+<p>Вместо этого предлагается писать</p>
+<div class="code-block"><pre><code class="hljs">ember deploy production</code></pre></div>
+<p>Зачем же в <code>ember-cli-deploy</code> вообще нужна переменная окружения <code>DEPLOY_TARGET</code>? Если у вас возникнет необходимость определить <strong>deploy target</strong> в файле <code>ember-cli-build.js</code>, то вы можете обратится к ней так: <code>process.env.DEPLOY_TARGET</code>.</p>
+<p>Беда в том, что файл <code>config/dotenv.js</code> отрабатывает раньше, чем команда <code>ember deploy production</code> переключает <strong>environment</strong> в <code>production</code> и присваивает значение переменной <code>DEPLOY_TARGET</code>. </p>
+<p>Выйти из положения можно, указывая <code>DEPLOY_TARGET</code> явно, чтобы <code>config/dotenv.js</code> использовал именно его.</p>
+<div class="code-block"><pre><code class="hljs">DEPLOY_TARGET=production ember deploy production</code></pre></div>
+<p>Но команда получается достаточно громоздкой. Избежать избыточности можно, научив ваш <code>config/dotenv.js</code> замечать команду <code>ember deploy production</code>:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getDeployTarget</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> process.env.DEPLOY_TARGET || getDefaultDeployTarget()
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getDefaultDeployTarget</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> environment =
+    process.env.EMBER_ENV
+    || deployEnv()
+    || <span class="hljs-string">'development'</span>
+
+  <span class="hljs-keyword">return</span> environment === <span class="hljs-string">'production'</span> ? <span class="hljs-string">'production'</span> : <span class="hljs-string">'localhost-4200'</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deployEnv</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (process.argv[<span class="hljs-number">2</span>] === <span class="hljs-string">'deploy'</span> &amp;&amp; process.argv[<span class="hljs-number">3</span>] === <span class="hljs-string">'prod'</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Command `ember deploy prod` is not supported. Please use `ember deploy production`."</span>)
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (process.argv[<span class="hljs-number">2</span>] === <span class="hljs-string">'deploy'</span> &amp;&amp; process.argv[<span class="hljs-number">3</span>] === <span class="hljs-string">'production'</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'production'</span>
+  }
+}
+
+
+
+<span class="hljs-keyword">const</span> dotEnvFile   = <span class="hljs-string">`./.env-<span class="hljs-subst">${getDeployTarget()}</span>`</span>
+
+<span class="hljs-keyword">if</span> (fs.existsSync(dotEnvFile)) <span class="hljs-built_in">console</span>.info(<span class="hljs-string">`Using dotenv file: <span class="hljs-subst">${dotEnvFile}</span>`</span>)
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">`dot-env file not found: <span class="hljs-subst">${dotEnvFile}</span>, assuming env vars are passed manually`</span>)
+
+
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">env</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">clientAllowedKeys</span> : [
+      <span class="hljs-string">'MYAPP_BACKEND_API_URL'</span>,
+      <span class="hljs-string">'MYAPP_BACKEND_API_VERSION'</span>,
+      <span class="hljs-string">'MYAPP_IMAGES_CDN_URL'</span>,
+      <span class="hljs-string">'MYAPP_GITHUB_API_KEY'</span>,
+    ],
+    <span class="hljs-attr">path</span> : dotEnvFile,
+  }
+}</code></pre></div>
+<p>В результате команда <code>ember deploy production</code> задействует dotenv-файл <code>.env-production</code> и переключит <strong>environment</strong> в <code>production</code>.</p>
+<p>Если же вам понадобиться залить на production-сервер сборку без минификации, то вы можете воспользоваться командой:</p>
+<div class="code-block"><pre><code class="hljs">EMBER_ENV=development ember deploy production</code></pre></div>
+<h2 id="ваше-мнение" class="headingWithLink"><a href="#ваше-мнение" class="headingWithLink-link">#</a>Ваше мнение?</h2>
+<p>Обязательно поделитесь своими соображениями в комментариях!</p>
+</div>
+</div>
+
+<!---->
+</div>
+
+  
+</div></div>
+
+
+</div>
+
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[],"markdown-block":[],"post":[{"data":{"id":"do-not-confuse-env-for-deploy-target-ru","attributes":{"title":"Не путайте environment с deploy target","body":"\nНедавно я в очередной раз наткнулся на эту проблему и решил написать о ней данную заметку. Пишу с оглядкой на фронтенд-фрэймворк **EmberJS**, но суть применима к любому фронтенд- и бэкенд-фрйэмворку.\n\n\n\n## Термин environment слишком размыт\n\nТермин **environment** применяется очень широко, что вызывает путаницу. В интернете есть много статей, которые, если прочитать их поверхностно, противоречат тому, что я хочу посоветовать ниже. Долгое время эти статьи вызывали у меня недоумение. Пораскинув мозгами, я понял, что дело в путаной терминологии.\n\nВ **EmberJS** и многих других вэб-фрэймворках понятие **environment** применяется в достаточно узком смысле, и я далее буду придеживаться именно его. **Environment** — это набор параметров, конфигурирующих сборку и запуск вэб-приложения:\n\n*   минификация кода,\n*   asset fingerprinting/cache busting,\n*   генерация source maps,\n*   внедрение различных средств, облегчающих отладку,\n*   тестирование,\n*   внедрение маркеров для оценки покрытия кода,\n*   удаление тестировочных селекторов из HTML.\n\nНо есть и другая группа параметров, которую также принято включать в понятие **environment**. Я считаю, что это большая ошибка, и предлагаю отличать две группы. Вторую группу параметров я называю **deploy target**:\n\n*   адреса API,\n*   адреса CDN,\n*   настройки CSP (content security policy) и CORS (cross-origin resource sharing),\n*   ключи API.\n\n\n\n## В чем, собственно, проблема\n\nМногие разработчики сваливают обе группы параметров в одну кучу и привязывают к параметру **environment**, который у большинства фрэймворков может принимать всего три значения: `development`, `production` и `test`.\n\nВ результате приложение по сути имеет всего два режима сборки: production-билд, привязанный к production серверу, и development-билд привязанный к локальному серверу или моку (имитации сервера).\n\nСделать сборку в development-режиме, но привязанную к production серверу, затруднительно: для этого приходится временно редактировать конфиг. А ведь такая сборка может очень выручить, когда нужно отладить пробему, которая проявляется в продакшене, но не воспроизводится локально.\n\nОбратное тоже порой необходимо: сделать сборку для локального сервера, но в production режиме. Это нужно, например, чтобы замерить производительность или чтобы отладить проблему, возникающую во время минификации и фингерпринтинга.\n\nА хуже всего то, что ключи API хранятся прямо в конфиге и попадают в систему контроля версий, что угрожает безопасности вашего сервиса.\n\n\n\n## Как надо делать\n\nЯ рекомендую использовать так называемые *dotenv*-файлы.\n\nЭто конфигурационные файлы, имена которых начинаются с `.env-`. Они содержат определения переменных окружения в виде пар ключ=значение, по одной на строку:\n    \n```\nFOO=bar\nBAZ=quux\n```\n\nВаше приложение будет считывать нужный файл во время сборки и использовать соответствующие настройки.\n\nПеременные окружения по-английски называются **environment variables**, что добавляет путаницы, так что будьте внимательны. Переменные окружения — это такие переменные, которые можно передать из командной строки.\n\nВот, что вы должны сделать:\n\n1.  Удалите параметры группы **deploy target** из конфига приложения.\n\n2.  Вынесите их в dotenv-файлы, по одному для каждого сервера: `.env-production`, `.env-staging`, `.env-sandbox`, `.env-local`, `.env-mock` и т. д. Их может быть столько, сколько вам нужно, а не только production и development.\n\n3.  Обязательно добавьте dotenv-файлы в `.gitignore`, чтобы ключи API не засветились в системе контроля версий.\n\n4.  Если вы используете \u003cabbr title=\"continuous integration\"\u003eCI\u003c/abbr\u003e, содержимое этих файлов можно скопировать в настройки каждого сервера. На CodeShip, например, соответствующий раздел настроек называется \"deployment pipelines\".\n\n5.  Настройте приложение так, чтобы при сборке можно было указать, какой **deploy target** использовать. Большинство платформ имеют для этого библиотеку `dotenv`.\n\nТеперь **deploy target** можно выбирать отдельно от **environment**, получая любое нужное вам сочетание **deploy target** и **environment**. Например, я это делаю так:\n\n    DEPLOY_TARGET=local ember serve --environment=production\n\nРазумеется, для удобства вы можете настроить, чтобы для каждого **environment** автоматически использовался определенный **deploy target**, чтобы не приходилось указывать каждый раз.\n\nВнимательный читатель возразит: круг замкнулся, и **environment** снова опеределяет **deploy target**. За что боролись?\n\nПо-умолчанию всё останется как было, но у вас теперь появилась возможность в нужный момент вручную задействовать любое сочетание **environment** и **deploy target** — без необходимости редактировать код, а потом откатывать.\n\n\n\n## Как использовать dotenv в Ember\n\nNpm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) может использоваться в Ember напрямую. Однако если вам нужно считывать параметры **deploy target** как в `config/environment.js`, так и в `ember-cli-build.js`, либо если вы используете FastBoot, то воспользуйтесь аддоном [ember-cli-dotenv](https://github.com/fivetanley/ember-cli-dotenv).\n\nСоздайте в корневой папке вашего Ember-приложения `.env`-файлы, по одному для каждого вашего сервера, включая локальный и мок-сервер, если вы их используете:\n\n    .env-production\n    .env-staging\n    .env-sandbox\n    .env-local\n    .env-mock\n\nОсобенно круто, если у ваших серверов есть имена собственные. В таком случае используйте эти имена в названиях `.env`-файлов.\n\nВ каждом файле храните параметры **deploy target** в таком виде:\n\n    MYAPP_BACKEND_API_URL=https://bravo.horns-and-hooves.com/api\n    MYAPP_BACKEND_API_VERSION=v18\n    MYAPP_IMAGES_CDN_URL=http://horns-and-hooves.cloudfront.net/bravo/images\n    MYAPP_GITHUB_API_KEY=jFViG9kZtY4NAJA8I65s\n\n`MYAPP` — это отсылка к названию вашего приложения. Добавлять его полезно, чтобы не переопределить какую-либо внешнюю переменную, которая может потребоваться и навзание которой может совпадать с одним из ваших.\n\nТеперь нам нужно добиться, чтобы `ember-cli-dotenv` подгружал нужный dotenv-файл. Для этого воспользуйтесь таким трюком в файле `config/environment.js`:\n\n```javascript\nconst fs = require('fs')\n\nconst environment   = process.env.EMBER_ENV || 'development'\nconst defaultTarget = environment === 'production' ? 'production' : 'localhost-4200'\nconst target        = process.env.DEPLOY_TARGET || defaultTarget\nconst dotEnvFile    = `./.env-${target}`\n\nif (fs.existsSync(dotEnvFile)) console.info(`using dotenv file: ${dotEnvFile}`)\nelse console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are passed manually`)\n\n\n\nmodule.exports = function (env) {\n  return {\n    clientAllowedKeys : [\n      'MYAPP_BACKEND_API_URL',\n      'MYAPP_BACKEND_API_VERSION',\n      'MYAPP_IMAGES_CDN_URL',\n      'MYAPP_GITHUB_API_KEY',\n    ],\n    path : dotEnvFile,\n  }\n}\n```\n\nТеперь параметры из dotenv-файла попадут в хэш `process.env`, который вы можете использовать в `config/environment.js` и `ember-cli-build.js` следующим образом:\n\n```javascript\n{\n  gitHubApiKey: process.env.MYAPP_GITHUB_API_KEY\n}\n```\n\n\u003cdiv class=\"exclamation\"\u003e\u003c/div\u003e\n\n\u003e Рекомендую дополнительно создать в вашем Ember-приложении сервис `config`, который будет проксировать настройки из `config/environment.js`. Это дает возможность использовать computed properties для формирования производных параметров, например, добавления версии API в адрес сервера.\n\nПо умолчанию, приведенный выше кгод будет использовать **deploy target** `production` в **environment** `production` и `localhost-4200` в `development`. Одредактируйте названия **deploy targets**, используемые в коде, чтобы совпали с вашими.\n\n\n     ember s -prod   # использует `production` environment с `production` deploy target\n     ember s         # использует `development` environment с `localhost-4200` deploy target\n\nВы можете указать, какой dotenv-файл использовать:\n\n    DEPLOY_TARGET=localhost-4200 ember s -prod   # использует `production` environment с `localhost-4200` deploy target\n    DEPLOY_TARGET=production ember s             # использует `development` environment с `production` deploy target\n\n\n## В сочетании с ember-cli-deploy\n\n`ember-cli-deploy` [имеет встроенную поодержку dotenv-файлов](http://ember-cli-deploy.com/docs/v1.0.x/using-env-for-secrets/), однако они используются только для команд `ember deploy`, в то время как описанный выше способ подходит не только для `ember deploy`, но и для `ember serve`, `ember build`, `ember test` и т. п.\n\nПри работе с `ember-cli-deploy` стоит обратить внимание на несколько нюансов.\n\nВо-первых, документация `ember-cli-deploy` использует словосочетание \"build environment\" в качестве синонима **deploy target**, что добавляет путаницы.\n\nВо-вторых, в конфиге `config/deploy.js` можно настраивать параметры сборки в зависимости от **deploy target**. Обязательно переименуйте **deploy targets** в этом файле, приведя их в соответствие названиям ваших dotenv-файлов.\n \nВ-третьих, не используйте сокращения `dev` и `prod` вместо `development` и `production`. \n\nВ-четвертых, обратите внимание, что `ember-cli-deploy` также применяет переменную окружения `DEPLOY_TARGET`. Однако она почему-то не используется для конфигурации из командной строки.\n\nИспользовать ее так нельзя:\n\n    DEPLOY_TARGET=production ember deploy\n\nВместо этого предлагается писать\n\n    ember deploy production\n    \nЗачем же в `ember-cli-deploy` вообще нужна переменная окружения `DEPLOY_TARGET`? Если у вас возникнет необходимость определить **deploy target** в файле `ember-cli-build.js`, то вы можете обратится к ней так: `process.env.DEPLOY_TARGET`.\n\nБеда в том, что файл `config/dotenv.js` отрабатывает раньше, чем команда `ember deploy production` переключает **environment** в `production` и присваивает значение переменной `DEPLOY_TARGET`. \n\nВыйти из положения можно, указывая `DEPLOY_TARGET` явно, чтобы `config/dotenv.js` использовал именно его.\n\n    DEPLOY_TARGET=production ember deploy production\n\nНо команда получается достаточно громоздкой. Избежать избыточности можно, научив ваш `config/dotenv.js` замечать команду `ember deploy production`:\n\n```js\nconst fs = require('fs')\n\nfunction getDeployTarget () {\n  return process.env.DEPLOY_TARGET || getDefaultDeployTarget()\n}\n\nfunction getDefaultDeployTarget () {\n  const environment =\n    process.env.EMBER_ENV\n    || deployEnv()\n    || 'development'\n\n  return environment === 'production' ? 'production' : 'localhost-4200'\n}\n\nfunction deployEnv () {\n  if (process.argv[2] === 'deploy' \u0026\u0026 process.argv[3] === 'prod') {\n    throw new Error(\"Command `ember deploy prod` is not supported. Please use `ember deploy production`.\")\n  } else if (process.argv[2] === 'deploy' \u0026\u0026 process.argv[3] === 'production') {\n    return 'production'\n  }\n}\n\n\n\nconst dotEnvFile   = `./.env-${getDeployTarget()}`\n\nif (fs.existsSync(dotEnvFile)) console.info(`Using dotenv file: ${dotEnvFile}`)\nelse console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are passed manually`)\n\n\n\nmodule.exports = function (env) {\n  return {\n    clientAllowedKeys : [\n      'MYAPP_BACKEND_API_URL',\n      'MYAPP_BACKEND_API_VERSION',\n      'MYAPP_IMAGES_CDN_URL',\n      'MYAPP_GITHUB_API_KEY',\n    ],\n    path : dotEnvFile,\n  }\n}\n```\n\nВ результате команда `ember deploy production` задействует dotenv-файл `.env-production` и переключит **environment** в `production`.\n\nЕсли же вам понадобиться залить на production-сервер сборку без минификации, то вы можете воспользоваться командой:\n\n    EMBER_ENV=development ember deploy production\n\n\n\n## Ваше мнение?\n\nОбязательно поделитесь своими соображениями в комментариях!\n","summary":"У большинства фрэймворков есть понятие *environment*. Многие разработчики привязывают к environment параметры развертывания, что неверно.","image":null,"created":"2017-02-18T00:00:00.000Z","updated":"2017-12-24T00:00:00.000Z","hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}}],"project-info":[],"project":[],"stackoverflow-user":[]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

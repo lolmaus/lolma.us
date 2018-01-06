@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "id": "class-and-attribute-bindings-en",
+      "type": "posts",
+      "attributes": {
+        "id": "class-and-attribute-bindings-en",
+        "title": "What you didn't know about passing dynamic classname and attribute bidings from parent template",
+        "summary": "The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.",
+        "created": "2017-04-13T00:00:00.000Z",
+        "updated": "2018-01-06T00:00:00.000Z",
+        "proficiency": "beginner"
+      }
+    },
+    {
+      "id": "deveo-en",
+      "type": "posts",
+      "attributes": {
+        "id": "deveo-en",
+        "title": "I've joined Deveo!",
+        "summary": "It's always been a dream of mine to build a product from developer for developers.",
+        "created": "2017-02-07T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "do-not-confuse-env-for-deploy-target-en",
+      "type": "posts",
+      "attributes": {
+        "id": "do-not-confuse-env-for-deploy-target-en",
+        "title": "Do not confuse environment for deploy target",
+        "summary": "Most frameworks have a concept of *environment*. Many developers are misusing it as a deploy target.",
+        "created": "2017-02-18T00:00:00.000Z",
+        "updated": "2017-12-24T00:00:00.000Z",
+        "proficiency": "beginner"
+      }
+    },
+    {
+      "id": "new-website-en",
+      "type": "posts",
+      "attributes": {
+        "id": "new-website-en",
+        "title": "New website!",
+        "summary": "The new personal website is live!  Though it looks humble, it's packed with Ember features and best practices. Meant to be a showcase of my skills.",
+        "created": "2016-12-04T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "promise-proxy-mixin-en",
+      "type": "posts",
+      "attributes": {
+        "id": "promise-proxy-mixin-en",
+        "title": "PromiseProxyMixin: pure Ember alternative to ember-concurrency",
+        "summary": "ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.",
+        "created": "2017-03-07T00:00:00.000Z",
+        "updated": "2018-01-05T00:00:00.000Z",
+        "proficiency": "beginner"
+      }
+    },
+    {
+      "id": "route-model-hook-rsvp-hash-en",
+      "type": "posts",
+      "attributes": {
+        "id": "route-model-hook-rsvp-hash-en",
+        "title": "Do return an `RSVP.hash()` from your routes' `model` hooks!",
+        "summary": "It's a relatively widespread opinion that returning a hash from the `model` hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.",
+        "created": "2016-12-08T00:00:00.000Z",
+        "proficiency": "beginner"
+      }
+    }
+  ]
+}

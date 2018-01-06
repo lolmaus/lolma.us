@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "healthfundr-ru",
+    "type": "experiences",
+    "attributes": {
+      "id": "healthfundr-ru",
+      "title": "Фронтенд-разработчик Healthfundr (теперь <a href='https://healthrosetta.org/'>Health Rosetta.com</a>), США (исп. срок)",
+      "type": "job",
+      "start": "2014-06",
+      "end": "2014-07",
+      "body": "\nЯ был нанят как опытный фронтенд-разработчик, однако в действительности команде был нужен CakePHP-разработчик со знанием Bootstrap.\n\nДля меня это был шаг назад, поэтому мы прекратили сотрудничество по взаимному согласию.\n"
+    }
+  }
+}

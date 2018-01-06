@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": "deveo-ru",
+    "type": "posts",
+    "attributes": {
+      "id": "deveo-ru",
+      "title": "Теперь я работаю в Deveo!",
+      "summary": "Мне всегда хотелось разрабатывать продукт от разработчиков для разработчиков.",
+      "created": "2017-02-07T00:00:00.000Z",
+      "body": "\n[Deveo.com](https://deveo.com) — это сервис, предоставляющий приватные репозитории Git, SVN и Mercurial.\n\n[Команда](https://deveo.com/about/) Deveo — просто замечательная, работать с этими парнями настоящее удовольствие.\n\nВот мой [приветственный пост](http://blog.deveo.com/andrey-mikhaylov-lolmaus-has-joined-deveo/) в официальном блоге Deveo.\n\nПредставьте себе, мое первое задание ­ это open source проект: аддон [ember-emojione](https://github.com/Deveo/ember-emojione). Скоро вы сможете прочитать о нем больше.\n"
+    }
+  }
+}

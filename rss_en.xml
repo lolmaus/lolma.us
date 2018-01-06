@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[lolmaus blog]]></title><description><![CDATA[Personal blog of Andrey Mikhaylov (lolmaus), a frontend developer and EmberJS enthusiast]]></description><link>http://lolma.us/en</link><image><url>https://pbs.twimg.com/profile_images/458644904189501440/ANprYN38.jpeg</url><title>lolmaus blog</title><link>http://lolma.us/en</link></image><generator>RSS for Node</generator><lastBuildDate>Sat, 06 Jan 2018 13:17:39 GMT</lastBuildDate><atom:link href="http://lolma.us/rss_en.xml" rel="self" type="application/rss+xml"/><language><![CDATA[en]]></language><category><![CDATA[ember]]></category><category><![CDATA[emberjs]]></category><category><![CDATA[development]]></category><category><![CDATA[web development]]></category><category><![CDATA[html]]></category><category><![CDATA[css]]></category><category><![CDATA[javascript]]></category><category><![CDATA[js]]></category><category><![CDATA[es2015]]></category><category><![CDATA[programming]]></category><item><title><![CDATA[What you didn't know about passing dynamic classname and attribute bidings from parent template]]></title><description><![CDATA[<p>The straightforward way of applying dynamic class/attribute bindings to a component is within that component's class definition. For build-in and third-party components that would require subclassing, which is often undesirable. It's tempting to pass the bindings from a parent template without subclassing, but that works not how you think it works.</p><div class="exclamation"></div>
+<blockquote>
+  <p>This article was originally posted on Deveo blog.</p>
+  <p>When Deveo was acquired by Perforce, Deveo blog was turned down.</p>
+</blockquote>
+<p>Every Ember developer has done this many times:</p>
+<pre><code class="js language-js">Ember.Component.extend({
+  validationResult: Ember.computed(/*...*/),
+  classNameBindings: ['validationResult:is-valid:is-invalid']
+})</code></pre>
+<p>Ember will apply either <code>is-valid</code> or <code>is-invalid</code> HTML class to the component depending on whether <code>validationResult</code> property is truthy.</p>
+<p>In this case, the <code>validationResult</code> property is looked upon the component.</p>
+<h2 id="trying-to-pass-classnamebindings-externally">Trying to pass <code>classNameBindings</code> externally</h2>
+<p>There are situations when you want to pass <code>classNameBindings</code> into a component from the parent template.</p>
+<p>Say, you need a custom HTML class on the <code>{{textarea}}</code> component, but you don't want to bother subclassing the <code>Ember.TextArea</code> component. Why create a custom component when you can simply pass <code>classNameBindings</code> and <code>validationResult</code> into the standard <code>{{textarea}}</code>, right?</p>
+<p>This is what my intuition tells me to do, but it <strong>does not work</strong>:</p>
+<pre><code class="handlebars language-handlebars">{{textarea
+  validationResult  = (gte myText.length 100),
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</code></pre>
+<h2 id="what-happens">What happens</h2>
+<p><code>classNameBindings</code> is operated by Ember's <strong>deprecated</strong> binding mechanism. The mechanism is documented <a href="http://emberjs.com/api/classes/Ember.Binding.html">here</a> and is removed in Ember 3.</p>
+<p>Historically, this low-level API was used to set up bindings in EmberJS. Then it was replaced with the convenient high-level API that we know today, and instead of <code>myPropBinding='foo'</code> we can simply do <code>myProp=foo</code> in our templates. Note that the former uses quotes and the latter doesn't.</p>
+<p>This code:</p>
+<pre><code class="handlebars language-handlebars">{{textarea
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</code></pre>
+<p>is roughly equivalent to this:</p>
+<pre><code class="handlebars language-handlebars">{{textarea
+  classNames = (if validationResult 'is-valid' 'is-invalid')
+}}</code></pre>
+<p>But if you use the latter in your template, the HTML class will not be dynamic. It will use the initial value of <code>validationResult</code>, and when <code>validationResult</code> changes, the HTML class will not be updated.</p>
+<p>This is why <code>classNameBindings</code> is there for you.</p>
+<h2 id="passing-classnamebindings-into-the-default-textarea-component">Passing <code>classNameBindings</code> into the default textarea component</h2>
+<p>You have to define the property on the <em>parent</em> component/controller and use its name in <code>classNameBindings</code>:</p>
+<pre><code class="js language-js">// app/components/parent-component.js
+Ember.Component.extend({
+  validationResult: Ember.computed(/*...*/),
+})</code></pre>
+<pre><code class="handlebars language-handlebars">{{! app/components/parent-component.hbs }}
+
+{{textarea
+  classNameBindings = 'validationResult:is-valid:is-invalid'
+}}</code></pre>
+<p>It is very important to understand that this example is different from the first example in this article, even though it feels identical to <code>classNameBindings: 'validationResult:is-valid:is-invalid'</code>.</p>
+<ul>
+<li><p>In the first example of this article, <code>classNameBindings</code> is evaluated in the context of the same component that it's applied to.</p></li>
+<li><p>In this example, <code>classNameBindings</code> is applied to the <code>{{textarea}}</code> component, but it is evaluated in the context of the parent component/controller!</p></li>
+</ul>
+<h2 id="passing-multiple-properties-into-classnamebindings-externally-seems-to-be-impossible">Passing multiple properties into <code>classNameBindings</code> externally seems to be impossible</h2>
+<p>I assumed this would work, but it doesn't:</p>
+<pre><code class="handlebars language-handlebars">{{textarea
+  classNameBindings = (array 'validationResult:is-valid:is-invalid')
+}}</code></pre>
+<p>…where <code>array</code> is a simple helper that returns its arguments as an array.</p>
+<p>I did not find a way to pass more than one property into <code>classNameBindings</code>. If you need that, you'll have to subclass the component in question, so that you can apply <code>classNameBindings</code> internally, in the component's own JS file.</p>
+<p>Luckily, there's a better way.</p>
+<h2 id="use-class-instead-of-classnamebindings-in-the-parent-template">Use class instead of classNameBindings in the parent template</h2>
+<p>The <code>class</code> property, unavailable (or at least not documented) inside a component class, can be passed externally. And it allows defining multiple dynamic bindings!</p>
+<p>You've probably done that many times:</p>
+<pre><code class="handlebars language-handlebars">&lt;div class = "foo {{bar}} {{if baz 'quux' 'zomg'}}"&gt;</code></pre>
+<p>If you pass <code>class</code> to a component, you need concatenation:</p>
+<pre><code class="handlebars language-handlebars">{{my-component
+  class = (concat 'foo ' bar (if baz ' quux' ' zomg'))
+}}</code></pre>
+<p>Note extra spaces in string literals.</p>
+<h2 id="what-about-attributebindings">What about attributeBindings?</h2>
+<p>Ember (Glimmer?) explicitly forbids passing <code>attributeBindings</code> from inside a parent tempalte. This will crash your app:</p>
+<pre><code class="handlebars language-handlebars">{{my-component
+  attributeBindings = "foo"
+}}</code></pre>
+<p>Some Ember addons use a mixin that binds all properties passed from parent template to HTML attributes. With such a mixin, you could do this:</p>
+<pre><code class="handlebars language-handlebars">{{my-component
+  disabled = isDisabled
+  data-foo = "bar"
+}}</code></pre>
+<p>Here's how a private mixin <code>dynamic-attribute-bindings</code> from <code>ember-one-way-controls</code>[<a href="https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js](looks">https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js](looks</a> like):</p>
+<pre><code class="js language-js">// https://github.com/DockYard/ember-one-way-controls/blob/v3.0.1/addon/-private/dynamic-attribute-bindings.js
+import Ember from 'ember';
+
+const { Mixin, set } = Ember;
+
+export default Mixin.create({
+  NON_ATTRIBUTE_BOUND_PROPS: ['class', 'classNames'],
+  concatenatedProperties: ['NON_ATTRIBUTE_BOUND_PROPS'],
+  init() {
+    this._super(...arguments);
+
+    let newAttributeBindings = [];
+    for (let key in this.attrs) {
+      if (this.NON_ATTRIBUTE_BOUND_PROPS.indexOf(key) === -1 &amp;&amp; this.attributeBindings.indexOf(key) === -1) {
+        newAttributeBindings.push(key);
+      }
+    }
+
+    set(this, 'attributeBindings', this.attributeBindings.concat(newAttributeBindings));
+  }
+});</code></pre>
+<p>Note that this approach uses a blacklist. I. e. it would process any attribute that is not mentioned in <code>NON_ATTRIBUTE_BOUND_PROPS</code> (which is a concatenated property: if you try to override it, you will instead append to it).</p>
+<p>You can adjust this logic to use a whitelist instead.</p>
+<h2 id="know-more-share">Know more? Share!</h2>
+<p>Kudos to Ricardo Mendes (<a href="https://github.com/locks">@locks</a>) for kind explanations of how <code>classNameBindings</code> work.</p>
+<p>If you see an inaccuracy or have a better explanation of the matter, don't hesitate to share in the comments!</p>]]></description><link>http://lolma.us/en/blog/class-and-attribute-bindings</link><guid isPermaLink="true">http://lolma.us/en/blog/class-and-attribute-bindings</guid><pubDate>Thu, 13 Apr 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[I've joined Deveo!]]></title><description><![CDATA[<p>It's always been a dream of mine to build a product from developer for developers.</p><p><a href="https://deveo.com">Deveo.com</a> — is a service offering private repositories: Git, SVN and Mercurial.</p>
+<p>Deveo <a href="https://deveo.com/about/">team</a> is amazing, a real pleasure to work with.</p>
+<p>Here's my <a href="http://blog.deveo.com/andrey-mikhaylov-lolmaus-has-joined-deveo/">salutatory post</a> in the official Deveo blog.</p>
+<p>And guess what, my first assignment is an open source project: the <a href="https://github.com/Deveo/ember-emojione">ember-emojione</a> addon. You'll hear more about it soon.</p>]]></description><link>http://lolma.us/en/blog/deveo</link><guid isPermaLink="true">http://lolma.us/en/blog/deveo</guid><pubDate>Tue, 07 Feb 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Do not confuse environment for deploy target]]></title><description><![CDATA[<p>Most frameworks have a concept of <em>environment</em>. Many developers are misusing it as a deploy target.</p><div class="exclamation"></div>
+<blockquote>
+  <p>This article was originally posted on Deveo blog.</p>
+  <p>When Deveo was acquired by Perforce, Deveo blog was turned down.</p>
+</blockquote>
+<p>I'm seeing the term <strong>environment</strong> used as a synonym of <strong>deploy target</strong> all the time. I believe, it causes a lot of confusion, and I would like clear it up.</p>
+<p>This article is written with the <strong>EmberJS</strong> frontend framework in mind, but the idea is applicable to any other web framework, both frontend and backend.</p>
+<h2 id="the-term-environment-is-too-vague">The term Environment is too vague</h2>
+<p>There are many articles on the web that may seem to contradict to what I'm gonna say, especially if you skim them without giving them deep consideration. Those articles have been frustrating to me for a long time, until I figured that the problem is that terminology is confusing.</p>
+<p>In <strong>EmberJS</strong> and many other web frameworks the term <strong>environment</strong> is used in a narrow meaning, and I'm gonna use this very meaning below. <strong>Environment</strong> is a collection of parameters that configure how your wep app is built and run, such as:</p>
+<ul>
+<li>code minification,</li>
+<li>asset fingerprinting/cache busting,</li>
+<li>source map generation,</li>
+<li>various debugging tools,</li>
+<li>testing,</li>
+<li>applying code coverage markers,</li>
+<li>removing test selectors from HTML.</li>
+</ul>
+<p>There is another category of parameters, that is commonly referenced as <strong>environment</strong>. I believe that's a terrible mistake, and the second category must be distinguished from <strong>environment</strong>.</p>
+<p>I call it <strong>deploy target</strong>. It includes the following params:</p>
+<ul>
+<li>API URLs,</li>
+<li>CDN URLs,</li>
+<li>CSP/CORS configuration,</li>
+<li>API keys.</li>
+</ul>
+<h2 id="why-is-mixing-these-categories-a-problem">Why is mixing these categories a problem?</h2>
+<p>Many developers put those two categories of params into one pile and make them depend on the <strong>environment</strong> variable, which in most frameworks can have one of three values: <code>development</code>, <code>production</code> and <code>test</code>.</p>
+<p>As a result, the app essentially has only two modes:</p>
+<ul>
+<li>production build to production server,</li>
+<li>development build to development server.</li>
+</ul>
+<p>A necessity to deploy a development build to a production server is not rare. You typically need that to debug a problem that only manifestates on the server and can't be reproduced locally.</p>
+<p>The opposite is also sometimes necessary: to make a production build against a local server. It can help you to benchmark your app's performance or to debug a problem with minification/fingerprinting.</p>
+<p>When you have your <strong>environment</strong> and <strong>deploy target</strong> hard-wired, the only way to decouple them is to edit your configuration files by hand, make the unusual build, then undo your changes and make sure you don't accidentally commit them.</p>
+<p>The worst part is that API keys are typically stored in your VCS, which is a security issue.</p>
+<h2 id="the-right-way-to-do-it">The right way to do it</h2>
+<p>I recommend you to use <em>dotenv</em> files.</p>
+<p>Dotenv files are configuration files with names that start with <code>.env-</code> prefix. They store environment variable definitions as key=value pairs, one per line:</p>
+<pre><code>FOO=bar
+BAZ=quux</code></pre>
+<p>Your app will read one of those files during build and use its values.</p>
+<p>The phrase "environment variables" contributes to confusion, be careful. "Environment variables" are variables that you can pass from command line.</p>
+<p>Here's what you should do:</p>
+<ol>
+<li>Remove all <strong>deploy target</strong> parameters from your code.</li>
+<li>Move them into dotenv files. Make one dotnev file per <strong>deploy target</strong>. For example, <code>.env-production</code>, <code>.env-staging</code>, <code>.env-sandbox</code>, <code>.env-local</code>, <code>.env-mock</code>, etc. You can have as many as you need, not just production and development.</li>
+<li>It is crucial that you gitigonre your dotenv files, so that your API keys do not get exposed through version control.</li>
+<li>If you're using CI, you can copy variables from your dotenv files to your CI's online configuration. For example, the corresponding settings section in CodeShip is called "deployment pipelines".</li>
+<li>Set up your app to accept a <strong>deploy target</strong> param, read the corresponding dotenv file and use values inside it. Most platforms have a <code>dotenv</code> library to do that.</li>
+</ol>
+<p>You're now able to select a <strong>deploy target</strong> separately from <strong>environment</strong>.</p>
+<p>For example, when I need to run a produciton build against a local server I can do:</p>
+<pre><code>DEPLOY_TARGET=local ember serve --environment=production</code></pre>
+<p>Of course, you can configure your app in such a way that a certain default <strong>deploy target</strong> is automatically selected for every <strong>environment</strong>. This will let you avoid redundancy in most common combinations.</p>
+<p>You may object: we've come a full circle and now we are where we started: <strong>envrionment</strong> and <strong>deploy target</strong> are coupled. What's the point?</p>
+<p>Yes, it is like that by default: your app will use development environment for local builds and production environment for deployments to production servers. But now you can override them and use any combination of <strong>environments</strong> and <strong>deploy tarets</strong> — without a need to modify your code and then roll back.</p>
+<h3 id="how-to-configure-dotenv-in-ember">How to configure dotenv in Ember</h3>
+<p>The <a href="https://www.npmjs.com/package/dotenv">dotenv</a> npm library can be used in Ember directly. But if you need to access your <strong>deploy target</strong> params both in <code>ember-cli-build.js</code> and <code>config/environment.js</code>, or in FastBoot, then you should use the <a href="https://github.com/fivetanley/ember-cli-dotenv">ember-cli-dotenv</a> addon.</p>
+<p>Create <code>.env-</code> files in the root folder of your Ember CLI project, one per each backend you're using, including local and mock servers if you use them:</p>
+<pre><code>.env-production
+.env-staging
+.env-sandbox
+.env-local
+.env-mock</code></pre>
+<p>A top-notch technique is to give your servers personal names. Using <code>.env-linode1</code> instead of <code>.env-production</code> will make things more clear.</p>
+<p>Put <strong>deploy target</strong> configuration into each file like this:</p>
+<pre><code>MYAPP_BACKEND_API_URL=https://bravo.horns-and-hooves.com/api
+MYAPP_BACKEND_API_VERSION=v18
+MYAPP_IMAGES_CDN_URL=http://horns-and-hooves.cloudfront.net/bravo/images
+MYAPP_GITHUB_API_KEY=jFViG9kZtY4NAJA8I65s</code></pre>
+<p>Some of params may be shared across servers, that's fine.</p>
+<p>You are recommended to prefix your variable names with your app name in order to prevent collisions with external env vars that you may also need.</p>
+<p>No we need to teach <code>ember-cli-dotenv</code> load a specific dotenv file depending on our needs. Use this trick in your <code>config/environment.js</code> file:</p>
+<pre><code class="javascript language-javascript">const fs = require('fs')
+
+const environment   = process.env.EMBER_ENV || 'development'
+const defaultTarget = environment === 'production' ? 'production' : 'localhost-4200'
+const target        = process.env.DEPLOY_TARGET || defaultTarget
+const dotEnvFile    = `./.env-${target}`
+
+if (fs.existsSync(dotEnvFile)) console.info(`using dotenv file: ${dotEnvFile}`)
+else console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are passed manually`)
+
+
+
+module.exports = function (env) {
+  return {
+    clientAllowedKeys : [
+      'MYAPP_BACKEND_API_URL',
+      'MYAPP_BACKEND_API_VERSION',
+      'MYAPP_IMAGES_CDN_URL',
+      'MYAPP_GITHUB_API_KEY',
+    ],
+    path : dotEnvFile,
+  }
+}</code></pre>
+<p>This will make the params from a given dotenv-file appear in the <code>process.env</code> hash, which in turn is available in <code>config/environment.js</code> and <code>ember-cli-build.js</code>. Use it like this:</p>
+<pre><code class="js language-js">{
+  gitHubApiKey: process.env.MYAPP_GITHUB_API_KEY
+}</code></pre>
+<div class="exclamation"></div>
+<blockquote>
+  <p>Instead of accessing the <code>config/environment.js</code> in your app directly, create a <code>config</code> Ember service that will proxy the values from <code>config/environment.js</code>. Not only this will improve your app's architecture, it will also allow you have global computed properties derived from values read from <code>config/environment.js</code>.</p>
+</blockquote>
+<p>The above code will use <code>production</code> <strong>deploy target</strong> in the <code>production</code> <strong>environment</strong> and <code>localhost-4200</code> in <code>development</code>. You should adjust <strong>deploy target</strong> names used in the code by default.</p>
+<pre><code class="sh language-sh">ember s -prod   # uses `production` environment with `production` deploy target
+ember s         # uses `development` environment with `localhost-4200` deploy target</code></pre>
+<p>Here's how you can tell which dotenv file to use:</p>
+<pre><code class="sh language-sh">DEPLOY_TARGET=localhost-4200 ember s -prod   # uses `production` environment with `localhost-4200` deploy target
+DEPLOY_TARGET=production ember s             # uses `development` environment with `production` deploy target</code></pre>
+<h2 id="together-with-ember-cli-deploy">Together with ember-cli-deploy</h2>
+<p><code>ember-cli-deploy</code> <a href="http://ember-cli-deploy.com/docs/v1.0.x/using-env-for-secrets/">has built-in support for dotenv files</a>, but they're used only for <code>ember deploy</code> commands, whereas <code>ember-cli-dotenv</code> can be used both with <code>ember deploy</code> and default commands like <code>ember serve</code>, <code>ember build</code>, <code>ember test</code>, etc.</p>
+<p>There are a number of gotchas you have to be aware of when you use <code>ember-cli-dotenv</code> together with <code>ember-cli-deploy</code>.</p>
+<p>First of all, <code>ember-cli-deploy</code> docs use the phrase "build environment" as a synonym for <strong>deploy targets</strong>, which contributes to confusion.</p>
+<p>Secondly, the <code>config/deploy.js</code> configuration file lets you define configuration based on <strong>deploy target</strong>. Rename <strong>deploy target</strong> names in the file to match the ones in your dotenv file names.</p>
+<p>Thirdly, don't use short names like <code>dev</code> and <code>prod</code>. Use full names <code>development</code> and <code>production</code> or, even better, use unique names for your servers.</p>
+<p>Fourthly, mind that <code>ember-cli-deploy</code> also uses the <code>DEPLOY_TARGET</code> env var. But for some reason it can't be used like this:</p>
+<pre><code>DEPLOY_TARGET=production ember deploy</code></pre>
+<p>Instead, you're supposed to write</p>
+<pre><code>ember deploy production</code></pre>
+<p>The trouble is that the <code>config/dotenv.js</code> files kicks in earlier than the <code>ember deploy production</code> command sets <strong>environment</strong> to <code>production</code> and assigns it to the <code>DEPLOY_TARGET</code> env var.</p>
+<p>One solution is to pass the <code>DEPLOY_TARGET</code> variable explicitly for your <code>config/dotenv.js</code> to use:</p>
+<pre><code>DEPLOY_TARGET=production ember deploy production</code></pre>
+<p>But this command is quite bulky. You can avoid the redundancy by teaching your <code>config/dotenv.js</code> to be aware of the <code>ember deploy production</code> command:</p>
+<pre><code class="js language-js">const fs = require('fs')
+
+function getDeployTarget () {
+  return process.env.DEPLOY_TARGET || getDefaultDeployTarget()
+}
+
+function getDefaultDeployTarget () {
+  const environment =
+    process.env.EMBER_ENV
+    || deployEnv()
+    || 'development'
+
+  return environment === 'production' ? 'production' : 'localhost-4200'
+}
+
+function deployEnv () {
+  if (process.argv[2] === 'deploy' &amp;&amp; process.argv[3] === 'prod') {
+    throw new Error("Command `ember deploy prod` is not supported. Please use `ember deploy production`.")
+  } else if (process.argv[2] === 'deploy' &amp;&amp; process.argv[3] === 'production') {
+    return 'production'
+  }
+}
+
+
+
+const dotEnvFile   = `./.env-${getDeployTarget()}`
+
+if (fs.existsSync(dotEnvFile)) console.info(`Using dotenv file: ${dotEnvFile}`)
+else console.warn(`dot-env file not found: ${dotEnvFile}, assuming env vars are passed manually`)
+
+
+
+module.exports = function (env) {
+  return {
+    clientAllowedKeys : [
+      'MYAPP_BACKEND_API_URL',
+      'MYAPP_BACKEND_API_VERSION',
+      'MYAPP_IMAGES_CDN_URL',
+      'MYAPP_GITHUB_API_KEY',
+    ],
+    path : dotEnvFile,
+  }
+}</code></pre>
+<p>As a result, the <code>ember deploy production</code> command will use the <code>.env-production</code> dotenv file and set the <strong>environment</strong> to <code>production</code>.</p>
+<p>When you need to deploy a development build (e. g. with no minification) to production, use this command:</p>
+<pre><code>EMBER_ENV=development ember deploy production</code></pre>
+<h2 id="your-opinion">Your opinion?</h2>
+<p>Don't hesitate to share what you have to say in the comments!</p>]]></description><link>http://lolma.us/en/blog/do-not-confuse-env-for-deploy-target</link><guid isPermaLink="true">http://lolma.us/en/blog/do-not-confuse-env-for-deploy-target</guid><pubDate>Sat, 18 Feb 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[New website!]]></title><description><![CDATA[<p>The new personal website is live!  Though it looks humble, it's packed with Ember features and best practices. Meant to be a showcase of my skills.</p><p>I'm not gonna go into details here because my <a href="http://lolma.us/en/">CV</a> has a section about it. Please have a look!</p>
+<p>This website marks a new phase in my career. I'm now calmly confident to consider myself a senior EmberJS dev.</p>]]></description><link>http://lolma.us/en/blog/new-website</link><guid isPermaLink="true">http://lolma.us/en/blog/new-website</guid><pubDate>Sun, 04 Dec 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[PromiseProxyMixin: pure Ember alternative to ember-concurrency]]></title><description><![CDATA[<p>ember-concurrency is an extremely powerful and useful addon. Yet, if your only use case is fetching or sending data, there's a lighweight alternative.</p><div class="exclamation"></div>
+<blockquote>
+  <p>This article was originally posted on Deveo blog.</p>
+  <p>When Deveo was acquired by Perforce, Deveo blog was turned down.</p>
+</blockquote>
+<p><a href="http://ember-concurrency.com">ember-concurrency</a> is an exceptionally powerful add-on with numerous use cases.</p>
+<p>The most common use case though is simply fetching or submitting data. You may be hesitant to include <code>ember-concurrency</code> into your app only for this use case.</p>
+<p>The matter is that Ember has all the necessary pieces included for implementing this kind of data fetching with simplicity and efficiency while staying true to the Ember way.</p>
+<h2 id="example-use-case">Example use case</h2>
+<p>Let me demonstrate on a simple example. We are going to fetch the remaining number of available requests from GitHub API:</p>
+<pre><code>GET http://api.github.com/rate_limit</code></pre>
+<p>I've chosen this particular API endpoint because it's the only one that GitHub doesn't rate-limit. :trollface:</p>
+<p>Let's implement a data fetching method:</p>
+<pre><code class="js language-js">import Controller from '@ember/controller'
+import fetch from 'fetch'
+
+Controller.extend({
+  _fetchGitHubRate () {
+    return fetch('https://api.github.com/rate_limit')
+      .then(response =&gt; response.json());
+  },
+});</code></pre>
+<p>I'm using <a href="https://github.com/ember-cli/ember-fetch">ember-fetch</a>, but it can be anything that returns a promise, for example, the <a href="https://github.com/ember-cli/ember-ajax">ember-ajax</a> service.</p>
+<p>And it can happen not only in a controller, but in any other Ember entity: component, service, model, etc.</p>
+<h2 id="enter-promiseproxymixin">Enter <code>PromiseProxyMixin</code></h2>
+<p>You've probably heard an opinion that returning a promise from a computed property is a bad idea. Well, with <a href="https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin">PromiseProxyMixin</a> that's not true.</p>
+<p>Let's create an Ember Object enhanced with <code>PromiseProxyMixin</code>. You can do this on the root level of your module:</p>
+<pre><code class="js language-js">import EmberObject from '@ember/object'
+import PromiseProxyMixin from '@ember/object/promise-proxy-mixin'
+
+const PromiseObject = EmberObject.extend(PromiseProxyMixin);</code></pre>
+<p>Now we can wrap the promise into <code>PromiseObject</code>. Make sure to create two distinct computed properties (CPs):</p>
+<pre><code class="js language-js">// This CP returns a simple promise
+gitHubRatePromise: computed(function () {
+  return this._fetchGitHubRate();
+}),
+
+// This CP wraps the promise with with `PromiseObject` 
+gitHubRateProxy: computed('gitHubRatePromise', function () {
+  const promise = this.get('gitHubRatePromise');
+  return promise &amp;&amp; PromiseObject.create({promise});
+}),</code></pre>
+<p>Note the <code>promise &amp;&amp;</code> part. We don't want the promise proxy to be created when the promise does not exist because it would crash in that case.</p>
+<h2 id="accessing-the-content-of-a-promise">Accessing the content of a promise</h2>
+<p>The API endpoint we're accessing returns the data in this format (fragment shown):</p>
+<pre><code class="js language-js">{
+  "resources": {
+    "core": {
+      "limit": 60,
+      "remaining": 60,
+      "reset": 1486831110
+    },
+}</code></pre>
+<p>This hash will become available in the template as <code>gitHubRateProxy.content</code>. You can work with this property normally, as shown below:</p>
+<pre><code class="js language-js">  gitHubRate:          reads('gitHubRateProxy.content'),
+  gitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),
+  gitHubRateLimit:     reads('gitHubRate.resources.core.limit'),</code></pre>
+<p>While the promise is not resolved, those properties will be <code>undefined</code>. Make sure to account for that when you use them downstream:</p>
+<pre><code class="js language-js">  gitHubRatePercentage: computed('gitHubRateRemaining', 'gitHubRateLimit', function () {
+    const gitHubRateRemaining = this.get('gitHubRateRemaining');
+    const gitHubRateLimit     = this.get('gitHubRateLimit');
+
+    // We don't want a `NaN`!
+    if (gitHubRateRemaining == null || gitHubRateLimit == null) return;
+
+    const percentage  = Math.round(gitHubRateRemaining / gitHubRateLimit * 100);
+
+    return `${percentage}%`;
+  }),</code></pre>
+<p>Now you can simply use these properties in your template!</p>
+<pre><code class="handlebars language-handlebars">Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})</code></pre>
+<h2 id="how-it-works">How it works</h2>
+<p>Initially, the <code>gitHubRatePromise</code> CP is not consumed, and the request isn't made.</p>
+<p>When the template is rendered, the <code>gitHubRateRemaining</code> computed property is accessed. This CP depends on <code>gitHubRateProxy</code>. The <code>gitHubRateProxy</code> in turn reads <code>gitHubRatePromise</code>.</p>
+<p>When the <code>gitHubRatePromise</code> computed property is accessed for the first time, it calls the data fetching method and returns the promise.</p>
+<p>This promise is cached, so when it is accessed again, the computed property returns the same promise, and duplicate requests are not performed. Essentially, it implements a pattern that <code>ember-concurrency</code> calls <code>drop</code>!</p>
+<p>The promise is wrapped into the <code>PromiseObject</code> available as <code>gitHubRateProxy</code>. When the promise resolves, its return value becomes available as <code>gitHubRateProxy.content</code>.</p>
+<p>Note that this approach is declarative. I. e. you don't have to do this:</p>
+<pre><code class="js language-js">didInsertElement () {
+  this._super()
+  this.get('fetchGitHubRateTask').perform()
+}</code></pre>
+<h2 id="accounting-for-a-pending-promise">Accounting for a pending promise</h2>
+<p>Before the promise is resolved, <code>gitHubRateProxy.content</code> will be <code>undefined</code>. This means that while the promise is pending, the user will see nothing. Let's fix that.</p>
+<p><code>PromiseProxyMixin</code> exposes the <code>gitHubRateProxy.isPending</code> property. We can read it in our template:</p>
+<pre><code class="handlebars language-handlebars">{{#if gitHubRateProxy.isPending}}
+
+  Retrieving GitHub rate limit...
+
+{{else}}
+
+  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})
+
+{{/if}}</code></pre>
+<p>Doing this feels quite natural. Turns out, returning promises from computed properties isn't that bad! 😉</p>
+<h2 id="accounting-for-a-rejected-promise">Accounting for a rejected promise</h2>
+<p>You might have already noticed a problem in this example: if a promise is rejected (due to a network hiccup, for example), it's rejected value will be cached forever. This is where <code>ember-concurrency</code> shines: it lets you restart a rejected task with very little boilerplate code.</p>
+<p>We can restart our promise with a few extra lines of code. The trick is to overwrite the <code>gitHubRatePromise</code> computed property with a static promise:</p>
+<pre><code class="js language-js">  actions: {
+    refetchGitHubRate () {
+      this.set('gitHubRatePromise', this._fetchGitHubRate());
+    }
+  },</code></pre>
+<p>Calling this action will start a new network request, put its promise into <code>gitHubRatePromise</code> and force all dependent computed properties to recalculate! <code>gitHubRateProxy.isRejected</code> will be true when the promise is rejected. <code>gitHubRateProxy.reason</code> will contain the rejection message. Let's do it:</p>
+<pre><code class="handlebars language-handlebars">{{#if gitHubRateProxy.isRejected}}
+
+  Failed to retrieve GitHub rate limit.&lt;br&gt;
+
+  Reason: {{gitHubRateProxy.reason}}&lt;br&gt;
+
+  &lt;a href {{action 'refetchGitHubRate'}}&gt;
+    Retry
+  &lt;/a&gt;
+
+{{else if gitHubRateProxy.isPending}}
+
+  Retrieving GitHub rate limit...
+
+{{else}}
+
+  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})
+
+{{/if}}</code></pre>
+<h2 id="demo">Demo</h2>
+<p>See the complete code sample and try it in action <a href="https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">on Ember Twiddle</a>:</p>
+<iframe src="https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?fullScreen=true" style="width: 100%; height: 500px; border: 2px solid biege;"></iframe>
+<p><br></p>
+<p><a href="https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">Here</a> you can find the <code>ember-concurrency</code> variant for comparison.</p>
+<h2 id="keeping-the-logic-on-a-service-for-reusability">Keeping the logic on a service for reusability</h2>
+<p>If you have the described logic on a component and render the component in two distinct routes, it will redownload the data every time the user switches routes.</p>
+<p>This is likely not desirable. Instead, you want the response to be cached globally, it should be redownloaded only when explicitly told to.</p>
+<p>The solution to this is simple: move the logic into a service. It's very convenient to subclass <code>ember-ajax</code> and enhance it with custom methods and computed properties.</p>
+<h2 id="emberobjectproxy-is-not-necessary"><code>Ember.ObjectProxy</code> is not necessary</h2>
+<p>Note that official <a href="https://emberjs.com/api/ember/2.18/classes/PromiseProxyMixin">PromiseProxyMixin</a> docs suggest using <code>Ember.ObjectProxy</code>. However, it is doing some black magic with the only purpose of which is to shorten this path:</p>
+<pre><code>gitHubRateProxy.content.resources.core.remaining</code></pre>
+<p>by removing the <code>.content</code> segment so that it looks like this:</p>
+<pre><code>gitHubRateProxy.resources.core.remaining</code></pre>
+<p>Naturally, this black magic doesn't work for arrays. For arrays, you have to use <code>Ember.ArrayProxy</code> which of course doesn't work with objects. And if your promise returns a class instance rather than a hash (POJO), you can use neither of them.</p>
+<p><code>Ember.Object</code> is universal. Having this extra <code>.content</code> segment is a tiny price to pay for the straightforwardness it offers. I believe, <code>ObjectProxy</code> and <code>ArrayProxy</code> are the remnants of the bygone era of <code>ObjectController</code> and <code>ArrayController</code>.</p>
+<h2 id="neither-are-ember-deferred-content-and-ember-async-button">Neither are <code>ember-deferred-content</code> and <code>ember-async-button</code></h2>
+<p>These two addons approach promise wrapping on template level. They offer funky template APIs without offering anything that the described approach does not offer. </p>
+<p>Compare these:</p>
+<pre><code class="handlebars language-handlebars">{{#if gitHubRateProxy.isRejected}}
+
+  Failed to retrieve GitHub rate limit.&lt;br&gt;
+
+  Reason: {{gitHubRateProxy.reason}}&lt;br&gt;
+
+  &lt;a href {{action 'refetchGitHubRate'}}&gt;
+    Retry
+  &lt;/a&gt;
+
+{{else if gitHubRateProxy.isPending}}
+
+  Retrieving GitHub rate limit...
+
+{{else}}
+
+  Your GitHub rate limit: {{gitHubRateRemaining}} ({{gitHubRatePercentage}})
+
+{{/if}}</code></pre>
+<pre><code class="handlebars language-handlebars">{{#deferred-content gitHubRatePromise as |d|}}
+  {{#d.pending}}
+    Retrieving GitHub rate limit...
+  {{/d.pending}}
+
+  {{#d.fulfilled as |gitHubRate|}}
+    Your GitHub rate limit:
+
+    {{gitHubRate.resources.core.remaining}}
+
+    ({{multiply
+      (divide gitHubRate.resources.core.remaining gitHubRate.resources.core.limit)
+      100
+    }}%)
+  {{/d.fulfilled}}
+
+  {{#d.rejected as |reason|}}
+    Failed to retrieve GitHub rate limit.&lt;br&gt;
+
+    Reason: {{reason}}&lt;br&gt;
+
+    &lt;a href {{action 'refetchGitHubRate'}}&gt;
+      Retry
+    &lt;/a&gt;
+  {{/d.rejected}}
+{{/deferred-content}}</code></pre>
+<p>Note how <code>ember-deferred-content</code> forces you to calculate percentage on the template level.</p>
+<h2 id="im-not-advocating-against-ember-concurrency">I'm not advocating against <code>ember-concurrency</code></h2>
+<p>The main purpose of this article is to show you a pattern and make you give it a little thought. The pattern is fully legit and I'm using it whenever I don't feel like including <code>ember-concurrency</code> into my project.</p>
+<p>There are at least two reasons to do this:</p>
+<ul>
+<li>you care for your distribution size too much, and</li>
+<li>you want to keep it simple and avoid extra layers of unnecessary abstraction and complexity</li>
+</ul>
+<p>If you're already familiar with <code>ember-concurrency</code> and have it included in your project, there's no reason not to employ it for this use case. It may save you some typing:</p>
+<pre><code class="js language-js">gitHubRateTask: task(function * () {
+  return yield this._fetchGitHubRate();
+}).restartable().on('didInsertElement')
+
+gitHubRate:          reads('gitHubRateTask.last.value'),
+gitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),
+gitHubRateLimit:     reads('gitHubRate.resources.core.limit'),
+
+// If we don't do this, the request will not be made. Smells imperative. :(
+didInsertElement () {
+  this._super()
+  this.get('fetchGitHubRateTask').perform()
+}</code></pre>
+<p><a href="https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs">Here</a>'s the link to th full <code>ember-concurrency</code> example again.</p>
+<h2 id="accessing-the-previous-response-after-the-request-is-repeated-and-fails">Accessing the previous response after the request is repeated and fails</h2>
+<p>Consider this use case. We're polling the backend every second and we want the last available result to be displayed at all times.</p>
+<p><code>ember-concurrency</code> offers access to the last resolution and rejection values even after the task has been restarted:</p>
+<pre><code class="handlebars language-handlebars">{{gitHubRateTask.lastSuccessful.value}}</code></pre>
+<p>If we do the same with the <code>PromiseProxyMixin</code> approach, the value on the page will be flashing every second. This is because the promise gets overwritten every second, and the previous resolution value becomes unavailable.</p>
+<p>A quick solution would be to add <code>.then(result =&gt; this.set('result', result))</code> to the promise, so that the resolved value gets extracted from the promise and stored separately.</p>
+<p>This is a valid solution, but I don't like it for its imperativeness. Instead, consider this CP macro:</p>
+<pre><code class="js language-js">function cachingMacro (key) {
+  let cache
+
+  return computed(key, function () {
+    const value = this.get(key)
+
+    return value == null
+      ? cache
+      : cache = value
+  })
+}</code></pre>
+<p>It can be used like this: </p>
+<pre><code class="js language-js">gitHubRate:          cachingMacro('gitHubRateProxy.content'),
+gitHubRateRemaining: reads('gitHubRate.resources.core.remaining'),
+gitHubRateLimit:     reads('gitHubRate.resources.core.limit'),</code></pre>
+<p>Now, when the promise is overwritten with another promise that rejects, <code>gitHubRate</code> will still contain the resolved value of the first promise.</p>
+<p>Or you can use <code>ember-concurrency</code> after all. 😬</p>
+<h2 id="tell-me-what-you-think">Tell me what you think</h2>
+<p>Use the comments below to share your impressions, objections, and ideas. The most valuable part of an article is always the discussion that follows!</p>]]></description><link>http://lolma.us/en/blog/promise-proxy-mixin</link><guid isPermaLink="true">http://lolma.us/en/blog/promise-proxy-mixin</guid><pubDate>Tue, 07 Mar 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Do return an `RSVP.hash()` from your routes' `model` hooks!]]></title><description><![CDATA[<p>It's a relatively widespread opinion that returning a hash from the <code>model</code> hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.</p><h2 id="why-is-it-considered-a-bad-practice">Why is it considered a bad practice?</h2>
+<p>I've never thought it's a bad thing in the first place, so let's see what a smarter Ember dev thinks.</p>
+<p>Sam Selikoff, the heroic author of <a href="http://www.ember-cli-mirage.com/">Mirage</a>, in <a href="https://medium.com/@sam.selikoff/because-returning-a-single-domain-object-from-the-route-is-the-ember-pattern-the-very-name-of-the-94c4abf4ad58#.b6gzydbvt">his blog post</a> supports the idea of never returning a hash from the <code>model</code> hook.</p>
+<p>Though I definitely follow Sam's example on Ember patterns, I dare to disagree with this particular case.</p>
+<p>Here are some of his points summarized by me. Make sure to read the original post!</p>
+<ul>
+<li>The hook's name, <code>model</code>, implies that a single entity should be returned from it.</li>
+<li>A necessity to return more than one entity is an indication of bad <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ERM</a> design.</li>
+<li>If you need to return several different models, you should refactor by introducing a junction model with relationships that represent a combination of the models you need, and return that junction model from the route.</li>
+<li>If the models are so independent that it's inappropriate to unite them under a single entity, you shouldn't load all of them in the route. Instead, load the most important one from the route and load the rest from the controller/components after the initial render.</li>
+<li>In Rails, controllers should instantiate only one object.</li>
+</ul>
+<p>Let's see.</p>
+<blockquote>
+  <p>The hook's name, <code>model</code>, implies that a single entity should be returned from the hook.</p>
+</blockquote>
+<p>The name of the hook isn't really a decisive factor to me. First of all, in web dev, the word <code>model</code> is used in a very wide meaning. In the context of MVC's model layer such as Ember Data, "model" typically means a class representing a resource and is used to instantiate individual records of that resource. But outside the model layer context, a "model" is simply something that represents your data, and it can be anything — from a string to a complex, arbitrarily defined JSON-like structure.</p>
+<p>Also, Sam is not against returning an array from the <code>model</code> hook, even though its name isn't <code>models</code>.</p>
+<blockquote>
+  <p>If you need to return several models, you should refactor by introducing a junction model.</p>
+  <p>If you can't unite unrelated models under a single entity, you shouldn't load all of them in the route.</p>
+</blockquote>
+<p>I find the recommendation to refactor the ERM in such a way, that every route can be represented with a single entity, to be idealistic and naive: it is simply not always possible!</p>
+<p>Quite often you do have routes that display several unrelated, yet equally important entities. Displaying the route without some of them makes no business-logical sense, yet you can't reasonably unite them under a single junction entity.</p>
+<p>Even if introducing a junction entity makes sense, updating the backend can be too hard or even impossible, for example, if you don't have access to and/or authority over the backend codebase.</p>
+<p>You could introduce a frontend-only junction model. In certain complicated cases, this is the optimal solution, and I did follow this path when it was appropriate (<a href="http://intercom.lolma.us/dublin/">example</a>). But the cost is high: your frontend and backend ERMs diverge. I believe, doing that simply to avoid returning a hash is absolutely unreasonable.</p>
+<p>Even if you can synchronize the ERM refactor of the frontend and the backend, it's still a terribly huge stretch for avoiding one trivial pattern.</p>
+<blockquote>
+  <p>In Rails, controllers should instantiate only one object.</p>
+</blockquote>
+<p>Rails isn't really something one should Compare Ember with. Though both are considered MVC frameworks, their architecture is very different. Rails doesn't have a "Route" class at all, and for a specific REST call the router always calls exactly one controller, even if the URL represents a nested resource. In Ember, Routes are entities that a responsible for data loading and are called in a chain.</p>
+<p>But most importantly, Sam doesn't point out any <em>practical</em> disadvantage of returning a hash. That's because there are none! But there are benefits.</p>
+<h2 id="the-best-way-to-return-a-hash-from-the-model-hook">The best way to return a hash from the <code>model</code> hook</h2>
+<p>Let me explain how I do it and then we'll see what the advantages are.</p>
+<p><strong>Every route's <code>model</code> hook should return an <code>RSVP.hash()</code>. Even if it loads only one entity, put it into a property on the hash.</strong></p>
+<p><strong>The trick is that <em>every model hash should extend its parent hash</em>.</strong> Except for topmost routes which have no parent model, of course.</p>
+<p>Here's how my typical model hooks look like:</p>
+<pre><code class="js language-js">// posts route
+model () {
+  const store = this.get('store')
+
+  return RSVP.hash({
+    posts: store.findAll('post'),
+  })
+}</code></pre>
+<pre><code class="js language-js">// posts.post route
+{
+  model ({postId}) {
+    const store = this.get('store')
+    const model = this.modelFor('posts')
+
+    return RSVP.hash({
+      ...model,
+      currentPost: store.peekRecord('post', postId),
+    })
+  }
+}</code></pre>
+<p>The <code>...</code> is a <a href="https://www.google.ru/search?q=es2015+spread+operator">spread</a> operator, short for <code>Ember.merge</code> and <code>Object.assign</code>.</p>
+<p>The <code>posts.post</code> route will end up with a model like this:</p>
+<pre><code class="js language-js">{
+  posts: [post1, post2, post3],
+  currentPost: post2
+}</code></pre>
+<p>Now let's how it makes your codebase awesome!</p>
+<h2 id="self-explanatory-code">Self-explanatory code</h2>
+<p>One of Sam's arguments I didn't mention earlier is that accessing <code>model.posts</code> in a template is worse than just <code>model</code>. I disagree.</p>
+<p>When I see <code>model</code> used in a template, it's always puzzling and frustrating. Seeing <code>model.posts</code>, on the other hand, is self-explanatory.</p>
+<h2 id="consistent-access-to-available-data-across-all-templates">Consistent access to available data across all templates</h2>
+<p>With this approach, the <code>model</code> property in every controller always contains all data that has been loaded in all of the parent routes in the hierarchy.</p>
+<p>You can access that data in any template directly, without having to manually pass this data through by using hairy patterns like <code>modelFor</code> in <code>setupController</code>, unnecessary services or junction models.</p>
+<p>Say, on an individual post route I would like to show links to previous and next posts. Here's what I'm <strong>not</strong> gonna do in order to achieve that:</p>
+<ul>
+<li>I don't have to introduce <code>previousPost</code> and <code>nextPost</code> relationships on the <code>post</code> model.</li>
+<li>I don't need to introduce a junction model that represents a post with its adjacent posts.</li>
+<li>I don't have to run <code>store.peekRecord</code> on the controller/component level.</li>
+<li>I don't need to use <code>setupController</code>. I find <code>setupController</code> to be a bad practice that abandons declarative computed properties in favor of ugly imperative code that increases tight coupling. There's literally only one place where you need <code>setupController</code>: to pass an error into the <code>error</code> substate.</li>
+<li>I don't have to introduce a service that retrieves adjacent posts for a given post.</li>
+</ul>
+<p><strong>All I need to do is to access <code>model.posts</code>! I don't even care in which of the parent routes it was loaded.</strong></p>
+<div class="exclamation"></div>
+<blockquote>
+  <p>Note that I'm not encouraging you to preload all posts in the <code>posts</code> route. In the simplest case, it's more efficient to load all posts in <code>posts.index</code>. This way, the user won't have to download all posts if they only came to see a specific one at <code>posts.posts</code>.</p>
+  <p>But it's a very common situation that you need to load all records in records in the parent due to other reasons. For example, you want to display a tag cloud, but your backend doesn't provide a dedicated tags API: tags are simply an attribute on the model. Or you want to display a list of recent posts in the sidebar but your API can't filter by date and limit amount, so you have to do it on the client. Or there's simply not that much records of a certain type, so it's both fast and convenient to preload all of them.</p>
+  <p>In such cases, you have your records preloaded anyway. So why not reuse them effectively?</p>
+</blockquote>
+<h2 id="leveraging-the-efficiency-of-computed-properties">Leveraging the efficiency of computed properties</h2>
+<p>So I want to display links to previous and next posts.</p>
+<p>Knowing that all posts are available as <code>model.posts</code> in almost any controller, I can just toss a few computed properties where I need them:</p>
+<pre><code class="js language-js">import {sort}              from 'ember-computed'
+import sum                 from 'ember-cpm/macros/sum'
+import indexOf             from 'make/your/own/macro'
+import getFromArrayByIndex from 'it/is/easy/and/fun'
+
+{
+  sortOrder:         'createdAd', // assuming it's adjustable by user
+  sortedPosts:       sort('model.posts', 'sortOrder'),
+  currentPostIndex:  indexOf('sortedPosts', 'model.currentPost'),
+  nextPostIndex:     sum('currentPostIndex', 1),
+  previousPostIndex: sum('currentPostIndex', -1),
+  nextPost:          getFromArrayByIndex('sortedPosts', 'nextPostIndex'),
+  previousPost:      getFromArrayByIndex('sortedPosts', 'previousPostIndex'),
+}</code></pre>
+<pre><code class="handlebars language-handlebars">{{#if nextPost}}
+  {{link-to (concat '← ' nextPost.title)     'posts.post' nextPost.id}}
+{{/if}}
+
+{{#if previousPost}}
+  {{link-to (concat previousPost.title ' →') 'posts.post' previousPost.id}}
+{{/if}}</code></pre>
+<p>This code is declarative, as bug-proof as it can be and easy to understand from a single glance.</p>
+<p>It's also performant: CP values are cached, and once you leave and revisit the route, the controller/component won't have to recalculate those values. But they'll recalculate automatically if the array of posts changes.</p>
+<h2 id="preload-related-data-nicely">Preload related data nicely</h2>
+<p>If you need to preload some related records, you can do it in a very readable way.</p>
+<p>In this example, we preload authors of the post and of all its comments:</p>
+<pre><code class="js language-js">{
+  model ({postId}) {
+    const store = this.get('store')
+    const model = this.modelFor('posts')
+
+    return RSVP
+      .hash({
+        ...model,
+        currentPost: store.peekRecord('post', postId),
+      })
+
+      // When we have the post, we're able to fetch its author and comments
+      .then(model =&gt; RSVP.hash({
+        ...model,
+        author:   model.currentPost.get('author'),
+        comments: model.currentPost.get('comments'),
+      }))
+
+      // And finally we're able to fetch comment authors:
+      .then(model =&gt; RSVP.hash({
+        ...model,
+        commentAuthors: store.query('user', {
+          'filter[ids]': this._getCommentAuthorIds(model.comments)
+        })
+      }))
+  },
+
+  _getCommentAuthorIds (comments) {
+    return comments
+      .map(comment =&gt; comment.belongsTo('author').id())
+      .join(',')
+  },
+}</code></pre>
+<p>One of Sam's concerns is that this approach prevents devs from traversing the model graph.</p>
+<p>I fully agree that in most cases you should traverse the model graph via a chain like <code>model.currentPost.comments[n].author</code> rather than filter current author's comment from <code>model.commentAuthors</code>.</p>
+<p>But the matter is that though you do have <code>model.commentAuthors</code> available, you still can access comment authors via the chain. <code>model.commentAuthors</code> was merely a self-explanatory way to preload data, it does not prevent you from using the other way.</p>
+<h2 id="eslint-to-the-rescue">ESLint to the rescue</h2>
+<p>One problem with this approach is that JSHint freaks out at the <code>...</code> spread operator.</p>
+<p>It's not a problem of the approach itself but rather a matter of relying on outdated tooling.</p>
+<p><code>ember install ember-eslint</code> resolves this problem for good. You shouldn't avoid the powerful spread operator only because JSHint sucks at ES2015.</p>
+<h2 id="tell-me-what-you-think">Tell me what you think</h2>
+<p>Please share your opinion on this approach in the comments section below.</p>
+<p>Does this approach make your dev life a tad more enjoyable?</p>
+<p>What disadvantages does it have? Can they be mitigated or is it wrong in the first place?</p>]]></description><link>http://lolma.us/en/blog/route-model-hook-rsvp-hash</link><guid isPermaLink="true">http://lolma.us/en/blog/route-model-hook-rsvp-hash</guid><pubDate>Thu, 08 Dec 2016 00:00:00 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,25 @@
+{
+  "data": {
+    "id": "ember-emojione",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "owner": "Deveo",
+      "ember-observer": true,
+      "description": {
+        "en": "your complete emoji solution",
+        "ru": "полное решение для поддержки эмодзи в вашем приложении"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "Deveo/ember-emojione",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}

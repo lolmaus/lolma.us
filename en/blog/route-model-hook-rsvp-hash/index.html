@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="lolma-us/config/environment" content="%7B%22modulePrefix%22%3A%22lolma-us%22%2C%22podModulePrefix%22%3A%22lolma-us/pods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22envVars%22%3A%7B%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22lolma-us%22%2C%22version%22%3A%220.0.0+1b57ddef%22%7D%2C%22emberRollbarClient%22%3A%7B%22enabled%22%3Atrue%2C%22accessToken%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22verbose%22%3Atrue%2C%22captureUncaught%22%3Atrue%2C%22captureUnhandledRejections%22%3Atrue%2C%22payload%22%3A%7B%22environment%22%3A%22production%22%2C%22client%22%3A%7B%22javascript%22%3A%7B%22source_map_enabled%22%3Atrue%2C%22code_version%22%3A%220.0.0+1b57dde%22%2C%22guess_uncaught_frames%22%3Atrue%7D%7D%7D%7D%2C%22i18n%22%3A%7B%22defaultLocale%22%3A%22en%22%7D%2C%22fastboot%22%3A%7B%22hostWhitelist%22%3A%5B%22/%22%2C%22http%3A//127.0.0.1%3A8081%22%5D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22github-oauth2%22%3A%7B%22apiKey%22%3A%224da52fd7973591d437ea%22%2C%22scope%22%3A%22public_repo%22%7D%7D%7D%2C%22moment%22%3A%7B%22includeLocales%22%3A%5B%22ru%22%5D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22development%22%2C%22production%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-77566978-1%22%2C%22sendHitTask%22%3Atrue%7D%7D%5D%2C%22disqus%22%3A%7B%22shortname%22%3A%22lolmaus%22%7D%2C%22LMS_GITHUB_CLIENT_ID%22%3A%224da52fd7973591d437ea%22%2C%22LMS_ROLLBAR_CLIENT_ID%22%3A%224c6c03ad77a74b16bc4bb6a7b4726bde%22%2C%22LMS_HOST%22%3A%22https%3A//lolma.us%22%2C%22LMS_GATEKEEPER_URL%22%3A%22https%3A//lolma-us-prod.herokuapp.com%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->  <meta name="ember-cli-head-start">
+<title>Do return an `RSVP.hash()` from your routes' `model` hooks! | Blog | Andrey Mikhaylov (lolmaus)</title>
+<meta property="og:title" content="Do return an `RSVP.hash()` from your routes' `model` hooks!">
+
+<!---->
+  <meta property="og:locale" content="en">
+  <link rel="alternate" type="application/rss+xml" href="https://lolma.us/rss_en.xml">
+
+  <meta property="og:description" content="It's a relatively widespread opinion that returning a hash from the `model` hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.">
+
+<meta property="og:image" content="https://lolma.us/favicon.jpg">
+
+<meta property="og:type" content="article">
+
+  <link rel="canonical" href="https://lolma.us/en/blog/route-model-hook-rsvp-hash/">
+  <meta property="og:url" content="https://lolma.us/en/blog/route-model-hook-rsvp-hash/">
+  <meta property="article:published_time" content="2016-12-08T00:00:00.000Z">
+  <meta property="article:author" content="https://lolma.us/en/">
+
+<!---->
+<!---->
+  <script type="application/ld+json">{"@context":"http://schema.org","@graph":[{"@type":"WebSite","image":"https://lolma.us/favicon.jpg","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."}},{"@type":"Blog","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"name":"Blog of Andrey Mikhaylov (lolmaus)","description":"Musings on web development, mostly on JavaScript and EmberJS","url":"https://lolma.us/en/blog/","keywords":["development","web development","webdev","ember","emberjs","js","javascript","frontend"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://lolma.us/en/blog/","name":"Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://lolma.us/en/blog/route-model-hook-rsvp-hash/","name":"Do return an `RSVP.hash()` from your routes' `model` hooks!"}}]},{"@type":"TechArticle","author":{"@type":"Person","name":"Andrey Mikhaylov","givenName":"Andrey","familyName":"Mikhaylov","additionalName":"lolmaus","email":"mailto:lolmaus@gmail.com","image":"https://lolma.us/favicon.jpg","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}},"brand":{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},"homeLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"Russia","addressLocality":"Moscow","availableLanguage":{"@type":"Language","name":["Russian"]}}},"jobTitle":["Frontend developer","EmberJS developer"],"memberOf":{"@type":"Organization","logo":"https://lolma.us/images/linked-data/perforce-logo.png","url":"https://www.perforce.com/","name":"Perforce","brand":[{"@type":"Brand","name":"Helix Core","logo":"https://lolma.us/images/linked-data/helix-core-logo-8c5164957fa78647968b2db6e0893567.png","url":"https://www.perforce.com/products/helix-core","description":"Version Control + Swarm Code Review &amp; Collaboration"},{"@type":"Brand","name":"Hansoft","logo":"https://lolma.us/images/linked-data/hansoft-logo-7658d48e82acda65c2106b2eba082e57.png","url":"https://hansoft.com/","description":"Agile Project &amp; Product Management Solution"},{"@type":"Brand","name":"Helix TeamHub","logo":"https://lolma.us/images/linked-data/helix-teamhub-logo-0fe238b12e2dddfd8954425c9c94236a.png","url":"https://www.perforce.com/products/helix-teamhub","description":"Code Hosting and Collaboration for Git+"},{"@type":"Brand","name":"Helix ALM","logo":"https://lolma.us/images/linked-data/helix-alm-logo-9b37cab7b9b913e82c6b38a99f43a4e2.png","url":"https://www.perforce.com/products/helix-alm","description":"Flexible, End-to-End Application Lifecycle Management"}]},"nationality":{"@type":"Country","name":"Russia","alternateName":"Russian Federation"}},"accessMode":"textual","inLanguage":"en","audience":{"@type":"Audience","audienceType":["developers","web developers","javascript developers","js developers","ember developers","emberjs developers"]},"license":{"@type":"CreativeWork","name":"Creative Commons Attribution 4.0 International","alternateName":"CC BY 4.0","url":"https://creativecommons.org/licenses/by/4.0/","description":"You are free to: Share — copy and redistribute the material in any medium or format; Adapt — remix, transform, and build upon the material for any purpose, even commercially). This license is acceptable for Free Cultural Works. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits."},"headline":"Do return an `RSVP.hash()` from your routes' `model` hooks!","description":"It's a relatively widespread opinion that returning a hash from the `model` hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.","image":"https://lolma.us/favicon.jpg","datePublished":"2016-12-08T00:00:00.000Z","proficiency":"beginner","mainEntityOfPage":{"@type":"WebPage","@id":"https://lolma.us/en/blog/route-model-hook-rsvp-hash/"}}]}</script>
+<meta name="ember-cli-head-end">
+
+
+    <link integrity="" rel="stylesheet" href="/assets/vendor-10c46aeeb15514da80ccb4d3f41b4526.css">
+    <link integrity="" rel="stylesheet" href="/assets/lolma-us-7bea756b2ad871bcdb1fb19ad6ecdba3.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|Merriweather:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+
+    
+  <link rel="yandex-tableau-widget" href="/yandex-browser-manifest.json">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="228x228" href="/coast-228x228.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff">
+<meta name="application-name">
+<meta name="msapplication-TileColor" content="#fff">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/apple-touch-startup-image-1536x2008.png">
+</head>
+  <body>
+    <div id="ember3015" class="ember-view"><!---->
+
+<div class="route-locale">
+
+  <input type="checkbox" id="route-locale-menuToggler" class="route-locale-menuToggler ember-checkbox ember-view">
+
+  <label for="route-locale-menuToggler" class="route-locale-burger">
+    <svg height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg" class="route-locale-burger-icon"><title/><path d="M0 2h25v4H0V2zm0 8h25v4H0v-4zm0 8h25v4H0v-4z" fill="#000" fill-rule="evenodd"/></svg>
+  </label>
+
+  <label for="route-locale-menuToggler" class="route-locale-backdrop"></label>
+
+
+
+  <div id="ember3019" class="route-locale-menu sideMenu ember-view"><div class="route-locale-menu-greeting">
+  You are awesome today!
+  <span class="route-locale-menu-greeting-emoji">😎</span>
+</div>
+
+<div class="route-locale-menu-items">
+<!---->
+    <a href="/en" id="ember3024" class="route-locale-menu-item _resume ember-view">Résumé</a>
+
+  <a href="https://github.com/lolmaus/lolma.us" class="route-locale-menu-item _source -no-icon">
+    Source on GitHub
+    <span class="externalLink"></span>
+  </a>
+
+<a href="/ru/blog/route-model-hook-rsvp-hash" id="ember3033" class="route-locale-menu-item _locale ember-view">    Моя не понимать
+</a></div></div>
+
+
+
+  <div class="route-locale-content">
+    <div class="route-blog">
+
+
+<div id="ember3039" class="secTion ember-view"><div class="secTion-inner ">
+      <div class="route-blog-sidebar">
+      <div class="route-blog-sidebar-section _avatar">
+        <img src="/favicon.jpg" alt="Andrey Mikhaylov" width="512" height="512" class="route-blog-sidebar-avatar">
+      </div>
+
+      <div class="route-blog-sidebar-section _content">
+        <h2 class="route-blog-title">
+          Andrey Mikhaylov
+          @lolmaus
+        </h2>
+
+        <div class="route-blog-subtitle">
+          frontend&nbsp;developer, EmberJS&nbsp;enthusiast
+        </div>
+
+        <div id="ember3052" class="route-blogIndex-menu horizontalMenu ember-view"><div class="horizontalMenu-item _blog">
+  <a href="/en/blog" id="ember3053" class="horizontalMenu-item-link active ember-view">Blog</a>
+</div>
+
+
+<div class="horizontalMenu-item _resume">
+  <a href="/en" id="ember3058" class="horizontalMenu-item-link ember-view">Résumé</a>
+</div>
+
+
+<div class="horizontalMenu-item _source">
+  <a href="https://github.com/lolmaus/lolma.us" class="horizontalMenu-item-link -no-icon -has-inner">
+    <span class="horizontalMenu-item-link-inner">Source on GitHub</span><span class="externalLink"></span>
+  </a>
+</div>
+
+
+<div class="horizontalMenu-item _locale">
+<a href="/ru/blog/route-model-hook-rsvp-hash" id="ember3067" class="horizontalMenu-item-link ember-view">    Моя не понимать
+</a></div></div>
+      </div>
+      
+      <div class="route-blog-sidebar-section _bottom">
+
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg version="1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="5.5 -3.5 64 64" class="route-blog-sidebar-section-bottom-icon _cc" alt="License Creative Commons 4.0 Attribution" title="License Creative Commons 4.0 Attribution"><circle fill="#FFF" cx="37.637" cy="28.806" r="28.276"/><path d="M37.443-3.5c8.988 0 16.57 3.085 22.742 9.257C66.393 11.967 69.5 19.548 69.5 28.5c0 8.991-3.049 16.476-9.145 22.456-6.476 6.363-14.113 9.544-22.912 9.544-8.649 0-16.153-3.144-22.514-9.43C8.644 44.784 5.5 37.262 5.5 28.5c0-8.761 3.144-16.342 9.429-22.742C21.101-.415 28.604-3.5 37.443-3.5zm.114 5.772c-7.276 0-13.428 2.553-18.457 7.657-5.22 5.334-7.829 11.525-7.829 18.572 0 7.086 2.59 13.22 7.77 18.398 5.181 5.182 11.352 7.771 18.514 7.771 7.123 0 13.334-2.607 18.629-7.828 5.029-4.838 7.543-10.952 7.543-18.343 0-7.276-2.553-13.465-7.656-18.571-5.104-5.104-11.276-7.656-18.514-7.656zm8.572 18.285v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557c0-.572.2-1.057.599-1.457.401-.399.887-.6 1.457-.6h13.144c.533 0 1.01.2 1.428.6.417.4.628.886.628 1.457zm-13.087-8.228c0-3.008 1.485-4.514 4.458-4.514s4.457 1.504 4.457 4.514c0 2.971-1.486 4.457-4.457 4.457s-4.458-1.486-4.458-4.457z"/></svg>
+        </a>
+
+        <a href="https://lolma.us/rss_en.xml" class="route-blog-sidebar-section-bottom-link -no-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="49.25" viewBox="0 0 49.249999 49.249999" width="49.25" class="route-blog-sidebar-section-bottom-icon _rss" alt="RSS" title="RSS"><path d="M24.625 0C11.025 0 0 11.025 0 24.625 0 38.227 11.024 49.25 24.625 49.25c13.602 0 24.625-11.023 24.625-24.625C49.25 11.025 38.226 0 24.625 0zm-7.637 35.735a3.238 3.238 0 1 1 .002-6.476 3.238 3.238 0 0 1-.002 6.476zm8.123.021c0-3.057-1.182-5.928-3.33-8.082a11.247 11.247 0 0 0-8.028-3.342v-4.674c8.84 0 16.03 7.223 16.03 16.098h-4.672zm8.256.004c0-10.867-8.795-19.711-19.606-19.711v-4.676c13.387 0 24.28 10.942 24.28 24.387h-4.674z"/></svg>
+        </a>
+      </div>
+      
+    </div>
+
+</div></div>
+
+<div id="ember3080" class="route-blog-content secTion ember-view"><div class="secTion-inner route-blog-content-inner">
+      <div class="route-blogPost">
+
+  <a href="/en/blog" id="ember3082" class="route-blogPost-back active ember-view">← To blog index</a>
+
+  <div id="ember3087" class="route-blogPost-post blogPost -full ember-view">  <h1 id="ember3088" class="blogPost-title ember-view"><p>Do return an <code>RSVP.hash()</code> from your routes' <code>model</code> hooks!</p>
+</h1>
+
+
+
+<p class="blogPost-date">
+  8th December 2016
+
+<!---->
+</p>
+
+
+
+  <div id="ember3089" class="blogPost-summary ember-view"><p>It's a relatively widespread opinion that returning a hash from the <code>model</code> hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.</p>
+</div>
+
+
+
+  <div id="ember3090" class="blogPost-body ember-view"><h2 id="why-is-it-considered-a-bad-practice" class="headingWithLink"><a href="#why-is-it-considered-a-bad-practice" class="headingWithLink-link">#</a>Why is it considered a bad practice?</h2>
+<p>I've never thought it's a bad thing in the first place, so let's see what a smarter Ember dev thinks.</p>
+<p>Sam Selikoff, the heroic author of <a href="http://www.ember-cli-mirage.com/">Mirage</a>, in <a href="https://medium.com/@sam.selikoff/because-returning-a-single-domain-object-from-the-route-is-the-ember-pattern-the-very-name-of-the-94c4abf4ad58#.b6gzydbvt">his blog post</a> supports the idea of never returning a hash from the <code>model</code> hook.</p>
+<p>Though I definitely follow Sam's example on Ember patterns, I dare to disagree with this particular case.</p>
+<p>Here are some of his points summarized by me. Make sure to read the original post!</p>
+<ul>
+<li>The hook's name, <code>model</code>, implies that a single entity should be returned from it.</li>
+<li>A necessity to return more than one entity is an indication of bad <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">ERM</a> design.</li>
+<li>If you need to return several different models, you should refactor by introducing a junction model with relationships that represent a combination of the models you need, and return that junction model from the route.</li>
+<li>If the models are so independent that it's inappropriate to unite them under a single entity, you shouldn't load all of them in the route. Instead, load the most important one from the route and load the rest from the controller/components after the initial render.</li>
+<li>In Rails, controllers should instantiate only one object.</li>
+</ul>
+<p>Let's see.</p>
+<blockquote>
+  <p>The hook's name, <code>model</code>, implies that a single entity should be returned from the hook.</p>
+</blockquote>
+<p>The name of the hook isn't really a decisive factor to me. First of all, in web dev, the word <code>model</code> is used in a very wide meaning. In the context of MVC's model layer such as Ember Data, "model" typically means a class representing a resource and is used to instantiate individual records of that resource. But outside the model layer context, a "model" is simply something that represents your data, and it can be anything — from a string to a complex, arbitrarily defined JSON-like structure.</p>
+<p>Also, Sam is not against returning an array from the <code>model</code> hook, even though its name isn't <code>models</code>.</p>
+<blockquote>
+  <p>If you need to return several models, you should refactor by introducing a junction model.</p>
+  <p>If you can't unite unrelated models under a single entity, you shouldn't load all of them in the route.</p>
+</blockquote>
+<p>I find the recommendation to refactor the ERM in such a way, that every route can be represented with a single entity, to be idealistic and naive: it is simply not always possible!</p>
+<p>Quite often you do have routes that display several unrelated, yet equally important entities. Displaying the route without some of them makes no business-logical sense, yet you can't reasonably unite them under a single junction entity.</p>
+<p>Even if introducing a junction entity makes sense, updating the backend can be too hard or even impossible, for example, if you don't have access to and/or authority over the backend codebase.</p>
+<p>You could introduce a frontend-only junction model. In certain complicated cases, this is the optimal solution, and I did follow this path when it was appropriate (<a href="http://intercom.lolma.us/dublin/">example</a>). But the cost is high: your frontend and backend ERMs diverge. I believe, doing that simply to avoid returning a hash is absolutely unreasonable.</p>
+<p>Even if you can synchronize the ERM refactor of the frontend and the backend, it's still a terribly huge stretch for avoiding one trivial pattern.</p>
+<blockquote>
+  <p>In Rails, controllers should instantiate only one object.</p>
+</blockquote>
+<p>Rails isn't really something one should Compare Ember with. Though both are considered MVC frameworks, their architecture is very different. Rails doesn't have a "Route" class at all, and for a specific REST call the router always calls exactly one controller, even if the URL represents a nested resource. In Ember, Routes are entities that a responsible for data loading and are called in a chain.</p>
+<p>But most importantly, Sam doesn't point out any <em>practical</em> disadvantage of returning a hash. That's because there are none! But there are benefits.</p>
+<h2 id="the-best-way-to-return-a-hash-from-the-model-hook" class="headingWithLink"><a href="#the-best-way-to-return-a-hash-from-the-model-hook" class="headingWithLink-link">#</a>The best way to return a hash from the <code>model</code> hook</h2>
+<p>Let me explain how I do it and then we'll see what the advantages are.</p>
+<p><strong>Every route's <code>model</code> hook should return an <code>RSVP.hash()</code>. Even if it loads only one entity, put it into a property on the hash.</strong></p>
+<p><strong>The trick is that <em>every model hash should extend its parent hash</em>.</strong> Except for topmost routes which have no parent model, of course.</p>
+<p>Here's how my typical model hooks look like:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-comment">// posts route</span>
+model () {
+  <span class="hljs-keyword">const</span> store = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'store'</span>)
+
+  <span class="hljs-keyword">return</span> RSVP.hash({
+    <span class="hljs-attr">posts</span>: store.findAll(<span class="hljs-string">'post'</span>),
+  })
+}</code></pre></div>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-comment">// posts.post route</span>
+{
+  model ({postId}) {
+    <span class="hljs-keyword">const</span> store = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'store'</span>)
+    <span class="hljs-keyword">const</span> model = <span class="hljs-keyword">this</span>.modelFor(<span class="hljs-string">'posts'</span>)
+
+    <span class="hljs-keyword">return</span> RSVP.hash({
+      ...model,
+      <span class="hljs-attr">currentPost</span>: store.peekRecord(<span class="hljs-string">'post'</span>, postId),
+    })
+  }
+}</code></pre></div>
+<p>The <code>...</code> is a <a href="https://www.google.ru/search?q=es2015+spread+operator">spread</a> operator, short for <code>Ember.merge</code> and <code>Object.assign</code>.</p>
+<p>The <code>posts.post</code> route will end up with a model like this:</p>
+<div class="code-block"><pre><code class="js language-js hljs">{
+  <span class="hljs-attr">posts</span>: [post1, post2, post3],
+  <span class="hljs-attr">currentPost</span>: post2
+}</code></pre></div>
+<p>Now let's how it makes your codebase awesome!</p>
+<h2 id="self-explanatory-code" class="headingWithLink"><a href="#self-explanatory-code" class="headingWithLink-link">#</a>Self-explanatory code</h2>
+<p>One of Sam's arguments I didn't mention earlier is that accessing <code>model.posts</code> in a template is worse than just <code>model</code>. I disagree.</p>
+<p>When I see <code>model</code> used in a template, it's always puzzling and frustrating. Seeing <code>model.posts</code>, on the other hand, is self-explanatory.</p>
+<h2 id="consistent-access-to-available-data-across-all-templates" class="headingWithLink"><a href="#consistent-access-to-available-data-across-all-templates" class="headingWithLink-link">#</a>Consistent access to available data across all templates</h2>
+<p>With this approach, the <code>model</code> property in every controller always contains all data that has been loaded in all of the parent routes in the hierarchy.</p>
+<p>You can access that data in any template directly, without having to manually pass this data through by using hairy patterns like <code>modelFor</code> in <code>setupController</code>, unnecessary services or junction models.</p>
+<p>Say, on an individual post route I would like to show links to previous and next posts. Here's what I'm <strong>not</strong> gonna do in order to achieve that:</p>
+<ul>
+<li>I don't have to introduce <code>previousPost</code> and <code>nextPost</code> relationships on the <code>post</code> model.</li>
+<li>I don't need to introduce a junction model that represents a post with its adjacent posts.</li>
+<li>I don't have to run <code>store.peekRecord</code> on the controller/component level.</li>
+<li>I don't need to use <code>setupController</code>. I find <code>setupController</code> to be a bad practice that abandons declarative computed properties in favor of ugly imperative code that increases tight coupling. There's literally only one place where you need <code>setupController</code>: to pass an error into the <code>error</code> substate.</li>
+<li>I don't have to introduce a service that retrieves adjacent posts for a given post.</li>
+</ul>
+<p><strong>All I need to do is to access <code>model.posts</code>! I don't even care in which of the parent routes it was loaded.</strong></p>
+<div class="exclamation"></div>
+<blockquote>
+  <p>Note that I'm not encouraging you to preload all posts in the <code>posts</code> route. In the simplest case, it's more efficient to load all posts in <code>posts.index</code>. This way, the user won't have to download all posts if they only came to see a specific one at <code>posts.posts</code>.</p>
+  <p>But it's a very common situation that you need to load all records in records in the parent due to other reasons. For example, you want to display a tag cloud, but your backend doesn't provide a dedicated tags API: tags are simply an attribute on the model. Or you want to display a list of recent posts in the sidebar but your API can't filter by date and limit amount, so you have to do it on the client. Or there's simply not that much records of a certain type, so it's both fast and convenient to preload all of them.</p>
+  <p>In such cases, you have your records preloaded anyway. So why not reuse them effectively?</p>
+</blockquote>
+<h2 id="leveraging-the-efficiency-of-computed-properties" class="headingWithLink"><a href="#leveraging-the-efficiency-of-computed-properties" class="headingWithLink-link">#</a>Leveraging the efficiency of computed properties</h2>
+<p>So I want to display links to previous and next posts.</p>
+<p>Knowing that all posts are available as <code>model.posts</code> in almost any controller, I can just toss a few computed properties where I need them:</p>
+<div class="code-block"><pre><code class="js language-js hljs"><span class="hljs-keyword">import</span> {sort}              <span class="hljs-keyword">from</span> <span class="hljs-string">'ember-computed'</span>
+<span class="hljs-keyword">import</span> sum                 <span class="hljs-keyword">from</span> <span class="hljs-string">'ember-cpm/macros/sum'</span>
+<span class="hljs-keyword">import</span> indexOf             <span class="hljs-keyword">from</span> <span class="hljs-string">'make/your/own/macro'</span>
+<span class="hljs-keyword">import</span> getFromArrayByIndex <span class="hljs-keyword">from</span> <span class="hljs-string">'it/is/easy/and/fun'</span>
+
+{
+  <span class="hljs-attr">sortOrder</span>:         <span class="hljs-string">'createdAd'</span>, <span class="hljs-comment">// assuming it's adjustable by user</span>
+  sortedPosts:       sort(<span class="hljs-string">'model.posts'</span>, <span class="hljs-string">'sortOrder'</span>),
+  <span class="hljs-attr">currentPostIndex</span>:  indexOf(<span class="hljs-string">'sortedPosts'</span>, <span class="hljs-string">'model.currentPost'</span>),
+  <span class="hljs-attr">nextPostIndex</span>:     sum(<span class="hljs-string">'currentPostIndex'</span>, <span class="hljs-number">1</span>),
+  <span class="hljs-attr">previousPostIndex</span>: sum(<span class="hljs-string">'currentPostIndex'</span>, <span class="hljs-number">-1</span>),
+  <span class="hljs-attr">nextPost</span>:          getFromArrayByIndex(<span class="hljs-string">'sortedPosts'</span>, <span class="hljs-string">'nextPostIndex'</span>),
+  <span class="hljs-attr">previousPost</span>:      getFromArrayByIndex(<span class="hljs-string">'sortedPosts'</span>, <span class="hljs-string">'previousPostIndex'</span>),
+}</code></pre></div>
+<div class="code-block"><pre><code class="handlebars language-handlebars hljs"><span class="xml"></span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> nextPost}}</span><span class="xml">
+  </span><span class="hljs-template-variable">{{link-to (concat '← ' nextPost.title)     'posts.post' nextPost.id}}</span><span class="xml">
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> previousPost}}</span><span class="xml">
+  </span><span class="hljs-template-variable">{{link-to (concat previousPost.title ' →') 'posts.post' previousPost.id}}</span><span class="xml">
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span><span class="xml"></span></code></pre></div>
+<p>This code is declarative, as bug-proof as it can be and easy to understand from a single glance.</p>
+<p>It's also performant: CP values are cached, and once you leave and revisit the route, the controller/component won't have to recalculate those values. But they'll recalculate automatically if the array of posts changes.</p>
+<h2 id="preload-related-data-nicely" class="headingWithLink"><a href="#preload-related-data-nicely" class="headingWithLink-link">#</a>Preload related data nicely</h2>
+<p>If you need to preload some related records, you can do it in a very readable way.</p>
+<p>In this example, we preload authors of the post and of all its comments:</p>
+<div class="code-block"><pre><code class="js language-js hljs">{
+  model ({postId}) {
+    <span class="hljs-keyword">const</span> store = <span class="hljs-keyword">this</span>.get(<span class="hljs-string">'store'</span>)
+    <span class="hljs-keyword">const</span> model = <span class="hljs-keyword">this</span>.modelFor(<span class="hljs-string">'posts'</span>)
+
+    <span class="hljs-keyword">return</span> RSVP
+      .hash({
+        ...model,
+        <span class="hljs-attr">currentPost</span>: store.peekRecord(<span class="hljs-string">'post'</span>, postId),
+      })
+
+      <span class="hljs-comment">// When we have the post, we're able to fetch its author and comments</span>
+      .then(<span class="hljs-function"><span class="hljs-params">model</span> =&gt;</span> RSVP.hash({
+        ...model,
+        <span class="hljs-attr">author</span>:   model.currentPost.get(<span class="hljs-string">'author'</span>),
+        <span class="hljs-attr">comments</span>: model.currentPost.get(<span class="hljs-string">'comments'</span>),
+      }))
+
+      <span class="hljs-comment">// And finally we're able to fetch comment authors:</span>
+      .then(<span class="hljs-function"><span class="hljs-params">model</span> =&gt;</span> RSVP.hash({
+        ...model,
+        <span class="hljs-attr">commentAuthors</span>: store.query(<span class="hljs-string">'user'</span>, {
+          <span class="hljs-string">'filter[ids]'</span>: <span class="hljs-keyword">this</span>._getCommentAuthorIds(model.comments)
+        })
+      }))
+  },
+
+  _getCommentAuthorIds (comments) {
+    <span class="hljs-keyword">return</span> comments
+      .map(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.belongsTo(<span class="hljs-string">'author'</span>).id())
+      .join(<span class="hljs-string">','</span>)
+  },
+}</code></pre></div>
+<p>One of Sam's concerns is that this approach prevents devs from traversing the model graph.</p>
+<p>I fully agree that in most cases you should traverse the model graph via a chain like <code>model.currentPost.comments[n].author</code> rather than filter current author's comment from <code>model.commentAuthors</code>.</p>
+<p>But the matter is that though you do have <code>model.commentAuthors</code> available, you still can access comment authors via the chain. <code>model.commentAuthors</code> was merely a self-explanatory way to preload data, it does not prevent you from using the other way.</p>
+<h2 id="eslint-to-the-rescue" class="headingWithLink"><a href="#eslint-to-the-rescue" class="headingWithLink-link">#</a>ESLint to the rescue</h2>
+<p>One problem with this approach is that JSHint freaks out at the <code>...</code> spread operator.</p>
+<p>It's not a problem of the approach itself but rather a matter of relying on outdated tooling.</p>
+<p><code>ember install ember-eslint</code> resolves this problem for good. You shouldn't avoid the powerful spread operator only because JSHint sucks at ES2015.</p>
+<h2 id="tell-me-what-you-think" class="headingWithLink"><a href="#tell-me-what-you-think" class="headingWithLink-link">#</a>Tell me what you think</h2>
+<p>Please share your opinion on this approach in the comments section below.</p>
+<p>Does this approach make your dev life a tad more enjoyable?</p>
+<p>What disadvantages does it have? Can they be mitigated or is it wrong in the first place?</p>
+</div>
+</div>
+
+<!---->
+</div>
+
+  
+</div></div>
+
+
+</div>
+
+  </div>
+
+</div></div><script type="fastboot/shoebox" id="shoebox-ember-data-store">{"types":{"cache-buster":[{"data":{"id":"buster","attributes":{"string":"61e6c79273e8a6d750b38a3ccf881b7a52a816cf9410a1af441823157101e378"},"type":"cache-busters"}}],"experience":[],"markdown-block":[],"post":[{"data":{"id":"route-model-hook-rsvp-hash-en","attributes":{"title":"Do return an `RSVP.hash()` from your routes' `model` hooks!","body":"\n\n\n## Why is it considered a bad practice?\n\nI've never thought it's a bad thing in the first place, so let's see what a smarter Ember dev thinks.\n\nSam Selikoff, the heroic author of [Mirage](http://www.ember-cli-mirage.com/), in [his blog post](https://medium.com/@sam.selikoff/because-returning-a-single-domain-object-from-the-route-is-the-ember-pattern-the-very-name-of-the-94c4abf4ad58#.b6gzydbvt) supports the idea of never returning a hash from the `model` hook.\n\nThough I definitely follow Sam's example on Ember patterns, I dare to disagree with this particular case.\n\nHere are some of his points summarized by me. Make sure to read the original post!\n\n*   The hook's name, `model`, implies that a single entity should be returned from it.\n*   A necessity to return more than one entity is an indication of bad [ERM](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) design.\n*   If you need to return several different models, you should refactor by introducing a junction model with relationships that represent a combination of the models you need, and return that junction model from the route.\n*   If the models are so independent that it's inappropriate to unite them under a single entity, you shouldn't load all of them in the route. Instead, load the most important one from the route and load the rest from the controller/components after the initial render.\n*   In Rails, controllers should instantiate only one object.\n\nLet's see.\n\n\u003e The hook's name, `model`, implies that a single entity should be returned from the hook.\n\nThe name of the hook isn't really a decisive factor to me. First of all, in web dev, the word `model` is used in a very wide meaning. In the context of MVC's model layer such as Ember Data, \"model\" typically means a class representing a resource and is used to instantiate individual records of that resource. But outside the model layer context, a \"model\" is simply something that represents your data, and it can be anything — from a string to a complex, arbitrarily defined JSON-like structure.\n\nAlso, Sam is not against returning an array from the `model` hook, even though its name isn't `models`.\n\n\u003e If you need to return several models, you should refactor by introducing a junction model.\n\u003e\n\u003e If you can't unite unrelated models under a single entity, you shouldn't load all of them in the route.\n\nI find the recommendation to refactor the ERM in such a way, that every route can be represented with a single entity, to be idealistic and naive: it is simply not always possible!\n\nQuite often you do have routes that display several unrelated, yet equally important entities. Displaying the route without some of them makes no business-logical sense, yet you can't reasonably unite them under a single junction entity.\n\nEven if introducing a junction entity makes sense, updating the backend can be too hard or even impossible, for example, if you don't have access to and/or authority over the backend codebase.\n\nYou could introduce a frontend-only junction model. In certain complicated cases, this is the optimal solution, and I did follow this path when it was appropriate ([example](http://intercom.lolma.us/dublin/)). But the cost is high: your frontend and backend ERMs diverge. I believe, doing that simply to avoid returning a hash is absolutely unreasonable.\n\nEven if you can synchronize the ERM refactor of the frontend and the backend, it's still a terribly huge stretch for avoiding one trivial pattern.\n\n\u003e In Rails, controllers should instantiate only one object.\n\nRails isn't really something one should Compare Ember with. Though both are considered MVC frameworks, their architecture is very different. Rails doesn't have a \"Route\" class at all, and for a specific REST call the router always calls exactly one controller, even if the URL represents a nested resource. In Ember, Routes are entities that a responsible for data loading and are called in a chain.\n\nBut most importantly, Sam doesn't point out any *practical* disadvantage of returning a hash. That's because there are none! But there are benefits.\n\n\n\n## The best way to return a hash from the `model` hook\n\nLet me explain how I do it and then we'll see what the advantages are.\n\n**Every route's `model` hook should return an `RSVP.hash()`. Even if it loads only one entity, put it into a property on the hash.**\n\n**The trick is that *every model hash should extend its parent hash*.** Except for topmost routes which have no parent model, of course.\n\nHere's how my typical model hooks look like:\n\n```js\n// posts route\nmodel () {\n  const store = this.get('store')\n  \n  return RSVP.hash({\n    posts: store.findAll('post'),\n  })\n}\n```\n\n```js\n// posts.post route\n{\n  model ({postId}) {\n    const store = this.get('store')\n    const model = this.modelFor('posts')\n    \n    return RSVP.hash({\n      ...model,\n      currentPost: store.peekRecord('post', postId),\n    })\n  }\n}\n```\n\nThe `...` is a [spread](https://www.google.ru/search?q=es2015+spread+operator) operator, short for `Ember.merge` and `Object.assign`.\n\nThe `posts.post` route will end up with a model like this:\n\n```js\n{\n  posts: [post1, post2, post3],\n  currentPost: post2\n}\n```\n\nNow let's how it makes your codebase awesome!\n\n\n\n## Self-explanatory code\n\nOne of Sam's arguments I didn't mention earlier is that accessing `model.posts` in a template is worse than just `model`. I disagree.\n\nWhen I see `model` used in a template, it's always puzzling and frustrating. Seeing `model.posts`, on the other hand, is self-explanatory.\n\n\n\n## Consistent access to available data across all templates\n\nWith this approach, the `model` property in every controller always contains all data that has been loaded in all of the parent routes in the hierarchy.\n\nYou can access that data in any template directly, without having to manually pass this data through by using hairy patterns like `modelFor` in `setupController`, unnecessary services or junction models.\n\nSay, on an individual post route I would like to show links to previous and next posts. Here's what I'm **not** gonna do in order to achieve that:\n\n*    I don't have to introduce `previousPost` and `nextPost` relationships on the `post` model.\n*    I don't need to introduce a junction model that represents a post with its adjacent posts.\n*    I don't have to run `store.peekRecord` on the controller/component level.\n*    I don't need to use `setupController`. I find `setupController` to be a bad practice that abandons declarative computed properties in favor of ugly imperative code that increases tight coupling. There's literally only one place where you need `setupController`: to pass an error into the `error` substate.\n*    I don't have to introduce a service that retrieves adjacent posts for a given post.\n\n**All I need to do is to access `model.posts`! I don't even care in which of the parent routes it was loaded.**\n\n\u003cdiv class=\"exclamation\"\u003e\u003c/div\u003e\n\n\u003e Note that I'm not encouraging you to preload all posts in the `posts` route. In the simplest case, it's more efficient to load all posts in `posts.index`. This way, the user won't have to download all posts if they only came to see a specific one at `posts.posts`.\n\u003e \n\u003e But it's a very common situation that you need to load all records in records in the parent due to other reasons. For example, you want to display a tag cloud, but your backend doesn't provide a dedicated tags API: tags are simply an attribute on the model. Or you want to display a list of recent posts in the sidebar but your API can't filter by date and limit amount, so you have to do it on the client. Or there's simply not that much records of a certain type, so it's both fast and convenient to preload all of them.\n\u003e \n\u003e In such cases, you have your records preloaded anyway. So why not reuse them effectively?\n\n\n\n## Leveraging the efficiency of computed properties\n\nSo I want to display links to previous and next posts.\n\nKnowing that all posts are available as `model.posts` in almost any controller, I can just toss a few computed properties where I need them:\n\n```js\nimport {sort}              from 'ember-computed'\nimport sum                 from 'ember-cpm/macros/sum'\nimport indexOf             from 'make/your/own/macro'\nimport getFromArrayByIndex from 'it/is/easy/and/fun'\n\n{\n  sortOrder:         'createdAd', // assuming it's adjustable by user\n  sortedPosts:       sort('model.posts', 'sortOrder'),\n  currentPostIndex:  indexOf('sortedPosts', 'model.currentPost'),\n  nextPostIndex:     sum('currentPostIndex', 1),\n  previousPostIndex: sum('currentPostIndex', -1),\n  nextPost:          getFromArrayByIndex('sortedPosts', 'nextPostIndex'),\n  previousPost:      getFromArrayByIndex('sortedPosts', 'previousPostIndex'),\n}\n```\n\n```handlebars\n{{#if nextPost}}\n  {{link-to (concat '← ' nextPost.title)     'posts.post' nextPost.id}}\n{{/if}}\n\n{{#if previousPost}}\n  {{link-to (concat previousPost.title ' →') 'posts.post' previousPost.id}}\n{{/if}}\n```\n\nThis code is declarative, as bug-proof as it can be and easy to understand from a single glance.\n\nIt's also performant: CP values are cached, and once you leave and revisit the route, the controller/component won't have to recalculate those values. But they'll recalculate automatically if the array of posts changes.\n\n\n\n## Preload related data nicely\n\nIf you need to preload some related records, you can do it in a very readable way.\n\nIn this example, we preload authors of the post and of all its comments:\n\n```js\n{\n  model ({postId}) {\n    const store = this.get('store')\n    const model = this.modelFor('posts')\n    \n    return RSVP\n      .hash({\n        ...model,\n        currentPost: store.peekRecord('post', postId),\n      })\n      \n      // When we have the post, we're able to fetch its author and comments\n      .then(model =\u003e RSVP.hash({\n        ...model,\n        author:   model.currentPost.get('author'),\n        comments: model.currentPost.get('comments'),\n      }))\n      \n      // And finally we're able to fetch comment authors:\n      .then(model =\u003e RSVP.hash({\n        ...model,\n        commentAuthors: store.query('user', {\n          'filter[ids]': this._getCommentAuthorIds(model.comments)\n        })\n      }))\n  },\n  \n  _getCommentAuthorIds (comments) {\n    return comments\n      .map(comment =\u003e comment.belongsTo('author').id())\n      .join(',')\n  },\n}\n```\n\nOne of Sam's concerns is that this approach prevents devs from traversing the model graph.\n\nI fully agree that in most cases you should traverse the model graph via a chain like `model.currentPost.comments[n].author` rather than filter current author's comment from `model.commentAuthors`.\n\nBut the matter is that though you do have `model.commentAuthors` available, you still can access comment authors via the chain. `model.commentAuthors` was merely a self-explanatory way to preload data, it does not prevent you from using the other way.\n\n\n\n## ESLint to the rescue\n\nOne problem with this approach is that JSHint freaks out at the `...` spread operator.\n\nIt's not a problem of the approach itself but rather a matter of relying on outdated tooling.\n\n`ember install ember-eslint` resolves this problem for good. You shouldn't avoid the powerful spread operator only because JSHint sucks at ES2015.\n\n\n\n## Tell me what you think\n\nPlease share your opinion on this approach in the comments section below.\n\nDoes this approach make your dev life a tad more enjoyable?\n\nWhat disadvantages does it have? Can they be mitigated or is it wrong in the first place?\n","summary":"It's a relatively widespread opinion that returning a hash from the `model` hook is a bad practice. I believe it's not! I always return a hash, following a witty pattern, and find it very beneficial.","image":null,"created":"2016-12-08T00:00:00.000Z","updated":null,"hide-summary":false,"dependencies":null,"proficiency":"beginner"},"type":"posts"}}],"project-info":[],"project":[],"stackoverflow-user":[]}}</script>
+
+    <script src="/assets/vendor-8fa103718f5228bbbf0e48134e96adcd.js" integrity="sha256-PNNj4JHm7k/vT170qeRgv+RPJpKZmN1JEiqQhed5LKg= sha512-YfbY2HN42G+vNVK15tKzxaGmwVHrPangnBAY5i38NtVF3MxdmBYx5eDd1/b5UGMbqE0CqQ6cE5LZiFKnVXvfAg==" ></script>
+    <script src="/assets/lolma-us-be4b92b2e227e4641edf880f467b4f96.js" integrity="sha256-IdRe43Hzo86CxCFau0DEvc/EdTeTqKpZb4VCLtcdkyg= sha512-2oY/tj/JByJi8hKe+FV4ggaA9kOrTnE2Es6BLT3ZXKfNFCSuwdNY1pHsxewKrI4VXXVXxPr0QUdAUSDI1mOHmw==" ></script>
+
+    
+  </body>
+</html>

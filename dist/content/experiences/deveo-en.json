@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "deveo-en",
+    "type": "experiences",
+    "attributes": {
+      "id": "deveo-en",
+      "title": "Frontend Developer with EmberJS at <a href='https://deveo.com'>Deveo.com</a>, Finland",
+      "type": "job",
+      "start": "2017-01",
+      "end": "2017-08",
+      "body": "\nFostering a product from developers, for developers.\n\n*   EmberJS/frontend development.\n*   HTML/CSS with Sass.\n*   Unit and user acceptance testing.\n*   API/model layer mocking with Mirage.\n*   Maintaining and refactoring legacy code.\n*   Building new exciting features.\n"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "data": {
+    "id": "ember-element-query",
+    "type": "projects",
+    "attributes": {
+      "group": "ember",
+      "status": 1,
+      "type": "addon",
+      "ember-observer": true,
+      "description": {
+        "en": "element query solution for your Ember apps",
+        "ru": "реализация element queries для ваших приложений"
+      }
+    },
+    "relationships": {
+      "project-info": {
+        "data": {
+          "id": "lolmaus/ember-element-query",
+          "type": "project-infos"
+        }
+      }
+    }
+  }
+}
