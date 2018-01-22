@@ -88,7 +88,8 @@ BAZ=quux
 
 ## Как использовать dotenv в Ember
 
-Npm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) может использоваться в Ember напрямую. Однако если вам нужно считывать параметры **deploy target** как в `config/environment.js`, так и в `ember-cli-build.js`, либо если вы используете FastBoot, то воспользуйтесь аддоном [ember-cli-dotenv](https://github.com/fivetanley/ember-cli-dotenv).
+Npm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) может использоваться в Ember напрямую. Однако если вам нужно считывать параметры **deploy target** как в `config/
+`, так и в `ember-cli-build.js`, либо если вы используете FastBoot, то воспользуйтесь аддоном [ember-cli-dotenv](https://github.com/fivetanley/ember-cli-dotenv).
 
 Создайте в корневой папке вашего Ember-приложения `.env`-файлы, по одному для каждого вашего сервера, включая локальный и мок-сервер, если вы их используете:
 
@@ -109,7 +110,7 @@ Npm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) може
 
 `MYAPP` — это отсылка к названию вашего приложения. Добавлять его полезно, чтобы не переопределить какую-либо внешнюю переменную, которая может потребоваться и навзание которой может совпадать с одним из ваших.
 
-Теперь нам нужно добиться, чтобы `ember-cli-dotenv` подгружал нужный dotenv-файл. Для этого воспользуйтесь таким трюком в файле `config/environment.js`:
+Теперь нам нужно добиться, чтобы `ember-cli-dotenv` подгружал нужный dotenv-файл. Для этого воспользуйтесь таким трюком в файле `config/dotenv.js`:
 
 ```javascript
 const fs = require('fs')
