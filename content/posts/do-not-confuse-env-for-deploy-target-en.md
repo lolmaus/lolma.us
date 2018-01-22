@@ -123,7 +123,7 @@ Some of params may be shared across servers, that's fine.
 
 You are recommended to prefix your variable names with your app name in order to prevent collisions with external env vars that you may also need.
 
-No we need to teach `ember-cli-dotenv` load a specific dotenv file depending on our needs. Use this trick in your `config/environment.js` file:
+No we need to teach `ember-cli-dotenv` load a specific dotenv file depending on our needs. Use this trick in your `config/dotenv.js` file:
 
 ```javascript
 const fs = require('fs')
