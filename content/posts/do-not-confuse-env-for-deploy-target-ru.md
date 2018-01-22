@@ -88,8 +88,7 @@ BAZ=quux
 
 ## Как использовать dotenv в Ember
 
-Npm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) может использоваться в Ember напрямую. Однако если вам нужно считывать параметры **deploy target** как в `
-ironment.js`, так и в `ember-cli-build.js`, либо если вы используете FastBoot, то воспользуйтесь аддоном [ember-cli-dotenv](https://github.com/fivetanley/ember-cli-dotenv).
+Npm-библиотека [dotenv](https://www.npmjs.com/package/dotenv) может использоваться в Ember напрямую. Однако если вам нужно считывать параметры **deploy target** как в `config/environment.js`, так и в `ember-cli-build.js`, либо если вы используете FastBoot, то воспользуйтесь аддоном [ember-cli-dotenv](https://github.com/fivetanley/ember-cli-dotenv).
 
 Создайте в корневой папке вашего Ember-приложения `.env`-файлы, по одному для каждого вашего сервера, включая локальный и мок-сервер, если вы их используете:
 
