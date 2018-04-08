@@ -50,14 +50,14 @@ export default Route.extend({
             audience   : model.linkedData.website.audience,
             license    : model.linkedData.website.license,
 
-            headline      : model.post.get('title'),
-            description   : model.post.get('summary'),
-            image         : model.post.get('image') || 'https://lolma.us/favicon.jpg',
-            datePublished : model.post.get('created') && model.post.get('created').toISOString(),
-            dateModified  : model.post.get('updated') && model.post.get('updated').toISOString(),
-            dependencies  : model.post.get('dependencies'),
-            proficiency   : model.post.get('proficiency'),
-            keywords      : model.post.get('keywords'),
+            headline       : model.post.get('title'),
+            description    : model.post.get('summary'),
+            image          : model.post.get('image') || 'https://lolma.us/favicon.jpg',
+            datePublished  : model.post.get('created') && model.post.get('created').toISOString(),
+            dateModified   : model.post.get('updated') && model.post.get('updated').toISOString(),
+            dependencies   : model.post.get('dependencies'),
+            oficiencyLevel : model.post.get('proficiency'),
+            keywords       : model.post.get('keywords'),
 
             mainEntityOfPage : {
               '@type' : 'WebPage',
