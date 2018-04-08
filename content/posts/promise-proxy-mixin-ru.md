@@ -2,7 +2,7 @@
 id: promise-proxy-mixin-ru
 title: "PromiseProxyMixin: нативная альтернатива ember-concurrency"
 summary: ember-concurrency — исключительно мощный и полезный аддон. Однако если ваш единственный юз-кейс — это обращаться к серверу, то взгляните на легковесную альтернативу
-created: 2017-01-05
+created: 2018-01-05
 proficiency: beginner
 ---
 

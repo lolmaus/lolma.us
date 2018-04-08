@@ -217,7 +217,6 @@ Calling this action will start a new network request, put its promise into `gitH
 ## Demo
 
 See the complete code sample and try it in action [on Ember Twiddle](https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs):
-
 <iframe src="https://ember-twiddle.com/f645d337712394d2ebdf0a7ddd061897?fullScreen=true" style="width: 100%; height: 500px; border: 2px solid biege;"></iframe><br>
 
 [Here](https://ember-twiddle.com/bf8285db75b057eb99aea8cb0e2791ab?numColumns=2&openFiles=controllers.application.js%2Ctemplates.application.hbs) you can find the `ember-concurrency` variant for comparison.
