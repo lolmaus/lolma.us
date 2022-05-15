@@ -30,3 +30,8 @@
 
 # broccoli-debug
 /DEBUG/
+
+# IDE
+/.vscode/
+/.idea/
+/.history/
